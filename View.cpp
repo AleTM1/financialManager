@@ -7,14 +7,14 @@
 View::View(Controller *c, Model *m):controller(c), model(m), viewWindow(new Ui_MainWindow) {
 
     viewWindow->setupUi(this);
-    model->subscribe(this);
+    model->addObserver(this);
     update();
 
 }
 
 View::~View() {
 
-    model->unsubscribe(this);
+    model->removeObserver(this);
     delete viewWindow;
 
 }
