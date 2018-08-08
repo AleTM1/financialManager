@@ -7,11 +7,13 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(CMAKE_AUTOMOC ON)
 
-find_package(Qt5Widgets)
+find_package(Qt5Widgets REQUIRED)
 
 
-set(SourceList main.cpp Account.cpp Account.h View.h View.cpp Controller.cpp Controller.h Model.cpp Model.h Subject.h Observer.h ViewWindow.h)
-add_executable(financialManager ${SourceList})
+
+
+set(SourceList Account.cpp Account.h View.h View.cpp Controller.cpp Controller.h Model.cpp Model.h Subject.h Observer.h ViewWindow.h)
+add_executable(financialManager main.cpp ${SourceList})
 
 
 target_link_libraries(financialManager Qt5::Widgets)
