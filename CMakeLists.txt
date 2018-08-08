@@ -20,3 +20,4 @@ add_executable(financialManager main.cpp ${SourceList})
 target_link_libraries(financialManager Qt5::Widgets)
 
 add_library(core ${SOURCE_FILES})
+target_link_libraries(core Qt5::Widgets)
