@@ -11,9 +11,12 @@ find_package(Qt5Widgets REQUIRED)
 
 
 
+#add_subdirectory(test)
+
+
 
 set(SourceList Account.cpp Account.h View.h View.cpp Controller.cpp Controller.h Model.cpp Model.h Subject.h Observer.h ViewWindow.h)
 add_executable(financialManager main.cpp ${SourceList})
-
-
 target_link_libraries(financialManager Qt5::Widgets)
+
+add_library(core ${SOURCE_FILES})
