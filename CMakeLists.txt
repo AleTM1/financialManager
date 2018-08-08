@@ -11,7 +11,7 @@ find_package(Qt5Widgets REQUIRED)
 
 
 
-#add_subdirectory(test)
+add_subdirectory(test)
 
 
 
