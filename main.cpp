@@ -6,7 +6,6 @@
 #include "Controller.h"
 #include "View.h"
 
-//#include "main.moc"
 
 int main(int argv, char **args) {
 
