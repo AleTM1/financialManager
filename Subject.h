@@ -13,11 +13,11 @@ class Subject{
 
 public:
 
-    virtual void subscribe(Observer* o){
+    virtual void addObserver(Observer *o){
         observers.push_back(o);
     }
 
-    virtual void unsubscribe(Observer* o){
+    virtual void removeObserver(Observer *o){
         observers.remove(o);
     }
 
