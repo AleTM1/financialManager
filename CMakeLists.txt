@@ -10,7 +10,7 @@ set(CMAKE_AUTOMOC ON)
 find_package(Qt5Widgets)
 
 
-set(SourceList main.cpp)
+set(SourceList main.cpp Account.cpp Account.h)
 add_executable(financialManager ${SourceList})
 
 
