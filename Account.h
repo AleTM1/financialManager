@@ -8,6 +8,10 @@
 
 #include <QtCore/QString>
 
+
+const static std::string defaultFile="data/filesList.txt";
+
+
 class Account {
 
 public:
@@ -40,10 +44,6 @@ public:
 
     void setMail(const QString &mail);
 
-    const QString &getIBAN() const;
-
-    void generateIBAN();
-
 protected:
 
     QString name;
@@ -53,9 +53,6 @@ protected:
     QString address;
     QString phoneNumber;
     QString mail;
-
-    QString IBAN;
-
 
 
 };

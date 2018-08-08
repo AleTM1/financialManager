@@ -60,10 +60,3 @@ void Account::setMail(const QString &mail) {
     Account::mail = mail;
 }
 
-const QString &Account::getIBAN() const {
-    return IBAN;
-}
-
-void Account::generateIBAN() {
-    //TODO crea generatore con QRandomGenerator
-}
