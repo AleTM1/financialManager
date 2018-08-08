@@ -16,8 +16,10 @@ add_subdirectory(test)
 
 #Classi del progetto
 set(SOURCE_FILES Account.cpp Account.h View.h View.cpp Controller.cpp Controller.h Model.cpp Model.h Subject.h Observer.h ViewWindow.h)
+
 #Creo l'eseguibile unendo le classi del progetto al main
 add_executable(financialManager main.cpp ${SOURCE_FILES})
+
 #collego la libreria QT all'eseguibile
 target_link_libraries(financialManager Qt5::Widgets)
 
