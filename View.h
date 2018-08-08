@@ -13,6 +13,10 @@
 #include "Model.h"
 #include "ViewWindow.h"
 
+
+const static QString DEFAULTPATH="/data/filesList.txt";
+
+
 class View : public QMainWindow, public Observer {
     Q_OBJECT
 public:
@@ -34,6 +38,10 @@ private:
     Controller* controller;
     Model* model;
     Ui_MainWindow* viewWindow;
+
+public:
+
+    bool isFirstTime();
 
 };
 

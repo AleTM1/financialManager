@@ -1,4 +1,4 @@
-//ctrl+Maiusc+K
+//ctrl+Maiusc+K for commit
 
 #include <QtWidgets/QApplication>
 

@@ -9,9 +9,6 @@
 #include <QtCore/QString>
 
 
-const static std::string defaultFile="data/filesList.txt";
-
-
 class Account {
 
 public:
