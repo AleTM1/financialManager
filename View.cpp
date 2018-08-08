@@ -15,6 +15,7 @@ View::View(Controller *c, Model *m):controller(c), model(m), viewWindow(new Ui_M
 View::~View() {
 
     model->removeObserver(this);
+
     delete viewWindow;
 
 }

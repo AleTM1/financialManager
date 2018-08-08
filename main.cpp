@@ -20,7 +20,5 @@ int main(int argv, char **args) {
 
     app.exec();
 
-    delete model;
-    delete controller;
 
 }
