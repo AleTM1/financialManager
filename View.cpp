@@ -6,6 +6,7 @@
 #include <QtCore/QFile>
 #include <QtCore/QTextStream>
 #include "View.h"
+#include "Loader.h"
 
 View::View(Controller *c, Model *m):controller(c), model(m), viewWindow(new Ui_MainWindow) {
 
