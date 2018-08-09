@@ -29,17 +29,3 @@ void View::update() {
 
 }
 
-bool View::isFirstTime() {
-
-    QFile file(DEFAULTPATH);
-
-    QTextStream in(&file);
-
-    if(in.readAll()=="")
-        return true;
-
-    file.close();
-
-    return false;
-
-}
