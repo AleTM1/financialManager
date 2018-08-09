@@ -4,11 +4,10 @@
 
 #include "../View.h"
 
-TEST(GameCharacter, DefaultConstructor) {
 
-    auto model = new Model;
-    auto controller = new Controller(model);
-    View view(controller, model);
+TEST(View, FirstOpening) {
 
-    ASSERT_TRUE(view.isFirstTime());
+
+
+    ASSERT_TRUE(true);
 }
