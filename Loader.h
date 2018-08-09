@@ -5,9 +5,13 @@
 #ifndef FINANCIALMANAGER_LOADER_H
 #define FINANCIALMANAGER_LOADER_H
 
-#include <QtCore/QString>
 
-const static QString DEFAULTPATH="/filesList.txt";
+#include <fstream>
+#include <iostream>
+
+
+
+const static std::string DEFAULTPATH="filesList.txt";
 
 
 class Loader {

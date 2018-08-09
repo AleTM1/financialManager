@@ -1,22 +1,27 @@
 
 
-#include <QtCore/QFile>
-#include <QtCore/QTextStream>
+
 #include "Loader.h"
 #include "View.h"
 
 
 bool Loader::isFirstTime() {
 
-    QFile file(DEFAULTPATH);
+    std::ifstream inputFile;
+    inputFile.open(DEFAULTPATH);
 
-    QTextStream in(&file);
+    std::string inputContent;
+    std::string buffer;
 
-    if(in.readAll()=="")
-        return true;
+    while(!inputFile.eof()){
 
-    file.close();
+        inputFile>>buffer;
+        inputContent.append(buffer);
 
-    return false;
+    }
+
+    inputFile.close();
+
+    return inputContent.empty();
 
 }
