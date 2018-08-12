@@ -29,15 +29,25 @@ View::~View() {
 
 void View::update() {
 
-    viewWindow->textEdit_Name->setText(model->accessAccount()->getName());
-    viewWindow->textEdit_Surname->setText(model->accessAccount()->getSurname());
-    viewWindow->textEdit_city->setText(model->accessAccount()->getCity());
-    viewWindow->textEdit_CAP->setText(model->accessAccount()->getCAP());
-    viewWindow->textEdit_Address->setText(model->accessAccount()->getAddress());
-    viewWindow->textEdit_PhoneNumber->setText(model->accessAccount()->getPhoneNumber());
-    viewWindow->textEdit_Mail->setText(model->accessAccount()->getMail());
+    if(model->isTabAccountLocked()){
 
+        viewWindow->tabWidget->setCurrentIndex(1);
 
+        for(int i=0; i<viewWindow->tabWidget->count(); i++)
+            if(viewWindow->tabWidget->currentIndex() != i)
+                viewWindow->tabWidget->setTabEnabled(i,false);
+
+    }else {
+
+        viewWindow->textEdit_Name->setText(model->accessAccount()->getName());
+        viewWindow->textEdit_Surname->setText(model->accessAccount()->getSurname());
+        viewWindow->textEdit_city->setText(model->accessAccount()->getCity());
+        viewWindow->textEdit_CAP->setText(model->accessAccount()->getCAP());
+        viewWindow->textEdit_Address->setText(model->accessAccount()->getAddress());
+        viewWindow->textEdit_PhoneNumber->setText(model->accessAccount()->getPhoneNumber());
+        viewWindow->textEdit_Mail->setText(model->accessAccount()->getMail());
+
+    }
 
 
 }
