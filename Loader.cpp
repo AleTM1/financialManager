@@ -5,23 +5,7 @@
 #include "View.h"
 
 
-bool Loader::isFirstTime() {
+Loader::Loader() {
 
-    std::ifstream inputFile;
-    inputFile.open(DEFAULTPATH);
-
-    std::string inputContent;
-    std::string buffer;
-
-    while(!inputFile.eof()){
-
-        inputFile>>buffer;
-        inputContent.append(buffer);
-
-    }
-
-    inputFile.close();
-
-    return inputContent.empty();
 
 }

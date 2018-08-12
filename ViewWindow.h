@@ -191,6 +191,9 @@ public:
         retranslateUi(MainWindow);
         QObject::connect(actionClose, SIGNAL(triggered()), MainWindow, SLOT(close()));
 
+
+
+
         tabWidget->setCurrentIndex(0);
 
 

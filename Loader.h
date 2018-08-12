@@ -8,17 +8,20 @@
 
 #include <fstream>
 #include <iostream>
-
-
-
-const static std::string DEFAULTPATH="filesList.txt";
+#include <QtCore/QSettings>
 
 
 class Loader {
 
 public:
 
-    bool isFirstTime();
+    Loader();
+
+
+protected:
+
+    bool firstTime=true;
+    QSettings data;
 
 };
 
