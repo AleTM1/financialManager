@@ -25,6 +25,9 @@ public:
 
     void loadConto();
 
+    void clearAll();
+
+    void save(std::string, std::vector<QString>&);
 
     public:
 
@@ -32,9 +35,9 @@ public:
 
     void setTabAccountLocked(bool tabAccountLocked);
 
-    const Account* accessAccount() const;
+    Account* accessAccount() const;
 
-    void clearAll();
+
 
 private:
 

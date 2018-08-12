@@ -25,3 +25,18 @@ void Controller::reset() {
     model->clearAll();
 
 }
+
+//---------------------------------
+// Salvataggi
+
+
+void Controller::accountSave(std::vector<QString>& strings) {
+
+    model->save("account", strings);
+
+}
+
+
+
+
+//---------------------------

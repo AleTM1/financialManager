@@ -28,7 +28,7 @@ void Model::setTabAccountLocked(bool tabAccountLocked) {
     Model::tabAccountLocked = tabAccountLocked;
 }
 
-const Account* Model::accessAccount() const {
+Account* Model::accessAccount() const {
     return account;
 }
 
@@ -67,6 +67,16 @@ void Model::clearAll() {
 
     for (auto dataClass : dataStorages)
         dataClass->clear();
+
+
+}
+
+void Model::save(std::string classType, std::vector<QString> &strings) {
+
+
+    if(classType=="account"){
+        account->saveData(strings);
+    }
 
 
 }

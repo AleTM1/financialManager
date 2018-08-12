@@ -30,6 +30,7 @@ public:
 private slots:
 
     void RESET();
+    void accountSave();
 
 
 private:

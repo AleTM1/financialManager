@@ -79,12 +79,38 @@ void Account::loadData() {
     address=data.value("address").toString();
     phoneNumber=data.value("phoneNumber").toString();
     mail=data.value("mail").toString();
+    data.endGroup();
 
 }
 
 void Account::clear() {
 
     data.clear();
+
+}
+
+void Account::saveData(std::vector<QString>& strings) {
+
+    name=strings[0];
+    surname=strings[1];
+    city=strings[2];
+    CAP=strings[3];
+    address=strings[4];
+    phoneNumber=strings[5];
+    mail=strings[6];
+
+
+    data.beginGroup("Account");
+
+    data.setValue("name", name);
+    data.setValue("surname", surname);
+    data.setValue("city", city);
+    data.setValue("CAP", CAP);
+    data.setValue("address", address);
+    data.setValue("phoneNumber", phoneNumber);
+    data.setValue("mail", mail);
+
+    data.endGroup();
 
 }
 

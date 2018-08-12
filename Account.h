@@ -10,7 +10,6 @@
 #include <QtCore/QSettings>
 #include "AbstractDataStorage.h"
 
-
 class Account : public AbstractDataStorage {
 
 public:
@@ -20,6 +19,10 @@ public:
     virtual void loadData() override;
 
     virtual void clear() override;
+
+    virtual void saveData(std::vector<QString>&) override;
+
+
 
 public:
 

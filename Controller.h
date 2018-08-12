@@ -17,6 +17,12 @@ public:
 
     void reset();
 
+    //---------------salvataggi
+
+    void accountSave(std::vector<QString>&);
+
+    //-----------------------
+
 private:
 
     Model* model;

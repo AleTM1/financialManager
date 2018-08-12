@@ -39,6 +39,9 @@ void View::update() {
 
     }else {
 
+        viewWindow->textEdit_Name->setEnabled(false);
+        viewWindow->textEdit_Surname->setEnabled(false);
+
         viewWindow->textEdit_Name->setText(model->accessAccount()->getName());
         viewWindow->textEdit_Surname->setText(model->accessAccount()->getSurname());
         viewWindow->textEdit_city->setText(model->accessAccount()->getCity());
@@ -58,3 +61,32 @@ void View::RESET() {
 
 }
 
+//-------------------------------------
+//SALVATAGGI
+
+void View::accountSave() {
+
+    std::vector<QString> strings;
+
+    strings[0]=viewWindow->textEdit_Name->toPlainText();
+    strings[1]=viewWindow->textEdit_Surname->toPlainText();
+    strings[2]=viewWindow->textEdit_city->toPlainText();
+    strings[3]=viewWindow->textEdit_CAP->toPlainText();
+    strings[4]=viewWindow->textEdit_Address->toPlainText();
+    strings[5]=viewWindow->textEdit_PhoneNumber->toPlainText();
+    strings[6]=viewWindow->textEdit_Mail->toPlainText();
+
+
+    if(model->isTabAccountLocked()){
+
+        controller->accountSave(strings);
+
+    }else{
+
+
+    }
+
+}
+
+
+//--------------------------

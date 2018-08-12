@@ -14,7 +14,11 @@ public:
 
     virtual void loadData()=0;
 
+    virtual void saveData(std::vector<QString>&) = 0;
+
     virtual void clear() = 0;
+
+
 
     virtual ~AbstractDataStorage(){}
 
