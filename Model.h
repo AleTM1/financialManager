@@ -41,6 +41,8 @@ private:
     bool tabAccountLocked;
     Account* account;
 
+    std::vector<AbstractDataStorage*> dataStorages;
+
 };
 
 

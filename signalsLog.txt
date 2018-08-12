@@ -1,0 +1,11 @@
+
+
+        //---------------------------------------
+
+
+        QObject::connect(actionClose, SIGNAL(triggered()), MainWindow, SLOT(close()));
+        QObject::connect(actionRESET, SIGNAL(triggered()), MainWindow, SLOT(RESET()));
+
+
+
+        //---------------------------------------------------------------------------

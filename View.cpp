@@ -52,3 +52,9 @@ void View::update() {
 
 }
 
+void View::RESET() {
+
+    controller->reset();
+
+}
+

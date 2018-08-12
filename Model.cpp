@@ -6,11 +6,15 @@
 
 Model::Model():account(new Account){
 
+    dataStorages.push_back(account);
+
 }
 
 Model::~Model(){
 
     delete account;
+
+    dataStorages.clear();
 
 }
 
@@ -41,10 +45,9 @@ bool Model::firstOpening() {
 
 void Model::loadAll() {
 
-    loadAccount();
 
-    //TODO per tutte le classi attributo
-    //loadConto();
+    for (auto dataClass : dataStorages)
+        dataClass->loadData();
 
 }
 
@@ -62,9 +65,9 @@ void Model::loadConto() {
 
 void Model::clearAll() {
 
-    account->clear();
+    for (auto dataClass : dataStorages)
+        dataClass->clear();
 
-    //TODO per tutte le classi attributo
 
 }
 

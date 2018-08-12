@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'designerNa3542.ui'
+** Form generated from reading UI file 'FinancialManageraq5570.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.5
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef DESIGNERNA3542_H
-#define DESIGNERNA3542_H
+#ifndef FINANCIALMANAGERAQ5570_H
+#define FINANCIALMANAGERAQ5570_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -30,7 +30,7 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
-    QAction *actionstuff;
+    QAction *actionRESET;
     QAction *actionClose;
     QWidget *centralwidget;
     QHBoxLayout *horizontalLayout;
@@ -63,9 +63,9 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(914, 617);
-        actionstuff = new QAction(MainWindow);
-        actionstuff->setObjectName(QStringLiteral("actionstuff"));
+        MainWindow->resize(914, 650);
+        actionRESET = new QAction(MainWindow);
+        actionRESET->setObjectName(QStringLiteral("actionRESET"));
         actionClose = new QAction(MainWindow);
         actionClose->setObjectName(QStringLiteral("actionClose"));
         centralwidget = new QWidget(MainWindow);
@@ -184,32 +184,33 @@ public:
         menubar->addAction(menuAbout->menuAction());
         menuFile->addSeparator();
         menuFile->addSeparator();
-        menuFile->addAction(actionstuff);
+        menuFile->addAction(actionRESET);
         menuFile->addSeparator();
         menuFile->addAction(actionClose);
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
 
-
+        //---------------------------------------
 
 
         QObject::connect(actionClose, SIGNAL(triggered()), MainWindow, SLOT(close()));
+        QObject::connect(actionRESET, SIGNAL(triggered()), MainWindow, SLOT(RESET()));
 
 
 
+        //---------------------------------------------------------------------------
+
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
-
-
     } // setupUi
 
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
-        actionstuff->setText(QApplication::translate("MainWindow", "stuff", Q_NULLPTR));
+        actionRESET->setText(QApplication::translate("MainWindow", "RESET", Q_NULLPTR));
         actionClose->setText(QApplication::translate("MainWindow", "Close", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Sintesi", Q_NULLPTR));
         label_2->setText(QApplication::translate("MainWindow", "Cognome:", Q_NULLPTR));
@@ -220,9 +221,9 @@ public:
                                                                      "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", Q_NULLPTR));
         label_3->setText(QApplication::translate("MainWindow", "Citt\303\240: ", Q_NULLPTR));
         label->setText(QApplication::translate("MainWindow", "Nome: ", Q_NULLPTR));
-        label_6->setText(QApplication::translate("MainWindow", "PhoneNumber: ", Q_NULLPTR));
+        label_6->setText(QApplication::translate("MainWindow", "Telefono: ", Q_NULLPTR));
         label_4->setText(QApplication::translate("MainWindow", "CAP: ", Q_NULLPTR));
-        label_5->setText(QApplication::translate("MainWindow", "Address: ", Q_NULLPTR));
+        label_5->setText(QApplication::translate("MainWindow", "Indirizzo: ", Q_NULLPTR));
         label_7->setText(QApplication::translate("MainWindow", "Mail: ", Q_NULLPTR));
         Button_Salva->setText(QApplication::translate("MainWindow", "Salva", Q_NULLPTR));
         Button_annulla->setText(QApplication::translate("MainWindow", "Annulla", Q_NULLPTR));
@@ -239,4 +240,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // DESIGNERNA3542_H
+#endif // FINANCIALMANAGERAQ5570_H
