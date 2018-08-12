@@ -6,13 +6,12 @@
 
 Model::Model(){
 
-    account=new Account;
 
 }
 
 Model::~Model(){
 
-    delete account;
+
 }
 
 //----------------------------------------
@@ -25,7 +24,7 @@ void Model::setTabAccountLocked(bool tabAccountLocked) {
     Model::tabAccountLocked = tabAccountLocked;
 }
 
-Account *Model::accessAccount() const {
+const Account& Model::accessAccount() const {
     return account;
 }
 
@@ -34,7 +33,7 @@ Account *Model::accessAccount() const {
 
 bool Model::firstOpening() {
 
-    return account->isFirstOpening();
+    return account.isFirstOpening();
 
 }
 
@@ -50,7 +49,7 @@ void Model::loadAll() {
 
 void Model::loadAccount() {
 
-    account->loadAccount();
+    account.loadAccount();
 
 }
 

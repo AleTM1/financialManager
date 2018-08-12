@@ -36,8 +36,6 @@ private:
     Model* model;
     Ui_MainWindow* viewWindow;
 
-
-
 };
 
 
