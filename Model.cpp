@@ -43,6 +43,7 @@ void Model::loadAll() {
 
     loadAccount();
 
+    //TODO per tutte le classi attributo
     //loadConto();
 
 }
@@ -56,6 +57,14 @@ void Model::loadAccount() {
 void Model::loadConto() {
 
 
+
+}
+
+void Model::clearAll() {
+
+    account.clear();
+
+    //TODO per tutte le classi attributo
 
 }
 

@@ -189,15 +189,21 @@ public:
         menuFile->addAction(actionClose);
 
         retranslateUi(MainWindow);
+
+        tabWidget->setCurrentIndex(0);
+
+
+
+
         QObject::connect(actionClose, SIGNAL(triggered()), MainWindow, SLOT(close()));
 
 
 
 
-        tabWidget->setCurrentIndex(0);
-
 
         QMetaObject::connectSlotsByName(MainWindow);
+
+
     } // setupUi
 
     void retranslateUi(QMainWindow *MainWindow)

@@ -8,15 +8,18 @@
 
 #include <QtCore/QString>
 #include <QtCore/QSettings>
+#include "AbstractDataStorage.h"
 
 
-class Account {
+class Account : public AbstractDataStorage {
 
 public:
 
     bool isFirstOpening();
 
-    void loadAccount();
+    virtual void loadData() override;
+
+    virtual void clear() override;
 
 public:
 
@@ -57,8 +60,6 @@ protected:
     QString address;
     QString phoneNumber;
     QString mail;
-
-    QSettings data;
 
 
 };

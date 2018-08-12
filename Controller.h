@@ -10,12 +10,15 @@
 
 class Controller {
 public:
+
     explicit Controller(Model* m) : model(m) {}
 
     void openingApp();
 
+    void reset();
 
 private:
+
     Model* model;
 
 };

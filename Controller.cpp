@@ -19,3 +19,9 @@ void Controller::openingApp() {
     }
 
 }
+
+void Controller::reset() {
+
+    model->clearAll();
+
+}

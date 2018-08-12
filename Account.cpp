@@ -69,7 +69,7 @@ bool Account::isFirstOpening() {
 
 }
 
-void Account::loadAccount() {
+void Account::loadData() {
 
     data.beginGroup("Account");
     name=data.value("name").toString();
@@ -79,6 +79,12 @@ void Account::loadAccount() {
     address=data.value("address").toString();
     phoneNumber=data.value("phoneNumber").toString();
     mail=data.value("mail").toString();
+
+}
+
+void Account::clear() {
+
+    data.clear();
 
 }
 

@@ -34,6 +34,7 @@ public:
 
     const Account& accessAccount() const;
 
+    void clearAll();
 
 private:
 
