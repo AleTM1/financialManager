@@ -7,9 +7,16 @@
 
 
 #include <QtCore/QString>
+#include <QtCore/QSettings>
 
 
 class Account {
+
+public:
+
+    bool isFirstOpening();
+
+    void loadAccount();
 
 public:
 
@@ -50,6 +57,8 @@ protected:
     QString address;
     QString phoneNumber;
     QString mail;
+
+    QSettings data;
 
 
 };

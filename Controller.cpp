@@ -3,3 +3,19 @@
 //
 
 #include "Controller.h"
+
+void Controller::openingApp() {
+
+    if(model->firstOpening()){
+
+        model->setTabAccountLocked(true);
+        model->notify();
+
+    }else{
+
+        model->loadAll();
+        model->notify();
+
+    }
+
+}

@@ -7,17 +7,38 @@
 
 
 #include "Subject.h"
+#include "Account.h"
 
 class Model : public Subject {
 
 public:
 
-    ~Model(){}
+    Model();
+
+    ~Model();
+
+    bool firstOpening();
+
+    void loadAll();
+
+    void loadAccount();
+
+    void loadConto();
+
+
+    public:
+
+    bool isTabAccountLocked() const;
+
+    void setTabAccountLocked(bool tabAccountLocked);
+
+    Account *accessAccount() const;
 
 
 private:
 
-
+    bool tabAccountLocked;
+    Account *account;
 
 };
 

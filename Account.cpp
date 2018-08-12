@@ -60,3 +60,25 @@ void Account::setMail(const QString &mail) {
     Account::mail = mail;
 }
 
+//-----------------------------------------------------------------
+
+
+bool Account::isFirstOpening() {
+
+    return !(data.contains("Account/name"));
+
+}
+
+void Account::loadAccount() {
+
+    data.beginGroup("Account");
+    name=data.value("name").toString();
+    surname=data.value("surname").toString();
+    city=data.value("city").toString();
+    CAP=data.value("CAP").toString();
+    address=data.value("address").toString();
+    phoneNumber=data.value("phoneNumber").toString();
+    mail=data.value("mail").toString();
+
+}
+

@@ -12,6 +12,8 @@ class Controller {
 public:
     explicit Controller(Model* m) : model(m) {}
 
+    void openingApp();
+
 
 private:
     Model* model;
