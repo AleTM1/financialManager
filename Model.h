@@ -32,14 +32,14 @@ public:
 
     void setTabAccountLocked(bool tabAccountLocked);
 
-    const Account& accessAccount() const;
+    const Account* accessAccount() const;
 
     void clearAll();
 
 private:
 
     bool tabAccountLocked;
-    Account account;
+    Account* account;
 
 };
 

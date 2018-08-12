@@ -4,13 +4,13 @@
 
 #include "Model.h"
 
-Model::Model(){
-
+Model::Model():account(new Account){
 
 }
 
 Model::~Model(){
 
+    delete account;
 
 }
 
@@ -24,7 +24,7 @@ void Model::setTabAccountLocked(bool tabAccountLocked) {
     Model::tabAccountLocked = tabAccountLocked;
 }
 
-const Account& Model::accessAccount() const {
+const Account* Model::accessAccount() const {
     return account;
 }
 
@@ -33,7 +33,7 @@ const Account& Model::accessAccount() const {
 
 bool Model::firstOpening() {
 
-    return account.isFirstOpening();
+    return account->isFirstOpening();
 
 }
 
@@ -50,7 +50,7 @@ void Model::loadAll() {
 
 void Model::loadAccount() {
 
-    account.loadAccount();
+    account->loadData();
 
 }
 
@@ -62,7 +62,7 @@ void Model::loadConto() {
 
 void Model::clearAll() {
 
-    account.clear();
+    account->clear();
 
     //TODO per tutte le classi attributo
 
