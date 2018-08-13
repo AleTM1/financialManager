@@ -15,7 +15,7 @@ public:
 
     virtual void loadData()=0;
 
-    virtual void saveData(std::vector<QString>) = 0;
+    virtual void saveData(std::map<std::string, QString>) = 0;
 
     virtual void clear(){
 

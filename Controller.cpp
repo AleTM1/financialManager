@@ -17,7 +17,6 @@ void Controller::openingApp() {
     }
 
 
-
 }
 
 void Controller::reset() {
@@ -30,13 +29,18 @@ void Controller::reset() {
 // Salvataggi
 
 
-void Controller::accountSave(std::vector<QString> strings) {
+void Controller::accountSave(std::map<std::string, QString> strings) {
 
     model->save("account", strings);
     model->setTabAccountLocked(false);
 
 }
 
+void Controller::ContoSave(std::map<std::string, QString> strings) {
+
+    model->save("conto", strings);
+
+}
 
 
 

@@ -61,6 +61,10 @@ void View::update() {
 
 }
 
+void View::closeApp() {
+   QApplication::exit(0);
+}
+
 void View::RESET() {
 
     controller->reset();
@@ -72,15 +76,15 @@ void View::RESET() {
 
 void View::accountSave() {
 
-    std::vector<QString> strings;
+    std::map<std::string, QString> strings;
 
-    strings.push_back(viewWindow->textEdit_Name->toPlainText());
-    strings.push_back(viewWindow->textEdit_Surname->toPlainText());
-    strings.push_back(viewWindow->textEdit_city->toPlainText());
-    strings.push_back(viewWindow->textEdit_CAP->toPlainText());
-    strings.push_back(viewWindow->textEdit_Address->toPlainText());
-    strings.push_back(viewWindow->textEdit_PhoneNumber->toPlainText());
-    strings.push_back(viewWindow->textEdit_Mail->toPlainText());
+    strings.insert(std::make_pair("name",viewWindow->textEdit_Name->toPlainText()));
+    strings.insert(std::make_pair("surname",viewWindow->textEdit_Surname->toPlainText()));
+    strings.insert(std::make_pair("city",viewWindow->textEdit_city->toPlainText()));
+    strings.insert(std::make_pair("CAP",viewWindow->textEdit_CAP->toPlainText()));
+    strings.insert(std::make_pair("address",viewWindow->textEdit_Address->toPlainText()));
+    strings.insert(std::make_pair("phoneNumber",viewWindow->textEdit_PhoneNumber->toPlainText()));
+    strings.insert(std::make_pair("mail",viewWindow->textEdit_Mail->toPlainText()));
 
     if(model->isTabAccountLocked()){
 
@@ -96,6 +100,8 @@ void View::accountSave() {
     }
 
 }
+
+
 
 
 //--------------------------

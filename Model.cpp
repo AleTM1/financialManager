@@ -78,13 +78,20 @@ void Model::clearAll() {
     notify();
 }
 
-void Model::save(std::string classType, std::vector<QString> strings) {
+void Model::save(std::string classType, std::map<std::string, QString> strings) {
 
 
     if(classType=="account"){
+
         account->saveData(strings);
+
+    }else if(classType=="conto"){
+
+        conto->saveData(strings);
+
     }
 
+notify();
 
 }
 

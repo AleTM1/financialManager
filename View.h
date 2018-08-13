@@ -29,6 +29,7 @@ public:
 
 private slots:
 
+    void closeApp();
     void RESET();
     void accountSave();
 

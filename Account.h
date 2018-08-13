@@ -20,7 +20,7 @@ public:
 
     virtual void loadData() override;
 
-    virtual void saveData(std::vector<QString>) override;
+    virtual void saveData(std::map<std::string, QString>) override;
 
 
 

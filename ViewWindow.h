@@ -188,7 +188,7 @@ public:
         //---------------------------------------
 
 
-        QObject::connect(actionClose, SIGNAL(triggered()), MainWindow, SLOT(close()));
+        QObject::connect(actionClose, SIGNAL(triggered()), MainWindow, SLOT(closeApp()));
         QObject::connect(actionRESET, SIGNAL(triggered()), MainWindow, SLOT(RESET()));
         QObject::connect(Button_Salva, SIGNAL(clicked()), MainWindow, SLOT(accountSave()));
 

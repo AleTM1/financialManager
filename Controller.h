@@ -20,7 +20,9 @@ public:
 
     //---------------salvataggi
 
-    void accountSave(std::vector<QString>);
+    void accountSave(std::map<std::string, QString>);
+
+    void ContoSave(std::map<std::string, QString>);
 
     //-----------------------
 

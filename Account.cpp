@@ -85,15 +85,15 @@ void Account::loadData() {
 }
 
 
-void Account::saveData(std::vector<QString> strings) {
+void Account::saveData(std::map<std::string, QString> strings) {
 
-    name=strings[0];
-    surname=strings[1];
-    city=strings[2];
-    CAP=strings[3];
-    address=strings[4];
-    phoneNumber=strings[5];
-    mail=strings[6];
+    name=strings["name"];
+    surname=strings["surname"];
+    city=strings["city"];
+    CAP=strings["CAP"];
+    address=strings["address"];
+    phoneNumber=strings["phoneNumber"];
+    mail=strings["mail"];
 
 
     data.beginGroup("Account");

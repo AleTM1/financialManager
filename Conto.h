@@ -18,7 +18,7 @@ public:
 
     virtual void loadData() override;
 
-    virtual void saveData(std::vector<QString>) override;
+    virtual void saveData(std::map<std::string, QString>) override;
 
 
 public:
@@ -37,9 +37,13 @@ public:
 
     void setInvested(int invested);
 
+    const QString &getTitle() const;
+
+    void setTitle(const QString &title);
 
 protected:
 
+    QString title;
     QString IBAN;
     int saldo;
     int liquid;

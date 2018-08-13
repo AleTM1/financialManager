@@ -28,9 +28,9 @@ public:
 
     void clearAll();
 
-    void save(std::string, std::vector<QString>);
+    void save(std::string, std::map<std::string, QString>);
 
-    public:
+public:
 
     bool isTabAccountLocked() const;
 
