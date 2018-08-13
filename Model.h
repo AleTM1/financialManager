@@ -18,7 +18,9 @@ public:
 
     ~Model();
 
-    bool firstOpening();
+    bool isFirstOpening();
+
+    void createAccount();
 
     void loadAll();
 
@@ -38,7 +40,7 @@ public:
 
     Account* accessAccount() const;
 
-
+    Conto *accessConto() const;
 
 private:
 

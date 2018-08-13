@@ -35,15 +35,25 @@ Account* Model::accessAccount() const {
     return account;
 }
 
+Conto *Model::accessConto() const {
+    return conto;
+}
+
 //----------------------------------------
 
 
-bool Model::firstOpening() {
+bool Model::isFirstOpening() {
 
     return account->isFirstOpening();
 
 }
 
+void Model::createAccount() {
+
+    conto->contoGenerator();
+    notify();
+
+}
 
 
 void Model::loadAll() {
@@ -94,4 +104,6 @@ void Model::save(std::string classType, std::map<std::string, QString> strings) 
 notify();
 
 }
+
+
 

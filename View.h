@@ -32,6 +32,9 @@ private slots:
     void closeApp();
     void RESET();
     void accountSave();
+    void showTitleEdit();
+    void contoSave();
+
 
 
 private:

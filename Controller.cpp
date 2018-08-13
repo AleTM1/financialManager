@@ -6,9 +6,10 @@
 
 void Controller::openingApp() {
 
-    if(model->firstOpening()){
+    if(model->isFirstOpening()){
 
         model->setTabAccountLocked(true);
+        model->createAccount();
 
     }else{
 
@@ -36,7 +37,7 @@ void Controller::accountSave(std::map<std::string, QString> strings) {
 
 }
 
-void Controller::ContoSave(std::map<std::string, QString> strings) {
+void Controller::contoSave(std::map<std::string, QString> strings) {
 
     model->save("conto", strings);
 

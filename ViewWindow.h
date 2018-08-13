@@ -1,7 +1,13 @@
+/********************************************************************************
+** Form generated from reading UI file 'FinancialManagerxe5047.ui'
+**
+** Created by: Qt User Interface Compiler version 5.9.5
+**
+** WARNING! All changes made in this file will be lost when recompiling UI file!
+********************************************************************************/
 
-
-#ifndef FINANCIALMANAGERAQ5570_H
-#define FINANCIALMANAGERAQ5570_H
+#ifndef FINANCIALMANAGERXE5047_H
+#define FINANCIALMANAGERXE5047_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -11,12 +17,15 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTextEdit>
+#include <QtWidgets/QToolButton>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -30,6 +39,15 @@ public:
     QHBoxLayout *horizontalLayout;
     QTabWidget *tabWidget;
     QWidget *tab;
+    QGridLayout *gridLayout_2;
+    QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *label_title;
+    QToolButton *toolButton;
+    QWidget *horizontalWidget_title;
+    QHBoxLayout *horizontalLayout_titleEdit;
+    QLineEdit *lineEdit_title;
+    QPushButton *buttonTitle_Salva;
     QWidget *tab_2;
     QGridLayout *gridLayout;
     QLabel *label_2;
@@ -70,6 +88,45 @@ public:
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
         tab = new QWidget();
         tab->setObjectName(QStringLiteral("tab"));
+        gridLayout_2 = new QGridLayout(tab);
+        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        label_title = new QLabel(tab);
+        label_title->setObjectName(QStringLiteral("label_title"));
+
+        horizontalLayout_2->addWidget(label_title);
+
+        toolButton = new QToolButton(tab);
+        toolButton->setObjectName(QStringLiteral("toolButton"));
+
+        horizontalLayout_2->addWidget(toolButton);
+
+        horizontalWidget_title = new QWidget(tab);
+        horizontalWidget_title->setObjectName(QStringLiteral("horizontalWidget_title"));
+        horizontalLayout_titleEdit = new QHBoxLayout(horizontalWidget_title);
+        horizontalLayout_titleEdit->setObjectName(QStringLiteral("horizontalLayout_titleEdit"));
+        lineEdit_title = new QLineEdit(horizontalWidget_title);
+        lineEdit_title->setObjectName(QStringLiteral("lineEdit_title"));
+
+        horizontalLayout_titleEdit->addWidget(lineEdit_title);
+
+        buttonTitle_Salva = new QPushButton(horizontalWidget_title);
+        buttonTitle_Salva->setObjectName(QStringLiteral("buttonTitle_Salva"));
+
+        horizontalLayout_titleEdit->addWidget(buttonTitle_Salva);
+
+
+        horizontalLayout_2->addWidget(horizontalWidget_title);
+
+
+        verticalLayout->addLayout(horizontalLayout_2);
+
+
+        gridLayout_2->addLayout(verticalLayout, 0, 0, 1, 1);
+
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));
@@ -184,19 +241,22 @@ public:
 
         retranslateUi(MainWindow);
 
+        tabWidget->setCurrentIndex(0);
+
 
         //---------------------------------------
+
+        horizontalWidget_title->hide();
+
 
 
         QObject::connect(actionClose, SIGNAL(triggered()), MainWindow, SLOT(closeApp()));
         QObject::connect(actionRESET, SIGNAL(triggered()), MainWindow, SLOT(RESET()));
         QObject::connect(Button_Salva, SIGNAL(clicked()), MainWindow, SLOT(accountSave()));
-
+        QObject::connect(toolButton, SIGNAL(clicked()), MainWindow, SLOT(showTitleEdit()));
 
 
         //---------------------------------------------------------------------------
-
-        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -207,6 +267,9 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
         actionRESET->setText(QApplication::translate("MainWindow", "RESET", Q_NULLPTR));
         actionClose->setText(QApplication::translate("MainWindow", "Close", Q_NULLPTR));
+        label_title->setText(QApplication::translate("MainWindow", "----", Q_NULLPTR));
+        toolButton->setText(QApplication::translate("MainWindow", "...", Q_NULLPTR));
+        buttonTitle_Salva->setText(QApplication::translate("MainWindow", "Salva modifiche", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Sintesi", Q_NULLPTR));
         label_2->setText(QApplication::translate("MainWindow", "Cognome:", Q_NULLPTR));
         textEdit_Name->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
@@ -235,4 +298,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // FINANCIALMANAGERAQ5570_H
+#endif // FINANCIALMANAGERXE5047_H

@@ -42,6 +42,8 @@ void View::update() {
 
     }else {
 
+        //-----------ACCOUNT-------------
+
         viewWindow->textEdit_Name->setEnabled(false);
         viewWindow->textEdit_Surname->setEnabled(false);
 
@@ -56,6 +58,11 @@ void View::update() {
         viewWindow->textEdit_PhoneNumber->setText(model->accessAccount()->getPhoneNumber());
         viewWindow->textEdit_Mail->setText(model->accessAccount()->getMail());
 
+        //-------------CONTO----------------------
+
+        viewWindow->label_title->setText(model->accessConto()->getTitle());
+        viewWindow->lineEdit_title->setText( viewWindow->label_title->text());
+
     }
 
 
@@ -63,6 +70,12 @@ void View::update() {
 
 void View::closeApp() {
    QApplication::exit(0);
+}
+
+void View::showTitleEdit() {
+
+   viewWindow->horizontalWidget_title->setVisible(!viewWindow->horizontalWidget_title->isVisible());
+
 }
 
 void View::RESET() {
@@ -98,6 +111,17 @@ void View::accountSave() {
         controller->accountSave(strings);
 
     }
+
+}
+
+void View::contoSave() {
+
+    std::map<std::string, QString> strings;
+
+    strings.insert(std::make_pair("title",viewWindow->textEdit_Name->toPlainText()));
+
+    controller->contoSave(strings);
+
 
 }
 
