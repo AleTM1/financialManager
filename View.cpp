@@ -91,6 +91,7 @@ void View::accountSave() {
 
     }else{
 
+        controller->accountSave(strings);
 
     }
 
