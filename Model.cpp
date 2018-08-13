@@ -4,15 +4,17 @@
 
 #include "Model.h"
 
-Model::Model():account(new Account){
+Model::Model():account(new Account), conto(new Conto){
 
     dataStorages.push_back(account);
+    dataStorages.push_back(conto);
 
 }
 
 Model::~Model(){
 
     delete account;
+    delete conto;
 
     dataStorages.clear();
 
@@ -62,7 +64,7 @@ void Model::loadAccount() {
 
 void Model::loadConto() {
 
-
+    conto->loadData();
 
 }
 

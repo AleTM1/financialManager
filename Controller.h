@@ -9,6 +9,7 @@
 #include "Model.h"
 
 class Controller {
+
 public:
 
     explicit Controller(Model* m) : model(m) {}

@@ -21,6 +21,7 @@ public:
 
         data.clear();
         data.remove(group);
+        data.sync();
         loadData();
 
     }

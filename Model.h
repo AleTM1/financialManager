@@ -8,6 +8,7 @@
 
 #include "Subject.h"
 #include "Account.h"
+#include "Conto.h"
 
 class Model : public Subject {
 
@@ -43,6 +44,7 @@ private:
 
     bool tabAccountLocked;
     Account* account;
+    Conto* conto;
 
     std::vector<AbstractDataStorage*> dataStorages;
 
