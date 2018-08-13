@@ -14,13 +14,13 @@ class Account : public AbstractDataStorage {
 
 public:
 
+    Account(){group="Account";}
+
     bool isFirstOpening();
 
     virtual void loadData() override;
 
-    virtual void clear() override;
-
-    virtual void saveData(std::vector<QString>&) override;
+    virtual void saveData(std::vector<QString>) override;
 
 
 

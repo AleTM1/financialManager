@@ -31,6 +31,9 @@ void View::update() {
 
     if(model->isTabAccountLocked()){
 
+        viewWindow->textEdit_Name->setEnabled(true);
+        viewWindow->textEdit_Surname->setEnabled(true);
+
         viewWindow->tabWidget->setCurrentIndex(1);
 
         for(int i=0; i<viewWindow->tabWidget->count(); i++)
@@ -41,6 +44,9 @@ void View::update() {
 
         viewWindow->textEdit_Name->setEnabled(false);
         viewWindow->textEdit_Surname->setEnabled(false);
+
+        for(int i=0; i<viewWindow->tabWidget->count(); i++)
+                viewWindow->tabWidget->setTabEnabled(i,true);
 
         viewWindow->textEdit_Name->setText(model->accessAccount()->getName());
         viewWindow->textEdit_Surname->setText(model->accessAccount()->getSurname());
@@ -68,18 +74,20 @@ void View::accountSave() {
 
     std::vector<QString> strings;
 
-    strings[0]=viewWindow->textEdit_Name->toPlainText();
-    strings[1]=viewWindow->textEdit_Surname->toPlainText();
-    strings[2]=viewWindow->textEdit_city->toPlainText();
-    strings[3]=viewWindow->textEdit_CAP->toPlainText();
-    strings[4]=viewWindow->textEdit_Address->toPlainText();
-    strings[5]=viewWindow->textEdit_PhoneNumber->toPlainText();
-    strings[6]=viewWindow->textEdit_Mail->toPlainText();
-
+    strings.push_back(viewWindow->textEdit_Name->toPlainText());
+    strings.push_back(viewWindow->textEdit_Surname->toPlainText());
+    strings.push_back(viewWindow->textEdit_city->toPlainText());
+    strings.push_back(viewWindow->textEdit_CAP->toPlainText());
+    strings.push_back(viewWindow->textEdit_Address->toPlainText());
+    strings.push_back(viewWindow->textEdit_PhoneNumber->toPlainText());
+    strings.push_back(viewWindow->textEdit_Mail->toPlainText());
 
     if(model->isTabAccountLocked()){
 
-        controller->accountSave(strings);
+        {
+            controller->accountSave(strings);
+
+        }
 
     }else{
 

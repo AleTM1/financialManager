@@ -27,7 +27,7 @@ public:
 
     void clearAll();
 
-    void save(std::string, std::vector<QString>&);
+    void save(std::string, std::vector<QString>);
 
     public:
 

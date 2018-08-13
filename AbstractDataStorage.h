@@ -7,6 +7,7 @@
 
 
 #include <QtCore/QSettings>
+#include <QString>
 
 class AbstractDataStorage{
 
@@ -14,18 +15,23 @@ public:
 
     virtual void loadData()=0;
 
-    virtual void saveData(std::vector<QString>&) = 0;
+    virtual void saveData(std::vector<QString>) = 0;
 
-    virtual void clear() = 0;
+    virtual void clear(){
 
+        data.clear();
+        data.remove(group);
+        loadData();
+
+    }
 
 
     virtual ~AbstractDataStorage(){}
 
-
 protected:
 
     QSettings data;
+    QString group;
 
 
 };

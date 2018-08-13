@@ -72,24 +72,20 @@ bool Account::isFirstOpening() {
 void Account::loadData() {
 
     data.beginGroup("Account");
-    name=data.value("name").toString();
-    surname=data.value("surname").toString();
-    city=data.value("city").toString();
-    CAP=data.value("CAP").toString();
-    address=data.value("address").toString();
-    phoneNumber=data.value("phoneNumber").toString();
-    mail=data.value("mail").toString();
+    name=data.value("name","").toString();
+    surname=data.value("surname","").toString();
+    city=data.value("city","").toString();
+    CAP=data.value("CAP","").toString();
+    address=data.value("address","").toString();
+    phoneNumber=data.value("phoneNumber","").toString();
+    mail=data.value("mail","").toString();
     data.endGroup();
 
+    data.sync();
 }
 
-void Account::clear() {
 
-    data.clear();
-
-}
-
-void Account::saveData(std::vector<QString>& strings) {
+void Account::saveData(std::vector<QString> strings) {
 
     name=strings[0];
     surname=strings[1];
@@ -111,6 +107,10 @@ void Account::saveData(std::vector<QString>& strings) {
     data.setValue("mail", mail);
 
     data.endGroup();
+
+
+
+    data.sync();
 
 }
 

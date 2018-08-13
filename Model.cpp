@@ -26,6 +26,7 @@ bool Model::isTabAccountLocked() const {
 
 void Model::setTabAccountLocked(bool tabAccountLocked) {
     Model::tabAccountLocked = tabAccountLocked;
+    notify();
 }
 
 Account* Model::accessAccount() const {
@@ -49,6 +50,8 @@ void Model::loadAll() {
     for (auto dataClass : dataStorages)
         dataClass->loadData();
 
+    notify();
+
 }
 
 void Model::loadAccount() {
@@ -68,10 +71,12 @@ void Model::clearAll() {
     for (auto dataClass : dataStorages)
         dataClass->clear();
 
-
+    notify();
+    setTabAccountLocked(true);
+    notify();
 }
 
-void Model::save(std::string classType, std::vector<QString> &strings) {
+void Model::save(std::string classType, std::vector<QString> strings) {
 
 
     if(classType=="account"){

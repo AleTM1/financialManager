@@ -19,7 +19,7 @@ public:
 
     //---------------salvataggi
 
-    void accountSave(std::vector<QString>&);
+    void accountSave(std::vector<QString>);
 
     //-----------------------
 
