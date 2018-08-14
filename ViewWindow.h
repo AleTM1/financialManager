@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'FinancialManagersc6017.ui'
+** Form generated from reading UI file 'FinancialManagerHV2176.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.5
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef FINANCIALMANAGERSC6017_H
-#define FINANCIALMANAGERSC6017_H
+#ifndef FINANCIALMANAGERHV2176_H
+#define FINANCIALMANAGERHV2176_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -28,6 +28,7 @@
 #include <QtWidgets/QToolButton>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include <qsliderreadonly.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -56,6 +57,10 @@ public:
     QHBoxLayout *horizontalLayout_5;
     QLabel *label_9;
     QLabel *label_Saldo;
+    QHBoxLayout *horizontalLayout_6;
+    QLabel *label_liquid;
+    QSliderReadOnly *horizontalSlider_percetage;
+    QLabel *label_invested;
     QWidget *tab_2;
     QGridLayout *gridLayout;
     QLabel *label_2;
@@ -177,6 +182,32 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_5);
 
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
+        label_liquid = new QLabel(tab);
+        label_liquid->setObjectName(QStringLiteral("label_liquid"));
+
+        horizontalLayout_6->addWidget(label_liquid);
+
+        horizontalSlider_percetage = new QSliderReadOnly(tab);
+        horizontalSlider_percetage->setObjectName(QStringLiteral("horizontalSlider_percetage"));
+        horizontalSlider_percetage->setEnabled(true);
+        horizontalSlider_percetage->setMaximum(100);
+        horizontalSlider_percetage->setValue(50);
+        horizontalSlider_percetage->setTracking(true);
+        horizontalSlider_percetage->setOrientation(Qt::Horizontal);
+        horizontalSlider_percetage->setTickPosition(QSlider::NoTicks);
+
+        horizontalLayout_6->addWidget(horizontalSlider_percetage);
+
+        label_invested = new QLabel(tab);
+        label_invested->setObjectName(QStringLiteral("label_invested"));
+
+        horizontalLayout_6->addWidget(label_invested);
+
+
+        verticalLayout->addLayout(horizontalLayout_6);
+
 
         gridLayout_2->addLayout(verticalLayout, 0, 0, 1, 1);
 
@@ -297,6 +328,7 @@ public:
         tabWidget->setCurrentIndex(0);
 
 
+
         //---------------------------------------
 
         horizontalWidget_title->hide();
@@ -314,7 +346,6 @@ public:
 
 
 
-
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
 
@@ -329,6 +360,8 @@ public:
         label_IBAN->setText(QApplication::translate("MainWindow", "IBAN: ", Q_NULLPTR));
         label_9->setText(QApplication::translate("MainWindow", "Saldo Complessivo:", Q_NULLPTR));
         label_Saldo->setText(QApplication::translate("MainWindow", "0", Q_NULLPTR));
+        label_liquid->setText(QApplication::translate("MainWindow", " Liquidit\303\240:", Q_NULLPTR));
+        label_invested->setText(QApplication::translate("MainWindow", " Investito: ", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Sintesi", Q_NULLPTR));
         label_2->setText(QApplication::translate("MainWindow", "Cognome:", Q_NULLPTR));
         textEdit_Name->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
@@ -357,4 +390,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // FINANCIALMANAGERSC6017_H
+#endif // FINANCIALMANAGERHV2176_H
