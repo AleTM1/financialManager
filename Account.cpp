@@ -65,7 +65,8 @@ void Account::setMail(const QString &mail) {
 
 bool Account::isFirstOpening() {
 
-    return !(data.contains("Account/name"));
+    bool result = !(data.contains("Account/name"));
+    return result;
 
 }
 

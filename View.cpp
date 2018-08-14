@@ -114,14 +114,15 @@ void View::accountSave() {
 
 }
 
-void View::contoSave() {
+void View::contoTitleSave() {
 
     std::map<std::string, QString> strings;
 
-    strings.insert(std::make_pair("title",viewWindow->textEdit_Name->toPlainText()));
+    strings.insert(std::make_pair("title",viewWindow->lineEdit_title->text()));
 
     controller->contoSave(strings);
 
+    showTitleEdit();
 
 }
 

@@ -9,9 +9,12 @@ void Controller::openingApp() {
     if(model->isFirstOpening()){
 
         model->setTabAccountLocked(true);
+
         model->createAccount();
 
     }else{
+
+        model->setTabAccountLocked(false);
 
         model->loadAll();
 

@@ -33,7 +33,7 @@ private slots:
     void RESET();
     void accountSave();
     void showTitleEdit();
-    void contoSave();
+    void contoTitleSave();
 
 
 

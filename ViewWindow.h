@@ -254,6 +254,7 @@ public:
         QObject::connect(actionRESET, SIGNAL(triggered()), MainWindow, SLOT(RESET()));
         QObject::connect(Button_Salva, SIGNAL(clicked()), MainWindow, SLOT(accountSave()));
         QObject::connect(toolButton, SIGNAL(clicked()), MainWindow, SLOT(showTitleEdit()));
+        QObject::connect(buttonTitle_Salva, SIGNAL(clicked()), MainWindow, SLOT (contoTitleSave()));
 
 
         //---------------------------------------------------------------------------
