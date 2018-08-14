@@ -1,18 +1,19 @@
 /********************************************************************************
-** Form generated from reading UI file 'FinancialManagerxe5047.ui'
+** Form generated from reading UI file 'FinancialManagersc6017.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.5
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef FINANCIALMANAGERXE5047_H
-#define FINANCIALMANAGERXE5047_H
+#ifndef FINANCIALMANAGERSC6017_H
+#define FINANCIALMANAGERSC6017_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
@@ -48,6 +49,13 @@ public:
     QHBoxLayout *horizontalLayout_titleEdit;
     QLineEdit *lineEdit_title;
     QPushButton *buttonTitle_Salva;
+    QFrame *line;
+    QHBoxLayout *horizontalLayout_4;
+    QLabel *label_IBAN;
+    QFrame *line_2;
+    QHBoxLayout *horizontalLayout_5;
+    QLabel *label_9;
+    QLabel *label_Saldo;
     QWidget *tab_2;
     QGridLayout *gridLayout;
     QLabel *label_2;
@@ -96,6 +104,10 @@ public:
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         label_title = new QLabel(tab);
         label_title->setObjectName(QStringLiteral("label_title"));
+        QFont font;
+        font.setPointSize(20);
+        label_title->setFont(font);
+        label_title->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_2->addWidget(label_title);
 
@@ -123,6 +135,47 @@ public:
 
 
         verticalLayout->addLayout(horizontalLayout_2);
+
+        line = new QFrame(tab);
+        line->setObjectName(QStringLiteral("line"));
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
+
+        verticalLayout->addWidget(line);
+
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        label_IBAN = new QLabel(tab);
+        label_IBAN->setObjectName(QStringLiteral("label_IBAN"));
+        label_IBAN->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_4->addWidget(label_IBAN);
+
+
+        verticalLayout->addLayout(horizontalLayout_4);
+
+        line_2 = new QFrame(tab);
+        line_2->setObjectName(QStringLiteral("line_2"));
+        line_2->setFrameShape(QFrame::HLine);
+        line_2->setFrameShadow(QFrame::Sunken);
+
+        verticalLayout->addWidget(line_2);
+
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
+        label_9 = new QLabel(tab);
+        label_9->setObjectName(QStringLiteral("label_9"));
+        label_9->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_5->addWidget(label_9);
+
+        label_Saldo = new QLabel(tab);
+        label_Saldo->setObjectName(QStringLiteral("label_Saldo"));
+
+        horizontalLayout_5->addWidget(label_Saldo);
+
+
+        verticalLayout->addLayout(horizontalLayout_5);
 
 
         gridLayout_2->addLayout(verticalLayout, 0, 0, 1, 1);
@@ -260,6 +313,8 @@ public:
         //---------------------------------------------------------------------------
 
 
+
+
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
 
@@ -271,6 +326,9 @@ public:
         label_title->setText(QApplication::translate("MainWindow", "----", Q_NULLPTR));
         toolButton->setText(QApplication::translate("MainWindow", "...", Q_NULLPTR));
         buttonTitle_Salva->setText(QApplication::translate("MainWindow", "Salva modifiche", Q_NULLPTR));
+        label_IBAN->setText(QApplication::translate("MainWindow", "IBAN: ", Q_NULLPTR));
+        label_9->setText(QApplication::translate("MainWindow", "Saldo Complessivo:", Q_NULLPTR));
+        label_Saldo->setText(QApplication::translate("MainWindow", "0", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Sintesi", Q_NULLPTR));
         label_2->setText(QApplication::translate("MainWindow", "Cognome:", Q_NULLPTR));
         textEdit_Name->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
@@ -299,4 +357,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // FINANCIALMANAGERXE5047_H
+#endif // FINANCIALMANAGERSC6017_H

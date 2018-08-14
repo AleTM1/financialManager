@@ -40,7 +40,7 @@ QString Conto::IBANgenerator() {
         }else{
 
             n=rand()%10;
-            iban.append(n);
+            iban.append(QString::number(n));
 
         }
 

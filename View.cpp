@@ -63,6 +63,9 @@ void View::update() {
         viewWindow->label_title->setText(model->accessConto()->getTitle());
         viewWindow->lineEdit_title->setText( viewWindow->label_title->text());
 
+        viewWindow->label_IBAN->setText("IBAN: "+model->accessConto()->getIBAN());
+        viewWindow->label_Saldo->setText(QString::number(model->accessConto()->getSaldo()));
+
     }
 
 
