@@ -66,6 +66,12 @@ void View::update() {
         viewWindow->label_IBAN->setText("IBAN: "+model->accessConto()->getIBAN());
         viewWindow->label_Saldo->setText(QString::number(model->accessConto()->getSaldo()));
 
+        viewWindow->label_liquid->setText(" Liquidità: "+QString::number(model->accessConto()->getLiquid()));
+        viewWindow->label_invested->setText(" Investito: "+QString::number(model->accessConto()->getInvested()));
+        float pos = 100*static_cast<float>(model->accessConto()->getLiquid())/static_cast<float>(model->accessConto()->getSaldo());
+        viewWindow->horizontalSlider_percetage->setSliderPosition(static_cast<int>(pos));
+
+
     }
 
 
