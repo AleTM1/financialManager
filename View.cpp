@@ -5,6 +5,7 @@
 
 #include <QtCore/QFile>
 #include <QtCore/QTextStream>
+#include <QtCore/QDate>
 #include "View.h"
 
 
@@ -74,7 +75,9 @@ void View::update() {
 
         //-------------Effettua Transazione---------------------
 
-        if(viewWindow->radioButton_send->isChecked()){
+        viewWindow->label_currentDate->setText(QDate::currentDate().toString("dddd, dd / MMMM / yyyy"));
+
+        if(viewWindow->radioButton_sendMoney->isChecked()){
             viewWindow->lineEdit_payerName->setText(model->accessAccount()->getName() +" "+ model->accessAccount()->getSurname());
             viewWindow->lineEdit_beneficiaryName->setText("");
             viewWindow->lineEdit_payerIBAN->setText(model->accessConto()->getIBAN());

@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'FinancialManageruo7222.ui'
+** Form generated from reading UI file 'FinancialManagerZK7222.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.5
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef FINANCIALMANAGERUO7222_H
-#define FINANCIALMANAGERUO7222_H
+#ifndef FINANCIALMANAGERZK7222_H
+#define FINANCIALMANAGERZK7222_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -73,9 +73,9 @@ public:
     QGroupBox *groupBox;
     QHBoxLayout *horizontalLayout_7;
     QSpacerItem *horizontalSpacer;
-    QRadioButton *radioButton_send;
+    QRadioButton *radioButton_sendMoney;
     QSpacerItem *horizontalSpacer_3;
-    QRadioButton *radioButton_receive;
+    QRadioButton *radioButton_receiveMoney;
     QSpacerItem *horizontalSpacer_2;
     QFrame *line_4;
     QFormLayout *formLayout;
@@ -93,6 +93,8 @@ public:
     QLabel *label_17;
     QLineEdit *lineEdit_causal;
     QLabel *label_16;
+    QLabel *label_18;
+    QLabel *label_currentDate;
     QHBoxLayout *horizontalLayout_10;
     QPushButton *pushButton_Apply;
     QPushButton *pushButton_Cancel;
@@ -290,20 +292,20 @@ public:
 
         horizontalLayout_7->addItem(horizontalSpacer);
 
-        radioButton_send = new QRadioButton(groupBox);
-        radioButton_send->setObjectName(QStringLiteral("radioButton_send"));
-        radioButton_send->setChecked(true);
+        radioButton_sendMoney = new QRadioButton(groupBox);
+        radioButton_sendMoney->setObjectName(QStringLiteral("radioButton_sendMoney"));
+        radioButton_sendMoney->setChecked(true);
 
-        horizontalLayout_7->addWidget(radioButton_send);
+        horizontalLayout_7->addWidget(radioButton_sendMoney);
 
         horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_7->addItem(horizontalSpacer_3);
 
-        radioButton_receive = new QRadioButton(groupBox);
-        radioButton_receive->setObjectName(QStringLiteral("radioButton_receive"));
+        radioButton_receiveMoney = new QRadioButton(groupBox);
+        radioButton_receiveMoney->setObjectName(QStringLiteral("radioButton_receiveMoney"));
 
-        horizontalLayout_7->addWidget(radioButton_receive);
+        horizontalLayout_7->addWidget(radioButton_receiveMoney);
 
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -398,6 +400,16 @@ public:
         label_16->setObjectName(QStringLiteral("label_16"));
 
         formLayout->setWidget(6, QFormLayout::LabelRole, label_16);
+
+        label_18 = new QLabel(tab_3);
+        label_18->setObjectName(QStringLiteral("label_18"));
+
+        formLayout->setWidget(8, QFormLayout::LabelRole, label_18);
+
+        label_currentDate = new QLabel(tab_3);
+        label_currentDate->setObjectName(QStringLiteral("label_currentDate"));
+
+        formLayout->setWidget(8, QFormLayout::FieldRole, label_currentDate);
 
 
         verticalLayout_2->addLayout(formLayout);
@@ -536,7 +548,6 @@ public:
 
         tabWidget->setCurrentIndex(1);
 
-
         //---------------------------------------
 
         horizontalWidget_title->hide();
@@ -548,11 +559,12 @@ public:
         QObject::connect(Button_Salva, SIGNAL(clicked()), MainWindow, SLOT(accountSave()));
         QObject::connect(toolButton, SIGNAL(clicked()), MainWindow, SLOT(showTitleEdit()));
         QObject::connect(buttonTitle_Salva, SIGNAL(clicked()), MainWindow, SLOT (contoTitleSave()));
-        QObject::connect(radioButton_send, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
-        QObject::connect(radioButton_receive, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
+        QObject::connect(radioButton_sendMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
+        QObject::connect(radioButton_receiveMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
 
 
         //---------------------------------------------------------------------------
+
 
 
 
@@ -576,8 +588,8 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Sintesi", Q_NULLPTR));
         label_8->setText(QApplication::translate("MainWindow", "Effettua una transazione", Q_NULLPTR));
         groupBox->setTitle(QApplication::translate("MainWindow", "Tipo di transazione", Q_NULLPTR));
-        radioButton_send->setText(QApplication::translate("MainWindow", "Invia denaro", Q_NULLPTR));
-        radioButton_receive->setText(QApplication::translate("MainWindow", "Ricevi denaro", Q_NULLPTR));
+        radioButton_sendMoney->setText(QApplication::translate("MainWindow", "Invia denaro", Q_NULLPTR));
+        radioButton_receiveMoney->setText(QApplication::translate("MainWindow", "Ricevi denaro", Q_NULLPTR));
         label_10->setText(QApplication::translate("MainWindow", "Dati dell'ordinante:", Q_NULLPTR));
         label_11->setText(QApplication::translate("MainWindow", "Nome e cognome:", Q_NULLPTR));
         label_12->setText(QApplication::translate("MainWindow", "IBAN: ", Q_NULLPTR));
@@ -586,6 +598,8 @@ public:
         label_13->setText(QApplication::translate("MainWindow", "IBAN:", Q_NULLPTR));
         label_17->setText(QApplication::translate("MainWindow", "Causale: ", Q_NULLPTR));
         label_16->setText(QApplication::translate("MainWindow", "Importo: ", Q_NULLPTR));
+        label_18->setText(QApplication::translate("MainWindow", "Data: ", Q_NULLPTR));
+        label_currentDate->setText(QApplication::translate("MainWindow", "01/01/01", Q_NULLPTR));
         pushButton_Apply->setText(QApplication::translate("MainWindow", "Esegui", Q_NULLPTR));
         pushButton_Cancel->setText(QApplication::translate("MainWindow", "Annulla", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Effettua Transazioni", Q_NULLPTR));
@@ -616,4 +630,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // FINANCIALMANAGERUO7222_H
+#endif // FINANCIALMANAGERZK7222_H

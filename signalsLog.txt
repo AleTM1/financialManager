@@ -11,8 +11,8 @@
         QObject::connect(Button_Salva, SIGNAL(clicked()), MainWindow, SLOT(accountSave()));
         QObject::connect(toolButton, SIGNAL(clicked()), MainWindow, SLOT(showTitleEdit()));
         QObject::connect(buttonTitle_Salva, SIGNAL(clicked()), MainWindow, SLOT (contoTitleSave()));
-        QObject::connect(radioButton_send, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
-        QObject::connect(radioButton_receive, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
+        QObject::connect(radioButton_sendMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
+        QObject::connect(radioButton_receiveMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
 
 
         //---------------------------------------------------------------------------
