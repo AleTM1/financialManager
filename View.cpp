@@ -34,7 +34,7 @@ void View::update() {
         viewWindow->textEdit_Name->setEnabled(true);
         viewWindow->textEdit_Surname->setEnabled(true);
 
-        viewWindow->tabWidget->setCurrentIndex(1);
+        viewWindow->tabWidget->setCurrentIndex(2);
 
         for(int i=0; i<viewWindow->tabWidget->count(); i++)
             if(viewWindow->tabWidget->currentIndex() != i)
@@ -72,6 +72,28 @@ void View::update() {
         viewWindow->horizontalSlider_percetage->setSliderPosition(static_cast<int>(pos));
 
 
+        //-------------Effettua Transazione---------------------
+
+        if(viewWindow->radioButton_send->isChecked()){
+            viewWindow->lineEdit_payerName->setText(model->accessAccount()->getName() +" "+ model->accessAccount()->getSurname());
+            viewWindow->lineEdit_beneficiaryName->setText("");
+            viewWindow->lineEdit_payerIBAN->setText(model->accessConto()->getIBAN());
+            viewWindow->lineEdit_beneficiaryIBAN->setText("");
+            viewWindow->lineEdit_payerName->setEnabled(false);
+            viewWindow->lineEdit_beneficiaryName->setEnabled(true);
+            viewWindow->lineEdit_payerIBAN->setEnabled(false);
+            viewWindow->lineEdit_beneficiaryIBAN->setEnabled(true);
+        }else{
+            viewWindow->lineEdit_beneficiaryName->setText(model->accessAccount()->getName() +" "+ model->accessAccount()->getSurname());
+            viewWindow->lineEdit_payerName->setText("");
+            viewWindow->lineEdit_beneficiaryIBAN->setText(model->accessConto()->getIBAN());
+            viewWindow->lineEdit_payerIBAN->setText("");
+            viewWindow->lineEdit_payerName->setEnabled(true);
+            viewWindow->lineEdit_beneficiaryName->setEnabled(false);
+            viewWindow->lineEdit_payerIBAN->setEnabled(true);
+            viewWindow->lineEdit_beneficiaryIBAN->setEnabled(false);
+        }
+
     }
 
 
@@ -86,6 +108,11 @@ void View::showTitleEdit() {
    viewWindow->horizontalWidget_title->setVisible(!viewWindow->horizontalWidget_title->isVisible());
 
 }
+
+void View::radioButtonClicked() {
+    update();
+}
+
 
 void View::RESET() {
 

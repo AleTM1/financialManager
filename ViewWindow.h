@@ -1,20 +1,22 @@
 /********************************************************************************
-** Form generated from reading UI file 'FinancialManagerHV2176.ui'
+** Form generated from reading UI file 'FinancialManageruo7222.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.5
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef FINANCIALMANAGERHV2176_H
-#define FINANCIALMANAGERHV2176_H
+#ifndef FINANCIALMANAGERUO7222_H
+#define FINANCIALMANAGERUO7222_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QFormLayout>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -23,6 +25,8 @@
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QToolButton>
@@ -61,6 +65,37 @@ public:
     QLabel *label_liquid;
     QSliderReadOnly *horizontalSlider_percetage;
     QLabel *label_invested;
+    QWidget *tab_3;
+    QGridLayout *gridLayout_3;
+    QVBoxLayout *verticalLayout_2;
+    QLabel *label_8;
+    QFrame *line_3;
+    QGroupBox *groupBox;
+    QHBoxLayout *horizontalLayout_7;
+    QSpacerItem *horizontalSpacer;
+    QRadioButton *radioButton_send;
+    QSpacerItem *horizontalSpacer_3;
+    QRadioButton *radioButton_receive;
+    QSpacerItem *horizontalSpacer_2;
+    QFrame *line_4;
+    QFormLayout *formLayout;
+    QLabel *label_10;
+    QLabel *label_11;
+    QLineEdit *lineEdit_payerName;
+    QLabel *label_12;
+    QLineEdit *lineEdit_payerIBAN;
+    QLabel *label_14;
+    QLabel *label_15;
+    QLineEdit *lineEdit_beneficiaryName;
+    QLabel *label_13;
+    QLineEdit *lineEdit_beneficiaryIBAN;
+    QLineEdit *lineEdit_amount;
+    QLabel *label_17;
+    QLineEdit *lineEdit_causal;
+    QLabel *label_16;
+    QHBoxLayout *horizontalLayout_10;
+    QPushButton *pushButton_Apply;
+    QPushButton *pushButton_Cancel;
     QWidget *tab_2;
     QGridLayout *gridLayout;
     QLabel *label_2;
@@ -212,6 +247,180 @@ public:
         gridLayout_2->addLayout(verticalLayout, 0, 0, 1, 1);
 
         tabWidget->addTab(tab, QString());
+        tab_3 = new QWidget();
+        tab_3->setObjectName(QStringLiteral("tab_3"));
+        gridLayout_3 = new QGridLayout(tab_3);
+        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        label_8 = new QLabel(tab_3);
+        label_8->setObjectName(QStringLiteral("label_8"));
+        QSizePolicy sizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(label_8->sizePolicy().hasHeightForWidth());
+        label_8->setSizePolicy(sizePolicy);
+        label_8->setFont(font);
+        label_8->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_2->addWidget(label_8);
+
+        line_3 = new QFrame(tab_3);
+        line_3->setObjectName(QStringLiteral("line_3"));
+        sizePolicy.setHeightForWidth(line_3->sizePolicy().hasHeightForWidth());
+        line_3->setSizePolicy(sizePolicy);
+        line_3->setFrameShape(QFrame::HLine);
+        line_3->setFrameShadow(QFrame::Sunken);
+
+        verticalLayout_2->addWidget(line_3);
+
+        groupBox = new QGroupBox(tab_3);
+        groupBox->setObjectName(QStringLiteral("groupBox"));
+        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(groupBox->sizePolicy().hasHeightForWidth());
+        groupBox->setSizePolicy(sizePolicy1);
+        QFont font1;
+        font1.setPointSize(15);
+        groupBox->setFont(font1);
+        horizontalLayout_7 = new QHBoxLayout(groupBox);
+        horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_7->addItem(horizontalSpacer);
+
+        radioButton_send = new QRadioButton(groupBox);
+        radioButton_send->setObjectName(QStringLiteral("radioButton_send"));
+        radioButton_send->setChecked(true);
+
+        horizontalLayout_7->addWidget(radioButton_send);
+
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_7->addItem(horizontalSpacer_3);
+
+        radioButton_receive = new QRadioButton(groupBox);
+        radioButton_receive->setObjectName(QStringLiteral("radioButton_receive"));
+
+        horizontalLayout_7->addWidget(radioButton_receive);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_7->addItem(horizontalSpacer_2);
+
+
+        verticalLayout_2->addWidget(groupBox);
+
+        line_4 = new QFrame(tab_3);
+        line_4->setObjectName(QStringLiteral("line_4"));
+        line_4->setFrameShape(QFrame::HLine);
+        line_4->setFrameShadow(QFrame::Sunken);
+
+        verticalLayout_2->addWidget(line_4);
+
+        formLayout = new QFormLayout();
+        formLayout->setObjectName(QStringLiteral("formLayout"));
+        label_10 = new QLabel(tab_3);
+        label_10->setObjectName(QStringLiteral("label_10"));
+        QFont font2;
+        font2.setPointSize(18);
+        label_10->setFont(font2);
+        label_10->setAlignment(Qt::AlignCenter);
+
+        formLayout->setWidget(0, QFormLayout::FieldRole, label_10);
+
+        label_11 = new QLabel(tab_3);
+        label_11->setObjectName(QStringLiteral("label_11"));
+
+        formLayout->setWidget(1, QFormLayout::LabelRole, label_11);
+
+        lineEdit_payerName = new QLineEdit(tab_3);
+        lineEdit_payerName->setObjectName(QStringLiteral("lineEdit_payerName"));
+
+        formLayout->setWidget(1, QFormLayout::FieldRole, lineEdit_payerName);
+
+        label_12 = new QLabel(tab_3);
+        label_12->setObjectName(QStringLiteral("label_12"));
+
+        formLayout->setWidget(2, QFormLayout::LabelRole, label_12);
+
+        lineEdit_payerIBAN = new QLineEdit(tab_3);
+        lineEdit_payerIBAN->setObjectName(QStringLiteral("lineEdit_payerIBAN"));
+
+        formLayout->setWidget(2, QFormLayout::FieldRole, lineEdit_payerIBAN);
+
+        label_14 = new QLabel(tab_3);
+        label_14->setObjectName(QStringLiteral("label_14"));
+        QFont font3;
+        font3.setPointSize(17);
+        label_14->setFont(font3);
+        label_14->setAlignment(Qt::AlignCenter);
+
+        formLayout->setWidget(3, QFormLayout::FieldRole, label_14);
+
+        label_15 = new QLabel(tab_3);
+        label_15->setObjectName(QStringLiteral("label_15"));
+
+        formLayout->setWidget(4, QFormLayout::LabelRole, label_15);
+
+        lineEdit_beneficiaryName = new QLineEdit(tab_3);
+        lineEdit_beneficiaryName->setObjectName(QStringLiteral("lineEdit_beneficiaryName"));
+
+        formLayout->setWidget(4, QFormLayout::FieldRole, lineEdit_beneficiaryName);
+
+        label_13 = new QLabel(tab_3);
+        label_13->setObjectName(QStringLiteral("label_13"));
+
+        formLayout->setWidget(5, QFormLayout::LabelRole, label_13);
+
+        lineEdit_beneficiaryIBAN = new QLineEdit(tab_3);
+        lineEdit_beneficiaryIBAN->setObjectName(QStringLiteral("lineEdit_beneficiaryIBAN"));
+
+        formLayout->setWidget(5, QFormLayout::FieldRole, lineEdit_beneficiaryIBAN);
+
+        lineEdit_amount = new QLineEdit(tab_3);
+        lineEdit_amount->setObjectName(QStringLiteral("lineEdit_amount"));
+
+        formLayout->setWidget(6, QFormLayout::FieldRole, lineEdit_amount);
+
+        label_17 = new QLabel(tab_3);
+        label_17->setObjectName(QStringLiteral("label_17"));
+
+        formLayout->setWidget(7, QFormLayout::LabelRole, label_17);
+
+        lineEdit_causal = new QLineEdit(tab_3);
+        lineEdit_causal->setObjectName(QStringLiteral("lineEdit_causal"));
+
+        formLayout->setWidget(7, QFormLayout::FieldRole, lineEdit_causal);
+
+        label_16 = new QLabel(tab_3);
+        label_16->setObjectName(QStringLiteral("label_16"));
+
+        formLayout->setWidget(6, QFormLayout::LabelRole, label_16);
+
+
+        verticalLayout_2->addLayout(formLayout);
+
+        horizontalLayout_10 = new QHBoxLayout();
+        horizontalLayout_10->setObjectName(QStringLiteral("horizontalLayout_10"));
+        pushButton_Apply = new QPushButton(tab_3);
+        pushButton_Apply->setObjectName(QStringLiteral("pushButton_Apply"));
+
+        horizontalLayout_10->addWidget(pushButton_Apply);
+
+        pushButton_Cancel = new QPushButton(tab_3);
+        pushButton_Cancel->setObjectName(QStringLiteral("pushButton_Cancel"));
+
+        horizontalLayout_10->addWidget(pushButton_Cancel);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_10);
+
+
+        gridLayout_3->addLayout(verticalLayout_2, 1, 0, 1, 1);
+
+        tabWidget->addTab(tab_3, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));
         gridLayout = new QGridLayout(tab_2);
@@ -325,8 +534,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
-
+        tabWidget->setCurrentIndex(1);
 
 
         //---------------------------------------
@@ -340,9 +548,12 @@ public:
         QObject::connect(Button_Salva, SIGNAL(clicked()), MainWindow, SLOT(accountSave()));
         QObject::connect(toolButton, SIGNAL(clicked()), MainWindow, SLOT(showTitleEdit()));
         QObject::connect(buttonTitle_Salva, SIGNAL(clicked()), MainWindow, SLOT (contoTitleSave()));
+        QObject::connect(radioButton_send, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
+        QObject::connect(radioButton_receive, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
 
 
         //---------------------------------------------------------------------------
+
 
 
 
@@ -363,6 +574,21 @@ public:
         label_liquid->setText(QApplication::translate("MainWindow", " Liquidit\303\240:", Q_NULLPTR));
         label_invested->setText(QApplication::translate("MainWindow", " Investito: ", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Sintesi", Q_NULLPTR));
+        label_8->setText(QApplication::translate("MainWindow", "Effettua una transazione", Q_NULLPTR));
+        groupBox->setTitle(QApplication::translate("MainWindow", "Tipo di transazione", Q_NULLPTR));
+        radioButton_send->setText(QApplication::translate("MainWindow", "Invia denaro", Q_NULLPTR));
+        radioButton_receive->setText(QApplication::translate("MainWindow", "Ricevi denaro", Q_NULLPTR));
+        label_10->setText(QApplication::translate("MainWindow", "Dati dell'ordinante:", Q_NULLPTR));
+        label_11->setText(QApplication::translate("MainWindow", "Nome e cognome:", Q_NULLPTR));
+        label_12->setText(QApplication::translate("MainWindow", "IBAN: ", Q_NULLPTR));
+        label_14->setText(QApplication::translate("MainWindow", "Dati del Beneficiario:", Q_NULLPTR));
+        label_15->setText(QApplication::translate("MainWindow", "Nome e Cognome: ", Q_NULLPTR));
+        label_13->setText(QApplication::translate("MainWindow", "IBAN:", Q_NULLPTR));
+        label_17->setText(QApplication::translate("MainWindow", "Causale: ", Q_NULLPTR));
+        label_16->setText(QApplication::translate("MainWindow", "Importo: ", Q_NULLPTR));
+        pushButton_Apply->setText(QApplication::translate("MainWindow", "Esegui", Q_NULLPTR));
+        pushButton_Cancel->setText(QApplication::translate("MainWindow", "Annulla", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Effettua Transazioni", Q_NULLPTR));
         label_2->setText(QApplication::translate("MainWindow", "Cognome:", Q_NULLPTR));
         textEdit_Name->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
                                                                      "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -390,4 +616,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // FINANCIALMANAGERHV2176_H
+#endif // FINANCIALMANAGERUO7222_H
