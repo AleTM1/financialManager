@@ -6,10 +6,13 @@
 #define FINANCIALMANAGER_TRANSACTIONS_H
 
 
+#include "Conto.h"
+
 class Transactions {
 
 protected:
 
+    Conto* conto;
 
 public:
 
