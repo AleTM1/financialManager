@@ -93,17 +93,12 @@ void Model::clearAll() {
 void Model::save(std::string classType, std::map<std::string, QString> strings) {
 
 
-    if(classType=="account"){
+     for (auto dataClass : dataStorages)
+        if(classType == dataClass->getGroup().toStdString())
+            dataClass->saveData(strings);
 
-        account->saveData(strings);
 
-    }else if(classType=="conto"){
-
-        conto->saveData(strings);
-
-    }
-
-notify();
+    notify();
 
 }
 

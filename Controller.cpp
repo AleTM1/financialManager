@@ -35,14 +35,14 @@ void Controller::reset() {
 
 void Controller::accountSave(std::map<std::string, QString> strings) {
 
-    model->save("account", strings);
+    model->save("Account", strings);
     model->setTabAccountLocked(false);
 
 }
 
 void Controller::contoSave(std::map<std::string, QString> strings) {
 
-    model->save("conto", strings);
+    model->save("Conto", strings);
 
 }
 
