@@ -7,7 +7,7 @@
 #include <cstdlib>
 
 
-Conto::Conto():groupName("Conto") {}
+Conto::Conto() { groupName = "Conto";}
 
 void Conto::contoGenerator() {
 

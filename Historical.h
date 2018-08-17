@@ -13,7 +13,7 @@ class Historical : public AbstractDataStorage{
 
 public:
 
-    Historical():groupName("Historical"){}
+    Historical(){groupName="Historical";}
 
     void addTransaction(Transaction);
 
@@ -21,9 +21,12 @@ public:
 
     virtual void loadData() override;
 
+    const std::vector<Transaction> &getHistory() const;
+
 protected:
 
     std::vector<Transaction> history;
+
 
 };
 

@@ -9,6 +9,7 @@
 #include "Subject.h"
 #include "Account.h"
 #include "Conto.h"
+#include "Historical.h"
 
 class Model : public Subject {
 

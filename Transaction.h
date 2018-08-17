@@ -6,13 +6,13 @@
 #define FINANCIALMANAGER_TRANSACTIONS_H
 
 
-#include "Conto.h"
-#include "Historical.h"
+#include <QtCore/QDate>
+
 
 class Transaction {
 public:
 
-  Transaction(bool d, QString pN, QString pI, QString rN, QString rI, int a, QString c ):debit(d),payerName(pN), payerIBAN(pI), receiverName(rN), receiverIBAN(rI), amount(a), causal(c){}
+  Transaction(bool d, QString pN, QString pI, QString rN, QString rI, int a, QString c , QDate dat):debit(d),payerName(pN), payerIBAN(pI), receiverName(rN), receiverIBAN(rI), amount(a), causal(c), date(dat){}
 
 
     bool isDebit() const {
@@ -43,6 +43,10 @@ public:
         return causal;
     }
 
+    const QDate &getDate() const {
+        return date;
+    }
+
 protected:
 
     bool debit;
@@ -52,9 +56,9 @@ protected:
     QString receiverIBAN;
     int amount;
     QString causal;
+    QDate date;
 
 };
 
-Q_DECLARE_METATYPE(std::vector<Transaction>)
 
 #endif //FINANCIALMANAGER_TRANSACTIONS_H

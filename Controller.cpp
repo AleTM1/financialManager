@@ -30,9 +30,9 @@ void Controller::reset() {
 }
 
 
-void Controller::doTransaction(bool d, std::map<std::string, QString> dataTransaction) {
+void Controller::doTransaction(bool d, std::map<std::string, QString> dataTransaction, QDate date) {
 
-    Transaction transaction(d, dataTransaction["payerName"], dataTransaction["payerIBAN"], dataTransaction["receiverName"], dataTransaction["receiverIBAN"], (dataTransaction["amount"]).toInt(), dataTransaction["causal"] );
+    Transaction transaction(d, dataTransaction["payerName"], dataTransaction["payerIBAN"], dataTransaction["receiverName"], dataTransaction["receiverIBAN"], (dataTransaction["amount"]).toInt(), dataTransaction["causal"], date );
 
     if(model->doTransaction(transaction)){
 

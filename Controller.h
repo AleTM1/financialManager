@@ -18,7 +18,7 @@ public:
 
     void reset();
 
-    void doTransaction(bool, std::map<std::string, QString> );
+    void doTransaction(bool, std::map<std::string, QString>, QDate );
 
     //---------------salvataggi
 
