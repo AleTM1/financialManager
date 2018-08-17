@@ -29,8 +29,21 @@ void Controller::reset() {
 
 }
 
-//---------------------------------
-// Salvataggi
+
+void Controller::doTransaction(bool d, std::map<std::string, QString> dataTransaction) {
+
+    Transaction transaction(d, dataTransaction["payerName"], dataTransaction["payerIBAN"], dataTransaction["receiverName"], dataTransaction["receiverIBAN"], (dataTransaction["amount"]).toInt(), dataTransaction["causal"] );
+
+    if(model->doTransaction(transaction)){
+
+    }else{
+
+    }
+
+}
+
+
+//--------------------------------- Salvataggi
 
 
 void Controller::accountSave(std::map<std::string, QString> strings) {

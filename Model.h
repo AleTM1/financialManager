@@ -24,13 +24,11 @@ public:
 
     void loadAll();
 
-    void loadAccount();
-
-    void loadConto();
-
     void clearAll();
 
     void save(std::string, std::map<std::string, QString>);
+
+    bool doTransaction(Transaction transaction);
 
 public:
 
@@ -45,6 +43,7 @@ private:
     bool tabAccountLocked;
     Account* account;
     Conto* conto;
+    Historical* historical;
 
     std::vector<AbstractDataStorage*> dataStorages;
 

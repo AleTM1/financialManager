@@ -7,10 +7,11 @@
 
 
 #include "AbstractDataStorage.h"
+#include "Transaction.h"
 
 class Conto : public AbstractDataStorage{
 
-public:
+public:  //methods
 
     Conto();
 
@@ -21,7 +22,7 @@ public:
     virtual void saveData(std::map<std::string, QString>) override;
 
 
-public:
+public:  //getter and setter
 
     const QString &getIBAN() const;
 
@@ -41,7 +42,7 @@ public:
 
     void setTitle(const QString &title);
 
-protected:
+protected: //data
 
     QString title;
     QString IBAN;
@@ -49,7 +50,8 @@ protected:
     int liquid;
     int invested;
 
-private:
+
+private: //privates methods
 
     QString IBANgenerator();
 

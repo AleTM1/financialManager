@@ -7,9 +7,7 @@
 #include <cstdlib>
 
 
-Conto::Conto() {
-    group="Conto";
-}
+Conto::Conto():group("Conto") {}
 
 void Conto::contoGenerator() {
 
@@ -70,6 +68,7 @@ int Conto::getLiquid() const {
 
 void Conto::setLiquid(int liquid) {
     Conto::liquid = liquid;
+    saldo = liquid + invested;
 }
 
 int Conto::getInvested() const {
@@ -78,6 +77,7 @@ int Conto::getInvested() const {
 
 void Conto::setInvested(int invested) {
     Conto::invested = invested;
+    saldo = liquid + invested;
 }
 
 const QString &Conto::getTitle() const {

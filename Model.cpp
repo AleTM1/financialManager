@@ -4,10 +4,11 @@
 
 #include "Model.h"
 
-Model::Model():account(new Account), conto(new Conto){
+Model::Model():account(new Account), conto(new Conto), historical(new Historical){
 
     dataStorages.push_back(account);
     dataStorages.push_back(conto);
+    dataStorages.push_back(historical);
 
 }
 
@@ -68,18 +69,6 @@ void Model::loadAll() {
 
 }
 
-void Model::loadAccount() {
-
-    account->loadData();
-
-}
-
-void Model::loadConto() {
-
-    conto->loadData();
-
-}
-
 void Model::clearAll() {
 
     for (auto dataClass : dataStorages)
@@ -99,6 +88,24 @@ void Model::save(std::string classType, std::map<std::string, QString> strings) 
 
 
     notify();
+
+}
+
+bool Model::doTransaction(Transaction transaction) {
+
+    if(transaction.isDebit() && transaction.getAmount()>conto->getLiquid())
+        return false;
+
+    conto->setLiquid( conto->getLiquid() - transaction.getAmount() );
+
+    //FIXME riscrivi methodo astratto saveData
+
+    co
+
+    historical->saveData()
+
+    notify();
+    return true;
 
 }
 

@@ -6,7 +6,20 @@
 #define FINANCIALMANAGER_HISTORICAL_H
 
 
-class Historical {
+#include "AbstractDataStorage.h"
+#include "Conto.h"
+
+class Historical : public AbstractDataStorage{
+
+public:
+
+    Historical():group("Historical"){}
+
+    void saveData(Transaction){}
+
+
+protected:
+
 
 };
 

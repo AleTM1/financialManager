@@ -18,6 +18,8 @@ public:
 
     void reset();
 
+    void doTransaction(bool, std::map<std::string, QString> );
+
     //---------------salvataggi
 
     void accountSave(std::map<std::string, QString>);
