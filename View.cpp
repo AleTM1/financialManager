@@ -35,7 +35,7 @@ void View::update() {
         viewWindow->textEdit_Name->setEnabled(true);
         viewWindow->textEdit_Surname->setEnabled(true);
 
-        viewWindow->tabWidget->setCurrentIndex(2);
+        viewWindow->tabWidget->setCurrentIndex(3);
 
         for(int i=0; i<viewWindow->tabWidget->count(); i++)
             if(viewWindow->tabWidget->currentIndex() != i)
@@ -128,8 +128,22 @@ void View::RESET() {
 
 }
 
-//-------------------------------------
-//SALVATAGGI
+void View::doTransaction() {
+
+    std::map<std::string, QString> data;
+    data["payerName"]=viewWindow->lineEdit_payerName->text();
+    data["payerIBAN"]=viewWindow->lineEdit_payerIBAN->text();
+    data["receiverName"]=viewWindow->lineEdit_beneficiaryName->text();
+    data["receiverIBAN"]=viewWindow->lineEdit_beneficiaryIBAN->text();
+    data["amount"]=viewWindow->lineEdit_amount->text();
+    data["causal"]=viewWindow->lineEdit_causal->text();
+    controller->doTransaction(viewWindow->radioButton_sendMoney->isChecked(), data, QDate::currentDate());
+
+}
+
+
+
+//--------------------------------SALVATAGGI-------
 
 void View::accountSave() {
 
@@ -165,7 +179,6 @@ void View::contoTitleSave() {
     showTitleEdit();
 
 }
-
 
 
 

@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'FinancialManagerZK7222.ui'
+** Form generated from reading UI file 'FinancialManagerCO8028.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.5
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef FINANCIALMANAGERZK7222_H
-#define FINANCIALMANAGERZK7222_H
+#ifndef FINANCIALMANAGERCO8028_H
+#define FINANCIALMANAGERCO8028_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -26,6 +26,7 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
+#include <QtWidgets/QScrollBar>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTextEdit>
@@ -96,8 +97,15 @@ public:
     QLabel *label_18;
     QLabel *label_currentDate;
     QHBoxLayout *horizontalLayout_10;
-    QPushButton *pushButton_Apply;
+    QPushButton *pushButton_doTransaction;
     QPushButton *pushButton_Cancel;
+    QWidget *tab_4;
+    QVBoxLayout *verticalLayout_4;
+    QVBoxLayout *verticalLayout_3;
+    QLabel *label_19;
+    QHBoxLayout *horizontalLayout_8;
+    QVBoxLayout *verticalLayout_5;
+    QScrollBar *verticalScrollBar;
     QWidget *tab_2;
     QGridLayout *gridLayout;
     QLabel *label_2;
@@ -416,10 +424,10 @@ public:
 
         horizontalLayout_10 = new QHBoxLayout();
         horizontalLayout_10->setObjectName(QStringLiteral("horizontalLayout_10"));
-        pushButton_Apply = new QPushButton(tab_3);
-        pushButton_Apply->setObjectName(QStringLiteral("pushButton_Apply"));
+        pushButton_doTransaction = new QPushButton(tab_3);
+        pushButton_doTransaction->setObjectName(QStringLiteral("pushButton_doTransaction"));
 
-        horizontalLayout_10->addWidget(pushButton_Apply);
+        horizontalLayout_10->addWidget(pushButton_doTransaction);
 
         pushButton_Cancel = new QPushButton(tab_3);
         pushButton_Cancel->setObjectName(QStringLiteral("pushButton_Cancel"));
@@ -433,6 +441,42 @@ public:
         gridLayout_3->addLayout(verticalLayout_2, 1, 0, 1, 1);
 
         tabWidget->addTab(tab_3, QString());
+        tab_4 = new QWidget();
+        tab_4->setObjectName(QStringLiteral("tab_4"));
+        verticalLayout_4 = new QVBoxLayout(tab_4);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        verticalLayout_3 = new QVBoxLayout();
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        label_19 = new QLabel(tab_4);
+        label_19->setObjectName(QStringLiteral("label_19"));
+        sizePolicy1.setHeightForWidth(label_19->sizePolicy().hasHeightForWidth());
+        label_19->setSizePolicy(sizePolicy1);
+        label_19->setFont(font);
+        label_19->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_3->addWidget(label_19);
+
+        horizontalLayout_8 = new QHBoxLayout();
+        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
+        verticalLayout_5 = new QVBoxLayout();
+        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
+
+        horizontalLayout_8->addLayout(verticalLayout_5);
+
+        verticalScrollBar = new QScrollBar(tab_4);
+        verticalScrollBar->setObjectName(QStringLiteral("verticalScrollBar"));
+        verticalScrollBar->setOrientation(Qt::Vertical);
+        verticalScrollBar->setInvertedAppearance(false);
+
+        horizontalLayout_8->addWidget(verticalScrollBar);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_8);
+
+
+        verticalLayout_4->addLayout(verticalLayout_3);
+
+        tabWidget->addTab(tab_4, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));
         gridLayout = new QGridLayout(tab_2);
@@ -546,7 +590,8 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(2);
+
 
         //---------------------------------------
 
@@ -561,6 +606,7 @@ public:
         QObject::connect(buttonTitle_Salva, SIGNAL(clicked()), MainWindow, SLOT (contoTitleSave()));
         QObject::connect(radioButton_sendMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
         QObject::connect(radioButton_receiveMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
+        QObject::connect(pushButton_doTransaction, SIGNAL(clicked()), MainWindow, SLOT(doTransaction()));
 
 
         //---------------------------------------------------------------------------
@@ -600,9 +646,11 @@ public:
         label_16->setText(QApplication::translate("MainWindow", "Importo: ", Q_NULLPTR));
         label_18->setText(QApplication::translate("MainWindow", "Data: ", Q_NULLPTR));
         label_currentDate->setText(QApplication::translate("MainWindow", "01/01/01", Q_NULLPTR));
-        pushButton_Apply->setText(QApplication::translate("MainWindow", "Esegui", Q_NULLPTR));
+        pushButton_doTransaction->setText(QApplication::translate("MainWindow", "Esegui", Q_NULLPTR));
         pushButton_Cancel->setText(QApplication::translate("MainWindow", "Annulla", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Effettua Transazioni", Q_NULLPTR));
+        label_19->setText(QApplication::translate("MainWindow", "STORICO TRANSAZIONI", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MainWindow", "Storico", Q_NULLPTR));
         label_2->setText(QApplication::translate("MainWindow", "Cognome:", Q_NULLPTR));
         textEdit_Name->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
                                                                      "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -630,4 +678,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // FINANCIALMANAGERZK7222_H
+#endif // FINANCIALMANAGERCO8028_H

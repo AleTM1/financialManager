@@ -38,6 +38,8 @@ void Controller::doTransaction(bool d, std::map<std::string, QString> dataTransa
 
     }else{
 
+        //TODO chiamare un metodo del model per avvisare che la transazione non può avvenire
+
     }
 
 }

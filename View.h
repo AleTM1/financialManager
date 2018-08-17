@@ -35,6 +35,7 @@ private slots:
     void showTitleEdit();
     void contoTitleSave();
     void radioButtonClicked();
+    void doTransaction();
 
 
 
