@@ -55,5 +55,6 @@ protected:
 
 };
 
+Q_DECLARE_METATYPE(std::vector<Transaction>)
 
 #endif //FINANCIALMANAGER_TRANSACTIONS_H

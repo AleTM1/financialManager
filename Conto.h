@@ -19,7 +19,9 @@ public:  //methods
 
     virtual void loadData() override;
 
-    virtual void saveData(std::map<std::string, QString>) override;
+    virtual void changeData(QString);
+
+    virtual void saveData() override;
 
 
 public:  //getter and setter

@@ -92,7 +92,7 @@ the current function; otherwise the program continues normally.
 _Tests_ use assertions to verify the tested code's behavior. If a test crashes
 or has a failed assertion, then it _fails_; otherwise it _succeeds_.
 
-A _test case_ contains one or many tests. You should group your tests into test
+A _test case_ contains one or many tests. You should groupName your tests into test
 cases that reflect the structure of the tested code. When multiple tests in a
 test case need to share common objects and subroutines, you can put them into a
 _test fixture_ class.
@@ -208,7 +208,7 @@ Now `*_EQ` treats both parameters in the same way.
 
 ## String Comparison ##
 
-The assertions in this group compare two **C strings**. If you want to compare
+The assertions in this groupName compare two **C strings**. If you want to compare
 two `string` objects, use `EXPECT_EQ`, `EXPECT_NE`, and etc instead.
 
 | **Fatal assertion** | **Nonfatal assertion** | **Verifies** |

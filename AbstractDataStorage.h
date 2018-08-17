@@ -15,12 +15,12 @@ public:
 
     virtual void loadData()=0;
 
-    virtual void saveData(std::map<std::string, QString>) = 0;
+    virtual void saveData() = 0;
 
     virtual void clear(){
 
         data.clear();
-        data.remove(group);
+        data.remove(groupName);
         data.sync();
         loadData();
 
@@ -30,13 +30,13 @@ public:
     virtual ~AbstractDataStorage(){}
 
     const QString &getGroup() const {
-        return group;
+        return groupName;
     }
 
 protected:
 
     QSettings data;
-    QString group;
+    QString groupName;
 
 
 };

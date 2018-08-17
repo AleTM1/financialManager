@@ -7,7 +7,7 @@
 #include <cstdlib>
 
 
-Conto::Conto():group("Conto") {}
+Conto::Conto():groupName("Conto") {}
 
 void Conto::contoGenerator() {
 
@@ -18,9 +18,8 @@ void Conto::contoGenerator() {
 
     IBAN = IBANgenerator();
 
-    std::map<std::string, QString> string;
-    string.insert(std::make_pair("title",title));
-    saveData(string);
+
+    changeData(title);
 
 }
 
@@ -106,12 +105,17 @@ void Conto::loadData() {
     data.sync();
 }
 
+void Conto::changeData(QString string) {
 
-void Conto::saveData(std::map<std::string, QString> string) {
+    title=string;
 
-    title=string["title"];
+    saveData();
+}
 
-    data.beginGroup("Conto");
+
+void Conto::saveData() {
+
+    data.beginGroup(groupName);
 
     data.setValue("title", title);
     data.setValue("IBAN", IBAN);
@@ -120,6 +124,7 @@ void Conto::saveData(std::map<std::string, QString> string) {
     data.setValue("invested", invested);
 
     data.endGroup();
+
 
     data.sync();
 

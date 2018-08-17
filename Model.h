@@ -26,7 +26,11 @@ public:
 
     void clearAll();
 
-    void save(std::string, std::map<std::string, QString>);
+    void saveAccount(std::map<std::string, QString>);
+
+    void saveConto(QString);
+
+    void saveHistorical(Transaction);
 
     bool doTransaction(Transaction transaction);
 

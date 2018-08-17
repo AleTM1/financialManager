@@ -1073,7 +1073,7 @@ some other resources you can use:
 
   1. read other [wiki pages](../docs),
   1. search the mailing list [archive](https://groups.google.com/forum/#!forum/googletestframework),
-  1. ask it on [googletestframework@googlegroups.com](mailto:googletestframework@googlegroups.com) and someone will answer it (to prevent spam, we require you to join the [discussion group](http://groups.google.com/group/googletestframework) before you can post.).
+  1. ask it on [googletestframework@googlegroups.com](mailto:googletestframework@googlegroups.com) and someone will answer it (to prevent spam, we require you to join the [discussion groupName](http://groups.google.com/groupName/googletestframework) before you can post.).
 
 Please note that creating an issue in the
 [issue tracker](https://github.com/google/googletest/issues) is _not_

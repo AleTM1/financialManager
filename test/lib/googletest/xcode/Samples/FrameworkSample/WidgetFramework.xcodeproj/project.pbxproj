@@ -75,13 +75,13 @@
 
 /* Begin PBXFileReference section */
 		3B07BDEA0E3F3F9E00647869 /* WidgetFrameworkTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = WidgetFrameworkTest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B7EB1230E5AEE3500C7F239 /* widget.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = widget.cc; sourceTree = "<group>"; };
-		3B7EB1240E5AEE3500C7F239 /* widget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = widget.h; sourceTree = "<group>"; };
-		3B7EB1270E5AEE4600C7F239 /* widget_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = widget_test.cc; sourceTree = "<group>"; };
+		3B7EB1230E5AEE3500C7F239 /* widget.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = widget.cc; sourceTree = "<groupName>"; };
+		3B7EB1240E5AEE3500C7F239 /* widget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = widget.h; sourceTree = "<groupName>"; };
+		3B7EB1270E5AEE4600C7F239 /* widget_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = widget_test.cc; sourceTree = "<groupName>"; };
 		4024D183113D7D5500C7059E /* libgtest_main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest_main.a; path = /usr/local/lib/libgtest_main.a; sourceTree = "<absolute>"; };
 		4024D185113D7D5500C7059E /* libgtest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest.a; path = /usr/local/lib/libgtest.a; sourceTree = "<absolute>"; };
-		4024D1E2113D838200C7059E /* runtests.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = runtests.sh; sourceTree = "<group>"; };
-		8D07F2C70486CC7A007CD1D0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4024D1E2113D838200C7059E /* runtests.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = runtests.sh; sourceTree = "<groupName>"; };
+		8D07F2C70486CC7A007CD1D0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<groupName>"; };
 		8D07F2C80486CC7A007CD1D0 /* Widget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Widget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -113,7 +113,7 @@
 				3B07BDEA0E3F3F9E00647869 /* WidgetFrameworkTest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
+			sourceTree = "<groupName>";
 		};
 		0867D691FE84028FC02AAC07 /* gTestExample */ = {
 			isa = PBXGroup;
@@ -126,7 +126,7 @@
 				034768DDFF38A45A11DB9C8B /* Products */,
 			);
 			name = gTestExample;
-			sourceTree = "<group>";
+			sourceTree = "<groupName>";
 		};
 		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
@@ -135,7 +135,7 @@
 				4024D185113D7D5500C7059E /* libgtest.a */,
 			);
 			name = "External Frameworks and Libraries";
-			sourceTree = "<group>";
+			sourceTree = "<groupName>";
 		};
 		089C1665FE841158C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
@@ -143,7 +143,7 @@
 				8D07F2C70486CC7A007CD1D0 /* Info.plist */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
+			sourceTree = "<groupName>";
 		};
 		08FB77ACFE841707C02AAC07 /* Source */ = {
 			isa = PBXGroup;
@@ -152,7 +152,7 @@
 				3B7EB1240E5AEE3500C7F239 /* widget.h */,
 			);
 			name = Source;
-			sourceTree = "<group>";
+			sourceTree = "<groupName>";
 		};
 		3B07BE350E4094E400647869 /* Test */ = {
 			isa = PBXGroup;
@@ -160,7 +160,7 @@
 				3B7EB1270E5AEE4600C7F239 /* widget_test.cc */,
 			);
 			name = Test;
-			sourceTree = "<group>";
+			sourceTree = "<groupName>";
 		};
 		4024D1E1113D836C00C7059E /* Scripts */ = {
 			isa = PBXGroup;
@@ -168,7 +168,7 @@
 				4024D1E2113D838200C7059E /* runtests.sh */,
 			);
 			name = Scripts;
-			sourceTree = "<group>";
+			sourceTree = "<groupName>";
 		};
 /* End PBXGroup section */
 

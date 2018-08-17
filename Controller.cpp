@@ -48,14 +48,14 @@ void Controller::doTransaction(bool d, std::map<std::string, QString> dataTransa
 
 void Controller::accountSave(std::map<std::string, QString> strings) {
 
-    model->save("Account", strings);
+    model->saveAccount(strings);
     model->setTabAccountLocked(false);
 
 }
 
-void Controller::contoSave(std::map<std::string, QString> strings) {
+void Controller::contoSave(QString string) {
 
-    model->save("Conto", strings);
+    model->saveConto(string);
 
 }
 

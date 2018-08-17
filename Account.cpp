@@ -58,8 +58,7 @@ void Account::loadData() {
     data.sync();
 }
 
-
-void Account::saveData(std::map<std::string, QString> strings) {
+void Account::changeData(std::map<std::string, QString> strings) {
 
     name=strings["name"];
     surname=strings["surname"];
@@ -69,8 +68,14 @@ void Account::saveData(std::map<std::string, QString> strings) {
     phoneNumber=strings["phoneNumber"];
     mail=strings["mail"];
 
+    saveData();
 
-    data.beginGroup("Account");
+}
+
+
+void Account::saveData() {
+
+    data.beginGroup(groupName);
 
     data.setValue("name", name);
     data.setValue("surname", surname);
@@ -81,7 +86,6 @@ void Account::saveData(std::map<std::string, QString> strings) {
     data.setValue("mail", mail);
 
     data.endGroup();
-
 
 
     data.sync();

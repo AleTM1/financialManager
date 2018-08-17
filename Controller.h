@@ -24,7 +24,7 @@ public:
 
     void accountSave(std::map<std::string, QString>);
 
-    void contoSave(std::map<std::string, QString>);
+    void contoSave(QString);
 
     //-----------------------
 

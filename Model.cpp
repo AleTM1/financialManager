@@ -79,32 +79,47 @@ void Model::clearAll() {
     notify();
 }
 
-void Model::save(std::string classType, std::map<std::string, QString> strings) {
+//---------------------------------Salvataggi
 
+void Model::saveAccount(std::map<std::string, QString> strings) {
 
-     for (auto dataClass : dataStorages)
-        if(classType == dataClass->getGroup().toStdString())
-            dataClass->saveData(strings);
-
+    account->changeData(strings);
 
     notify();
 
 }
+
+void Model::saveConto(QString string) {
+
+    conto->changeData(string);
+
+    notify();
+
+}
+
+void Model::saveHistorical(Transaction transaction) {
+
+    historical->addTransaction(transaction);
+
+    notify();
+
+}
+
+//----------------------------------------------
 
 bool Model::doTransaction(Transaction transaction) {
 
     if(transaction.isDebit() && transaction.getAmount()>conto->getLiquid())
         return false;
 
+
     conto->setLiquid( conto->getLiquid() - transaction.getAmount() );
+    conto->saveData();
 
-    //FIXME riscrivi methodo astratto saveData
-
-    co
-
-    historical->saveData()
+    historical->addTransaction(transaction);
 
     notify();
+
     return true;
 
 }
