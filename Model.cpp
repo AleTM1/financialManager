@@ -31,13 +31,15 @@ void Model::setTabAccountLocked(bool tabAccountLocked) {
     notify();
 }
 
-Account* Model::accessAccount() const {
-    return account;
+AbstractDataStorage *Model::accessDataStorage(std::string groupName) const {
+
+    for (auto dataClass : dataStorages)
+        if(groupName == dataClass->getGroup().toStdString())
+            return dataClass;
+
+
 }
 
-Conto *Model::accessConto() const {
-    return conto;
-}
 
 //----------------------------------------
 

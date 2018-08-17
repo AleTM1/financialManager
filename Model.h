@@ -38,9 +38,7 @@ public:
 
     void setTabAccountLocked(bool tabAccountLocked);
 
-    Account* accessAccount() const;
-
-    Conto *accessConto() const;
+    AbstractDataStorage* accessDataStorage(std::string) const;
 
 private:
 

@@ -51,25 +51,30 @@ void View::update() {
         for(int i=0; i<viewWindow->tabWidget->count(); i++)
                 viewWindow->tabWidget->setTabEnabled(i,true);
 
-        viewWindow->textEdit_Name->setText(model->accessAccount()->getName());
-        viewWindow->textEdit_Surname->setText(model->accessAccount()->getSurname());
-        viewWindow->textEdit_city->setText(model->accessAccount()->getCity());
-        viewWindow->textEdit_CAP->setText(model->accessAccount()->getCAP());
-        viewWindow->textEdit_Address->setText(model->accessAccount()->getAddress());
-        viewWindow->textEdit_PhoneNumber->setText(model->accessAccount()->getPhoneNumber());
-        viewWindow->textEdit_Mail->setText(model->accessAccount()->getMail());
+        auto account = dynamic_cast<Account*>(model->accessDataStorage("Account"));
+
+        viewWindow->textEdit_Name->setText(account->getName());
+        viewWindow->textEdit_Surname->setText(account->getSurname());
+        viewWindow->textEdit_city->setText(account->getCity());
+        viewWindow->textEdit_CAP->setText(account->getCAP());
+        viewWindow->textEdit_Address->setText(account->getAddress());
+        viewWindow->textEdit_PhoneNumber->setText(account->getPhoneNumber());
+        viewWindow->textEdit_Mail->setText(account->getMail());
 
         //-------------CONTO----------------------
 
-        viewWindow->label_title->setText(model->accessConto()->getTitle());
+        auto conto = dynamic_cast<Conto*>(model->accessDataStorage("Conto"));
+
+
+        viewWindow->label_title->setText(conto->getTitle());
         viewWindow->lineEdit_title->setText( viewWindow->label_title->text());
 
-        viewWindow->label_IBAN->setText("IBAN: "+model->accessConto()->getIBAN());
-        viewWindow->label_Saldo->setText(QString::number(model->accessConto()->getSaldo()));
+        viewWindow->label_IBAN->setText("IBAN: "+conto->getIBAN());
+        viewWindow->label_Saldo->setText(QString::number(conto->getSaldo()));
 
-        viewWindow->label_liquid->setText(" Liquidità: "+QString::number(model->accessConto()->getLiquid()));
-        viewWindow->label_invested->setText(" Investito: "+QString::number(model->accessConto()->getInvested()));
-        float pos = 100*static_cast<float>(model->accessConto()->getLiquid())/static_cast<float>(model->accessConto()->getSaldo());
+        viewWindow->label_liquid->setText(" Liquidità: "+QString::number(conto->getLiquid()));
+        viewWindow->label_invested->setText(" Investito: "+QString::number(conto->getInvested()));
+        float pos = 100*static_cast<float>(conto->getLiquid())/static_cast<float>(conto->getSaldo());
         viewWindow->horizontalSlider_percetage->setSliderPosition(static_cast<int>(pos));
 
 
@@ -78,18 +83,18 @@ void View::update() {
         viewWindow->label_currentDate->setText(QDate::currentDate().toString("dddd, dd / MMMM / yyyy"));
 
         if(viewWindow->radioButton_sendMoney->isChecked()){
-            viewWindow->lineEdit_payerName->setText(model->accessAccount()->getName() +" "+ model->accessAccount()->getSurname());
+            viewWindow->lineEdit_payerName->setText(account->getName() +" "+ account->getSurname());
             viewWindow->lineEdit_beneficiaryName->setText("");
-            viewWindow->lineEdit_payerIBAN->setText(model->accessConto()->getIBAN());
+            viewWindow->lineEdit_payerIBAN->setText(conto->getIBAN());
             viewWindow->lineEdit_beneficiaryIBAN->setText("");
             viewWindow->lineEdit_payerName->setEnabled(false);
             viewWindow->lineEdit_beneficiaryName->setEnabled(true);
             viewWindow->lineEdit_payerIBAN->setEnabled(false);
             viewWindow->lineEdit_beneficiaryIBAN->setEnabled(true);
         }else{
-            viewWindow->lineEdit_beneficiaryName->setText(model->accessAccount()->getName() +" "+ model->accessAccount()->getSurname());
+            viewWindow->lineEdit_beneficiaryName->setText(account->getName() +" "+ account->getSurname());
             viewWindow->lineEdit_payerName->setText("");
-            viewWindow->lineEdit_beneficiaryIBAN->setText(model->accessConto()->getIBAN());
+            viewWindow->lineEdit_beneficiaryIBAN->setText(conto->getIBAN());
             viewWindow->lineEdit_payerIBAN->setText("");
             viewWindow->lineEdit_payerName->setEnabled(true);
             viewWindow->lineEdit_beneficiaryName->setEnabled(false);

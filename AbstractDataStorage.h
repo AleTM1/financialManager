@@ -29,6 +29,10 @@ public:
 
     virtual ~AbstractDataStorage(){}
 
+    const QString &getGroup() const {
+        return group;
+    }
+
 protected:
 
     QSettings data;
