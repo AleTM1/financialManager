@@ -12,6 +12,9 @@ const QString &Account::getSurname() const {
     return surname;
 }
 
+const QString &Account::getCodiceFiscale() const {
+    return codiceFiscale;
+}
 
 const QString &Account::getCity() const {
     return city;
@@ -46,13 +49,16 @@ bool Account::isFirstOpening() {
 void Account::loadData() {
 
     data.beginGroup("Account");
+
     name=data.value("name","").toString();
     surname=data.value("surname","").toString();
+    codiceFiscale=data.value("codiceFiscale","").toString();
     city=data.value("city","").toString();
     CAP=data.value("CAP","").toString();
     address=data.value("address","").toString();
     phoneNumber=data.value("phoneNumber","").toString();
     mail=data.value("mail","").toString();
+
     data.endGroup();
 
     data.sync();
@@ -62,6 +68,7 @@ void Account::changeData(std::map<std::string, QString> strings) {
 
     name=strings["name"];
     surname=strings["surname"];
+    codiceFiscale=strings["codiceFiscale"];
     city=strings["city"];
     CAP=strings["CAP"];
     address=strings["address"];
@@ -79,6 +86,7 @@ void Account::saveData() {
 
     data.setValue("name", name);
     data.setValue("surname", surname);
+    data.setValue("codiceFiscale", codiceFiscale);
     data.setValue("city", city);
     data.setValue("CAP", CAP);
     data.setValue("address", address);
@@ -91,4 +99,6 @@ void Account::saveData() {
     data.sync();
 
 }
+
+
 

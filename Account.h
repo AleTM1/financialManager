@@ -32,6 +32,8 @@ public:
 
     const QString &getSurname() const;
 
+    const QString &getCodiceFiscale() const;
+
     const QString &getCity() const;
 
     const QString &getCAP() const;
@@ -46,6 +48,7 @@ protected:
 
     QString name;
     QString surname;
+    QString codiceFiscale;
     QString city;
     QString CAP;
     QString address;

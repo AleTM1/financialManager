@@ -33,8 +33,9 @@ void View::update() {
 
     if(model->isTabAccountLocked()){
 
-        viewWindow->textEdit_Name->setEnabled(true);
-        viewWindow->textEdit_Surname->setEnabled(true);
+        viewWindow->lineEdit_nameAccount->setEnabled(true);
+        viewWindow->lineEdit_surnameAccount->setEnabled(true);
+        viewWindow->lineEdit_codiceFiscaleAccount->setEnabled(true);
 
         viewWindow->tabWidget->setCurrentIndex(3);
 
@@ -55,21 +56,24 @@ void View::update() {
 
         //-----------ACCOUNT-------------
 
-        viewWindow->textEdit_Name->setEnabled(false);
-        viewWindow->textEdit_Surname->setEnabled(false);
+        viewWindow->lineEdit_nameAccount->setEnabled(false);
+        viewWindow->lineEdit_surnameAccount->setEnabled(false);
+        viewWindow->lineEdit_codiceFiscaleAccount->setEnabled(false);
+
 
         for(int i=0; i<viewWindow->tabWidget->count(); i++)
                 viewWindow->tabWidget->setTabEnabled(i,true);
 
         auto account = dynamic_cast<Account*>(model->accessDataStorage("Account"));
 
-        viewWindow->textEdit_Name->setText(account->getName());
-        viewWindow->textEdit_Surname->setText(account->getSurname());
-        viewWindow->textEdit_city->setText(account->getCity());
-        viewWindow->textEdit_CAP->setText(account->getCAP());
-        viewWindow->textEdit_Address->setText(account->getAddress());
-        viewWindow->textEdit_PhoneNumber->setText(account->getPhoneNumber());
-        viewWindow->textEdit_Mail->setText(account->getMail());
+        viewWindow->lineEdit_nameAccount->setText(account->getName());
+        viewWindow->lineEdit_surnameAccount->setText(account->getSurname());
+        viewWindow->lineEdit_codiceFiscaleAccount->setText(account->getCodiceFiscale());
+        viewWindow->lineEdit_cityAccount->setText(account->getCity());
+        viewWindow->lineEdit_CAPAccount->setText(account->getCAP());
+        viewWindow->lineEdit_addressAccount->setText(account->getAddress());
+        viewWindow->lineEdit_phoneNumberAccount->setText(account->getPhoneNumber());
+        viewWindow->lineEdit_mailAccount->setText(account->getMail());
 
         //-------------CONTO----------------------
 
@@ -189,13 +193,14 @@ void View::accountSave() {
 
     std::map<std::string, QString> strings;
 
-    strings.insert(std::make_pair("name",viewWindow->textEdit_Name->toPlainText()));
-    strings.insert(std::make_pair("surname",viewWindow->textEdit_Surname->toPlainText()));
-    strings.insert(std::make_pair("city",viewWindow->textEdit_city->toPlainText()));
-    strings.insert(std::make_pair("CAP",viewWindow->textEdit_CAP->toPlainText()));
-    strings.insert(std::make_pair("address",viewWindow->textEdit_Address->toPlainText()));
-    strings.insert(std::make_pair("phoneNumber",viewWindow->textEdit_PhoneNumber->toPlainText()));
-    strings.insert(std::make_pair("mail",viewWindow->textEdit_Mail->toPlainText()));
+    strings.insert(std::make_pair("name",viewWindow->lineEdit_nameAccount->text()));
+    strings.insert(std::make_pair("surname",viewWindow->lineEdit_surnameAccount->text()));
+    strings.insert(std::make_pair("codiceFiscale",viewWindow->lineEdit_codiceFiscaleAccount->text()));
+    strings.insert(std::make_pair("city",viewWindow->lineEdit_cityAccount->text()));
+    strings.insert(std::make_pair("CAP",viewWindow->lineEdit_CAPAccount->text()));
+    strings.insert(std::make_pair("address",viewWindow->lineEdit_addressAccount->text()));
+    strings.insert(std::make_pair("phoneNumber",viewWindow->lineEdit_phoneNumberAccount->text()));
+    strings.insert(std::make_pair("mail",viewWindow->lineEdit_mailAccount->text()));
 
     if(model->isTabAccountLocked()){
 

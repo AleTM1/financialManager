@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'FinancialManagerZK3694.ui'
+** Form generated from reading UI file 'FinancialManagerCO1897.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.5
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef FINANCIALMANAGERZK3694_H
-#define FINANCIALMANAGERZK3694_H
+#ifndef FINANCIALMANAGERCO1897_H
+#define FINANCIALMANAGERCO1897_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -29,7 +29,6 @@
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTabWidget>
-#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QToolButton>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -110,24 +109,30 @@ public:
     QVBoxLayout *verticalLayout_5;
     QVBoxLayout *verticalLayout_localHistory;
     QWidget *tab_2;
-    QGridLayout *gridLayout;
-    QLabel *label_2;
-    QTextEdit *textEdit_Mail;
-    QTextEdit *textEdit_PhoneNumber;
-    QTextEdit *textEdit_Name;
-    QTextEdit *textEdit_Address;
-    QTextEdit *textEdit_Surname;
-    QTextEdit *textEdit_city;
-    QLabel *label_3;
+    QVBoxLayout *verticalLayout_7;
+    QVBoxLayout *verticalLayout_6;
+    QLabel *label_20;
+    QFrame *line_6;
+    QFormLayout *formLayout_2;
     QLabel *label;
-    QTextEdit *textEdit_CAP;
-    QLabel *label_6;
+    QLabel *label_2;
+    QLabel *label_3;
     QLabel *label_4;
     QLabel *label_5;
+    QLabel *label_6;
     QLabel *label_7;
+    QLabel *label_21;
+    QLineEdit *lineEdit_nameAccount;
+    QLineEdit *lineEdit_surnameAccount;
+    QLineEdit *lineEdit_codiceFiscaleAccount;
+    QLineEdit *lineEdit_cityAccount;
+    QLineEdit *lineEdit_CAPAccount;
+    QLineEdit *lineEdit_addressAccount;
+    QLineEdit *lineEdit_phoneNumberAccount;
+    QLineEdit *lineEdit_mailAccount;
     QHBoxLayout *horizontalLayout_3;
-    QPushButton *Button_Salva;
-    QPushButton *Button_annulla;
+    QPushButton *pushButton_saveAcount;
+    QPushButton *pushButton_cancAccount;
     QMenuBar *menubar;
     QMenu *menuFile;
     QMenu *menuAbout;
@@ -135,7 +140,7 @@ public:
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName(QStringLiteral("FinancialManager"));
+            MainWindow->setObjectName(QStringLiteral("MainWindow"));
         MainWindow->resize(914, 650);
         actionRESET = new QAction(MainWindow);
         actionRESET->setObjectName(QStringLiteral("actionRESET"));
@@ -496,92 +501,130 @@ public:
         tabWidget->addTab(tab_4, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));
-        gridLayout = new QGridLayout(tab_2);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        verticalLayout_7 = new QVBoxLayout(tab_2);
+        verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
+        verticalLayout_6 = new QVBoxLayout();
+        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
+        label_20 = new QLabel(tab_2);
+        label_20->setObjectName(QStringLiteral("label_20"));
+        sizePolicy1.setHeightForWidth(label_20->sizePolicy().hasHeightForWidth());
+        label_20->setSizePolicy(sizePolicy1);
+        label_20->setFont(font);
+        label_20->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_6->addWidget(label_20);
+
+        line_6 = new QFrame(tab_2);
+        line_6->setObjectName(QStringLiteral("line_6"));
+        line_6->setFrameShape(QFrame::HLine);
+        line_6->setFrameShadow(QFrame::Sunken);
+
+        verticalLayout_6->addWidget(line_6);
+
+        formLayout_2 = new QFormLayout();
+        formLayout_2->setObjectName(QStringLiteral("formLayout_2"));
+        formLayout_2->setSizeConstraint(QLayout::SetMaximumSize);
+        label = new QLabel(tab_2);
+        label->setObjectName(QStringLiteral("label"));
+
+        formLayout_2->setWidget(0, QFormLayout::LabelRole, label);
+
         label_2 = new QLabel(tab_2);
         label_2->setObjectName(QStringLiteral("label_2"));
 
-        gridLayout->addWidget(label_2, 1, 0, 1, 1);
-
-        textEdit_Mail = new QTextEdit(tab_2);
-        textEdit_Mail->setObjectName(QStringLiteral("textEdit_Mail"));
-
-        gridLayout->addWidget(textEdit_Mail, 6, 2, 1, 1);
-
-        textEdit_PhoneNumber = new QTextEdit(tab_2);
-        textEdit_PhoneNumber->setObjectName(QStringLiteral("textEdit_PhoneNumber"));
-
-        gridLayout->addWidget(textEdit_PhoneNumber, 5, 2, 1, 1);
-
-        textEdit_Name = new QTextEdit(tab_2);
-        textEdit_Name->setObjectName(QStringLiteral("textEdit_Name"));
-
-        gridLayout->addWidget(textEdit_Name, 0, 2, 1, 1);
-
-        textEdit_Address = new QTextEdit(tab_2);
-        textEdit_Address->setObjectName(QStringLiteral("textEdit_Address"));
-
-        gridLayout->addWidget(textEdit_Address, 4, 2, 1, 1);
-
-        textEdit_Surname = new QTextEdit(tab_2);
-        textEdit_Surname->setObjectName(QStringLiteral("textEdit_Surname"));
-
-        gridLayout->addWidget(textEdit_Surname, 1, 2, 1, 1);
-
-        textEdit_city = new QTextEdit(tab_2);
-        textEdit_city->setObjectName(QStringLiteral("textEdit_city"));
-
-        gridLayout->addWidget(textEdit_city, 2, 2, 1, 1);
+        formLayout_2->setWidget(1, QFormLayout::LabelRole, label_2);
 
         label_3 = new QLabel(tab_2);
         label_3->setObjectName(QStringLiteral("label_3"));
 
-        gridLayout->addWidget(label_3, 2, 0, 1, 1);
-
-        label = new QLabel(tab_2);
-        label->setObjectName(QStringLiteral("label"));
-
-        gridLayout->addWidget(label, 0, 0, 1, 1);
-
-        textEdit_CAP = new QTextEdit(tab_2);
-        textEdit_CAP->setObjectName(QStringLiteral("textEdit_CAP"));
-
-        gridLayout->addWidget(textEdit_CAP, 3, 2, 1, 1);
-
-        label_6 = new QLabel(tab_2);
-        label_6->setObjectName(QStringLiteral("label_6"));
-
-        gridLayout->addWidget(label_6, 5, 0, 1, 1);
+        formLayout_2->setWidget(2, QFormLayout::LabelRole, label_3);
 
         label_4 = new QLabel(tab_2);
         label_4->setObjectName(QStringLiteral("label_4"));
 
-        gridLayout->addWidget(label_4, 3, 0, 1, 1);
+        formLayout_2->setWidget(3, QFormLayout::LabelRole, label_4);
 
         label_5 = new QLabel(tab_2);
         label_5->setObjectName(QStringLiteral("label_5"));
 
-        gridLayout->addWidget(label_5, 4, 0, 1, 1);
+        formLayout_2->setWidget(4, QFormLayout::LabelRole, label_5);
+
+        label_6 = new QLabel(tab_2);
+        label_6->setObjectName(QStringLiteral("label_6"));
+
+        formLayout_2->setWidget(5, QFormLayout::LabelRole, label_6);
 
         label_7 = new QLabel(tab_2);
         label_7->setObjectName(QStringLiteral("label_7"));
 
-        gridLayout->addWidget(label_7, 6, 0, 1, 1);
+        formLayout_2->setWidget(6, QFormLayout::LabelRole, label_7);
+
+        label_21 = new QLabel(tab_2);
+        label_21->setObjectName(QStringLiteral("label_21"));
+
+        formLayout_2->setWidget(7, QFormLayout::LabelRole, label_21);
+
+        lineEdit_nameAccount = new QLineEdit(tab_2);
+        lineEdit_nameAccount->setObjectName(QStringLiteral("lineEdit_nameAccount"));
+
+        formLayout_2->setWidget(0, QFormLayout::FieldRole, lineEdit_nameAccount);
+
+        lineEdit_surnameAccount = new QLineEdit(tab_2);
+        lineEdit_surnameAccount->setObjectName(QStringLiteral("lineEdit_surnameAccount"));
+
+        formLayout_2->setWidget(1, QFormLayout::FieldRole, lineEdit_surnameAccount);
+
+        lineEdit_codiceFiscaleAccount = new QLineEdit(tab_2);
+        lineEdit_codiceFiscaleAccount->setObjectName(QStringLiteral("lineEdit_codiceFiscaleAccount"));
+
+        formLayout_2->setWidget(2, QFormLayout::FieldRole, lineEdit_codiceFiscaleAccount);
+
+        lineEdit_cityAccount = new QLineEdit(tab_2);
+        lineEdit_cityAccount->setObjectName(QStringLiteral("lineEdit_cityAccount"));
+
+        formLayout_2->setWidget(3, QFormLayout::FieldRole, lineEdit_cityAccount);
+
+        lineEdit_CAPAccount = new QLineEdit(tab_2);
+        lineEdit_CAPAccount->setObjectName(QStringLiteral("lineEdit_CAPAccount"));
+
+        formLayout_2->setWidget(4, QFormLayout::FieldRole, lineEdit_CAPAccount);
+
+        lineEdit_addressAccount = new QLineEdit(tab_2);
+        lineEdit_addressAccount->setObjectName(QStringLiteral("lineEdit_addressAccount"));
+
+        formLayout_2->setWidget(5, QFormLayout::FieldRole, lineEdit_addressAccount);
+
+        lineEdit_phoneNumberAccount = new QLineEdit(tab_2);
+        lineEdit_phoneNumberAccount->setObjectName(QStringLiteral("lineEdit_phoneNumberAccount"));
+
+        formLayout_2->setWidget(6, QFormLayout::FieldRole, lineEdit_phoneNumberAccount);
+
+        lineEdit_mailAccount = new QLineEdit(tab_2);
+        lineEdit_mailAccount->setObjectName(QStringLiteral("lineEdit_mailAccount"));
+
+        formLayout_2->setWidget(7, QFormLayout::FieldRole, lineEdit_mailAccount);
+
+
+        verticalLayout_6->addLayout(formLayout_2);
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        Button_Salva = new QPushButton(tab_2);
-        Button_Salva->setObjectName(QStringLiteral("Button_Salva"));
+        horizontalLayout_3->setSizeConstraint(QLayout::SetFixedSize);
+        pushButton_saveAcount = new QPushButton(tab_2);
+        pushButton_saveAcount->setObjectName(QStringLiteral("pushButton_saveAcount"));
 
-        horizontalLayout_3->addWidget(Button_Salva);
+        horizontalLayout_3->addWidget(pushButton_saveAcount);
 
-        Button_annulla = new QPushButton(tab_2);
-        Button_annulla->setObjectName(QStringLiteral("Button_annulla"));
+        pushButton_cancAccount = new QPushButton(tab_2);
+        pushButton_cancAccount->setObjectName(QStringLiteral("pushButton_cancAccount"));
 
-        horizontalLayout_3->addWidget(Button_annulla);
+        horizontalLayout_3->addWidget(pushButton_cancAccount);
 
 
-        gridLayout->addLayout(horizontalLayout_3, 7, 2, 1, 1);
+        verticalLayout_6->addLayout(horizontalLayout_3);
+
+
+        verticalLayout_7->addLayout(verticalLayout_6);
 
         tabWidget->addTab(tab_2, QString());
 
@@ -607,7 +650,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(3);
 
 
 
@@ -622,7 +665,7 @@ public:
 
         QObject::connect(actionClose, SIGNAL(triggered()), MainWindow, SLOT(closeApp()));
         QObject::connect(actionRESET, SIGNAL(triggered()), MainWindow, SLOT(RESET()));
-        QObject::connect(Button_Salva, SIGNAL(clicked()), MainWindow, SLOT(accountSave()));
+        QObject::connect(pushButton_saveAcount, SIGNAL(clicked()), MainWindow, SLOT(accountSave()));
         QObject::connect(toolButton, SIGNAL(clicked()), MainWindow, SLOT(showTitleEdit()));
         QObject::connect(buttonTitle_Salva, SIGNAL(clicked()), MainWindow, SLOT (contoTitleSave()));
         QObject::connect(radioButton_sendMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
@@ -631,6 +674,7 @@ public:
 
 
         //---------------------------------------------------------------------------
+
 
 
 
@@ -671,20 +715,17 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Effettua Transazioni", Q_NULLPTR));
         label_19->setText(QApplication::translate("MainWindow", "STORICO TRANSAZIONI", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MainWindow", "Storico", Q_NULLPTR));
-        label_2->setText(QApplication::translate("MainWindow", "Cognome:", Q_NULLPTR));
-        textEdit_Name->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                                                     "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                                                     "p, li { white-space: pre-wrap; }\n"
-                                                                     "</style></head><body style=\" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-                                                                     "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", Q_NULLPTR));
-        label_3->setText(QApplication::translate("MainWindow", "Citt\303\240: ", Q_NULLPTR));
+        label_20->setText(QApplication::translate("MainWindow", "Dati Account", Q_NULLPTR));
         label->setText(QApplication::translate("MainWindow", "Nome: ", Q_NULLPTR));
-        label_6->setText(QApplication::translate("MainWindow", "Telefono: ", Q_NULLPTR));
-        label_4->setText(QApplication::translate("MainWindow", "CAP: ", Q_NULLPTR));
-        label_5->setText(QApplication::translate("MainWindow", "Indirizzo: ", Q_NULLPTR));
-        label_7->setText(QApplication::translate("MainWindow", "Mail: ", Q_NULLPTR));
-        Button_Salva->setText(QApplication::translate("MainWindow", "Salva", Q_NULLPTR));
-        Button_annulla->setText(QApplication::translate("MainWindow", "Annulla", Q_NULLPTR));
+        label_2->setText(QApplication::translate("MainWindow", "Cognome: ", Q_NULLPTR));
+        label_3->setText(QApplication::translate("MainWindow", "Codice Fiscale: ", Q_NULLPTR));
+        label_4->setText(QApplication::translate("MainWindow", "Citt\303\240: ", Q_NULLPTR));
+        label_5->setText(QApplication::translate("MainWindow", "CAP: ", Q_NULLPTR));
+        label_6->setText(QApplication::translate("MainWindow", "Indirizzo: ", Q_NULLPTR));
+        label_7->setText(QApplication::translate("MainWindow", "Telefono: ", Q_NULLPTR));
+        label_21->setText(QApplication::translate("MainWindow", "Mail: ", Q_NULLPTR));
+        pushButton_saveAcount->setText(QApplication::translate("MainWindow", "Salva", Q_NULLPTR));
+        pushButton_cancAccount->setText(QApplication::translate("MainWindow", "Annulla", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Account", Q_NULLPTR));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", Q_NULLPTR));
         menuAbout->setTitle(QApplication::translate("MainWindow", "About", Q_NULLPTR));
@@ -698,4 +739,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // FINANCIALMANAGERZK3694_H
+#endif // FINANCIALMANAGERCO1897_H
