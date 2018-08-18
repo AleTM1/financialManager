@@ -775,6 +775,8 @@ public:
         QObject::connect(radioButton_sendMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
         QObject::connect(radioButton_receiveMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
         QObject::connect(pushButton_doTransaction, SIGNAL(clicked()), MainWindow, SLOT(doTransaction()));
+        QObject::connect(lineEdit_beneficiaryIBAN, SIGNAL(textEdited(const QString &)), MainWindow, SLOT(lineIBANEdited()) );
+        QObject::connect(lineEdit_payerIBAN, SIGNAL(textEdited(const QString &)), MainWindow, SLOT(lineIBANEdited()) );
 
 
         //---------------------------------------------------------------------------

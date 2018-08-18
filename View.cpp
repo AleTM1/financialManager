@@ -105,6 +105,7 @@ void View::update() {
             viewWindow->lineEdit_beneficiaryName->setEnabled(true);
             viewWindow->lineEdit_payerIBAN->setEnabled(false);
             viewWindow->lineEdit_beneficiaryIBAN->setEnabled(true);
+            viewWindow->lineEdit_payerIBAN->setStyleSheet("QLineEdit { color : lightGray; }");
         }else{
             viewWindow->lineEdit_beneficiaryName->setText(account->getName() +" "+ account->getSurname());
             viewWindow->lineEdit_payerName->setText("");
@@ -114,6 +115,7 @@ void View::update() {
             viewWindow->lineEdit_beneficiaryName->setEnabled(false);
             viewWindow->lineEdit_payerIBAN->setEnabled(true);
             viewWindow->lineEdit_beneficiaryIBAN->setEnabled(false);
+            viewWindow->lineEdit_beneficiaryIBAN->setStyleSheet("QLineEdit { color : lightGray; }");
         }
 
         //-------------Storico-----------------------------
@@ -227,7 +229,7 @@ void View::contoTitleSave() {
 
 
 
-//------------------------ Private Method----
+//------------------------ Private Method--------
 
 
 void View::clearLayout(QLayout *layout){
@@ -242,4 +244,27 @@ void View::clearLayout(QLayout *layout){
         }
         delete item;
     }
+}
+
+void View::lineIBANEdited(){
+
+    if(viewWindow->lineEdit_payerIBAN->text().length() != 27)
+        viewWindow->lineEdit_payerIBAN->setStyleSheet("QLineEdit { color : red; }");
+    else{
+        if(viewWindow->lineEdit_payerIBAN->isEnabled())
+            viewWindow->lineEdit_payerIBAN->setStyleSheet("QLineEdit { color : black; }");
+        else
+            viewWindow->lineEdit_payerIBAN->setStyleSheet("QLineEdit { color : lightGray; }");
+    }
+
+
+    if(viewWindow->lineEdit_beneficiaryIBAN->text().length() != 27)
+        viewWindow->lineEdit_beneficiaryIBAN->setStyleSheet("QLineEdit { color : red; }");
+    else{
+        if(viewWindow->lineEdit_beneficiaryIBAN->isEnabled())
+            viewWindow->lineEdit_beneficiaryIBAN->setStyleSheet("QLineEdit { color : black; }");
+        else
+            viewWindow->lineEdit_beneficiaryIBAN->setStyleSheet("QLineEdit { color : lightGray; }");
+    }
+
 }

@@ -37,8 +37,7 @@ private slots:
     void contoTitleSave();
     void radioButtonClicked();
     void doTransaction();
-
-
+    void lineIBANEdited();
 
 private:
 
