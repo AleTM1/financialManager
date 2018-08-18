@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'FinancialManagerCO8028.ui'
+** Form generated from reading UI file 'FinancialManagernQ8028.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.5
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef FINANCIALMANAGERCO8028_H
-#define FINANCIALMANAGERCO8028_H
+#ifndef FINANCIALMANAGERNQ8028_H
+#define FINANCIALMANAGERNQ8028_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -103,8 +103,9 @@ public:
     QVBoxLayout *verticalLayout_4;
     QVBoxLayout *verticalLayout_3;
     QLabel *label_19;
+    QFrame *line_5;
     QHBoxLayout *horizontalLayout_8;
-    QVBoxLayout *verticalLayout_5;
+    QVBoxLayout *verticalLayout_localHistory;
     QScrollBar *verticalScrollBar;
     QWidget *tab_2;
     QGridLayout *gridLayout;
@@ -451,17 +452,26 @@ public:
         label_19->setObjectName(QStringLiteral("label_19"));
         sizePolicy1.setHeightForWidth(label_19->sizePolicy().hasHeightForWidth());
         label_19->setSizePolicy(sizePolicy1);
-        label_19->setFont(font);
+        QFont font4;
+        font4.setPointSize(21);
+        label_19->setFont(font4);
         label_19->setAlignment(Qt::AlignCenter);
 
         verticalLayout_3->addWidget(label_19);
 
+        line_5 = new QFrame(tab_4);
+        line_5->setObjectName(QStringLiteral("line_5"));
+        line_5->setFrameShape(QFrame::HLine);
+        line_5->setFrameShadow(QFrame::Sunken);
+
+        verticalLayout_3->addWidget(line_5);
+
         horizontalLayout_8 = new QHBoxLayout();
         horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
-        verticalLayout_5 = new QVBoxLayout();
-        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
+        verticalLayout_localHistory = new QVBoxLayout();
+        verticalLayout_localHistory->setObjectName(QStringLiteral("verticalLayout_localHistory"));
 
-        horizontalLayout_8->addLayout(verticalLayout_5);
+        horizontalLayout_8->addLayout(verticalLayout_localHistory);
 
         verticalScrollBar = new QScrollBar(tab_4);
         verticalScrollBar->setObjectName(QStringLiteral("verticalScrollBar"));
@@ -678,4 +688,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // FINANCIALMANAGERCO8028_H
+#endif // FINANCIALMANAGERNQ8028_H
