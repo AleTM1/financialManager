@@ -51,6 +51,7 @@ public:
     QLabel *label_payerIBAN;
     QLabel *label_payerName;
     QLabel *label_debit;
+    QFrame *line;
 
     void setupUi(QWidget *Form)
     {
@@ -145,6 +146,13 @@ public:
 
 
         verticalLayout->addLayout(formLayout);
+
+        line = new QFrame(Form);
+        line->setObjectName(QStringLiteral("line"));
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
+
+        verticalLayout->addWidget(line);
 
 
         horizontalLayout->addLayout(verticalLayout);
