@@ -44,6 +44,15 @@ void View::update() {
 
     }else {
 
+        //-----------MESSAGES-----------
+
+        if(model->getErrorLog() != nullptr && model->getErrorLog()->isActivated()){
+            dialogNoButton = new DialogNoButton(model->getErrorLog()->getTitle(), model->getErrorLog()->getText());
+            model->getErrorLog()->setActivated(false);
+            dialogNoButton->show();
+        }
+
+
         //-----------ACCOUNT-------------
 
         viewWindow->textEdit_Name->setEnabled(false);

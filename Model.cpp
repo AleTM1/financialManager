@@ -41,6 +41,10 @@ AbstractDataStorage *Model::accessDataStorage(std::string groupName) const {
 
 }
 
+ErrorLog *Model::getErrorLog() const {
+    return errorLog;
+}
+
 
 //----------------------------------------
 
@@ -126,6 +130,19 @@ bool Model::doTransaction(Transaction transaction) {
     return true;
 
 }
+
+void Model::makeMessageDialogNoButtons(QString ttl, QString txt) {
+
+    if(errorLog!=nullptr)
+        delete errorLog;
+
+    errorLog = new ErrorLog(ttl, txt);
+
+    notify();
+
+}
+
+
 
 
 

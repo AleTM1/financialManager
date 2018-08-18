@@ -13,7 +13,7 @@ class DialogNoButton : public QDialog {
     Q_OBJECT
 public:
 
-    DialogNoButton():dialogUi(new Ui_DialogNoButton){dialogUi->setupUi(this);}
+    DialogNoButton(QString ttl, QString txt);
 
     void setTitleError(QString);
     void setTextError(QString);

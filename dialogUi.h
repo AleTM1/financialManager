@@ -76,6 +76,7 @@ public:
 
         verticalLayout->addLayout(verticalLayout_2);
 
+        QObject::connect(pushButton_closeDialog, SIGNAL(clicked()), Dialog, SLOT(close()));
 
         retranslateUi(Dialog);
 

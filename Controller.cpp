@@ -34,9 +34,11 @@ void Controller::doTransaction(bool d, std::map<std::string, QString> dataTransa
 
     if(model->doTransaction(transaction)){
 
+        model->makeMessageDialogNoButtons("transazione riuscita", "Transazione effettuata con successo!");
+
     }else{
 
-        //TODO chiamare un metodo del model per avvisare che la transazione non può avvenire
+        model->makeMessageDialogNoButtons("transazione fallita", "La cifra che si sta tentando di inviare eccede la liquidità massima disponibile.");
 
     }
 

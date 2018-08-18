@@ -10,6 +10,7 @@
 #include "Account.h"
 #include "Conto.h"
 #include "Historical.h"
+#include "ErrorLog.h"
 
 class Model : public Subject {
 
@@ -35,6 +36,8 @@ public:
 
     bool doTransaction(Transaction transaction);
 
+    void makeMessageDialogNoButtons(QString ttl, QString txt);
+
 public:
 
     bool isTabAccountLocked() const;
@@ -42,6 +45,8 @@ public:
     void setTabAccountLocked(bool tabAccountLocked);
 
     AbstractDataStorage* accessDataStorage(std::string) const;
+
+    ErrorLog *getErrorLog() const;
 
 private:
 
@@ -51,6 +56,8 @@ private:
     Historical* historical;
 
     std::vector<AbstractDataStorage*> dataStorages;
+
+    ErrorLog* errorLog = nullptr;
 
 };
 

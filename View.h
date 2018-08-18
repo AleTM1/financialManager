@@ -12,6 +12,7 @@
 #include "Controller.h"
 #include "Model.h"
 #include "ViewWindow.h"
+#include "DialogNoButton.h"
 
 
 class View : public QMainWindow, public Observer {
@@ -44,6 +45,8 @@ private:
     Controller* controller;
     Model* model;
     Ui_MainWindow* viewWindow;
+
+    DialogNoButton* dialogNoButton;
 
     void clearLayout(QLayout *layout);
 
