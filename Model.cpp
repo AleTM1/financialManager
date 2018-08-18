@@ -122,9 +122,27 @@ int Model::doTransaction(Transaction transaction) {
      *  6) importo eccessivo
      *  7) causale mancante
      */
+    if(transaction.getPayerName().trimmed().length() < 4 || !transaction.getPayerName().contains(" ") )
+        return 1;
+
+    if(transaction.getPayerIBAN().length() != 27)
+        return 2;
+
+    if(transaction.getReceiverName().trimmed().length() < 4 || !transaction.getReceiverName().contains(" ") )
+        return 3;
+
+    if(transaction.getReceiverIBAN().trimmed().length() != 27)
+        return 4;
+
+    if(transaction.getAmount() == 0)
+        return 5;
 
     if(transaction.isDebit() && transaction.getAmount() > conto->getLiquid())
         return 6;
+
+    if(transaction.getCausal().trimmed().length() < 3)
+        return 7;
+
 
     if(transaction.isDebit())
         conto->setLiquid( conto->getLiquid() - transaction.getAmount() );

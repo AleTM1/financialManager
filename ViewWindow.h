@@ -135,7 +135,7 @@ public:
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName(QStringLiteral("MainWindow"));
+            MainWindow->setObjectName(QStringLiteral("FinancialManager"));
         MainWindow->resize(914, 650);
         actionRESET = new QAction(MainWindow);
         actionRESET->setObjectName(QStringLiteral("actionRESET"));
@@ -613,6 +613,9 @@ public:
 
         //---------------------------------------
 
+        QValidator *validator = new QDoubleValidator(0.0,1000000.0,2);
+        lineEdit_amount->setValidator(validator);
+
         horizontalWidget_title->hide();
 
 
@@ -637,7 +640,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "FinancialManager", Q_NULLPTR));
         actionRESET->setText(QApplication::translate("MainWindow", "RESET", Q_NULLPTR));
         actionClose->setText(QApplication::translate("MainWindow", "Close", Q_NULLPTR));
         label_title->setText(QApplication::translate("MainWindow", "----", Q_NULLPTR));

@@ -1,5 +1,9 @@
 
+
         //---------------------------------------
+
+        QValidator *validator = new QDoubleValidator(0.0,1000000.0,2);
+        lineEdit_amount->setValidator(validator);
 
         horizontalWidget_title->hide();
 
@@ -16,5 +20,6 @@
 
 
         //---------------------------------------------------------------------------
+
 
 

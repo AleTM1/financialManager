@@ -31,7 +31,7 @@ public:
     void setupUi(QDialog *Dialog)
     {
         if (Dialog->objectName().isEmpty())
-            Dialog->setObjectName(QStringLiteral("Dialog"));
+            Dialog->setObjectName(QStringLiteral("Message"));
         Dialog->resize(434, 235);
         verticalLayout = new QVBoxLayout(Dialog);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
@@ -85,7 +85,7 @@ public:
 
     void retranslateUi(QDialog *Dialog)
     {
-        Dialog->setWindowTitle(QApplication::translate("Dialog", "Dialog", Q_NULLPTR));
+        Dialog->setWindowTitle(QApplication::translate("Dialog", "Message", Q_NULLPTR));
         label_titleError->setText(QApplication::translate("Dialog", "error", Q_NULLPTR));
         label_text->setText(QApplication::translate("Dialog", "corpo del testo", Q_NULLPTR));
         pushButton_closeDialog->setText(QApplication::translate("Dialog", "Chiudi", Q_NULLPTR));
