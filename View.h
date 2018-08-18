@@ -45,6 +45,8 @@ private:
     Model* model;
     Ui_MainWindow* viewWindow;
 
+    void clearLayout(QLayout *layout);
+
 };
 
 

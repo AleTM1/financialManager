@@ -10,8 +10,6 @@ void Controller::openingApp() {
 
         model->setTabAccountLocked(true);
 
-        model->createAccount();
-
     }else{
 
         model->setTabAccountLocked(false);
@@ -51,7 +49,11 @@ void Controller::doTransaction(bool d, std::map<std::string, QString> dataTransa
 void Controller::accountSave(std::map<std::string, QString> strings) {
 
     model->saveAccount(strings);
-    model->setTabAccountLocked(false);
+
+    if(model->isTabAccountLocked()) {
+        model->setTabAccountLocked(false);
+        model->createAccount();
+    }
 
 }
 

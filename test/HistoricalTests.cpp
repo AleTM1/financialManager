@@ -18,4 +18,5 @@ TEST(Historical, Historical_save_and_load) {
     ASSERT_TRUE(t1 == historical2.getHistory()[0]);
     ASSERT_TRUE(t2 == historical2.getHistory()[1]);
 
+
 }

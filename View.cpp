@@ -7,6 +7,7 @@
 #include <QtCore/QTextStream>
 #include <QtCore/QDate>
 #include "View.h"
+#include "TransactionForm.h"
 
 
 View::View(Controller *c, Model *m):controller(c), model(m), viewWindow(new Ui_MainWindow) {
@@ -102,6 +103,24 @@ void View::update() {
             viewWindow->lineEdit_beneficiaryIBAN->setEnabled(false);
         }
 
+        //-------------Storico-----------------------------
+
+        clearLayout(viewWindow->verticalLayout_5);
+
+        auto historical = dynamic_cast<Historical*>(model->accessDataStorage("Historical"));
+
+        for (int i=0; i<historical->getHistory().size(); i++){
+
+            auto transactionForm = new TransactionForm;
+            transactionForm->transactionForm_ui->label_payerName->setText(historical->getHistory()[i].getPayerName());
+            transactionForm->transactionForm_ui->label_beneficiaryName->setText(historical->getHistory()[i].getReceiverName());
+
+            transactionForm->show();
+            viewWindow->verticalLayout_5->addWidget(transactionForm);
+        }
+
+
+
     }
 
 
@@ -159,10 +178,10 @@ void View::accountSave() {
 
     if(model->isTabAccountLocked()){
 
-        {
-            controller->accountSave(strings);
 
-        }
+        controller->accountSave(strings);
+
+
 
     }else{
 
@@ -183,3 +202,18 @@ void View::contoTitleSave() {
 
 
 //--------------------------
+
+
+void View::clearLayout(QLayout *layout){
+    QLayoutItem *item;
+    while((item = layout->takeAt(0))) {
+        if (item->layout()) {
+            clearLayout(item->layout());
+            delete item->layout();
+        }
+        if (item->widget()) {
+            delete item->widget();
+        }
+        delete item;
+    }
+}
