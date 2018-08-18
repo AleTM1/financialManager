@@ -24,7 +24,7 @@ void Historical::saveData() {
             data.setValue("payerName", history[i].getPayerName());
             data.setValue("payerIBAN", history[i].getPayerIBAN());
             data.setValue("receiverName", history[i].getReceiverName());
-            data.setValue("receiverIBAN", history[i].getPayerIBAN());
+            data.setValue("receiverIBAN", history[i].getReceiverIBAN());
             data.setValue("amount", history[i].getAmount());
             data.setValue("causal", history[i].getCausal());
             data.setValue("date", history[i].getDate());
@@ -39,6 +39,8 @@ void Historical::saveData() {
 }
 
 void Historical::loadData() {
+
+    history.clear();
 
     data.beginGroup(groupName + "/localHistory");
 
