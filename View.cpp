@@ -105,18 +105,30 @@ void View::update() {
 
         //-------------Storico-----------------------------
 
-        clearLayout(viewWindow->verticalLayout_5);
+        clearLayout(viewWindow->verticalLayout_localHistory);
 
         auto historical = dynamic_cast<Historical*>(model->accessDataStorage("Historical"));
 
         for (int i=0; i<historical->getHistory().size(); i++){
 
             auto transactionForm = new TransactionForm;
+            if(historical->getHistory()[i].isDebit()){
+                transactionForm->transactionForm_ui->label_debit->setText("Addebito");
+                transactionForm->transactionForm_ui->label_debit->setStyleSheet("QLabel { color : red; }");
+            }else{
+                transactionForm->transactionForm_ui->label_debit->setText("Accredito");
+                transactionForm->transactionForm_ui->label_debit->setStyleSheet("QLabel { color : green; }");
+            }
             transactionForm->transactionForm_ui->label_payerName->setText(historical->getHistory()[i].getPayerName());
+            transactionForm->transactionForm_ui->label_payerIBAN->setText(historical->getHistory()[i].getPayerIBAN());
             transactionForm->transactionForm_ui->label_beneficiaryName->setText(historical->getHistory()[i].getReceiverName());
+            transactionForm->transactionForm_ui->label_beneficiaryIBAN->setText(historical->getHistory()[i].getReceiverIBAN());
+            transactionForm->transactionForm_ui->label_amount->setText(QString::number(historical->getHistory()[i].getAmount()));
+            transactionForm->transactionForm_ui->label_causal->setText(historical->getHistory()[i].getCausal());
+            transactionForm->transactionForm_ui->label_date->setText(historical->getHistory()[i].getDate().toString("dddd, dd / MMMM / yyyy"));
 
             transactionForm->show();
-            viewWindow->verticalLayout_5->addWidget(transactionForm);
+            viewWindow->verticalLayout_localHistory->addWidget(transactionForm);
         }
 
 

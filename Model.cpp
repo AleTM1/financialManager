@@ -112,8 +112,11 @@ bool Model::doTransaction(Transaction transaction) {
     if(transaction.isDebit() && transaction.getAmount()>conto->getLiquid())
         return false;
 
+    if(transaction.isDebit())
+        conto->setLiquid( conto->getLiquid() - transaction.getAmount() );
+    else
+        conto->setLiquid( conto->getLiquid() + transaction.getAmount() );
 
-    conto->setLiquid( conto->getLiquid() - transaction.getAmount() );
     conto->saveData();
 
     historical->addTransaction(transaction);

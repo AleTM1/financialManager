@@ -48,7 +48,7 @@ public:
     QLabel *label_amount;
     QLabel *label_beneficiaryIBAN;
     QLabel *label_beneficiaryName;
-    QLabel *label_PayerIBAN;
+    QLabel *label_payerIBAN;
     QLabel *label_payerName;
     QLabel *label_debit;
 
@@ -128,10 +128,10 @@ public:
 
         formLayout->setWidget(3, QFormLayout::FieldRole, label_beneficiaryName);
 
-        label_PayerIBAN = new QLabel(Form);
-        label_PayerIBAN->setObjectName(QStringLiteral("label_PayerIBAN"));
+        label_payerIBAN = new QLabel(Form);
+        label_payerIBAN->setObjectName(QStringLiteral("label_payerIBAN"));
 
-        formLayout->setWidget(2, QFormLayout::FieldRole, label_PayerIBAN);
+        formLayout->setWidget(2, QFormLayout::FieldRole, label_payerIBAN);
 
         label_payerName = new QLabel(Form);
         label_payerName->setObjectName(QStringLiteral("label_payerName"));
@@ -171,7 +171,7 @@ public:
         label_amount->setText(QApplication::translate("Form", "---", Q_NULLPTR));
         label_beneficiaryIBAN->setText(QApplication::translate("Form", "---", Q_NULLPTR));
         label_beneficiaryName->setText(QApplication::translate("Form", "---", Q_NULLPTR));
-        label_PayerIBAN->setText(QApplication::translate("Form", "---", Q_NULLPTR));
+        label_payerIBAN->setText(QApplication::translate("Form", "---", Q_NULLPTR));
         label_payerName->setText(QApplication::translate("Form", "---", Q_NULLPTR));
         label_debit->setText(QApplication::translate("Form", "---", Q_NULLPTR));
     } // retranslateUi
