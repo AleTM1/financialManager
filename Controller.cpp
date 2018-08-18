@@ -32,15 +32,23 @@ void Controller::doTransaction(bool d, std::map<std::string, QString> dataTransa
 
     Transaction transaction(d, dataTransaction["payerName"], dataTransaction["payerIBAN"], dataTransaction["receiverName"], dataTransaction["receiverIBAN"], (dataTransaction["amount"]).toInt(), dataTransaction["causal"], date );
 
-    if(model->doTransaction(transaction)){
+    switch(model->doTransaction(transaction)) {
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        case 6: model->makeMessageDialogNoButtons("transazione fallita", "La cifra che si sta tentando di inviare eccede la liquidità massima disponibile.");
+            break;
 
-        model->makeMessageDialogNoButtons("transazione riuscita", "Transazione effettuata con successo!");
-
-    }else{
-
-        model->makeMessageDialogNoButtons("transazione fallita", "La cifra che si sta tentando di inviare eccede la liquidità massima disponibile.");
-
+        default: model->makeMessageDialogNoButtons("transazione riuscita", "Transazione effettuata con successo!");
     }
+
 
 }
 

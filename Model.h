@@ -34,7 +34,7 @@ public:
 
     void saveHistorical(Transaction);
 
-    bool doTransaction(Transaction transaction);
+    int doTransaction(Transaction transaction);
 
     void makeMessageDialogNoButtons(QString ttl, QString txt);
 

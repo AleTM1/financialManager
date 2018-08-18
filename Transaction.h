@@ -12,7 +12,8 @@
 class Transaction {
 public:
 
-  Transaction(bool d, QString pN, QString pI, QString rN, QString rI, int a, QString c , QDate dat):debit(d),payerName(pN), payerIBAN(pI), receiverName(rN), receiverIBAN(rI), amount(a), causal(c), date(dat){}
+  Transaction(bool d, QString pN, QString pI, QString rN, QString rI, int a, QString c , QDate dat):
+          debit(d),payerName(pN), payerIBAN(pI), receiverName(rN), receiverIBAN(rI), amount(a), causal(c), date(dat){}
 
   bool operator==(const Transaction& orig){
       return(orig.getPayerName() == payerName && orig.getReceiverName() == receiverName && orig.getPayerIBAN() == payerIBAN && orig.getReceiverName() == receiverName && orig.getAmount() == amount && orig.getCausal() == causal && orig.getDate() == date && orig.isDebit() == debit );

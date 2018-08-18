@@ -222,7 +222,7 @@ void View::contoTitleSave() {
 
 
 
-//--------------------------
+//------------------------ Private Method----
 
 
 void View::clearLayout(QLayout *layout){

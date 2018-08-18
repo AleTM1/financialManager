@@ -111,10 +111,20 @@ void Model::saveHistorical(Transaction transaction) {
 
 //----------------------------------------------
 
-bool Model::doTransaction(Transaction transaction) {
+int Model::doTransaction(Transaction transaction) {
 
-    if(transaction.isDebit() && transaction.getAmount()>conto->getLiquid())
-        return false;
+    /*  0) buon fine
+     *  1) nome dell'ordinante non valido
+     *  2) IBAN dell'ordinante non valido
+     *  3) nome del beneficiario non valido
+     *  4) IBAN del beneficiario non valido
+     *  5) importo non valido
+     *  6) importo eccessivo
+     *  7) causale mancante
+     */
+
+    if(transaction.isDebit() && transaction.getAmount() > conto->getLiquid())
+        return 6;
 
     if(transaction.isDebit())
         conto->setLiquid( conto->getLiquid() - transaction.getAmount() );
@@ -127,7 +137,7 @@ bool Model::doTransaction(Transaction transaction) {
 
     notify();
 
-    return true;
+    return 0;
 
 }
 
