@@ -260,7 +260,7 @@ void View::lineIBANEdited(){
     }
 
     viewWindow->lineEdit_payerIBAN->setText(viewWindow->lineEdit_payerIBAN->text().toUpper());
-
+    viewWindow->lineEdit_payerIBAN->setText(viewWindow->lineEdit_payerIBAN->text().remove(' '));
 
     if(viewWindow->lineEdit_beneficiaryIBAN->text().length() != 27)
         viewWindow->lineEdit_beneficiaryIBAN->setStyleSheet("QLineEdit { color : red; }");
@@ -272,7 +272,7 @@ void View::lineIBANEdited(){
     }
 
     viewWindow->lineEdit_beneficiaryIBAN->setText(viewWindow->lineEdit_beneficiaryIBAN->text().toUpper());
-
+    viewWindow->lineEdit_beneficiaryIBAN->setText(viewWindow->lineEdit_beneficiaryIBAN->text().remove(' '));
 
 }
 
