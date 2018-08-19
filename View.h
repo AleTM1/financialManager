@@ -38,6 +38,7 @@ private slots:
     void radioButtonClicked();
     void doTransaction();
     void lineIBANEdited();
+    void lineNameEdited();
 
 private:
 

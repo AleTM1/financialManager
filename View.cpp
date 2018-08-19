@@ -246,6 +246,8 @@ void View::clearLayout(QLayout *layout){
     }
 }
 
+//---------------------------Controlli del testo--------------------------
+
 void View::lineIBANEdited(){
 
     if(viewWindow->lineEdit_payerIBAN->text().length() != 27)
@@ -257,6 +259,8 @@ void View::lineIBANEdited(){
             viewWindow->lineEdit_payerIBAN->setStyleSheet("QLineEdit { color : lightGray; }");
     }
 
+    viewWindow->lineEdit_payerIBAN->setText(viewWindow->lineEdit_payerIBAN->text().toUpper());
+
 
     if(viewWindow->lineEdit_beneficiaryIBAN->text().length() != 27)
         viewWindow->lineEdit_beneficiaryIBAN->setStyleSheet("QLineEdit { color : red; }");
@@ -266,5 +270,17 @@ void View::lineIBANEdited(){
         else
             viewWindow->lineEdit_beneficiaryIBAN->setStyleSheet("QLineEdit { color : lightGray; }");
     }
+
+    viewWindow->lineEdit_beneficiaryIBAN->setText(viewWindow->lineEdit_beneficiaryIBAN->text().toUpper());
+
+
+}
+
+void View::lineNameEdited(){
+
+   for (int i=0; i<10; i++) {
+       viewWindow->lineEdit_beneficiaryName->setText(viewWindow->lineEdit_beneficiaryName->text().remove(QString::number(i).at(0)));
+       viewWindow->lineEdit_payerName->setText(viewWindow->lineEdit_payerName->text().remove(QString::number(i).at(0)));
+   }
 
 }

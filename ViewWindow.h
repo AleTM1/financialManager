@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'FinancialManagerwv1897.ui'
+** Form generated from reading UI file 'FinancialManagerik4534.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.5
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef FINANCIALMANAGERWV1897_H
-#define FINANCIALMANAGERWV1897_H
+#ifndef FINANCIALMANAGERIK4534_H
+#define FINANCIALMANAGERIK4534_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -758,6 +758,7 @@ public:
 
 
 
+
         //---------------------------------------
 
         QValidator *validator = new QDoubleValidator(0.0,1000000.0,2);
@@ -777,11 +778,11 @@ public:
         QObject::connect(pushButton_doTransaction, SIGNAL(clicked()), MainWindow, SLOT(doTransaction()));
         QObject::connect(lineEdit_beneficiaryIBAN, SIGNAL(textEdited(const QString &)), MainWindow, SLOT(lineIBANEdited()) );
         QObject::connect(lineEdit_payerIBAN, SIGNAL(textEdited(const QString &)), MainWindow, SLOT(lineIBANEdited()) );
+        QObject::connect(lineEdit_beneficiaryName, SIGNAL(textEdited(const QString &)), MainWindow, SLOT(lineNameEdited()) );
+        QObject::connect(lineEdit_payerName, SIGNAL(textEdited(const QString &)), MainWindow, SLOT(lineNameEdited()) );
 
 
         //---------------------------------------------------------------------------
-
-
 
 
 
@@ -808,10 +809,10 @@ public:
         radioButton_receiveMoney->setText(QApplication::translate("MainWindow", "Ricevi denaro", Q_NULLPTR));
         label_10->setText(QApplication::translate("MainWindow", "Dati dell'ordinante:", Q_NULLPTR));
         label_11->setText(QApplication::translate("MainWindow", "Nome e cognome:", Q_NULLPTR));
-        label_12->setText(QApplication::translate("MainWindow", "IBAN: ", Q_NULLPTR));
+        label_12->setText(QApplication::translate("MainWindow", "IBAN (27 cifre): ", Q_NULLPTR));
         label_14->setText(QApplication::translate("MainWindow", "Dati del Beneficiario:", Q_NULLPTR));
         label_15->setText(QApplication::translate("MainWindow", "Nome e Cognome: ", Q_NULLPTR));
-        label_13->setText(QApplication::translate("MainWindow", "IBAN:", Q_NULLPTR));
+        label_13->setText(QApplication::translate("MainWindow", "IBAN (27 cifre):", Q_NULLPTR));
         label_17->setText(QApplication::translate("MainWindow", "Causale: ", Q_NULLPTR));
         label_16->setText(QApplication::translate("MainWindow", "Importo: ", Q_NULLPTR));
         label_18->setText(QApplication::translate("MainWindow", "Data: ", Q_NULLPTR));
@@ -845,4 +846,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // FINANCIALMANAGERWV1897_H
+#endif // FINANCIALMANAGERIK4534_H
