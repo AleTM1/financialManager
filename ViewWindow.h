@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'FinancialManagerik4534.ui'
+** Form generated from reading UI file 'FinancialManagerZK2962.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.5
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef FINANCIALMANAGERIK4534_H
-#define FINANCIALMANAGERIK4534_H
+#ifndef FINANCIALMANAGERZK2962_H
+#define FINANCIALMANAGERZK2962_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -523,7 +523,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 868, 507));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 98, 28));
         verticalLayout_5 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
         verticalLayout_localHistory = new QVBoxLayout();
@@ -776,13 +776,21 @@ public:
         QObject::connect(radioButton_sendMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
         QObject::connect(radioButton_receiveMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
         QObject::connect(pushButton_doTransaction, SIGNAL(clicked()), MainWindow, SLOT(doTransaction()));
-        QObject::connect(lineEdit_beneficiaryIBAN, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineIBANEdited()) );
-        QObject::connect(lineEdit_payerIBAN, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineIBANEdited()) );
-        QObject::connect(lineEdit_beneficiaryName, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineNameEdited()) );
-        QObject::connect(lineEdit_payerName, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineNameEdited()) );
+        //----------lineEditChanged------------
+        QObject::connect(lineEdit_beneficiaryIBAN, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineIBANEdited(const QString &)) );
+        QObject::connect(lineEdit_payerIBAN, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineIBANEdited(const QString &)) );
+        QObject::connect(lineEdit_beneficiaryName, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineNameEdited(const QString &)) );
+        QObject::connect(lineEdit_payerName, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineNameEdited(const QString &)) );
+
+        QObject::connect(lineEdit_nameAccount, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineNameEdited(const QString &)) );
+        QObject::connect(lineEdit_surnameAccount, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineNameEdited(const QString &)) );
+        //QObject::connect(lineEdit_codiceFiscaleAccount, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineIBANEdited(const QString &)) );
+
 
 
         //---------------------------------------------------------------------------
+
+
 
 
 
@@ -846,4 +854,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // FINANCIALMANAGERIK4534_H
+#endif // FINANCIALMANAGERZK2962_H

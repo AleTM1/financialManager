@@ -123,8 +123,9 @@ void View::update() {
         clearLayout(viewWindow->verticalLayout_localHistory);
 
         auto historical = dynamic_cast<Historical*>(model->accessDataStorage("Historical"));
+        int size=historical->getHistory().size();
 
-        for (int i=0; i<historical->getHistory().size(); i++){
+        for (int i=(size-1); i>=0; i--){
 
             auto transactionForm = new TransactionForm;
             if(historical->getHistory()[i].isDebit()){
@@ -248,39 +249,35 @@ void View::clearLayout(QLayout *layout){
 
 //---------------------------Controlli del testo--------------------------
 
-void View::lineIBANEdited(){
+void View::lineIBANEdited(const QString &text){
 
-    if(viewWindow->lineEdit_payerIBAN->text().length() != 27)
-        viewWindow->lineEdit_payerIBAN->setStyleSheet("QLineEdit { color : red; }");
+    QString stringa=text;
+
+    QLineEdit *lineEdit = dynamic_cast<QLineEdit*>(sender());
+
+    if(stringa.length() != 27)
+        lineEdit->setStyleSheet("QLineEdit { color : red; }");
     else{
-        if(viewWindow->lineEdit_payerIBAN->isEnabled())
-            viewWindow->lineEdit_payerIBAN->setStyleSheet("QLineEdit { color : black; }");
+        if(lineEdit->isEnabled())
+            lineEdit->setStyleSheet("QLineEdit { color : black; }");
         else
-            viewWindow->lineEdit_payerIBAN->setStyleSheet("QLineEdit { color : lightGray; }");
+            lineEdit->setStyleSheet("QLineEdit { color : lightGray; }");
     }
 
-    viewWindow->lineEdit_payerIBAN->setText(viewWindow->lineEdit_payerIBAN->text().toUpper());
-    viewWindow->lineEdit_payerIBAN->setText(viewWindow->lineEdit_payerIBAN->text().remove(' '));
-
-    if(viewWindow->lineEdit_beneficiaryIBAN->text().length() != 27)
-        viewWindow->lineEdit_beneficiaryIBAN->setStyleSheet("QLineEdit { color : red; }");
-    else{
-        if(viewWindow->lineEdit_beneficiaryIBAN->isEnabled())
-            viewWindow->lineEdit_beneficiaryIBAN->setStyleSheet("QLineEdit { color : black; }");
-        else
-            viewWindow->lineEdit_beneficiaryIBAN->setStyleSheet("QLineEdit { color : lightGray; }");
-    }
-
-    viewWindow->lineEdit_beneficiaryIBAN->setText(viewWindow->lineEdit_beneficiaryIBAN->text().toUpper());
-    viewWindow->lineEdit_beneficiaryIBAN->setText(viewWindow->lineEdit_beneficiaryIBAN->text().remove(' '));
+    stringa=stringa.toUpper();
+    stringa=stringa.remove(' ');
+    lineEdit->setText(stringa);
 
 }
 
-void View::lineNameEdited(){
+void View::lineNameEdited( const QString &text){
+
+    QString stringa=text;
+
+    QLineEdit *lineEdit = dynamic_cast<QLineEdit*>(sender());
 
    for (int i=0; i<10; i++) {
-       viewWindow->lineEdit_beneficiaryName->setText(viewWindow->lineEdit_beneficiaryName->text().remove(QString::number(i).at(0)));
-       viewWindow->lineEdit_payerName->setText(viewWindow->lineEdit_payerName->text().remove(QString::number(i).at(0)));
+       lineEdit->setText(stringa.remove(QString::number(i).at(0)));
    }
 
 }

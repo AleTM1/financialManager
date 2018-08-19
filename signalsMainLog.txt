@@ -20,8 +20,8 @@
         QObject::connect(pushButton_doTransaction, SIGNAL(clicked()), MainWindow, SLOT(doTransaction()));
         QObject::connect(lineEdit_beneficiaryIBAN, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineIBANEdited()) );
         QObject::connect(lineEdit_payerIBAN, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineIBANEdited()) );
-        QObject::connect(lineEdit_beneficiaryName, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineNameEdited()) );
-        QObject::connect(lineEdit_payerName, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineNameEdited()) );
+        QObject::connect(lineEdit_beneficiaryName, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineNameEdited(const QString &)) );
+        QObject::connect(lineEdit_payerName, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineNameEdited(const QString &)) );
 
 
         //---------------------------------------------------------------------------
