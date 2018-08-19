@@ -784,7 +784,7 @@ public:
 
         QObject::connect(lineEdit_nameAccount, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineNameEdited(const QString &)) );
         QObject::connect(lineEdit_surnameAccount, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineNameEdited(const QString &)) );
-        //QObject::connect(lineEdit_codiceFiscaleAccount, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineIBANEdited(const QString &)) );
+        QObject::connect(lineEdit_codiceFiscaleAccount, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(codiceFiscaleEdited(const QString &)) );
 
 
 

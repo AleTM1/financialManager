@@ -37,8 +37,11 @@ private slots:
     void contoTitleSave();
     void radioButtonClicked();
     void doTransaction();
+
+    //----controlli---
     void lineIBANEdited(const QString &);
     void lineNameEdited(const QString &);
+    void codiceFiscaleEdited(const QString &);
 
 private:
 

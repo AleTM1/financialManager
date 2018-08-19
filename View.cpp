@@ -253,7 +253,7 @@ void View::lineIBANEdited(const QString &text){
 
     QString stringa=text;
 
-    QLineEdit *lineEdit = dynamic_cast<QLineEdit*>(sender());
+    auto *lineEdit = dynamic_cast<QLineEdit*>(sender());
 
     if(stringa.length() != 27)
         lineEdit->setStyleSheet("QLineEdit { color : red; }");
@@ -279,5 +279,34 @@ void View::lineNameEdited( const QString &text){
    for (int i=0; i<10; i++) {
        lineEdit->setText(stringa.remove(QString::number(i).at(0)));
    }
+
+}
+
+void View::codiceFiscaleEdited(const QString &text){
+
+    QString stringa=text;
+    QString allowedCharacter = "1234567890QWERTYUIOPASDFGHJKLZXCVBNM";
+
+    auto *lineEdit = dynamic_cast<QLineEdit*>(sender());
+
+    stringa=stringa.toUpper();
+
+    if(stringa.length() != 16)
+        lineEdit->setStyleSheet("QLineEdit { color : red; }");
+    else
+        lineEdit->setStyleSheet("QLineEdit { color : black; }");
+
+
+
+    stringa=stringa.remove(' ');
+
+    for(int i = 0; i < stringa.length(); i++) {
+
+        if (!allowedCharacter.contains(stringa.at(i)))
+            stringa.remove(stringa.at(i));
+
+    }
+
+    lineEdit->setText(stringa);
 
 }
