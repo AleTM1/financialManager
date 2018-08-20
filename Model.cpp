@@ -207,9 +207,9 @@ void Model::makeMessageDialogNoButtons(QString ttl, QString txt) {
 
 }
 
-void Model::changeHistoricalOrder(OrderTime o){
+void Model::changeHistoricalOrder(ResearchOptions researchOptions){
 
-    historical->setOrder(o);
+    historical->setOrder(researchOptions);
 
     notify();
 

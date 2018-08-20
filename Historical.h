@@ -15,7 +15,7 @@ class Historical : public AbstractDataStorage{
 
 public:
 
-    Historical(){groupName="Historical";}
+    Historical();
 
     void addTransaction(Transaction);
 
@@ -25,7 +25,7 @@ public:
 
     const std::vector<Transaction> &getHistory() const;
 
-    void setOrder(OrderTime);
+    void setOrder(ResearchOptions);
 
 private:
 
@@ -37,8 +37,7 @@ protected:
 
     std::vector<Transaction> orderedHistory;
 
-    OrderTime selectedTimeOrder = cronologicalOrderReversed;
-
+    ResearchOptions researchOptions;
 };
 
 

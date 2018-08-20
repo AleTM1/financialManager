@@ -5,6 +5,21 @@
 #include "Historical.h"
 
 
+Historical::Historical() {
+
+    groupName = "Historical";
+
+    researchOptions.setOrderTime(OrderTime::cronologicalOrderReversed);
+    researchOptions.setOrderOptions(OrderOptions::all);
+    researchOptions.setSearchText("");
+    researchOptions.setDateFrom(QDate(18,01,01));
+    researchOptions.setDateTo(QDate::currentDate());
+
+
+}
+
+
+
 void Historical::addTransaction(Transaction transaction) {
 
     rawHistory.push_back(transaction);
@@ -71,9 +86,9 @@ const std::vector<Transaction> &Historical::getHistory() const {
 //-----------ordinamento history------------------
 
 
-void Historical::setOrder(OrderTime o) {
+void Historical::setOrder(ResearchOptions resOpt) {
 
-    selectedTimeOrder = o;
+    researchOptions = resOpt;
 
     updateOrder();
 
@@ -81,21 +96,33 @@ void Historical::setOrder(OrderTime o) {
 
 void Historical::updateOrder() {
 
-    if (selectedTimeOrder == OrderTime::cronologicalOrder)
-
+    if (researchOptions.getOrderTime() == OrderTime::cronologicalOrder)
         orderedHistory = rawHistory;
-
     else {
 
         int size = rawHistory.size();
-
         orderedHistory.clear();
 
         for (int i = size - 1; i >= 0; i--) {
-
             orderedHistory.push_back(rawHistory[i]);
-
         }
 
     }
+
+/*
+    if (researchOptions.getOrderOptions() == OrderOptions :: debits){
+
+        for (auto transaction : orderedHistory)
+            if(!transaction.isDebit())
+                orderedHistory.erase(transaction)
+
+    }else if (researchOptions.getOrderOptions() == OrderOptions :: credits){
+
+
+    }
+
+
+*/
+
+
 }

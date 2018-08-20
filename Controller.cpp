@@ -29,12 +29,17 @@ void Controller::reset() {
 
 void Controller::changeHistoricalOrder(bool cronologicalOrder){
 
-   // ResearchOptions researchOptions
+    ResearchOptions researchOptions;
 
     if(cronologicalOrder)
-        model->changeHistoricalOrder(OrderTime::cronologicalOrder);
+        researchOptions.setOrderTime(OrderTime::cronologicalOrder);
     else
-        model->changeHistoricalOrder(OrderTime::cronologicalOrderReversed);
+        researchOptions.setOrderTime(OrderTime::cronologicalOrderReversed);
+
+
+
+    model->changeHistoricalOrder(researchOptions);
+
 }
 
 

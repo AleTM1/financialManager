@@ -38,7 +38,7 @@ public:
 
     void makeMessageDialogNoButtons(QString ttl, QString txt);
 
-    void changeHistoricalOrder(OrderTime);
+    void changeHistoricalOrder(ResearchOptions);
 
 public:
 
