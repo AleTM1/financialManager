@@ -85,11 +85,48 @@ void Model::clearAll() {
 
 //---------------------------------Salvataggi
 
-void Model::saveAccount(std::map<std::string, QString> strings) {
+int Model::saveAccount(std::map<std::string, QString> strings) {
+
+    /*  0) buon fine
+     *  1) nome non valido
+     *  2) cognome non valido
+     *  3) Codice Fiscale non valido
+     *  4) città non valido
+     *  5) CAP non valido
+     *  6) indirizzo non valido
+     *  7) telefono non valido
+     *  8) mail non valido
+     */
+    if(strings["name"].length()<2)
+        return 1;
+
+    if(strings["surname"].length()<2)
+        return 2;
+
+    if(strings["codiceFiscale"].length() != 16)
+        return 3;
+
+    if(strings["city"].length()<2)
+        return 4;
+
+    if(strings["CAP"].length() != 5)
+        return 5;
+
+    if(strings["address"].length()<2)
+        return 6;
+
+    if(strings["phoneNumber"].length() != 10)
+        return 7;
+
+    if(strings["mail"].length() < 6 || strings["mail"].count('@')!=1 || !strings["mail"].contains('.'))
+        return 8;
 
     account->changeData(strings);
 
     notify();
+
+    return 0;
+
 
 }
 

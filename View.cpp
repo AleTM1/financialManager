@@ -31,6 +31,16 @@ View::~View() {
 
 void View::update() {
 
+    //-----------MESSAGES-----------
+
+    if(model->getErrorLog() != nullptr && model->getErrorLog()->isActivated()){
+        dialogNoButton = new DialogNoButton(model->getErrorLog()->getTitle(), model->getErrorLog()->getText());
+        model->getErrorLog()->setActivated(false);
+        dialogNoButton->show();
+    }
+
+    //-------------------Blocco schermata di apertura----
+
     if(model->isTabAccountLocked()){
 
         viewWindow->lineEdit_nameAccount->setEnabled(true);
@@ -44,14 +54,6 @@ void View::update() {
                 viewWindow->tabWidget->setTabEnabled(i,false);
 
     }else {
-
-        //-----------MESSAGES-----------
-
-        if(model->getErrorLog() != nullptr && model->getErrorLog()->isActivated()){
-            dialogNoButton = new DialogNoButton(model->getErrorLog()->getTitle(), model->getErrorLog()->getText());
-            model->getErrorLog()->setActivated(false);
-            dialogNoButton->show();
-        }
 
 
         //-----------ACCOUNT-------------
@@ -69,6 +71,7 @@ void View::update() {
         viewWindow->lineEdit_nameAccount->setText(account->getName());
         viewWindow->lineEdit_surnameAccount->setText(account->getSurname());
         viewWindow->lineEdit_codiceFiscaleAccount->setText(account->getCodiceFiscale());
+        viewWindow->lineEdit_codiceFiscaleAccount->setStyleSheet("QLineEdit { color : lightGray; }");
         viewWindow->lineEdit_cityAccount->setText(account->getCity());
         viewWindow->lineEdit_CAPAccount->setText(account->getCAP());
         viewWindow->lineEdit_addressAccount->setText(account->getAddress());

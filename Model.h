@@ -28,7 +28,7 @@ public:
 
     void clearAll();
 
-    void saveAccount(std::map<std::string, QString>);
+    int saveAccount(std::map<std::string, QString>);
 
     void saveConto(QString);
 
