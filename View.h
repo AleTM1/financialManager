@@ -40,8 +40,16 @@ private slots:
 
     //----controlli---
     void lineIBANEdited(const QString &);
-    void lineNameEdited(const QString &);
+    void lineCAPEdited(const QString &);
+    void linePhoneNumber(const QString &);
     void codiceFiscaleEdited(const QString &);
+    void onlyLetters(const QString &);
+    void onlyNumbers(const QString &);
+
+private:
+
+    void clearLayout(QLayout *layout);
+    QString onlySelectedCharacters(QString& stringa, const QString& allowedCharacters );
 
 private:
 
@@ -51,7 +59,7 @@ private:
 
     DialogNoButton* dialogNoButton;
 
-    void clearLayout(QLayout *layout);
+
 
 };
 

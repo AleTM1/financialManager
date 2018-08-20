@@ -230,6 +230,120 @@ void View::contoTitleSave() {
 
 
 
+
+//---------------------------Controlli del testo--------------------------
+
+void View::lineIBANEdited(const QString &text){
+
+    QString stringa=text;
+    QString allowedCharacters="qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDFGHJKLZXCVBNM ";
+
+    auto *lineEdit = dynamic_cast<QLineEdit*>(sender());
+
+    stringa=stringa.toUpper();
+
+    if(stringa.length() != 27)
+        lineEdit->setStyleSheet("QLineEdit { color : red; }");
+    else{
+        if(lineEdit->isEnabled())
+            lineEdit->setStyleSheet("QLineEdit { color : black; }");
+        else
+            lineEdit->setStyleSheet("QLineEdit { color : lightGray; }");
+    }
+
+    stringa.remove(' ');
+    lineEdit->setText(onlySelectedCharacters(stringa, allowedCharacters));
+
+}
+
+void View::codiceFiscaleEdited(const QString &text){
+
+    QString stringa=text;
+    QString allowedCharacters="qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDFGHJKLZXCVBNM ";
+
+    auto *lineEdit = dynamic_cast<QLineEdit*>(sender());
+
+    stringa=stringa.toUpper();
+
+    if(stringa.length() != 16)
+        lineEdit->setStyleSheet("QLineEdit { color : red; }");
+    else
+        lineEdit->setStyleSheet("QLineEdit { color : black; }");
+
+    stringa.remove(' ');
+    lineEdit->setText(onlySelectedCharacters(stringa, allowedCharacters));
+
+}
+
+void View::lineCAPEdited(const QString &text){
+
+    QString stringa=text;
+    QString allowedCharacters="1234567890";
+
+    auto *lineEdit = dynamic_cast<QLineEdit*>(sender());
+
+    stringa=stringa.toUpper();
+
+    if(stringa.length() != 5)
+        lineEdit->setStyleSheet("QLineEdit { color : red; }");
+    else{
+        if(lineEdit->isEnabled())
+            lineEdit->setStyleSheet("QLineEdit { color : black; }");
+        else
+            lineEdit->setStyleSheet("QLineEdit { color : lightGray; }");
+    }
+
+    stringa.remove(' ');
+    lineEdit->setText(onlySelectedCharacters(stringa, allowedCharacters));
+
+}
+
+void View::linePhoneNumber(const QString &text){
+
+    QString stringa=text;
+    QString allowedCharacters="1234567890";
+
+    auto *lineEdit = dynamic_cast<QLineEdit*>(sender());
+
+    stringa=stringa.toUpper();
+
+    if(stringa.length() != 10)
+        lineEdit->setStyleSheet("QLineEdit { color : red; }");
+    else{
+        if(lineEdit->isEnabled())
+            lineEdit->setStyleSheet("QLineEdit { color : black; }");
+        else
+            lineEdit->setStyleSheet("QLineEdit { color : lightGray; }");
+    }
+
+    stringa.remove(' ');
+    lineEdit->setText(onlySelectedCharacters(stringa, allowedCharacters));
+
+}
+
+void View::onlyLetters( const QString &text){
+
+    QString stringa=text;
+    QString allowedCharacters = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM ";
+
+    auto *lineEdit = dynamic_cast<QLineEdit*>(sender());
+
+    lineEdit->setText(onlySelectedCharacters(stringa, allowedCharacters));
+
+}
+
+
+void View::onlyNumbers( const QString &text){
+
+    QString stringa=text;
+    QString allowedCharacters = "1234567890";
+
+    auto *lineEdit = dynamic_cast<QLineEdit*>(sender());
+
+    lineEdit->setText(onlySelectedCharacters(stringa, allowedCharacters));
+
+}
+
 //------------------------ Private Method--------
 
 
@@ -247,66 +361,15 @@ void View::clearLayout(QLayout *layout){
     }
 }
 
-//---------------------------Controlli del testo--------------------------
-
-void View::lineIBANEdited(const QString &text){
-
-    QString stringa=text;
-
-    auto *lineEdit = dynamic_cast<QLineEdit*>(sender());
-
-    if(stringa.length() != 27)
-        lineEdit->setStyleSheet("QLineEdit { color : red; }");
-    else{
-        if(lineEdit->isEnabled())
-            lineEdit->setStyleSheet("QLineEdit { color : black; }");
-        else
-            lineEdit->setStyleSheet("QLineEdit { color : lightGray; }");
-    }
-
-    stringa=stringa.toUpper();
-    stringa=stringa.remove(' ');
-    lineEdit->setText(stringa);
-
-}
-
-void View::lineNameEdited( const QString &text){
-
-    QString stringa=text;
-
-    QLineEdit *lineEdit = dynamic_cast<QLineEdit*>(sender());
-
-   for (int i=0; i<10; i++) {
-       lineEdit->setText(stringa.remove(QString::number(i).at(0)));
-   }
-
-}
-
-void View::codiceFiscaleEdited(const QString &text){
-
-    QString stringa=text;
-    QString allowedCharacter = "1234567890QWERTYUIOPASDFGHJKLZXCVBNM";
-
-    auto *lineEdit = dynamic_cast<QLineEdit*>(sender());
-
-    stringa=stringa.toUpper();
-
-    if(stringa.length() != 16)
-        lineEdit->setStyleSheet("QLineEdit { color : red; }");
-    else
-        lineEdit->setStyleSheet("QLineEdit { color : black; }");
-
-
-
-    stringa=stringa.remove(' ');
+QString View::onlySelectedCharacters(QString &stringa, const QString &allowedCharacters) {
 
     for(int i = 0; i < stringa.length(); i++) {
 
-        if (!allowedCharacter.contains(stringa.at(i)))
+        if (!allowedCharacters.contains(stringa.at(i)))
             stringa.remove(stringa.at(i));
 
     }
 
-    lineEdit->setText(stringa);
+    return stringa;
 
 }

@@ -776,15 +776,20 @@ public:
         QObject::connect(radioButton_sendMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
         QObject::connect(radioButton_receiveMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
         QObject::connect(pushButton_doTransaction, SIGNAL(clicked()), MainWindow, SLOT(doTransaction()));
+
         //----------lineEditChanged------------
+
         QObject::connect(lineEdit_beneficiaryIBAN, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineIBANEdited(const QString &)) );
         QObject::connect(lineEdit_payerIBAN, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineIBANEdited(const QString &)) );
-        QObject::connect(lineEdit_beneficiaryName, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineNameEdited(const QString &)) );
-        QObject::connect(lineEdit_payerName, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineNameEdited(const QString &)) );
+        QObject::connect(lineEdit_beneficiaryName, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(onlyLetters(const QString &)) );
+        QObject::connect(lineEdit_payerName, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(onlyLetters(const QString &)) );
 
-        QObject::connect(lineEdit_nameAccount, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineNameEdited(const QString &)) );
-        QObject::connect(lineEdit_surnameAccount, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineNameEdited(const QString &)) );
+        QObject::connect(lineEdit_nameAccount, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(onlyLetters(const QString &)) );
+        QObject::connect(lineEdit_surnameAccount, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(onlyLetters(const QString &)) );
         QObject::connect(lineEdit_codiceFiscaleAccount, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(codiceFiscaleEdited(const QString &)) );
+        QObject::connect(lineEdit_cityAccount, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(onlyLetters(const QString &)) );
+        QObject::connect(lineEdit_phoneNumberAccount, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(linePhoneNumber(const QString &)) );
+        QObject::connect(lineEdit_CAPAccount, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineCAPEdited(const QString &)) );
 
 
 
