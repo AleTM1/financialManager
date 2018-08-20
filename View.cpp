@@ -324,18 +324,6 @@ void View::onlyLetters( const QString &text){
 
 }
 
-
-void View::onlyNumbers( const QString &text){
-
-    QString stringa=text;
-    QString allowedCharacters = "1234567890";
-
-    auto *lineEdit = dynamic_cast<QLineEdit*>(sender());
-
-    lineEdit->setText(onlySelectedCharacters(stringa, allowedCharacters));
-
-}
-
 //------------------------ Private Method--------
 
 

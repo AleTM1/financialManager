@@ -44,7 +44,6 @@ private slots:
     void linePhoneNumber(const QString &);
     void codiceFiscaleEdited(const QString &);
     void onlyLetters(const QString &);
-    void onlyNumbers(const QString &);
 
 private:
 

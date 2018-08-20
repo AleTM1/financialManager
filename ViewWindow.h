@@ -1,18 +1,21 @@
 /********************************************************************************
-** Form generated from reading UI file 'FinancialManagerZK2962.ui'
+** Form generated from reading UI file 'FinancialManagerQV2742.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.5
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef FINANCIALMANAGERZK2962_H
-#define FINANCIALMANAGERZK2962_H
+#ifndef FINANCIALMANAGERQV2742_H
+#define FINANCIALMANAGERQV2742_H
 
+#include <QtCore/QDate>
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
+#include <QtWidgets/QDateEdit>
 #include <QtWidgets/QFormLayout>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
@@ -104,7 +107,12 @@ public:
     QVBoxLayout *verticalLayout_3;
     QLabel *label_19;
     QFrame *line_5;
-    QHBoxLayout *horizontalLayout_8;
+    QHBoxLayout *horizontalLayout_9;
+    QPushButton *pushButton_search;
+    QLineEdit *lineEdit_searchHistorical;
+    QComboBox *comboBox_options;
+    QDateEdit *dateEdit_research;
+    QVBoxLayout *verticalLayout_8;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
     QVBoxLayout *verticalLayout_5;
@@ -516,14 +524,41 @@ public:
 
         verticalLayout_3->addWidget(line_5);
 
-        horizontalLayout_8 = new QHBoxLayout();
-        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
+        horizontalLayout_9 = new QHBoxLayout();
+        horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
+        pushButton_search = new QPushButton(tab_4);
+        pushButton_search->setObjectName(QStringLiteral("pushButton_search"));
+
+        horizontalLayout_9->addWidget(pushButton_search);
+
+        lineEdit_searchHistorical = new QLineEdit(tab_4);
+        lineEdit_searchHistorical->setObjectName(QStringLiteral("lineEdit_searchHistorical"));
+
+        horizontalLayout_9->addWidget(lineEdit_searchHistorical);
+
+        comboBox_options = new QComboBox(tab_4);
+        comboBox_options->setObjectName(QStringLiteral("comboBox_options"));
+
+        horizontalLayout_9->addWidget(comboBox_options);
+
+        dateEdit_research = new QDateEdit(tab_4);
+        dateEdit_research->setObjectName(QStringLiteral("dateEdit_research"));
+        dateEdit_research->setCalendarPopup(true);
+        dateEdit_research->setDate(QDate(2001, 1, 1));
+
+        horizontalLayout_9->addWidget(dateEdit_research);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_9);
+
+        verticalLayout_8 = new QVBoxLayout();
+        verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
         scrollArea = new QScrollArea(tab_4);
         scrollArea->setObjectName(QStringLiteral("scrollArea"));
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 98, 28));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 868, 473));
         verticalLayout_5 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
         verticalLayout_localHistory = new QVBoxLayout();
@@ -533,10 +568,10 @@ public:
 
         scrollArea->setWidget(scrollAreaWidgetContents);
 
-        horizontalLayout_8->addWidget(scrollArea);
+        verticalLayout_8->addWidget(scrollArea);
 
 
-        verticalLayout_3->addLayout(horizontalLayout_8);
+        verticalLayout_3->addLayout(verticalLayout_8);
 
 
         verticalLayout_4->addLayout(verticalLayout_3);
@@ -754,17 +789,18 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(1);
-
-
 
 
         //---------------------------------------
+
+        tabWidget->setCurrentIndex(0);
 
         QValidator *validator = new QDoubleValidator(0.0,1000000.0,2);
         lineEdit_amount->setValidator(validator);
 
         horizontalWidget_title->hide();
+        dateEdit_research->hide();
+        dateEdit_research->setMaximumDate(QDate::currentDate());
 
 
 
@@ -834,6 +870,15 @@ public:
         pushButton_Cancel->setText(QApplication::translate("MainWindow", "Annulla", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Effettua Transazioni", Q_NULLPTR));
         label_19->setText(QApplication::translate("MainWindow", "STORICO TRANSAZIONI", Q_NULLPTR));
+        pushButton_search->setText(QApplication::translate("MainWindow", "Cerca", Q_NULLPTR));
+        comboBox_options->clear();
+        comboBox_options->insertItems(0, QStringList()
+                << QApplication::translate("MainWindow", "Dal pi\303\271 recente", Q_NULLPTR)
+                << QApplication::translate("MainWindow", "Dal meno recente", Q_NULLPTR)
+                << QApplication::translate("MainWindow", "Addebiti", Q_NULLPTR)
+                << QApplication::translate("MainWindow", "Accrediti", Q_NULLPTR)
+        );
+        comboBox_options->setCurrentText(QApplication::translate("MainWindow", "Dal pi\303\271 recente", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MainWindow", "Storico", Q_NULLPTR));
         label_20->setText(QApplication::translate("MainWindow", "Dati Account", Q_NULLPTR));
         label->setText(QApplication::translate("MainWindow", "Nome: ", Q_NULLPTR));
@@ -859,4 +904,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // FINANCIALMANAGERZK2962_H
+#endif // FINANCIALMANAGERQV2742_H
