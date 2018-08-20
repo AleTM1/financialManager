@@ -126,7 +126,7 @@ void View::update() {
         clearLayout(viewWindow->verticalLayout_localHistory);
 
         auto historical = dynamic_cast<Historical*>(model->accessDataStorage("Historical"));
-        int size=historical->getHistory().size();
+        auto size = static_cast<int>(historical->getHistory().size());
 
         for (int i=(size-1); i>=0; i--){
 
@@ -208,18 +208,7 @@ void View::accountSave() {
     strings.insert(std::make_pair("phoneNumber",viewWindow->lineEdit_phoneNumberAccount->text()));
     strings.insert(std::make_pair("mail",viewWindow->lineEdit_mailAccount->text()));
 
-    if(model->isTabAccountLocked()){
-
-
-        controller->accountSave(strings);
-
-
-
-    }else{
-
-        controller->accountSave(strings);
-
-    }
+    controller->accountSave(strings);
 
 }
 
