@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'FinancialManagerSa2328.ui'
+** Form generated from reading UI file 'FinancialManagerSn2328.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.5
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef FINANCIALMANAGERSA2328_H
-#define FINANCIALMANAGERSA2328_H
+#ifndef FINANCIALMANAGERSN2328_H
+#define FINANCIALMANAGERSN2328_H
 
 #include <QtCore/QDate>
 #include <QtCore/QVariant>
@@ -120,7 +120,10 @@ public:
     QPushButton *pushButton_search;
     QLineEdit *lineEdit_searchHistorical;
     QComboBox *comboBox_options;
-    QDateEdit *dateEdit_research;
+    QLabel *label_22;
+    QDateEdit *dateEdit_from;
+    QLabel *label_23;
+    QDateEdit *dateEdit_to;
     QVBoxLayout *verticalLayout_8;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
@@ -592,12 +595,29 @@ public:
 
         horizontalLayout_searchOptions->addWidget(comboBox_options);
 
-        dateEdit_research = new QDateEdit(horizontalWidget_searchOptions);
-        dateEdit_research->setObjectName(QStringLiteral("dateEdit_research"));
-        dateEdit_research->setCalendarPopup(true);
-        dateEdit_research->setDate(QDate(2001, 1, 1));
+        label_22 = new QLabel(horizontalWidget_searchOptions);
+        label_22->setObjectName(QStringLiteral("label_22"));
 
-        horizontalLayout_searchOptions->addWidget(dateEdit_research);
+        horizontalLayout_searchOptions->addWidget(label_22);
+
+        dateEdit_from = new QDateEdit(horizontalWidget_searchOptions);
+        dateEdit_from->setObjectName(QStringLiteral("dateEdit_from"));
+        dateEdit_from->setCalendarPopup(true);
+        dateEdit_from->setDate(QDate(2018, 1, 1));
+
+        horizontalLayout_searchOptions->addWidget(dateEdit_from);
+
+        label_23 = new QLabel(horizontalWidget_searchOptions);
+        label_23->setObjectName(QStringLiteral("label_23"));
+
+        horizontalLayout_searchOptions->addWidget(label_23);
+
+        dateEdit_to = new QDateEdit(horizontalWidget_searchOptions);
+        dateEdit_to->setObjectName(QStringLiteral("dateEdit_to"));
+        dateEdit_to->setCalendarPopup(true);
+        dateEdit_to->setDate(QDate(2001, 1, 1));
+
+        horizontalLayout_searchOptions->addWidget(dateEdit_to);
 
 
         verticalLayout_3->addWidget(horizontalWidget_searchOptions);
@@ -841,7 +861,6 @@ public:
         retranslateUi(MainWindow);
 
 
-
         //---------------------------------------
 
         tabWidget->setCurrentIndex(0);
@@ -858,8 +877,9 @@ public:
         //---------Storico Settings------
 
         horizontalWidget_searchOptions->hide();
-        dateEdit_research->setMaximumDate(QDate::currentDate());
-        dateEdit_research->setDate(QDate::currentDate());
+        dateEdit_to->setMaximumDate(QDate::currentDate());
+        dateEdit_from->setMaximumDate(QDate::currentDate());
+        dateEdit_to->setDate(QDate::currentDate());
 
 
         //----------Imputs---------
@@ -945,6 +965,8 @@ public:
                 << QApplication::translate("MainWindow", "Accrediti", Q_NULLPTR)
         );
         comboBox_options->setCurrentText(QApplication::translate("MainWindow", "Tutto", Q_NULLPTR));
+        label_22->setText(QApplication::translate("MainWindow", " da: ", Q_NULLPTR));
+        label_23->setText(QApplication::translate("MainWindow", " al: ", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MainWindow", "Storico", Q_NULLPTR));
         label_20->setText(QApplication::translate("MainWindow", "Dati Account", Q_NULLPTR));
         label->setText(QApplication::translate("MainWindow", "Nome: ", Q_NULLPTR));
@@ -970,4 +992,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // FINANCIALMANAGERSA2328_H
+#endif // FINANCIALMANAGERSN2328_H

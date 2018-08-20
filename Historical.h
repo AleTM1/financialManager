@@ -9,6 +9,7 @@
 #include "AbstractDataStorage.h"
 #include "Conto.h"
 #include "enumOrder.h"
+#include "ResearchOptions.h"
 
 class Historical : public AbstractDataStorage{
 
@@ -24,7 +25,7 @@ public:
 
     const std::vector<Transaction> &getHistory() const;
 
-    void setOrder(orderTime);
+    void setOrder(OrderTime);
 
 private:
 
@@ -36,7 +37,7 @@ protected:
 
     std::vector<Transaction> orderedHistory;
 
-    orderTime selectedTimeOrder = cronologicalOrderReversed;
+    OrderTime selectedTimeOrder = cronologicalOrderReversed;
 
 };
 

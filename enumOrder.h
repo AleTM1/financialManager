@@ -5,9 +5,9 @@
 #ifndef FINANCIALMANAGER_ENUMORDER_H
 #define FINANCIALMANAGER_ENUMORDER_H
 
-enum orderTime { cronologicalOrderReversed, cronologicalOrder };
+enum OrderTime { cronologicalOrderReversed, cronologicalOrder };
 
-enum orderOptions { all , debits, credits };
+enum OrderOptions { all , debits, credits };
 
 
 #endif //FINANCIALMANAGER_ENUMORDER_H

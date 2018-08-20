@@ -29,10 +29,12 @@ void Controller::reset() {
 
 void Controller::changeHistoricalOrder(bool cronologicalOrder){
 
+   // ResearchOptions researchOptions
+
     if(cronologicalOrder)
-        model->changeHistoricalOrder(orderTime::cronologicalOrder);
+        model->changeHistoricalOrder(OrderTime::cronologicalOrder);
     else
-        model->changeHistoricalOrder(orderTime::cronologicalOrderReversed);
+        model->changeHistoricalOrder(OrderTime::cronologicalOrderReversed);
 }
 
 

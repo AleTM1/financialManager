@@ -15,8 +15,9 @@
         //---------Storico Settings------
 
         horizontalWidget_searchOptions->hide();
-        dateEdit_research->setMaximumDate(QDate::currentDate());
-        dateEdit_research->setDate(QDate::currentDate());
+        dateEdit_to->setMaximumDate(QDate::currentDate());
+        dateEdit_from->setMaximumDate(QDate::currentDate());
+        dateEdit_to->setDate(QDate::currentDate());
 
 
         //----------Imputs---------
@@ -26,10 +27,12 @@
         QObject::connect(pushButton_saveAcount, SIGNAL(clicked()), MainWindow, SLOT(accountSave()));
         QObject::connect(toolButton, SIGNAL(clicked()), MainWindow, SLOT(showTitleEdit()));
         QObject::connect(buttonTitle_Salva, SIGNAL(clicked()), MainWindow, SLOT (contoTitleSave()));
-        QObject::connect(radioButton_sendMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
-        QObject::connect(radioButton_receiveMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
+        QObject::connect(radioButton_sendMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonTransactionClicked()));
+        QObject::connect(radioButton_receiveMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonTransactionClicked()));
         QObject::connect(pushButton_doTransaction, SIGNAL(clicked()), MainWindow, SLOT(doTransaction()));
         QObject::connect(pushButton_showOptions, SIGNAL(clicked()), MainWindow, SLOT(showSearchOptions()));
+        QObject::connect(radioButton_cronologicalOrder, SIGNAL (released()), MainWindow, SLOT(radioButtonHistoricalClicked()));
+        QObject::connect(radioButton_cronologicalOrderReverse, SIGNAL (released()), MainWindow, SLOT(radioButtonHistoricalClicked()));
 
         //----------lineEditChanged------------
 

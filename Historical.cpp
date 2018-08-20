@@ -71,7 +71,7 @@ const std::vector<Transaction> &Historical::getHistory() const {
 //-----------ordinamento history------------------
 
 
-void Historical::setOrder(orderTime o) {
+void Historical::setOrder(OrderTime o) {
 
     selectedTimeOrder = o;
 
@@ -81,7 +81,7 @@ void Historical::setOrder(orderTime o) {
 
 void Historical::updateOrder() {
 
-    if (selectedTimeOrder == orderTime::cronologicalOrder)
+    if (selectedTimeOrder == OrderTime::cronologicalOrder)
 
         orderedHistory = rawHistory;
 
