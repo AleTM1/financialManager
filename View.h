@@ -34,8 +34,10 @@ private slots:
     void RESET();
     void accountSave();
     void showTitleEdit();
+    void showSearchOptions();
     void contoTitleSave();
-    void radioButtonClicked();
+    void radioButtonTransactionClicked();
+    void radioButtonHistoricalClicked();
     void doTransaction();
 
     //----controlli---

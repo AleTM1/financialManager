@@ -38,6 +38,8 @@ public:
 
     void makeMessageDialogNoButtons(QString ttl, QString txt);
 
+    void changeHistoricalOrder(orderTime);
+
 public:
 
     bool isTabAccountLocked() const;

@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'FinancialManagerQV2742.ui'
+** Form generated from reading UI file 'FinancialManagerSa2328.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.5
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef FINANCIALMANAGERQV2742_H
-#define FINANCIALMANAGERQV2742_H
+#ifndef FINANCIALMANAGERSA2328_H
+#define FINANCIALMANAGERSA2328_H
 
 #include <QtCore/QDate>
 #include <QtCore/QVariant>
@@ -107,7 +107,16 @@ public:
     QVBoxLayout *verticalLayout_3;
     QLabel *label_19;
     QFrame *line_5;
-    QHBoxLayout *horizontalLayout_9;
+    QGroupBox *groupBox_2;
+    QHBoxLayout *horizontalLayout_8;
+    QSpacerItem *horizontalSpacer_4;
+    QRadioButton *radioButton_cronologicalOrderReverse;
+    QSpacerItem *horizontalSpacer_6;
+    QRadioButton *radioButton_cronologicalOrder;
+    QSpacerItem *horizontalSpacer_5;
+    QPushButton *pushButton_showOptions;
+    QWidget *horizontalWidget_searchOptions;
+    QHBoxLayout *horizontalLayout_searchOptions;
     QPushButton *pushButton_search;
     QLineEdit *lineEdit_searchHistorical;
     QComboBox *comboBox_options;
@@ -524,32 +533,74 @@ public:
 
         verticalLayout_3->addWidget(line_5);
 
-        horizontalLayout_9 = new QHBoxLayout();
-        horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
-        pushButton_search = new QPushButton(tab_4);
+        groupBox_2 = new QGroupBox(tab_4);
+        groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
+        horizontalLayout_8 = new QHBoxLayout(groupBox_2);
+        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_8->addItem(horizontalSpacer_4);
+
+        radioButton_cronologicalOrderReverse = new QRadioButton(groupBox_2);
+        radioButton_cronologicalOrderReverse->setObjectName(QStringLiteral("radioButton_cronologicalOrderReverse"));
+        radioButton_cronologicalOrderReverse->setChecked(true);
+
+        horizontalLayout_8->addWidget(radioButton_cronologicalOrderReverse);
+
+        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_8->addItem(horizontalSpacer_6);
+
+        radioButton_cronologicalOrder = new QRadioButton(groupBox_2);
+        radioButton_cronologicalOrder->setObjectName(QStringLiteral("radioButton_cronologicalOrder"));
+
+        horizontalLayout_8->addWidget(radioButton_cronologicalOrder);
+
+        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_8->addItem(horizontalSpacer_5);
+
+        pushButton_showOptions = new QPushButton(groupBox_2);
+        pushButton_showOptions->setObjectName(QStringLiteral("pushButton_showOptions"));
+        QSizePolicy sizePolicy2(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(pushButton_showOptions->sizePolicy().hasHeightForWidth());
+        pushButton_showOptions->setSizePolicy(sizePolicy2);
+
+        horizontalLayout_8->addWidget(pushButton_showOptions);
+
+
+        verticalLayout_3->addWidget(groupBox_2);
+
+        horizontalWidget_searchOptions = new QWidget(tab_4);
+        horizontalWidget_searchOptions->setObjectName(QStringLiteral("horizontalWidget_searchOptions"));
+        horizontalLayout_searchOptions = new QHBoxLayout(horizontalWidget_searchOptions);
+        horizontalLayout_searchOptions->setObjectName(QStringLiteral("horizontalLayout_searchOptions"));
+        pushButton_search = new QPushButton(horizontalWidget_searchOptions);
         pushButton_search->setObjectName(QStringLiteral("pushButton_search"));
 
-        horizontalLayout_9->addWidget(pushButton_search);
+        horizontalLayout_searchOptions->addWidget(pushButton_search);
 
-        lineEdit_searchHistorical = new QLineEdit(tab_4);
+        lineEdit_searchHistorical = new QLineEdit(horizontalWidget_searchOptions);
         lineEdit_searchHistorical->setObjectName(QStringLiteral("lineEdit_searchHistorical"));
 
-        horizontalLayout_9->addWidget(lineEdit_searchHistorical);
+        horizontalLayout_searchOptions->addWidget(lineEdit_searchHistorical);
 
-        comboBox_options = new QComboBox(tab_4);
+        comboBox_options = new QComboBox(horizontalWidget_searchOptions);
         comboBox_options->setObjectName(QStringLiteral("comboBox_options"));
 
-        horizontalLayout_9->addWidget(comboBox_options);
+        horizontalLayout_searchOptions->addWidget(comboBox_options);
 
-        dateEdit_research = new QDateEdit(tab_4);
+        dateEdit_research = new QDateEdit(horizontalWidget_searchOptions);
         dateEdit_research->setObjectName(QStringLiteral("dateEdit_research"));
         dateEdit_research->setCalendarPopup(true);
         dateEdit_research->setDate(QDate(2001, 1, 1));
 
-        horizontalLayout_9->addWidget(dateEdit_research);
+        horizontalLayout_searchOptions->addWidget(dateEdit_research);
 
 
-        verticalLayout_3->addLayout(horizontalLayout_9);
+        verticalLayout_3->addWidget(horizontalWidget_searchOptions);
 
         verticalLayout_8 = new QVBoxLayout();
         verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
@@ -558,7 +609,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 868, 473));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 868, 398));
         verticalLayout_5 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
         verticalLayout_localHistory = new QVBoxLayout();
@@ -795,23 +846,35 @@ public:
 
         tabWidget->setCurrentIndex(0);
 
+        //---------Account Settings------
+
+        horizontalWidget_title->hide();
+
+        //---------Conto Settings------
+
         QValidator *validator = new QDoubleValidator(0.0,1000000.0,2);
         lineEdit_amount->setValidator(validator);
 
-        horizontalWidget_title->hide();
-        dateEdit_research->hide();
+        //---------Storico Settings------
+
+        horizontalWidget_searchOptions->hide();
         dateEdit_research->setMaximumDate(QDate::currentDate());
+        dateEdit_research->setDate(QDate::currentDate());
 
 
+        //----------Imputs---------
 
         QObject::connect(actionClose, SIGNAL(triggered()), MainWindow, SLOT(closeApp()));
         QObject::connect(actionRESET, SIGNAL(triggered()), MainWindow, SLOT(RESET()));
         QObject::connect(pushButton_saveAcount, SIGNAL(clicked()), MainWindow, SLOT(accountSave()));
         QObject::connect(toolButton, SIGNAL(clicked()), MainWindow, SLOT(showTitleEdit()));
         QObject::connect(buttonTitle_Salva, SIGNAL(clicked()), MainWindow, SLOT (contoTitleSave()));
-        QObject::connect(radioButton_sendMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
-        QObject::connect(radioButton_receiveMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
+        QObject::connect(radioButton_sendMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonTransactionClicked()));
+        QObject::connect(radioButton_receiveMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonTransactionClicked()));
         QObject::connect(pushButton_doTransaction, SIGNAL(clicked()), MainWindow, SLOT(doTransaction()));
+        QObject::connect(pushButton_showOptions, SIGNAL(clicked()), MainWindow, SLOT(showSearchOptions()));
+        QObject::connect(radioButton_cronologicalOrder, SIGNAL (released()), MainWindow, SLOT(radioButtonHistoricalClicked()));
+        QObject::connect(radioButton_cronologicalOrderReverse, SIGNAL (released()), MainWindow, SLOT(radioButtonHistoricalClicked()));
 
         //----------lineEditChanged------------
 
@@ -870,15 +933,18 @@ public:
         pushButton_Cancel->setText(QApplication::translate("MainWindow", "Annulla", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Effettua Transazioni", Q_NULLPTR));
         label_19->setText(QApplication::translate("MainWindow", "STORICO TRANSAZIONI", Q_NULLPTR));
+        groupBox_2->setTitle(QApplication::translate("MainWindow", "Ordine", Q_NULLPTR));
+        radioButton_cronologicalOrderReverse->setText(QApplication::translate("MainWindow", "Dal pi\303\271 recente", Q_NULLPTR));
+        radioButton_cronologicalOrder->setText(QApplication::translate("MainWindow", "Dal meno recente", Q_NULLPTR));
+        pushButton_showOptions->setText(QApplication::translate("MainWindow", "Pi\303\271 opzioni..", Q_NULLPTR));
         pushButton_search->setText(QApplication::translate("MainWindow", "Cerca", Q_NULLPTR));
         comboBox_options->clear();
         comboBox_options->insertItems(0, QStringList()
-                << QApplication::translate("MainWindow", "Dal pi\303\271 recente", Q_NULLPTR)
-                << QApplication::translate("MainWindow", "Dal meno recente", Q_NULLPTR)
+                << QApplication::translate("MainWindow", "Tutto", Q_NULLPTR)
                 << QApplication::translate("MainWindow", "Addebiti", Q_NULLPTR)
                 << QApplication::translate("MainWindow", "Accrediti", Q_NULLPTR)
         );
-        comboBox_options->setCurrentText(QApplication::translate("MainWindow", "Dal pi\303\271 recente", Q_NULLPTR));
+        comboBox_options->setCurrentText(QApplication::translate("MainWindow", "Tutto", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MainWindow", "Storico", Q_NULLPTR));
         label_20->setText(QApplication::translate("MainWindow", "Dati Account", Q_NULLPTR));
         label->setText(QApplication::translate("MainWindow", "Nome: ", Q_NULLPTR));
@@ -904,4 +970,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // FINANCIALMANAGERQV2742_H
+#endif // FINANCIALMANAGERSA2328_H

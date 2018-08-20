@@ -27,6 +27,14 @@ void Controller::reset() {
 
 }
 
+void Controller::changeHistoricalOrder(bool cronologicalOrder){
+
+    if(cronologicalOrder)
+        model->changeHistoricalOrder(orderTime::cronologicalOrder);
+    else
+        model->changeHistoricalOrder(orderTime::cronologicalOrderReversed);
+}
+
 
 void Controller::doTransaction(bool d, std::map<std::string, QString> dataTransaction, QDate date) {
 

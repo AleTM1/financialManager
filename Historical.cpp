@@ -7,27 +7,29 @@
 
 void Historical::addTransaction(Transaction transaction) {
 
-    history.push_back(transaction);
+    rawHistory.push_back(transaction);
 
     saveData();
+
+    updateOrder();
 }
 
 void Historical::saveData() {
 
     data.beginGroup(groupName + "/localHistory");
 
-        data.beginWriteArray("transaction", history.size());
+        data.beginWriteArray("transaction", rawHistory.size());
 
-        for (int i = 0; i < history.size(); i++) {
+        for (int i = 0; i < rawHistory.size(); i++) {
             data.setArrayIndex(i);
-            data.setValue("debit", history[i].isDebit());
-            data.setValue("payerName", history[i].getPayerName());
-            data.setValue("payerIBAN", history[i].getPayerIBAN());
-            data.setValue("receiverName", history[i].getReceiverName());
-            data.setValue("receiverIBAN", history[i].getReceiverIBAN());
-            data.setValue("amount", history[i].getAmount());
-            data.setValue("causal", history[i].getCausal());
-            data.setValue("date", history[i].getDate());
+            data.setValue("debit", rawHistory[i].isDebit());
+            data.setValue("payerName", rawHistory[i].getPayerName());
+            data.setValue("payerIBAN", rawHistory[i].getPayerIBAN());
+            data.setValue("receiverName", rawHistory[i].getReceiverName());
+            data.setValue("receiverIBAN", rawHistory[i].getReceiverIBAN());
+            data.setValue("amount", rawHistory[i].getAmount());
+            data.setValue("causal", rawHistory[i].getCausal());
+            data.setValue("date", rawHistory[i].getDate());
         }
 
         data.endArray();
@@ -40,7 +42,7 @@ void Historical::saveData() {
 
 void Historical::loadData() {
 
-    history.clear();
+    rawHistory.clear();
 
     data.beginGroup(groupName + "/localHistory");
 
@@ -48,18 +50,52 @@ void Historical::loadData() {
             for (int i = 0; i < size; i++) {
                 data.setArrayIndex(i);
                 Transaction transaction(data.value("debit").toBool(),data.value("payerName").toString(),data.value("payerIBAN").toString(),data.value("receiverName").toString(),data.value("receiverIBAN").toString(),data.value("amount").toInt(),data.value("causal").toString(),data.value("date").toDate());
-                history.push_back(transaction);
+                rawHistory.push_back(transaction);
             }
 
         data.endArray();
 
     data.endGroup();
 
-
     data.sync();
+
+    updateOrder();
+
 }
 
 
 const std::vector<Transaction> &Historical::getHistory() const {
-    return history;
+    return orderedHistory;
+}
+
+//-----------ordinamento history------------------
+
+
+void Historical::setOrder(orderTime o) {
+
+    selectedTimeOrder = o;
+
+    updateOrder();
+
+}
+
+void Historical::updateOrder() {
+
+    if (selectedTimeOrder == orderTime::cronologicalOrder)
+
+        orderedHistory = rawHistory;
+
+    else {
+
+        int size = rawHistory.size();
+
+        orderedHistory.clear();
+
+        for (int i = size - 1; i >= 0; i--) {
+
+            orderedHistory.push_back(rawHistory[i]);
+
+        }
+
+    }
 }

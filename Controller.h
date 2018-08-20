@@ -20,6 +20,8 @@ public:
 
     void doTransaction(bool, std::map<std::string, QString>, QDate );
 
+    void changeHistoricalOrder(bool);
+
     //---------------salvataggi
 
     void accountSave(std::map<std::string, QString>);

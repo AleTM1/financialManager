@@ -1,15 +1,25 @@
 
-
         //---------------------------------------
 
         tabWidget->setCurrentIndex(0);
 
-        QValidator *validator = new QDoubleValidator(0.0,1000000.0,2);
-        lineEdit_amount->setValidator(validator);
+        //---------Account Settings------
 
         horizontalWidget_title->hide();
 
+        //---------Conto Settings------
 
+        QValidator *validator = new QDoubleValidator(0.0,1000000.0,2);
+        lineEdit_amount->setValidator(validator);
+
+        //---------Storico Settings------
+
+        horizontalWidget_searchOptions->hide();
+        dateEdit_research->setMaximumDate(QDate::currentDate());
+        dateEdit_research->setDate(QDate::currentDate());
+
+
+        //----------Imputs---------
 
         QObject::connect(actionClose, SIGNAL(triggered()), MainWindow, SLOT(closeApp()));
         QObject::connect(actionRESET, SIGNAL(triggered()), MainWindow, SLOT(RESET()));
@@ -19,6 +29,7 @@
         QObject::connect(radioButton_sendMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
         QObject::connect(radioButton_receiveMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonClicked()));
         QObject::connect(pushButton_doTransaction, SIGNAL(clicked()), MainWindow, SLOT(doTransaction()));
+        QObject::connect(pushButton_showOptions, SIGNAL(clicked()), MainWindow, SLOT(showSearchOptions()));
 
         //----------lineEditChanged------------
 

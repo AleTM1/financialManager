@@ -126,9 +126,8 @@ void View::update() {
         clearLayout(viewWindow->verticalLayout_localHistory);
 
         auto historical = dynamic_cast<Historical*>(model->accessDataStorage("Historical"));
-        auto size = static_cast<int>(historical->getHistory().size());
 
-        for (int i=(size-1); i>=0; i--){
+        for (int i=0; i < historical->getHistory().size() ; i++){
 
             auto transactionForm = new TransactionForm;
             if(historical->getHistory()[i].isDebit()){
@@ -167,8 +166,27 @@ void View::showTitleEdit() {
 
 }
 
-void View::radioButtonClicked() {
+void View::showSearchOptions() {
+
+    if(viewWindow->horizontalWidget_searchOptions->isVisible()){
+        viewWindow->horizontalWidget_searchOptions->setVisible(false);
+        viewWindow->pushButton_showOptions->setText("Più opzioni..");
+    }else{
+        viewWindow->horizontalWidget_searchOptions->setVisible(true);
+        viewWindow->pushButton_showOptions->setText("Meno opzioni");
+    }
+
+}
+
+
+void View::radioButtonTransactionClicked() {
     update();
+}
+
+void View::radioButtonHistoricalClicked() {
+
+    controller->changeHistoricalOrder(viewWindow->radioButton_cronologicalOrder->isChecked());
+
 }
 
 
