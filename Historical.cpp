@@ -35,16 +35,18 @@ void Historical::saveData() {
 
         data.beginWriteArray("transaction", rawHistory.size());
 
-        for (int i = 0; i < rawHistory.size(); i++) {
+        int i = 0;
+        for (auto &transaction : rawHistory) {
             data.setArrayIndex(i);
-            data.setValue("debit", rawHistory[i].isDebit());
-            data.setValue("payerName", rawHistory[i].getPayerName());
-            data.setValue("payerIBAN", rawHistory[i].getPayerIBAN());
-            data.setValue("receiverName", rawHistory[i].getReceiverName());
-            data.setValue("receiverIBAN", rawHistory[i].getReceiverIBAN());
-            data.setValue("amount", rawHistory[i].getAmount());
-            data.setValue("causal", rawHistory[i].getCausal());
-            data.setValue("date", rawHistory[i].getDate());
+            data.setValue("debit", transaction.isDebit());
+            data.setValue("payerName", transaction.getPayerName());
+            data.setValue("payerIBAN", transaction.getPayerIBAN());
+            data.setValue("receiverName", transaction.getReceiverName());
+            data.setValue("receiverIBAN", transaction.getReceiverIBAN());
+            data.setValue("amount", transaction.getAmount());
+            data.setValue("causal", transaction.getCausal());
+            data.setValue("date", transaction.getDate());
+            i++;
         }
 
         data.endArray();
@@ -79,14 +81,14 @@ void Historical::loadData() {
 }
 
 
-const std::vector<Transaction> &Historical::getHistory() const {
+const std::list<Transaction> &Historical::getHistory() const {
     return orderedHistory;
 }
 
 //-----------ordinamento history------------------
 
 
-void Historical::setOrder(ResearchOptions resOpt) {
+void Historical::setOrder(ResearchOptions &resOpt) {
 
     researchOptions = resOpt;
 
@@ -96,33 +98,38 @@ void Historical::setOrder(ResearchOptions resOpt) {
 
 void Historical::updateOrder() {
 
-    if (researchOptions.getOrderTime() == OrderTime::cronologicalOrder)
-        orderedHistory = rawHistory;
-    else {
+    orderedHistory = rawHistory;
 
-        int size = rawHistory.size();
-        orderedHistory.clear();
+    if (researchOptions.getOrderTime() == OrderTime::cronologicalOrderReversed)
+       orderedHistory.reverse();
 
-        for (int i = size - 1; i >= 0; i--) {
-            orderedHistory.push_back(rawHistory[i]);
-        }
 
-    }
 
-/*
     if (researchOptions.getOrderOptions() == OrderOptions :: debits){
 
-        for (auto transaction : orderedHistory)
+        for (auto &transaction : orderedHistory)
             if(!transaction.isDebit())
-                orderedHistory.erase(transaction)
+                orderedHistory.remove(transaction);
 
     }else if (researchOptions.getOrderOptions() == OrderOptions :: credits){
 
+        for (auto &transaction : orderedHistory)
+            if(transaction.isDebit())
+                orderedHistory.remove(transaction);
 
     }
 
+    /*
+
+    for (auto &transaction : orderedHistory)
+        if(transaction.getDate() < researchOptions.getDateFrom() || transaction.getDate() > researchOptions.getDateTo())
+            orderedHistory.remove(transaction);
+
+
+    for (auto &transaction : orderedHistory)
+        if(!(transaction.getPayerIBAN().contains(researchOptions.getSearchText()) || transaction.getReceiverIBAN().contains(researchOptions.getSearchText()) || transaction.getPayerName().contains(researchOptions.getSearchText()) || transaction.getReceiverName().contains(researchOptions.getSearchText()) || transaction.getCausal().contains(researchOptions.getSearchText())))
+            orderedHistory.remove(transaction);
 
 */
-
 
 }

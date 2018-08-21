@@ -27,7 +27,7 @@ void Controller::reset() {
 
 }
 
-void Controller::changeHistoricalOrder(bool cronologicalOrder){
+void Controller::changeHistoricalOrder(bool cronologicalOrder, QString txt, QDate from, QDate to, QString optionOrder){
 
     ResearchOptions researchOptions;
 
@@ -35,6 +35,18 @@ void Controller::changeHistoricalOrder(bool cronologicalOrder){
         researchOptions.setOrderTime(OrderTime::cronologicalOrder);
     else
         researchOptions.setOrderTime(OrderTime::cronologicalOrderReversed);
+
+    researchOptions.setSearchText(txt);
+    researchOptions.setDateFrom(from);
+    researchOptions.setDateTo(to);
+
+    if(optionOrder == "Tutto")
+        researchOptions.setOrderOptions(OrderOptions::all);
+    else if(optionOrder == "Addebiti")
+        researchOptions.setOrderOptions(OrderOptions::debits);
+    else
+        researchOptions.setOrderOptions(OrderOptions::credits);
+
 
 
 

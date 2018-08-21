@@ -20,7 +20,7 @@ public:
 
     void doTransaction(bool, std::map<std::string, QString>, QDate );
 
-    void changeHistoricalOrder(bool);
+    void changeHistoricalOrder(bool, QString txt, QDate from, QDate to, QString option);
 
     //---------------salvataggi
 

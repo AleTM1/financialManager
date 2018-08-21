@@ -39,6 +39,7 @@ private slots:
     void radioButtonTransactionClicked();
     void radioButtonHistoricalClicked();
     void doTransaction();
+    void searchHistorical();
 
     //----controlli---
     void lineIBANEdited(const QString &);

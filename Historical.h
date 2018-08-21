@@ -23,9 +23,9 @@ public:
 
     virtual void loadData() override;
 
-    const std::vector<Transaction> &getHistory() const;
+    const std::list<Transaction> &getHistory() const;
 
-    void setOrder(ResearchOptions);
+    void setOrder(ResearchOptions&);
 
 private:
 
@@ -33,9 +33,9 @@ private:
 
 protected:
 
-    std::vector<Transaction> rawHistory;
+    std::list<Transaction> rawHistory;
 
-    std::vector<Transaction> orderedHistory;
+    std::list<Transaction> orderedHistory;
 
     ResearchOptions researchOptions;
 };

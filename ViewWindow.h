@@ -895,6 +895,7 @@ public:
         QObject::connect(pushButton_showOptions, SIGNAL(clicked()), MainWindow, SLOT(showSearchOptions()));
         QObject::connect(radioButton_cronologicalOrder, SIGNAL (released()), MainWindow, SLOT(radioButtonHistoricalClicked()));
         QObject::connect(radioButton_cronologicalOrderReverse, SIGNAL (released()), MainWindow, SLOT(radioButtonHistoricalClicked()));
+        QObject::connect(pushButton_search, SIGNAL(clicked()), MainWindow, SLOT(searchHistorical()));
 
         //----------lineEditChanged------------
 
