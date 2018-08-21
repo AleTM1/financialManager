@@ -100,36 +100,47 @@ void Historical::updateOrder() {
 
     orderedHistory = rawHistory;
 
-    if (researchOptions.getOrderTime() == OrderTime::cronologicalOrderReversed)
-       orderedHistory.reverse();
 
+
+
+    std::vector<std::list<Transaction>::iterator> iterators;
 
 
     if (researchOptions.getOrderOptions() == OrderOptions :: debits){
 
-        for (auto &transaction : orderedHistory)
-            if(!transaction.isDebit())
-                orderedHistory.remove(transaction);
+
+        for (auto iterator=orderedHistory.begin(); iterator!=orderedHistory.end(); iterator++)
+            if(!iterator->isDebit())
+                iterators.push_back(iterator);
+
 
     }else if (researchOptions.getOrderOptions() == OrderOptions :: credits){
 
-        for (auto &transaction : orderedHistory)
-            if(transaction.isDebit())
-                orderedHistory.remove(transaction);
+        for (auto iterator=orderedHistory.begin(); iterator!=orderedHistory.end(); iterator++)
+            if(iterator->isDebit())
+                iterators.push_back(iterator);
 
     }
 
-    /*
+    //TODO generalizza questo comportamento
 
-    for (auto &transaction : orderedHistory)
-        if(transaction.getDate() < researchOptions.getDateFrom() || transaction.getDate() > researchOptions.getDateTo())
-            orderedHistory.remove(transaction);
+    for (auto it : iterators)
+        orderedHistory.erase(it);
+
+/*
+
+    for (auto iterator=orderedHistory.begin(); iterator!=orderedHistory.end(); iterator++)
+        if(iterator->getDate() < researchOptions.getDateFrom() || iterator->getDate() > researchOptions.getDateTo())
+            orderedHistory.erase(iterator++);
 
 
-    for (auto &transaction : orderedHistory)
-        if(!(transaction.getPayerIBAN().contains(researchOptions.getSearchText()) || transaction.getReceiverIBAN().contains(researchOptions.getSearchText()) || transaction.getPayerName().contains(researchOptions.getSearchText()) || transaction.getReceiverName().contains(researchOptions.getSearchText()) || transaction.getCausal().contains(researchOptions.getSearchText())))
-            orderedHistory.remove(transaction);
+    for (auto iterator=orderedHistory.begin(); iterator!=orderedHistory.end(); iterator++)
+        if(!(iterator->getPayerIBAN().contains(researchOptions.getSearchText()) || iterator->getReceiverIBAN().contains(researchOptions.getSearchText()) || iterator->getPayerName().contains(researchOptions.getSearchText()) || iterator->getReceiverName().contains(researchOptions.getSearchText()) || iterator->getCausal().contains(researchOptions.getSearchText())))
+            orderedHistory.erase(iterator++);
 
 */
+
+    if (researchOptions.getOrderTime() == OrderTime::cronologicalOrderReversed)
+        orderedHistory.reverse();
 
 }
