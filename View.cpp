@@ -149,7 +149,11 @@ void View::update() {
             viewWindow->verticalLayout_localHistory->addWidget(transactionForm);
         }
 
-
+        viewWindow->label_totalHistorical->setText(QString::number(historical->getTotal()));
+        if (historical->getTotal() < 0)
+            viewWindow->label_totalHistorical->setStyleSheet("QLabel { color : red; }");
+        else
+            viewWindow->label_totalHistorical->setStyleSheet("QLabel { color : green; }");
 
     }
 
@@ -183,17 +187,22 @@ void View::radioButtonTransactionClicked() {
     update();
 }
 
-void View::radioButtonHistoricalClicked() {
-
-    controller->changeHistoricalOrder(viewWindow->radioButton_cronologicalOrder->isChecked(), viewWindow->lineEdit_searchHistorical->text(), viewWindow->dateEdit_from->date(), viewWindow->dateEdit_to->date(), viewWindow->comboBox_options->currentText());
-
-}
 
 void View::searchHistorical(){
 
     controller->changeHistoricalOrder(viewWindow->radioButton_cronologicalOrder->isChecked(), viewWindow->lineEdit_searchHistorical->text(), viewWindow->dateEdit_from->date(), viewWindow->dateEdit_to->date(), viewWindow->comboBox_options->currentText());
 
 }
+
+void View::searchDateChanged() {
+
+    viewWindow->dateEdit_to->setMinimumDate(viewWindow->dateEdit_from->date());
+    viewWindow->dateEdit_from->setMaximumDate(viewWindow->dateEdit_to->date());
+
+    searchHistorical();
+
+}
+
 
 void View::RESET() {
 

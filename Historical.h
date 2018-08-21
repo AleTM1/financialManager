@@ -27,6 +27,8 @@ public:
 
     void setOrder(ResearchOptions&);
 
+    float getTotal() const;
+
 private:
 
     void updateOrder();
@@ -38,6 +40,8 @@ protected:
     std::list<Transaction> orderedHistory;
 
     ResearchOptions researchOptions;
+
+    float total;
 };
 
 

@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'FinancialManagerSn2328.ui'
+** Form generated from reading UI file 'FinancialManagerkn2584.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.5
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef FINANCIALMANAGERSN2328_H
-#define FINANCIALMANAGERSN2328_H
+#ifndef FINANCIALMANAGERKN2584_H
+#define FINANCIALMANAGERKN2584_H
 
 #include <QtCore/QDate>
 #include <QtCore/QVariant>
@@ -129,6 +129,9 @@ public:
     QWidget *scrollAreaWidgetContents;
     QVBoxLayout *verticalLayout_5;
     QVBoxLayout *verticalLayout_localHistory;
+    QHBoxLayout *horizontalLayout_9;
+    QLabel *label_24;
+    QLabel *label_totalHistorical;
     QWidget *tab_2;
     QVBoxLayout *verticalLayout_7;
     QVBoxLayout *verticalLayout_6;
@@ -629,7 +632,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 868, 398));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 868, 354));
         verticalLayout_5 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
         verticalLayout_localHistory = new QVBoxLayout();
@@ -643,6 +646,25 @@ public:
 
 
         verticalLayout_3->addLayout(verticalLayout_8);
+
+        horizontalLayout_9 = new QHBoxLayout();
+        horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
+        label_24 = new QLabel(tab_4);
+        label_24->setObjectName(QStringLiteral("label_24"));
+        label_24->setFont(font1);
+        label_24->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_9->addWidget(label_24);
+
+        label_totalHistorical = new QLabel(tab_4);
+        label_totalHistorical->setObjectName(QStringLiteral("label_totalHistorical"));
+        label_totalHistorical->setFont(font1);
+        label_totalHistorical->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_9->addWidget(label_totalHistorical);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_9);
 
 
         verticalLayout_4->addLayout(verticalLayout_3);
@@ -879,6 +901,7 @@ public:
         horizontalWidget_searchOptions->hide();
         dateEdit_to->setMaximumDate(QDate::currentDate());
         dateEdit_from->setMaximumDate(QDate::currentDate());
+        dateEdit_to->setMinimumDate(dateEdit_from->date());
         dateEdit_to->setDate(QDate::currentDate());
 
 
@@ -893,9 +916,14 @@ public:
         QObject::connect(radioButton_receiveMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonTransactionClicked()));
         QObject::connect(pushButton_doTransaction, SIGNAL(clicked()), MainWindow, SLOT(doTransaction()));
         QObject::connect(pushButton_showOptions, SIGNAL(clicked()), MainWindow, SLOT(showSearchOptions()));
-        QObject::connect(radioButton_cronologicalOrder, SIGNAL (released()), MainWindow, SLOT(radioButtonHistoricalClicked()));
-        QObject::connect(radioButton_cronologicalOrderReverse, SIGNAL (released()), MainWindow, SLOT(radioButtonHistoricalClicked()));
+        QObject::connect(radioButton_cronologicalOrder, SIGNAL (released()), MainWindow, SLOT(searchHistorical()));
+        QObject::connect(radioButton_cronologicalOrderReverse, SIGNAL (released()), MainWindow, SLOT(searchHistorical()));
         QObject::connect(pushButton_search, SIGNAL(clicked()), MainWindow, SLOT(searchHistorical()));
+        QObject::connect(lineEdit_searchHistorical, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(searchHistorical()));
+        QObject::connect(comboBox_options, SIGNAL(currentIndexChanged(int)), MainWindow, SLOT(searchHistorical()));
+
+        QObject::connect(dateEdit_to, SIGNAL(dateChanged(const QDate &)), MainWindow ,SLOT( searchDateChanged() ));
+        QObject::connect(dateEdit_from, SIGNAL(dateChanged(const QDate &)), MainWindow ,SLOT( searchDateChanged() ));
 
         //----------lineEditChanged------------
 
@@ -914,7 +942,6 @@ public:
 
 
         //---------------------------------------------------------------------------
-
 
 
 
@@ -968,6 +995,8 @@ public:
         comboBox_options->setCurrentText(QApplication::translate("MainWindow", "Tutto", Q_NULLPTR));
         label_22->setText(QApplication::translate("MainWindow", " da: ", Q_NULLPTR));
         label_23->setText(QApplication::translate("MainWindow", " al: ", Q_NULLPTR));
+        label_24->setText(QApplication::translate("MainWindow", "Riepilogo: ", Q_NULLPTR));
+        label_totalHistorical->setText(QApplication::translate("MainWindow", "0000", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MainWindow", "Storico", Q_NULLPTR));
         label_20->setText(QApplication::translate("MainWindow", "Dati Account", Q_NULLPTR));
         label->setText(QApplication::translate("MainWindow", "Nome: ", Q_NULLPTR));
@@ -993,4 +1022,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // FINANCIALMANAGERSN2328_H
+#endif // FINANCIALMANAGERKN2584_H

@@ -85,6 +85,10 @@ const std::list<Transaction> &Historical::getHistory() const {
     return orderedHistory;
 }
 
+float Historical::getTotal() const {
+    return total;
+}
+
 //-----------ordinamento history------------------
 
 
@@ -100,47 +104,47 @@ void Historical::updateOrder() {
 
     orderedHistory = rawHistory;
 
-
-
-
     std::vector<std::list<Transaction>::iterator> iterators;
 
+    float tot = 0;
 
-    if (researchOptions.getOrderOptions() == OrderOptions :: debits){
-
+    if (researchOptions.getOrderOptions() == OrderOptions :: all){
+        for (auto iterator=orderedHistory.begin(); iterator!=orderedHistory.end(); iterator++)
+            if(iterator->getDate() < researchOptions.getDateFrom() || iterator->getDate() > researchOptions.getDateTo())
+                iterators.push_back(iterator);
+            else if(!(iterator->getPayerIBAN().contains(researchOptions.getSearchText(), Qt::CaseInsensitive) || iterator->getReceiverIBAN().contains(researchOptions.getSearchText(), Qt::CaseInsensitive) || iterator->getPayerName().contains(researchOptions.getSearchText(), Qt::CaseInsensitive) || iterator->getReceiverName().contains(researchOptions.getSearchText(), Qt::CaseInsensitive) || iterator->getCausal().contains(researchOptions.getSearchText(), Qt::CaseInsensitive)))
+                iterators.push_back(iterator);
+            else {  if (iterator->isDebit())
+                        tot-=iterator->getAmount();
+                    else
+                        tot+=iterator->getAmount();
+            }
+    }else{
 
         for (auto iterator=orderedHistory.begin(); iterator!=orderedHistory.end(); iterator++)
-            if(!iterator->isDebit())
+            if(iterator->isDebit() == (researchOptions.getOrderOptions() == OrderOptions :: credits))
                 iterators.push_back(iterator);
-
-
-    }else if (researchOptions.getOrderOptions() == OrderOptions :: credits){
-
-        for (auto iterator=orderedHistory.begin(); iterator!=orderedHistory.end(); iterator++)
-            if(iterator->isDebit())
+            else if(iterator->getDate() < researchOptions.getDateFrom() || iterator->getDate() > researchOptions.getDateTo())
                 iterators.push_back(iterator);
+            else if(!(iterator->getPayerIBAN().contains(researchOptions.getSearchText(), Qt::CaseInsensitive) || iterator->getReceiverIBAN().contains(researchOptions.getSearchText(), Qt::CaseInsensitive) || iterator->getPayerName().contains(researchOptions.getSearchText(), Qt::CaseInsensitive) || iterator->getReceiverName().contains(researchOptions.getSearchText(), Qt::CaseInsensitive) || iterator->getCausal().contains(researchOptions.getSearchText(), Qt::CaseInsensitive)))
+                iterators.push_back(iterator);
+            else {  if (iterator->isDebit())
+                        tot-=iterator->getAmount();
+                    else
+                        tot+=iterator->getAmount();
+            }
 
     }
 
-    //TODO generalizza questo comportamento
+
 
     for (auto it : iterators)
         orderedHistory.erase(it);
 
-/*
-
-    for (auto iterator=orderedHistory.begin(); iterator!=orderedHistory.end(); iterator++)
-        if(iterator->getDate() < researchOptions.getDateFrom() || iterator->getDate() > researchOptions.getDateTo())
-            orderedHistory.erase(iterator++);
-
-
-    for (auto iterator=orderedHistory.begin(); iterator!=orderedHistory.end(); iterator++)
-        if(!(iterator->getPayerIBAN().contains(researchOptions.getSearchText()) || iterator->getReceiverIBAN().contains(researchOptions.getSearchText()) || iterator->getPayerName().contains(researchOptions.getSearchText()) || iterator->getReceiverName().contains(researchOptions.getSearchText()) || iterator->getCausal().contains(researchOptions.getSearchText())))
-            orderedHistory.erase(iterator++);
-
-*/
+    total = tot;
 
     if (researchOptions.getOrderTime() == OrderTime::cronologicalOrderReversed)
         orderedHistory.reverse();
 
 }
+
