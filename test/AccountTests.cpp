@@ -63,3 +63,42 @@ TEST(Account, Account_save_and_load) {
     account.changeData(orignalData);
 
 }
+
+
+TEST (Account, Account_is_first_opening){
+
+
+
+    Account account;
+
+    account.loadData();
+
+    //conserva i dati già presenti
+
+    std::map<AccountData, QString> orignalData;
+
+    orignalData.insert(std::make_pair(name, account.getName()));
+    orignalData.insert(std::make_pair(surname, account.getSurname()));
+    orignalData.insert(std::make_pair(codiceFiscale, account.getCodiceFiscale()));
+    orignalData.insert(std::make_pair(city, account.getCity()));
+    orignalData.insert(std::make_pair(CAP, account.getCAP()));
+    orignalData.insert(std::make_pair(address, account.getAddress()));
+    orignalData.insert(std::make_pair(phoneNumber, account.getPhoneNumber()));
+    orignalData.insert(std::make_pair(mail, account.getMail()));
+
+    //simula un nuovo salvataggio
+
+    account.clear();
+    
+    //simula un nuovo accesso
+
+    Account account1;
+
+    ASSERT_TRUE(account1.isFirstOpening());
+    
+    //reinserisci i dati precedenti
+
+    account.changeData(orignalData);
+
+
+}
