@@ -28,17 +28,17 @@ public:  //getter and setter
 
     const QString &getIBAN() const;
 
-    int getSaldo() const;
+    float getSaldo() const;
 
-    void setSaldo(int saldo);
+    void setSaldo(float saldo);
 
-    int getLiquid() const;
+    float getLiquid() const;
 
-    void setLiquid(int liquid);
+    void setLiquid(float liquid);
 
-    int getInvested() const;
+    float getInvested() const;
 
-    void setInvested(int invested);
+    void setInvested(float invested);
 
     const QString &getTitle() const;
 
@@ -48,9 +48,9 @@ protected: //data
 
     QString title;
     QString IBAN;
-    int saldo;
-    int liquid;
-    int invested;
+    float saldo;
+    float liquid;
+    float invested;
 
 
 private: //privates methods

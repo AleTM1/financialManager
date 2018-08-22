@@ -891,11 +891,6 @@ public:
 
         horizontalWidget_title->hide();
 
-        //---------Conto Settings------
-
-        QValidator *validator = new QDoubleValidator(0.0,1000000.0,2);
-        lineEdit_amount->setValidator(validator);
-
         //---------Storico Settings------
 
         horizontalWidget_searchOptions->hide();
@@ -931,6 +926,8 @@ public:
         QObject::connect(lineEdit_payerIBAN, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineIBANEdited(const QString &)) );
         QObject::connect(lineEdit_beneficiaryName, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(onlyLetters(const QString &)) );
         QObject::connect(lineEdit_payerName, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(onlyLetters(const QString &)) );
+        QObject::connect(lineEdit_amount, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineAmountEdited(const QString &)) );
+
 
         QObject::connect(lineEdit_nameAccount, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(onlyLetters(const QString &)) );
         QObject::connect(lineEdit_surnameAccount, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(onlyLetters(const QString &)) );

@@ -53,28 +53,28 @@ const QString &Conto::getIBAN() const {
     return IBAN;
 }
 
-int Conto::getSaldo() const {
+float Conto::getSaldo() const {
     return saldo;
 }
 
-void Conto::setSaldo(int saldo) {
+void Conto::setSaldo(float saldo) {
     Conto::saldo = saldo;
 }
 
-int Conto::getLiquid() const {
+float Conto::getLiquid() const {
     return liquid;
 }
 
-void Conto::setLiquid(int liquid) {
+void Conto::setLiquid(float liquid) {
     Conto::liquid = liquid;
     saldo = liquid + invested;
 }
 
-int Conto::getInvested() const {
+float Conto::getInvested() const {
     return invested;
 }
 
-void Conto::setInvested(int invested) {
+void Conto::setInvested(float invested) {
     Conto::invested = invested;
     saldo = liquid + invested;
 }

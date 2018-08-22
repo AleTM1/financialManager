@@ -12,7 +12,7 @@
 class Transaction {
 public:
 
-  Transaction(bool d, QString pN, QString pI, QString rN, QString rI, int a, QString c , QDate dat):
+  Transaction(bool d, QString pN, QString pI, QString rN, QString rI, float a, QString c , QDate dat):
           debit(d),payerName(pN), payerIBAN(pI), receiverName(rN), receiverIBAN(rI), amount(a), causal(c), date(dat){}
 
   bool operator==(const Transaction& orig){
@@ -40,7 +40,7 @@ public:
         return receiverIBAN;
     }
 
-    int getAmount() const {
+    float getAmount() const {
         return amount;
     }
 
@@ -59,7 +59,7 @@ protected:
     QString payerIBAN;
     QString receiverName;
     QString receiverIBAN;
-    int amount;
+    float amount;
     QString causal;
     QDate date;
 

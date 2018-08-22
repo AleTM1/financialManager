@@ -44,6 +44,7 @@ private slots:
     //----controlli---
     void lineIBANEdited(const QString &);
     void lineCAPEdited(const QString &);
+    void lineAmountEdited(const QString &);
     void linePhoneNumber(const QString &);
     void codiceFiscaleEdited(const QString &);
     void onlyLetters(const QString &);

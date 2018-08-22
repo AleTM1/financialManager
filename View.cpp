@@ -322,6 +322,23 @@ void View::lineCAPEdited(const QString &text){
 
 }
 
+void View::lineAmountEdited(const QString &text){
+
+    QString stringa=text;
+    QString allowedCharacters="1234567890";
+
+
+    if(stringa.count('.')<2)
+        allowedCharacters = "1234567890.";
+
+    auto *lineEdit = dynamic_cast<QLineEdit*>(sender());
+
+    stringa.remove(' ');
+    lineEdit->setText(onlySelectedCharacters(stringa, allowedCharacters));
+
+}
+
+
 void View::linePhoneNumber(const QString &text){
 
     QString stringa=text;
