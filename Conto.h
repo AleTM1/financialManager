@@ -8,6 +8,7 @@
 
 #include "AbstractDataStorage.h"
 #include "Transaction.h"
+#include "enumSaving.h"
 
 class Conto : public AbstractDataStorage{
 

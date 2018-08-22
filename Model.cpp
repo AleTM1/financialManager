@@ -32,10 +32,10 @@ void Model::setTabAccountLocked(bool tabAccountLocked) {
     notify();
 }
 
-AbstractDataStorage *Model::accessDataStorage(std::string groupName) const {
+AbstractDataStorage *Model::accessDataStorage(QString groupName) const {
 
     for (auto dataClass : dataStorages)
-        if(groupName == dataClass->getGroup().toStdString())
+        if(groupName == dataClass->getGroupName())
             return dataClass;
 
 
@@ -85,7 +85,7 @@ void Model::clearAll() {
 
 //---------------------------------Salvataggi
 
-int Model::saveAccount(std::map<std::string, QString> strings) {
+int Model::saveAccount(std::map<AccountData , QString> strings) {
 
     /*  0) buon fine
      *  1) nome non valido
@@ -97,28 +97,28 @@ int Model::saveAccount(std::map<std::string, QString> strings) {
      *  7) telefono non valido
      *  8) mail non valido
      */
-    if(strings["name"].length()<2)
+    if(strings[AccountData::name].length()<2)
         return 1;
 
-    if(strings["surname"].length()<2)
+    if(strings[AccountData::surname].length()<2)
         return 2;
 
-    if(strings["codiceFiscale"].length() != 16)
+    if(strings[AccountData::codiceFiscale].length() != 16)
         return 3;
 
-    if(strings["city"].length()<2)
+    if(strings[AccountData::city].length()<2)
         return 4;
 
-    if(strings["CAP"].length() != 5)
+    if(strings[AccountData::CAP].length() != 5)
         return 5;
 
-    if(strings["address"].length()<2)
+    if(strings[AccountData::address].length()<2)
         return 6;
 
-    if(strings["phoneNumber"].length() != 10)
+    if(strings[AccountData::phoneNumber].length() != 10)
         return 7;
 
-    if(strings["mail"].length() < 6 || strings["mail"].count('@')!=1 || !strings["mail"].contains('.'))
+    if(strings[AccountData::mail].length() < 6 || strings[AccountData::mail].count('@')!=1 || !strings[AccountData::mail].contains('.'))
         return 8;
 
     account->changeData(strings);

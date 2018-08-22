@@ -1,10 +1,8 @@
 
 #include <QtWidgets/QApplication>
-
 #include "Model.h"
 #include "Controller.h"
 #include "View.h"
-
 
 
 int main(int argv, char **args) {

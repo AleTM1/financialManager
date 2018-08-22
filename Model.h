@@ -5,12 +5,11 @@
 #ifndef QTPROVA_MODEL_H
 #define QTPROVA_MODEL_H
 
-
 #include "Subject.h"
 #include "Account.h"
-#include "Conto.h"
 #include "Historical.h"
 #include "ErrorLog.h"
+
 
 class Model : public Subject {
 
@@ -28,7 +27,7 @@ public:
 
     void clearAll();
 
-    int saveAccount(std::map<std::string, QString>);
+    int saveAccount(std::map<AccountData, QString>);
 
     void saveConto(QString);
 
@@ -46,7 +45,7 @@ public:
 
     void setTabAccountLocked(bool tabAccountLocked);
 
-    AbstractDataStorage* accessDataStorage(std::string) const;
+    AbstractDataStorage* accessDataStorage(QString) const;
 
     ErrorLog *getErrorLog() const;
 

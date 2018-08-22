@@ -6,9 +6,7 @@
 #define FINANCIALMANAGER_HISTORICAL_H
 
 
-#include "AbstractDataStorage.h"
 #include "Conto.h"
-#include "enumOrder.h"
 #include "ResearchOptions.h"
 
 class Historical : public AbstractDataStorage{

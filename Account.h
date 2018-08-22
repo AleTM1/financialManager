@@ -9,6 +9,7 @@
 #include <QtCore/QString>
 #include <QtCore/QSettings>
 #include "AbstractDataStorage.h"
+#include "enumSaving.h"
 
 class Account : public AbstractDataStorage {
 
@@ -20,7 +21,7 @@ public:
 
     virtual void loadData() override;
 
-    void changeData(std::map<std::string, QString>);
+    void changeData(std::map<AccountData, QString>);
 
     virtual void saveData() override;
 

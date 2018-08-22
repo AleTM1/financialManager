@@ -55,9 +55,9 @@ void Controller::changeHistoricalOrder(bool cronologicalOrder, QString txt, QDat
 }
 
 
-void Controller::doTransaction(bool d, std::map<std::string, QString> dataTransaction, QDate date) {
+void Controller::doTransaction(bool d, std::map<TransactionData , QString> dataTransaction, QDate date) {
 
-    Transaction transaction(d, dataTransaction["payerName"], dataTransaction["payerIBAN"], dataTransaction["receiverName"], dataTransaction["receiverIBAN"], (dataTransaction["amount"]).toFloat(), dataTransaction["causal"], date );
+    Transaction transaction(d, dataTransaction[payerName], dataTransaction[payerIBAN], dataTransaction[receiverName], dataTransaction[receiverIBAN], (dataTransaction[amount]).toFloat(), dataTransaction[causal], date );
 
     switch(model->doTransaction(transaction)) {
         case 0: model->makeMessageDialogNoButtons("transazione riuscita", "Transazione effettuata con successo!");
@@ -87,7 +87,7 @@ void Controller::doTransaction(bool d, std::map<std::string, QString> dataTransa
 //--------------------------------- Salvataggi
 
 
-void Controller::accountSave(std::map<std::string, QString> strings) {
+void Controller::accountSave(std::map<AccountData , QString> strings) {
 
     switch(model->saveAccount(strings)) {
         case 0:

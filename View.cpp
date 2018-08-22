@@ -7,7 +7,6 @@
 #include <QtCore/QTextStream>
 #include <QtCore/QDate>
 #include "View.h"
-#include "TransactionForm.h"
 
 
 View::View(Controller *c, Model *m):controller(c), model(m), viewWindow(new Ui_MainWindow) {
@@ -91,7 +90,7 @@ void View::update() {
 
         viewWindow->label_liquid->setText(" Liquidità: "+QString::number(conto->getLiquid()));
         viewWindow->label_invested->setText(" Investito: "+QString::number(conto->getInvested()));
-        float pos = 100*static_cast<float>(conto->getLiquid())/static_cast<float>(conto->getSaldo());
+        float pos = 100*conto->getLiquid()/conto->getSaldo();
         viewWindow->horizontalSlider_percetage->setSliderPosition(static_cast<int>(pos));
 
 
@@ -212,13 +211,13 @@ void View::RESET() {
 
 void View::doTransaction() {
 
-    std::map<std::string, QString> data;
-    data["payerName"]=viewWindow->lineEdit_payerName->text();
-    data["payerIBAN"]=viewWindow->lineEdit_payerIBAN->text();
-    data["receiverName"]=viewWindow->lineEdit_beneficiaryName->text();
-    data["receiverIBAN"]=viewWindow->lineEdit_beneficiaryIBAN->text();
-    data["amount"]=viewWindow->lineEdit_amount->text();
-    data["causal"]=viewWindow->lineEdit_causal->text();
+    std::map<TransactionData , QString> data;
+    data[payerName]=viewWindow->lineEdit_payerName->text();
+    data[payerIBAN]=viewWindow->lineEdit_payerIBAN->text();
+    data[receiverName]=viewWindow->lineEdit_beneficiaryName->text();
+    data[receiverIBAN]=viewWindow->lineEdit_beneficiaryIBAN->text();
+    data[amount]=viewWindow->lineEdit_amount->text();
+    data[causal]=viewWindow->lineEdit_causal->text();
     controller->doTransaction(viewWindow->radioButton_sendMoney->isChecked(), data, QDate::currentDate());
 
 }
@@ -229,16 +228,16 @@ void View::doTransaction() {
 
 void View::accountSave() {
 
-    std::map<std::string, QString> strings;
+    std::map<AccountData , QString> strings;
 
-    strings.insert(std::make_pair("name",viewWindow->lineEdit_nameAccount->text()));
-    strings.insert(std::make_pair("surname",viewWindow->lineEdit_surnameAccount->text()));
-    strings.insert(std::make_pair("codiceFiscale",viewWindow->lineEdit_codiceFiscaleAccount->text()));
-    strings.insert(std::make_pair("city",viewWindow->lineEdit_cityAccount->text()));
-    strings.insert(std::make_pair("CAP",viewWindow->lineEdit_CAPAccount->text()));
-    strings.insert(std::make_pair("address",viewWindow->lineEdit_addressAccount->text()));
-    strings.insert(std::make_pair("phoneNumber",viewWindow->lineEdit_phoneNumberAccount->text()));
-    strings.insert(std::make_pair("mail",viewWindow->lineEdit_mailAccount->text()));
+    strings.insert(std::make_pair(AccountData::name,viewWindow->lineEdit_nameAccount->text()));
+    strings.insert(std::make_pair(AccountData::surname,viewWindow->lineEdit_surnameAccount->text()));
+    strings.insert(std::make_pair(AccountData::codiceFiscale,viewWindow->lineEdit_codiceFiscaleAccount->text()));
+    strings.insert(std::make_pair(AccountData::city,viewWindow->lineEdit_cityAccount->text()));
+    strings.insert(std::make_pair(AccountData::CAP,viewWindow->lineEdit_CAPAccount->text()));
+    strings.insert(std::make_pair(AccountData::address,viewWindow->lineEdit_addressAccount->text()));
+    strings.insert(std::make_pair(AccountData::phoneNumber,viewWindow->lineEdit_phoneNumberAccount->text()));
+    strings.insert(std::make_pair(AccountData::mail,viewWindow->lineEdit_mailAccount->text()));
 
     controller->accountSave(strings);
 

@@ -18,13 +18,13 @@ public:
 
     void reset();
 
-    void doTransaction(bool, std::map<std::string, QString>, QDate );
+    void doTransaction(bool, std::map<TransactionData, QString>, QDate );
 
     void changeHistoricalOrder(bool, QString txt, QDate from, QDate to, QString option);
 
     //---------------salvataggi
 
-    void accountSave(std::map<std::string, QString>);
+    void accountSave(std::map<AccountData , QString>);
 
     void contoSave(QString);
 

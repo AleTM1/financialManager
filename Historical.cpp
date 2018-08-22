@@ -38,14 +38,14 @@ void Historical::saveData() {
         int i = 0;
         for (auto &transaction : rawHistory) {
             data.setArrayIndex(i);
-            data.setValue("debit", transaction.isDebit());
-            data.setValue("payerName", transaction.getPayerName());
-            data.setValue("payerIBAN", transaction.getPayerIBAN());
-            data.setValue("receiverName", transaction.getReceiverName());
-            data.setValue("receiverIBAN", transaction.getReceiverIBAN());
-            data.setValue("amount", transaction.getAmount());
-            data.setValue("causal", transaction.getCausal());
-            data.setValue("date", transaction.getDate());
+            data.setValue(QString::number(TransactionData::debit), transaction.isDebit());
+            data.setValue(QString::number(TransactionData::payerName), transaction.getPayerName());
+            data.setValue(QString::number(TransactionData::payerIBAN), transaction.getPayerIBAN());
+            data.setValue(QString::number(TransactionData::receiverName), transaction.getReceiverName());
+            data.setValue(QString::number(TransactionData::receiverIBAN), transaction.getReceiverIBAN());
+            data.setValue(QString::number(TransactionData::amount), transaction.getAmount());
+            data.setValue(QString::number(TransactionData::causal), transaction.getCausal());
+            data.setValue(QString::number(TransactionData::date), transaction.getDate());
             i++;
         }
 
@@ -66,7 +66,7 @@ void Historical::loadData() {
         int size = data.beginReadArray("transaction");
             for (int i = 0; i < size; i++) {
                 data.setArrayIndex(i);
-                Transaction transaction(data.value("debit").toBool(),data.value("payerName").toString(),data.value("payerIBAN").toString(),data.value("receiverName").toString(),data.value("receiverIBAN").toString(),data.value("amount").toInt(),data.value("causal").toString(),data.value("date").toDate());
+                Transaction transaction(data.value(QString::number(TransactionData::debit)).toBool(),data.value(QString::number(TransactionData::payerName)).toString(),data.value(QString::number(TransactionData::payerIBAN)).toString(),data.value(QString::number(TransactionData::receiverName)).toString(),data.value(QString::number(TransactionData::receiverIBAN)).toString(),data.value(QString::number(TransactionData::amount)).toFloat(),data.value(QString::number(TransactionData::causal)).toString(),data.value(QString::number(TransactionData::date)).toDate());
                 rawHistory.push_back(transaction);
             }
 

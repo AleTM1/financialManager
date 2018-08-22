@@ -29,7 +29,7 @@ public:
 
     virtual ~AbstractDataStorage(){}
 
-    const QString &getGroup() const {
+    const QString &getGroupName() const {
         return groupName;
     }
 

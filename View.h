@@ -10,9 +10,11 @@
 #include <QtWidgets/QMainWindow>
 #include "Observer.h"
 #include "Controller.h"
-#include "Model.h"
 #include "ViewWindow.h"
 #include "DialogNoButton.h"
+#include "TransactionForm.h"
+
+
 
 
 class View : public QMainWindow, public Observer {

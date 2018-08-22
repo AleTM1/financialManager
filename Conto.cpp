@@ -92,13 +92,13 @@ void Conto::setTitle(const QString &title) {
 
 void Conto::loadData() {
 
-    data.beginGroup("Conto");
+    data.beginGroup(groupName);
 
-    title=data.value("title","").toString();
-    IBAN=data.value("IBAN","").toString();
-    saldo=data.value("saldo","").toInt();
-    liquid=data.value("liquid","").toInt();
-    invested=data.value("invested","").toInt();
+    title=data.value(QString::number(ContoData::title),"").toString();
+    IBAN=data.value(QString::number(ContoData::IBAN),"").toString();
+    saldo=data.value(QString::number(ContoData::saldo),"").toFloat();
+    liquid=data.value(QString::number(ContoData::liquid),"").toFloat();
+    invested=data.value(QString::number(ContoData::invested),"").toFloat();
 
     data.endGroup();
 
@@ -117,11 +117,11 @@ void Conto::saveData() {
 
     data.beginGroup(groupName);
 
-    data.setValue("title", title);
-    data.setValue("IBAN", IBAN);
-    data.setValue("saldo", saldo);
-    data.setValue("liquid", liquid);
-    data.setValue("invested", invested);
+    data.setValue(QString::number(ContoData::title), title);
+    data.setValue(QString::number(ContoData::IBAN), IBAN);
+    data.setValue(QString::number(ContoData::saldo), saldo);
+    data.setValue(QString::number(ContoData::liquid), liquid);
+    data.setValue(QString::number(ContoData::invested), invested);
 
     data.endGroup();
 
