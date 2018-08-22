@@ -8,6 +8,8 @@ TEST(Account, Account_save_and_load) {
 
     account.loadData();
 
+    //conserva i dati già presenti
+    
     std::map<AccountData, QString> orignalData;
 
     orignalData.insert(std::make_pair(name, account.getName()));
@@ -19,7 +21,7 @@ TEST(Account, Account_save_and_load) {
     orignalData.insert(std::make_pair(phoneNumber, account.getPhoneNumber()));
     orignalData.insert(std::make_pair(mail, account.getMail()));
 
-
+    //simula un nuovo salvataggio
 
     std::map<AccountData, QString> nuovoSalvataggio;
     nuovoSalvataggio.insert(std::make_pair(name, "Mario"));
@@ -33,6 +35,8 @@ TEST(Account, Account_save_and_load) {
 
     account.changeData(nuovoSalvataggio);
 
+    //simula un nuovo accesso
+    
     Account account1;
 
     account1.loadData();
@@ -54,6 +58,8 @@ TEST(Account, Account_save_and_load) {
     ASSERT_FALSE(account1.getPhoneNumber() == "3347772323");
     ASSERT_FALSE(account1.getMail() == "prova@gmail.com");
 
+    //reinserisci i dati precedenti
+    
     account.changeData(orignalData);
 
 }
