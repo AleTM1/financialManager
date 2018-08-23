@@ -24,109 +24,60 @@ View::~View() {
     model->removeObserver(this);
 
     delete viewWindow;
+    delete dialogNoButton;
 
 }
 
 
 void View::update() {
 
-    //-----------MESSAGES-----------
+    updateMessages();
 
+    if(model->isTabAccountLocked()){
+
+        lockAccountTab();
+
+    }else {
+
+        auto account = updateAccount();
+
+        auto conto = updateConto();
+
+        updateTransaction(account, conto);
+
+        updateHistorical();
+
+    }
+
+}
+
+void View::lockAccountTab() const {
+
+    viewWindow->lineEdit_nameAccount->setEnabled(true);
+    viewWindow->lineEdit_surnameAccount->setEnabled(true);
+    viewWindow->lineEdit_codiceFiscaleAccount->setEnabled(true);
+
+    viewWindow->tabWidget->setCurrentIndex(3);
+
+    for(int i=0; i < viewWindow->tabWidget->count(); i++)
+            if(viewWindow->tabWidget->currentIndex() != i)
+                viewWindow->tabWidget->setTabEnabled(i, false);
+}
+
+void View::updateMessages() {
     if(model->getErrorLog() != nullptr && model->getErrorLog()->isActivated()){
         dialogNoButton = new DialogNoButton(model->getErrorLog()->getTitle(), model->getErrorLog()->getText());
         model->getErrorLog()->setActivated(false);
         dialogNoButton->show();
     }
+}
 
-    //-------------------Blocco schermata di apertura----
+void View::updateHistorical() {
+    clearLayout(viewWindow->verticalLayout_localHistory);
 
-    if(model->isTabAccountLocked()){
+    auto historical = dynamic_cast<Historical*>(model->accessDataStorage("Historical"));
 
-        viewWindow->lineEdit_nameAccount->setEnabled(true);
-        viewWindow->lineEdit_surnameAccount->setEnabled(true);
-        viewWindow->lineEdit_codiceFiscaleAccount->setEnabled(true);
-
-        viewWindow->tabWidget->setCurrentIndex(3);
-
-        for(int i=0; i<viewWindow->tabWidget->count(); i++)
-            if(viewWindow->tabWidget->currentIndex() != i)
-                viewWindow->tabWidget->setTabEnabled(i,false);
-
-    }else {
-
-
-        //-----------ACCOUNT-------------
-
-        viewWindow->lineEdit_nameAccount->setEnabled(false);
-        viewWindow->lineEdit_surnameAccount->setEnabled(false);
-        viewWindow->lineEdit_codiceFiscaleAccount->setEnabled(false);
-
-
-        for(int i=0; i<viewWindow->tabWidget->count(); i++)
-                viewWindow->tabWidget->setTabEnabled(i,true);
-
-        auto account = dynamic_cast<Account*>(model->accessDataStorage("Account"));
-
-        viewWindow->lineEdit_nameAccount->setText(account->getName());
-        viewWindow->lineEdit_surnameAccount->setText(account->getSurname());
-        viewWindow->lineEdit_codiceFiscaleAccount->setText(account->getCodiceFiscale());
-        viewWindow->lineEdit_codiceFiscaleAccount->setStyleSheet("QLineEdit { color : lightGray; }");
-        viewWindow->lineEdit_cityAccount->setText(account->getCity());
-        viewWindow->lineEdit_CAPAccount->setText(account->getCAP());
-        viewWindow->lineEdit_addressAccount->setText(account->getAddress());
-        viewWindow->lineEdit_phoneNumberAccount->setText(account->getPhoneNumber());
-        viewWindow->lineEdit_mailAccount->setText(account->getMail());
-
-        //-------------CONTO----------------------
-
-        auto conto = dynamic_cast<Conto*>(model->accessDataStorage("Conto"));
-
-
-        viewWindow->label_title->setText(conto->getTitle());
-        viewWindow->lineEdit_title->setText( viewWindow->label_title->text());
-
-        viewWindow->label_IBAN->setText("IBAN: "+conto->getIBAN());
-        viewWindow->label_Saldo->setText(QString::number(conto->getSaldo()));
-
-        viewWindow->label_liquid->setText(" Liquidità: "+QString::number(conto->getLiquid()));
-        viewWindow->label_invested->setText(" Investito: "+QString::number(conto->getInvested()));
-        float pos = 100*conto->getLiquid()/conto->getSaldo();
-        viewWindow->horizontalSlider_percetage->setSliderPosition(static_cast<int>(pos));
-
-
-        //-------------Effettua Transazione---------------------
-
-        viewWindow->label_currentDate->setText(QDate::currentDate().toString("dddd, dd / MMMM / yyyy"));
-
-        if(viewWindow->radioButton_sendMoney->isChecked()){
-            viewWindow->lineEdit_payerName->setText(account->getName() +" "+ account->getSurname());
-            viewWindow->lineEdit_beneficiaryName->setText("");
-            viewWindow->lineEdit_payerIBAN->setText(conto->getIBAN());
-            viewWindow->lineEdit_beneficiaryIBAN->setText("");
-            viewWindow->lineEdit_payerName->setEnabled(false);
-            viewWindow->lineEdit_beneficiaryName->setEnabled(true);
-            viewWindow->lineEdit_payerIBAN->setEnabled(false);
-            viewWindow->lineEdit_beneficiaryIBAN->setEnabled(true);
-            viewWindow->lineEdit_payerIBAN->setStyleSheet("QLineEdit { color : lightGray; }");
-        }else{
-            viewWindow->lineEdit_beneficiaryName->setText(account->getName() +" "+ account->getSurname());
-            viewWindow->lineEdit_payerName->setText("");
-            viewWindow->lineEdit_beneficiaryIBAN->setText(conto->getIBAN());
-            viewWindow->lineEdit_payerIBAN->setText("");
-            viewWindow->lineEdit_payerName->setEnabled(true);
-            viewWindow->lineEdit_beneficiaryName->setEnabled(false);
-            viewWindow->lineEdit_payerIBAN->setEnabled(true);
-            viewWindow->lineEdit_beneficiaryIBAN->setEnabled(false);
-            viewWindow->lineEdit_beneficiaryIBAN->setStyleSheet("QLineEdit { color : lightGray; }");
-        }
-
-        //-------------Storico-----------------------------
-
-        clearLayout(viewWindow->verticalLayout_localHistory);
-
-        auto historical = dynamic_cast<Historical*>(model->accessDataStorage("Historical"));
-
-        for (auto &transaction : historical->getHistory()){
+    for (auto &transaction : historical->getHistory()){
 
             auto transactionForm = new TransactionForm;
             if(transaction.isDebit()){
@@ -148,15 +99,77 @@ void View::update() {
             viewWindow->verticalLayout_localHistory->addWidget(transactionForm);
         }
 
-        viewWindow->label_totalHistorical->setText(QString::number(historical->getTotal()));
-        if (historical->getTotal() < 0)
+    viewWindow->label_totalHistorical->setText(QString::number(historical->getTotal()));
+    if (historical->getTotal() < 0)
             viewWindow->label_totalHistorical->setStyleSheet("QLabel { color : red; }");
-        else
+    else
             viewWindow->label_totalHistorical->setStyleSheet("QLabel { color : green; }");
+}
 
-    }
+void View::updateTransaction(const Account *account, const Conto *conto) const {
+    viewWindow->label_currentDate->setText(QDate::currentDate().toString("dddd, dd / MMMM / yyyy"));
+
+    if(viewWindow->radioButton_sendMoney->isChecked()){
+            viewWindow->lineEdit_payerName->setText(account->getName() + " " + account->getSurname());
+            viewWindow->lineEdit_beneficiaryName->setText("");
+            viewWindow->lineEdit_payerIBAN->setText(conto->getIBAN());
+            viewWindow->lineEdit_beneficiaryIBAN->setText("");
+            viewWindow->lineEdit_payerName->setEnabled(false);
+            viewWindow->lineEdit_beneficiaryName->setEnabled(true);
+            viewWindow->lineEdit_payerIBAN->setEnabled(false);
+            viewWindow->lineEdit_beneficiaryIBAN->setEnabled(true);
+            viewWindow->lineEdit_payerIBAN->setStyleSheet("QLineEdit { color : lightGray; }");
+        }else{
+            viewWindow->lineEdit_beneficiaryName->setText(account->getName() + " " + account->getSurname());
+            viewWindow->lineEdit_payerName->setText("");
+            viewWindow->lineEdit_beneficiaryIBAN->setText(conto->getIBAN());
+            viewWindow->lineEdit_payerIBAN->setText("");
+            viewWindow->lineEdit_payerName->setEnabled(true);
+            viewWindow->lineEdit_beneficiaryName->setEnabled(false);
+            viewWindow->lineEdit_payerIBAN->setEnabled(true);
+            viewWindow->lineEdit_beneficiaryIBAN->setEnabled(false);
+            viewWindow->lineEdit_beneficiaryIBAN->setStyleSheet("QLineEdit { color : lightGray; }");
+        }
+}
+
+Conto* View::updateConto() const {
+    auto conto = dynamic_cast<Conto*>(model->accessDataStorage("Conto"));
 
 
+    viewWindow->label_title->setText(conto->getTitle());
+    viewWindow->lineEdit_title->setText(viewWindow->label_title->text());
+
+    viewWindow->label_IBAN->setText("IBAN: " + conto->getIBAN());
+    viewWindow->label_Saldo->setText(QString::number(conto->getSaldo()));
+
+    viewWindow->label_liquid->setText(" Liquidità: " + QString::number(conto->getLiquid()));
+    viewWindow->label_invested->setText(" Investito: " + QString::number(conto->getInvested()));
+    float pos = 100*conto->getLiquid()/conto->getSaldo();
+    viewWindow->horizontalSlider_percetage->setSliderPosition(static_cast<int>(pos));
+    return conto;
+}
+
+Account* View::updateAccount() const {
+    viewWindow->lineEdit_nameAccount->setEnabled(false);
+    viewWindow->lineEdit_surnameAccount->setEnabled(false);
+    viewWindow->lineEdit_codiceFiscaleAccount->setEnabled(false);
+
+
+    for(int i=0; i < viewWindow->tabWidget->count(); i++)
+                viewWindow->tabWidget->setTabEnabled(i, true);
+
+    auto account = dynamic_cast<Account*>(model->accessDataStorage("Account"));
+
+    viewWindow->lineEdit_nameAccount->setText(account->getName());
+    viewWindow->lineEdit_surnameAccount->setText(account->getSurname());
+    viewWindow->lineEdit_codiceFiscaleAccount->setText(account->getCodiceFiscale());
+    viewWindow->lineEdit_codiceFiscaleAccount->setStyleSheet("QLineEdit { color : lightGray; }");
+    viewWindow->lineEdit_cityAccount->setText(account->getCity());
+    viewWindow->lineEdit_CAPAccount->setText(account->getCAP());
+    viewWindow->lineEdit_addressAccount->setText(account->getAddress());
+    viewWindow->lineEdit_phoneNumberAccount->setText(account->getPhoneNumber());
+    viewWindow->lineEdit_mailAccount->setText(account->getMail());
+    return account;
 }
 
 void View::closeApp() {
@@ -222,6 +235,11 @@ void View::doTransaction() {
 
 }
 
+void View::cancel() {
+
+    update();
+
+}
 
 
 //--------------------------------SALVATAGGI-------

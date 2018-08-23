@@ -15,6 +15,7 @@ public:
 
     TransactionForm():transactionForm_ui(new Ui_transactionForm){transactionForm_ui->setupUi(this);}
 
+    ~TransactionForm(){delete transactionForm_ui;}
 
 public:
 

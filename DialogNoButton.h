@@ -14,6 +14,7 @@ class DialogNoButton : public QDialog {
 public:
 
     DialogNoButton(QString ttl, QString txt);
+    ~DialogNoButton();
 
     void setTitleError(QString);
     void setTextError(QString);

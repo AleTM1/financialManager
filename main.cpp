@@ -11,13 +11,14 @@ int main(int argv, char **args) {
 
     auto model = new Model;
     auto controller = new Controller(model);
-    View view(controller, model);
+    auto view = new View(controller, model);
 
-    view.show();
+    view->show();
 
     app.exec();
 
-
-
+    delete view;
+    delete controller;
+    delete model;
 
 }

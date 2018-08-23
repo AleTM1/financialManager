@@ -16,8 +16,11 @@ Model::~Model(){
 
     delete account;
     delete conto;
+    delete historical;
 
     dataStorages.clear();
+
+    delete errorLog;
 
 }
 

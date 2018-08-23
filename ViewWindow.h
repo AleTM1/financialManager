@@ -916,9 +916,12 @@ public:
         QObject::connect(pushButton_search, SIGNAL(clicked()), MainWindow, SLOT(searchHistorical()));
         QObject::connect(lineEdit_searchHistorical, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(searchHistorical()));
         QObject::connect(comboBox_options, SIGNAL(currentIndexChanged(int)), MainWindow, SLOT(searchHistorical()));
-
         QObject::connect(dateEdit_to, SIGNAL(dateChanged(const QDate &)), MainWindow ,SLOT( searchDateChanged() ));
         QObject::connect(dateEdit_from, SIGNAL(dateChanged(const QDate &)), MainWindow ,SLOT( searchDateChanged() ));
+
+        QObject::connect(pushButton_cancAccount, SIGNAL (clicked()), MainWindow, SLOT (cancel()));
+        QObject::connect(pushButton_Cancel, SIGNAL (clicked()), MainWindow, SLOT (cancel()));
+
 
         //----------lineEditChanged------------
 

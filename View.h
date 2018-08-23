@@ -28,8 +28,6 @@ public:
     virtual void update() override;
 
 
-
-
 private slots:
 
     void closeApp();
@@ -42,6 +40,7 @@ private slots:
     void doTransaction();
     void searchHistorical();
     void searchDateChanged();
+    void cancel();
 
     //----controlli---
     void lineIBANEdited(const QString &);
@@ -55,6 +54,12 @@ private:
 
     void clearLayout(QLayout *layout);
     QString onlySelectedCharacters(QString& stringa, const QString& allowedCharacters );
+    Account* updateAccount() const;
+    Conto* updateConto() const;
+    void updateTransaction(const Account *account, const Conto *conto) const;
+    void updateHistorical();
+    void updateMessages();
+    void lockAccountTab() const;
 
 private:
 
