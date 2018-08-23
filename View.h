@@ -25,7 +25,7 @@ public:
 
     virtual ~View();
 
-    virtual void update() override;
+    virtual void update()  override;
 
 
 private slots:

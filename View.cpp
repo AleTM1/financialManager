@@ -29,7 +29,7 @@ View::~View() {
 }
 
 
-void View::update() {
+void View::update()  {
 
     updateMessages();
 
@@ -169,6 +169,7 @@ Account* View::updateAccount() const {
     viewWindow->lineEdit_addressAccount->setText(account->getAddress());
     viewWindow->lineEdit_phoneNumberAccount->setText(account->getPhoneNumber());
     viewWindow->lineEdit_mailAccount->setText(account->getMail());
+
     return account;
 }
 
