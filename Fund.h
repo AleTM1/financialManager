@@ -12,7 +12,7 @@ class Fund : AbstractStockFund{
 
 public:
 
-    Fund();
+    Fund(float sharesNum);
 
     virtual void showEntityDetails() override;
 

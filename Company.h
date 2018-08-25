@@ -12,13 +12,15 @@ class Company : public Entity {
 
 public:
 
-    float getCoupon() const;
+    Company(float coupon, QString nam, QString isin, float cost):montlyCoupon(coupon), Entity(nam, isin, cost){}
 
-    void setCoupon(float coupon);
+    float getMontlyCoupon() const;
+
+    void setMontlyCoupon(float coupon);
 
 protected:
 
-    float coupon;
+    float montlyCoupon;
 
 };
 

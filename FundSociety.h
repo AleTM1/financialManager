@@ -14,6 +14,8 @@ class FundSociety : public Entity{
 
 public:
 
+    FundSociety(float c, QString nam, QString isin, float cost):cost(c), Entity(nam, isin, cost){}
+
     virtual ~FundSociety();
 
     void generateComposition();

@@ -4,11 +4,12 @@
 
 #include "Model.h"
 
-Model::Model():account(new Account), conto(new Conto), historical(new Historical){
+Model::Model():account(new Account), conto(new Conto), historical(new Historical), investmentManager(new InvestmentManager){
 
     dataStorages.push_back(account);
     dataStorages.push_back(conto);
     dataStorages.push_back(historical);
+    dataStorages.push_back(investmentManager);
 
 }
 
@@ -17,6 +18,7 @@ Model::~Model(){
     delete account;
     delete conto;
     delete historical;
+    delete investmentManager;
 
     dataStorages.clear();
 
@@ -141,13 +143,7 @@ void Model::saveConto(QString string) {
 
 }
 
-void Model::saveHistorical(Transaction transaction) {
 
-    historical->addTransaction(transaction);
-
-    notify();
-
-}
 
 //----------------------------------------------
 
@@ -218,5 +214,35 @@ void Model::changeHistoricalOrder(ResearchOptions researchOptions){
 
 }
 
+//------------------------------------ Investment
 
+const EntitiesList &Model::getEntitiesList() const {
+    return entitiesList;
+}
+
+
+int Model::doInvestment(Investment* investment){
+
+    /*  0) buon fine
+     *  1) cifra massima ecceduta
+     *
+     */
+
+    if( investment->getTotalInvested() > conto->getLiquid() )
+        return 1;
+
+
+
+    conto->setLiquid( conto->getLiquid() - investment->getTotalInvested() );
+    conto->setInvested(investment->getTotalInvested() );
+
+    conto->saveData();
+
+    investmentManager->addInvestment(investment);
+
+    notify();
+
+    return 0;
+
+}
 

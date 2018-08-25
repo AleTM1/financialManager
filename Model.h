@@ -9,6 +9,8 @@
 #include "Account.h"
 #include "Historical.h"
 #include "ErrorLog.h"
+#include "EntitiesList.h"
+#include "InvestmentManager.h"
 
 
 class Model : public Subject {
@@ -31,13 +33,16 @@ public:
 
     void saveConto(QString);
 
-    void saveHistorical(Transaction);
-
     int doTransaction(Transaction transaction);
 
     void makeMessageDialogNoButtons(QString ttl, QString txt);
 
     void changeHistoricalOrder(ResearchOptions);
+
+    const EntitiesList &getEntitiesList() const;
+
+    int doInvestment(Investment* investment);
+
 
 public:
 
@@ -55,6 +60,8 @@ private:
     Account* account;
     Conto* conto;
     Historical* historical;
+    EntitiesList entitiesList;
+    InvestmentManager* investmentManager;
 
     std::vector<AbstractDataStorage*> dataStorages;
 

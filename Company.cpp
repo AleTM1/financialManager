@@ -4,10 +4,10 @@
 
 #include "Company.h"
 
-float Company::getCoupon() const {
-    return coupon;
+float Company::getMontlyCoupon() const {
+    return montlyCoupon;
 }
 
-void Company::setCoupon(float coupon) {
-    Company::coupon = coupon;
+void Company::setMontlyCoupon(float coupon) {
+    Company::montlyCoupon = coupon;
 }

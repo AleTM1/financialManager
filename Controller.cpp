@@ -128,6 +128,22 @@ void Controller::contoSave(QString string) {
 
 }
 
-
-
 //---------------------------
+
+void Controller::doInvestment(InvestmentType investmentType, QString ISINcode, float quantity) {
+
+
+
+
+}
+
+void Controller::doInvestment(InvestmentType investmentType, QString ISINcode, float investmentAmount, int monthsNumber) {
+
+    if(investmentType == InvestmentType::bond)
+        int a=2;
+
+
+}
+
+
+

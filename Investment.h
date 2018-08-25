@@ -8,12 +8,11 @@
 
 #include <QtCore/QString>
 #include "Entity.h"
+#include "enumInvestmentType.h"
 
 class Investment {
 
 public:
-
-    enum InvestmentType {fund, stock, bond};
 
     virtual ~Investment(){}
 

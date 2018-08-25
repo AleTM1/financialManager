@@ -22,6 +22,10 @@ public:
 
     void changeHistoricalOrder(bool, QString txt, QDate from, QDate to, QString option);
 
+    void doInvestment(InvestmentType, QString ISINcode, float quantity );
+
+    void doInvestment(InvestmentType, QString ISINcode, float investmentAmount, int monthsNumber  );
+
     //---------------salvataggi
 
     void accountSave(std::map<AccountData , QString>);

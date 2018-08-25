@@ -4,7 +4,7 @@
 
 #include "Stock.h"
 
-Stock::Stock() {
+Stock::Stock(float sharesNum) : AbstractStockFund(sharesNum) {
 
     investmentType = stock;
 
