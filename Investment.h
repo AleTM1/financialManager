@@ -7,6 +7,7 @@
 
 
 #include <QtCore/QString>
+#include "Entity.h"
 
 class Investment {
 
@@ -16,23 +17,7 @@ public:
 
     virtual ~Investment(){}
 
-    virtual void showDetails() = 0;
-
-    const QString &getISIN() const {
-        return ISIN;
-    }
-
-    void setISIN(const QString &ISIN) {
-        Investment::ISIN = ISIN;
-    }
-
-    const QString &getInvestmentName() const {
-        return investmentName;
-    }
-
-    void setInvestmentName(const QString &investmentName) {
-        Investment::investmentName = investmentName;
-    }
+    virtual void showEnteDetails() = 0;
 
     float getTotalInvested() const {
         return totalInvested;
@@ -58,13 +43,29 @@ public:
         Investment::investorIBAN = investorIBAN;
     }
 
+    const QString &getInvestorName() const {
+        return investorName;
+    }
+
+    void setInvestorName(const QString &investorName) {
+        Investment::investorName = investorName;
+    }
+
+    Entity *getEntity() const {
+        return entity;
+    }
+
+    void setEntity(Entity *entity) {
+        Investment::entity = entity;
+    }
+
 protected:
 
-    QString ISIN;
-    QString investmentName;
     float totalInvested;
     InvestmentType investmentType;
     QString investorIBAN;
+    QString investorName;
+    Entity* entity;
 
 };
 
