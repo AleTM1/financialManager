@@ -69,8 +69,6 @@ private:
 
     DialogNoButton* dialogNoButton;
 
-
-
 };
 
 

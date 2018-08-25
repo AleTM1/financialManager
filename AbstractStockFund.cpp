@@ -5,18 +5,19 @@
 #include "AbstractStockFund.h"
 
 
+AbstractStockFund::AbstractStockFund(float sharesNum) : sharesNumber(sharesNum) {
+
+    totalInvestmentCalculator();
+
+    actualInvestment = totalInvested;
+
+}
+
 void AbstractStockFund::totalInvestmentCalculator() {
 
     totalInvested = entity->getShareCost() * sharesNumber;
 
 }
-
-void AbstractStockFund::changeGenerator() {
-
-    entity->setShareCost(entity->getShareCost() * (((rand()%200-100)/100.0)+100.0)/100.0 );
-
-}
-
 
 
 float AbstractStockFund::getSharesNumber() const {
@@ -25,4 +26,12 @@ float AbstractStockFund::getSharesNumber() const {
 
 void AbstractStockFund::setSharesNumber(float shareNumber) {
     AbstractStockFund::sharesNumber = shareNumber;
+}
+
+float AbstractStockFund::getActualInvestment() const {
+    return actualInvestment;
+}
+
+void AbstractStockFund::setActualInvestment(float actualInvestment) {
+    AbstractStockFund::actualInvestment = actualInvestment;
 }

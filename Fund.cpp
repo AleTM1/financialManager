@@ -3,3 +3,13 @@
 //
 
 #include "Fund.h"
+
+Fund::Fund() {
+
+    investmentType = fund;
+
+}
+
+void Fund::showEntityDetails() {
+
+}

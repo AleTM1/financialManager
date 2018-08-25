@@ -7,8 +7,29 @@
 
 
 #include "Entity.h"
+#include "Investment.h"
+#include <list>
 
 class FundSociety : public Entity{
+
+public:
+
+    virtual ~FundSociety();
+
+    void generateComposition();
+
+    const std::list<Investment *> &getFundComposition() const;
+
+    void setFundComposition(const std::list<Investment *> &fundComposition);
+
+    float getCost() const;
+
+    void setCost(float cost);
+
+protected:
+
+    std::list<Investment*> fundComposition;
+    float cost;
 
 };
 

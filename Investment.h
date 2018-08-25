@@ -17,7 +17,7 @@ public:
 
     virtual ~Investment(){}
 
-    virtual void showEnteDetails() = 0;
+    virtual void showEntityDetails() = 0;
 
     float getTotalInvested() const {
         return totalInvested;

@@ -10,6 +10,15 @@
 
 class Stock : public AbstractStockFund {
 
+public:
+
+    Stock();
+
+
+    virtual void showEntityDetails() override;
+
+protected:
+
 };
 
 

@@ -7,12 +7,12 @@
 
 
 #include "Investment.h"
-#include "ctime"
 
 class AbstractStockFund : public Investment {
 
 public:
 
+    AbstractStockFund(float sharesNum);
 
     void changeGenerator();
 
@@ -24,9 +24,14 @@ public:
 
     void setSharesNumber(float sharesNumber);
 
+    float getActualInvestment() const;
+
+    void setActualInvestment(float actualInvestment);
+
 protected:
 
     float sharesNumber;
+    float actualInvestment;
 
 };
 

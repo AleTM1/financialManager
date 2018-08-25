@@ -10,6 +10,16 @@
 
 class Company : public Entity {
 
+public:
+
+    float getCoupon() const;
+
+    void setCoupon(float coupon);
+
+protected:
+
+    float coupon;
+
 };
 
 

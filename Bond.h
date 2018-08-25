@@ -6,9 +6,29 @@
 #define FINANCIALMANAGER_BOND_H
 
 
+#include <QtCore/QDate>
 #include "Investment.h"
 
 class Bond : Investment{
+
+public:
+
+    Bond();
+
+    virtual void showEntityDetails() override ;
+
+    int getMonthsDuration() const;
+
+    void setMonthsDuration(int monthsDuration);
+
+    const QDate &getDeadlineDate() const;
+
+    void setDeadlineDate(const QDate &deadlineDate);
+
+protected:
+
+    int monthsDuration;
+    QDate deadlineDate;
 
 };
 

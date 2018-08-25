@@ -3,3 +3,13 @@
 //
 
 #include "Stock.h"
+
+Stock::Stock() {
+
+    investmentType = stock;
+
+}
+
+void Stock::showEntityDetails() {
+
+}
