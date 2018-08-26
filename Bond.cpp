@@ -4,7 +4,11 @@
 
 #include "Bond.h"
 
-Bond::Bond() {
+Bond::Bond(float investmentAmount, int monthsNumber){
+
+    totalInvested = investmentAmount;
+
+    monthsDuration = monthsNumber;
 
     investmentType = bond;
 
@@ -16,7 +20,7 @@ int Bond::getMonthsDuration() const {
 }
 
 void Bond::setMonthsDuration(int monthsDuration) {
-    Bond::monthsDuration = monthsDuration;
+    Bond::monthsDuration = monthsDuration;  //TODO collega DeadLine
 }
 
 const QDate &Bond::getDeadlineDate() const {
@@ -24,7 +28,7 @@ const QDate &Bond::getDeadlineDate() const {
 }
 
 void Bond::setDeadlineDate(const QDate &deadlineDate) {
-    Bond::deadlineDate = deadlineDate;
+    Bond::deadlineDate = deadlineDate;  //TODO collega a Months Duration
 }
 
 void Bond::showEntityDetails() {

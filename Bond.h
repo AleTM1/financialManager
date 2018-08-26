@@ -9,11 +9,11 @@
 #include <QtCore/QDate>
 #include "Investment.h"
 
-class Bond : Investment{
+class Bond :public Investment{
 
 public:
 
-    Bond();
+    Bond(float investmentAmount, int monthsNumber);
 
     virtual void showEntityDetails() override ;
 

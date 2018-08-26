@@ -8,7 +8,7 @@
 
 #include "AbstractStockFund.h"
 
-class Fund : AbstractStockFund{
+class Fund : public AbstractStockFund{
 
 public:
 

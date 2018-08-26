@@ -3,6 +3,9 @@
 //
 
 #include "Controller.h"
+#include "Bond.h"
+#include "Stock.h"
+#include "Fund.h"
 
 void Controller::openingApp() {
 
@@ -132,16 +135,45 @@ void Controller::contoSave(QString string) {
 
 void Controller::doInvestment(InvestmentType investmentType, QString ISINcode, float quantity) {
 
+    if(investmentType == InvestmentType::stock) {
+        auto stock = new Stock(quantity);
 
+        for(auto s:model->getEntitiesList().entities)
+            if(s->getISIN() == ISINcode)
+                stock->setEntity(s);
+
+        model->doInvestment(stock);
+
+    }else if(investmentType == InvestmentType::fund) {
+        auto fund = new Fund(quantity);
+
+        for(auto s:model->getEntitiesList().entities)
+            if(s->getISIN() == ISINcode)
+                fund->setEntity(s);
+
+        model->doInvestment(fund);
+
+    }
+
+
+    //TODO aggiungi eccezione se l'investment type non coincide
 
 
 }
 
 void Controller::doInvestment(InvestmentType investmentType, QString ISINcode, float investmentAmount, int monthsNumber) {
 
-    if(investmentType == InvestmentType::bond)
-        int a=2;
+    if(investmentType == InvestmentType::bond) {
+        auto bond = new Bond(investmentAmount, monthsNumber);
 
+        for(auto s:model->getEntitiesList().entities)
+            if(s->getISIN() == ISINcode)
+                bond->setEntity(s);
+
+        model->doInvestment(bond);
+    }
+
+    //TODO aggiungi eccezione se l'investment type non coincide
 
 }
 
