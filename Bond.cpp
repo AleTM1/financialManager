@@ -4,13 +4,11 @@
 
 #include "Bond.h"
 
-Bond::Bond(float investmentAmount, int monthsNumber){
-
-    totalInvested = investmentAmount;
-
-    monthsDuration = monthsNumber;
+Bond::Bond(int monthsNumber){
 
     investmentType = bond;
+
+    monthsDuration = monthsNumber;
 
 }
 

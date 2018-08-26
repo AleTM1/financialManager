@@ -165,7 +165,8 @@ void Controller::doInvestment(InvestmentType investmentType, QString ISINcode, f
 void Controller::doInvestment(InvestmentType investmentType, QString ISINcode, float investmentAmount, int monthsNumber) {
 
     if(investmentType == InvestmentType::bond) {
-        auto bond = new Bond(investmentAmount, monthsNumber);
+        auto bond = new Bond( monthsNumber);
+        bond->setTotalInvested(investmentAmount);
 
         for(auto s:model->getEntitiesList().entities)
             if(s->getISIN() == ISINcode)

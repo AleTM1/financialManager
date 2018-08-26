@@ -9,6 +9,9 @@
 #include "AbstractDataStorage.h"
 #include "Investment.h"
 #include "enumInvestmentType.h"
+#include "Bond.h"
+#include "Stock.h"
+#include "Fund.h"
 
 class InvestmentManager : public AbstractDataStorage{
 
@@ -28,6 +31,7 @@ public:
 
 private:
 
+    void commonLoad(Investment*);
 
 
 protected:
