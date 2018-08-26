@@ -27,7 +27,8 @@ void DialogNoButton::setTextError(QString stringa) {
 
 DialogNoButton::~DialogNoButton() {
 
-    delete dialogUi;
+    if (dialogUi)
+        delete dialogUi;
 
 }
 

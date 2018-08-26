@@ -22,9 +22,7 @@ View::View(Controller *c, Model *m):controller(c), model(m), viewWindow(new Ui_M
 View::~View() {
 
     model->removeObserver(this);
-
     delete viewWindow;
-    delete dialogNoButton;
 
 }
 
@@ -38,6 +36,8 @@ void View::update()  {
         lockAccountTab();
 
     }else {
+
+        updateDoInvestment(viewWindow->comboBox_investmentType->currentText());
 
         auto account = updateAccount();
 
@@ -57,11 +57,24 @@ void View::lockAccountTab() const {
     viewWindow->lineEdit_surnameAccount->setEnabled(true);
     viewWindow->lineEdit_codiceFiscaleAccount->setEnabled(true);
 
-    viewWindow->tabWidget->setCurrentIndex(3);
+    viewWindow->tabWidget->setCurrentIndex(5);
 
     for(int i=0; i < viewWindow->tabWidget->count(); i++)
             if(viewWindow->tabWidget->currentIndex() != i)
                 viewWindow->tabWidget->setTabEnabled(i, false);
+}
+
+void View::updateDoInvestment(const QString & currentText) {
+
+    viewWindow->comboBox_entity->clear();
+
+    for (auto e:model->getEntitiesList().entities) {
+        if ((currentText == "Azione" || currentText == "Obbligazione") && (dynamic_cast<Company*>(e)))
+            viewWindow->comboBox_entity->addItem(e->getName());
+        else if ((currentText == "Fondo") && (dynamic_cast<FundSociety*>(e)))
+            viewWindow->comboBox_entity->addItem(e->getName());
+    }
+
 }
 
 void View::updateMessages() {

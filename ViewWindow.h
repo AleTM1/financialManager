@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'FinancialManagerkn2584.ui'
+** Form generated from reading UI file 'FinancialManagerVB3766.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.5
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef FINANCIALMANAGERKN2584_H
-#define FINANCIALMANAGERKN2584_H
+#ifndef FINANCIALMANAGERVB3766_H
+#define FINANCIALMANAGERVB3766_H
 
 #include <QtCore/QDate>
 #include <QtCore/QVariant>
@@ -45,7 +45,7 @@ public:
     QAction *actionRESET;
     QAction *actionClose;
     QWidget *centralwidget;
-    QHBoxLayout *horizontalLayout;
+    QVBoxLayout *verticalLayout_9;
     QTabWidget *tabWidget;
     QWidget *tab;
     QGridLayout *gridLayout_2;
@@ -132,6 +132,54 @@ public:
     QHBoxLayout *horizontalLayout_9;
     QLabel *label_24;
     QLabel *label_totalHistorical;
+    QWidget *tab_5;
+    QVBoxLayout *verticalLayout_10;
+    QLabel *label_25;
+    QFrame *line_9;
+    QFormLayout *formLayout_3;
+    QLabel *label_26;
+    QComboBox *comboBox_investmentType;
+    QLabel *label_27;
+    QComboBox *comboBox_entity;
+    QLabel *label_28;
+    QLabel *label_enetityISIN;
+    QLabel *label_29;
+    QWidget *formWidget_stock;
+    QFormLayout *formLayout_4;
+    QLabel *label_31;
+    QLabel *label_stockCost;
+    QLabel *label_32;
+    QLineEdit *lineEdit_stockshareNumber;
+    QLabel *label_34;
+    QWidget *formWidget_fund;
+    QFormLayout *formLayout_5;
+    QLabel *label_36;
+    QLabel *label_fundShareCost;
+    QLabel *label_37;
+    QLabel *label_fundCost;
+    QLabel *label_38;
+    QLabel *label_composition;
+    QLabel *label_47;
+    QLineEdit *lineEdit_fundShareNumber;
+    QLabel *label_39;
+    QWidget *formWidget_bond;
+    QFormLayout *formLayout_6;
+    QLabel *label_41;
+    QLabel *label_42;
+    QLabel *label_43;
+    QLabel *label_44;
+    QLineEdit *lineEdit_investmentAmount;
+    QLabel *label_coupon;
+    QLabel *label_45;
+    QComboBox *comboBox_monthsNumber;
+    QLabel *label_expectedYield;
+    QHBoxLayout *horizontalLayout;
+    QLabel *label_50;
+    QLabel *label_totalInvestment;
+    QFrame *line_10;
+    QHBoxLayout *horizontalLayout_11;
+    QPushButton *pushButton_doInvestment;
+    QWidget *tab_6;
     QWidget *tab_2;
     QVBoxLayout *verticalLayout_7;
     QVBoxLayout *verticalLayout_6;
@@ -182,8 +230,8 @@ public:
         actionClose->setObjectName(QStringLiteral("actionClose"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
-        horizontalLayout = new QHBoxLayout(centralwidget);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        verticalLayout_9 = new QVBoxLayout(centralwidget);
+        verticalLayout_9->setObjectName(QStringLiteral("verticalLayout_9"));
         tabWidget = new QTabWidget(centralwidget);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
         tab = new QWidget();
@@ -670,6 +718,273 @@ public:
         verticalLayout_4->addLayout(verticalLayout_3);
 
         tabWidget->addTab(tab_4, QString());
+        tab_5 = new QWidget();
+        tab_5->setObjectName(QStringLiteral("tab_5"));
+        verticalLayout_10 = new QVBoxLayout(tab_5);
+        verticalLayout_10->setObjectName(QStringLiteral("verticalLayout_10"));
+        label_25 = new QLabel(tab_5);
+        label_25->setObjectName(QStringLiteral("label_25"));
+        sizePolicy1.setHeightForWidth(label_25->sizePolicy().hasHeightForWidth());
+        label_25->setSizePolicy(sizePolicy1);
+        label_25->setFont(font);
+        label_25->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_10->addWidget(label_25);
+
+        line_9 = new QFrame(tab_5);
+        line_9->setObjectName(QStringLiteral("line_9"));
+        line_9->setFrameShape(QFrame::HLine);
+        line_9->setFrameShadow(QFrame::Sunken);
+
+        verticalLayout_10->addWidget(line_9);
+
+        formLayout_3 = new QFormLayout();
+        formLayout_3->setObjectName(QStringLiteral("formLayout_3"));
+        label_26 = new QLabel(tab_5);
+        label_26->setObjectName(QStringLiteral("label_26"));
+        label_26->setFont(font1);
+
+        formLayout_3->setWidget(0, QFormLayout::LabelRole, label_26);
+
+        comboBox_investmentType = new QComboBox(tab_5);
+        comboBox_investmentType->setObjectName(QStringLiteral("comboBox_investmentType"));
+        sizePolicy2.setHeightForWidth(comboBox_investmentType->sizePolicy().hasHeightForWidth());
+        comboBox_investmentType->setSizePolicy(sizePolicy2);
+        comboBox_investmentType->setFont(font1);
+
+        formLayout_3->setWidget(0, QFormLayout::FieldRole, comboBox_investmentType);
+
+        label_27 = new QLabel(tab_5);
+        label_27->setObjectName(QStringLiteral("label_27"));
+        label_27->setFont(font1);
+
+        formLayout_3->setWidget(1, QFormLayout::LabelRole, label_27);
+
+        comboBox_entity = new QComboBox(tab_5);
+        comboBox_entity->setObjectName(QStringLiteral("comboBox_entity"));
+        sizePolicy2.setHeightForWidth(comboBox_entity->sizePolicy().hasHeightForWidth());
+        comboBox_entity->setSizePolicy(sizePolicy2);
+        comboBox_entity->setFont(font1);
+
+        formLayout_3->setWidget(1, QFormLayout::FieldRole, comboBox_entity);
+
+        label_28 = new QLabel(tab_5);
+        label_28->setObjectName(QStringLiteral("label_28"));
+        label_28->setFont(font1);
+
+        formLayout_3->setWidget(2, QFormLayout::LabelRole, label_28);
+
+        label_enetityISIN = new QLabel(tab_5);
+        label_enetityISIN->setObjectName(QStringLiteral("label_enetityISIN"));
+        label_enetityISIN->setFont(font1);
+
+        formLayout_3->setWidget(2, QFormLayout::FieldRole, label_enetityISIN);
+
+        label_29 = new QLabel(tab_5);
+        label_29->setObjectName(QStringLiteral("label_29"));
+
+        formLayout_3->setWidget(3, QFormLayout::LabelRole, label_29);
+
+
+        verticalLayout_10->addLayout(formLayout_3);
+
+        formWidget_stock = new QWidget(tab_5);
+        formWidget_stock->setObjectName(QStringLiteral("formWidget_stock"));
+        formLayout_4 = new QFormLayout(formWidget_stock);
+        formLayout_4->setObjectName(QStringLiteral("formLayout_4"));
+        label_31 = new QLabel(formWidget_stock);
+        label_31->setObjectName(QStringLiteral("label_31"));
+        label_31->setFont(font1);
+
+        formLayout_4->setWidget(0, QFormLayout::LabelRole, label_31);
+
+        label_stockCost = new QLabel(formWidget_stock);
+        label_stockCost->setObjectName(QStringLiteral("label_stockCost"));
+        label_stockCost->setFont(font1);
+
+        formLayout_4->setWidget(0, QFormLayout::FieldRole, label_stockCost);
+
+        label_32 = new QLabel(formWidget_stock);
+        label_32->setObjectName(QStringLiteral("label_32"));
+        label_32->setFont(font1);
+
+        formLayout_4->setWidget(1, QFormLayout::LabelRole, label_32);
+
+        lineEdit_stockshareNumber = new QLineEdit(formWidget_stock);
+        lineEdit_stockshareNumber->setObjectName(QStringLiteral("lineEdit_stockshareNumber"));
+        lineEdit_stockshareNumber->setFont(font1);
+
+        formLayout_4->setWidget(1, QFormLayout::FieldRole, lineEdit_stockshareNumber);
+
+        label_34 = new QLabel(formWidget_stock);
+        label_34->setObjectName(QStringLiteral("label_34"));
+
+        formLayout_4->setWidget(2, QFormLayout::LabelRole, label_34);
+
+
+        verticalLayout_10->addWidget(formWidget_stock);
+
+        formWidget_fund = new QWidget(tab_5);
+        formWidget_fund->setObjectName(QStringLiteral("formWidget_fund"));
+        formLayout_5 = new QFormLayout(formWidget_fund);
+        formLayout_5->setObjectName(QStringLiteral("formLayout_5"));
+        label_36 = new QLabel(formWidget_fund);
+        label_36->setObjectName(QStringLiteral("label_36"));
+        label_36->setFont(font1);
+
+        formLayout_5->setWidget(0, QFormLayout::LabelRole, label_36);
+
+        label_fundShareCost = new QLabel(formWidget_fund);
+        label_fundShareCost->setObjectName(QStringLiteral("label_fundShareCost"));
+        label_fundShareCost->setFont(font1);
+
+        formLayout_5->setWidget(0, QFormLayout::FieldRole, label_fundShareCost);
+
+        label_37 = new QLabel(formWidget_fund);
+        label_37->setObjectName(QStringLiteral("label_37"));
+        label_37->setFont(font1);
+
+        formLayout_5->setWidget(2, QFormLayout::LabelRole, label_37);
+
+        label_fundCost = new QLabel(formWidget_fund);
+        label_fundCost->setObjectName(QStringLiteral("label_fundCost"));
+        label_fundCost->setFont(font1);
+
+        formLayout_5->setWidget(2, QFormLayout::FieldRole, label_fundCost);
+
+        label_38 = new QLabel(formWidget_fund);
+        label_38->setObjectName(QStringLiteral("label_38"));
+        label_38->setFont(font1);
+
+        formLayout_5->setWidget(3, QFormLayout::LabelRole, label_38);
+
+        label_composition = new QLabel(formWidget_fund);
+        label_composition->setObjectName(QStringLiteral("label_composition"));
+        label_composition->setFont(font1);
+
+        formLayout_5->setWidget(3, QFormLayout::FieldRole, label_composition);
+
+        label_47 = new QLabel(formWidget_fund);
+        label_47->setObjectName(QStringLiteral("label_47"));
+        label_47->setFont(font1);
+
+        formLayout_5->setWidget(4, QFormLayout::LabelRole, label_47);
+
+        lineEdit_fundShareNumber = new QLineEdit(formWidget_fund);
+        lineEdit_fundShareNumber->setObjectName(QStringLiteral("lineEdit_fundShareNumber"));
+        lineEdit_fundShareNumber->setFont(font1);
+
+        formLayout_5->setWidget(4, QFormLayout::FieldRole, lineEdit_fundShareNumber);
+
+        label_39 = new QLabel(formWidget_fund);
+        label_39->setObjectName(QStringLiteral("label_39"));
+
+        formLayout_5->setWidget(5, QFormLayout::LabelRole, label_39);
+
+
+        verticalLayout_10->addWidget(formWidget_fund);
+
+        formWidget_bond = new QWidget(tab_5);
+        formWidget_bond->setObjectName(QStringLiteral("formWidget_bond"));
+        formLayout_6 = new QFormLayout(formWidget_bond);
+        formLayout_6->setObjectName(QStringLiteral("formLayout_6"));
+        label_41 = new QLabel(formWidget_bond);
+        label_41->setObjectName(QStringLiteral("label_41"));
+        label_41->setFont(font1);
+
+        formLayout_6->setWidget(0, QFormLayout::LabelRole, label_41);
+
+        label_42 = new QLabel(formWidget_bond);
+        label_42->setObjectName(QStringLiteral("label_42"));
+        label_42->setFont(font1);
+
+        formLayout_6->setWidget(1, QFormLayout::LabelRole, label_42);
+
+        label_43 = new QLabel(formWidget_bond);
+        label_43->setObjectName(QStringLiteral("label_43"));
+        label_43->setFont(font1);
+
+        formLayout_6->setWidget(2, QFormLayout::LabelRole, label_43);
+
+        label_44 = new QLabel(formWidget_bond);
+        label_44->setObjectName(QStringLiteral("label_44"));
+
+        formLayout_6->setWidget(4, QFormLayout::LabelRole, label_44);
+
+        lineEdit_investmentAmount = new QLineEdit(formWidget_bond);
+        lineEdit_investmentAmount->setObjectName(QStringLiteral("lineEdit_investmentAmount"));
+        lineEdit_investmentAmount->setFont(font1);
+
+        formLayout_6->setWidget(1, QFormLayout::FieldRole, lineEdit_investmentAmount);
+
+        label_coupon = new QLabel(formWidget_bond);
+        label_coupon->setObjectName(QStringLiteral("label_coupon"));
+        label_coupon->setFont(font1);
+
+        formLayout_6->setWidget(0, QFormLayout::FieldRole, label_coupon);
+
+        label_45 = new QLabel(formWidget_bond);
+        label_45->setObjectName(QStringLiteral("label_45"));
+        label_45->setFont(font1);
+
+        formLayout_6->setWidget(3, QFormLayout::LabelRole, label_45);
+
+        comboBox_monthsNumber = new QComboBox(formWidget_bond);
+        comboBox_monthsNumber->setObjectName(QStringLiteral("comboBox_monthsNumber"));
+        comboBox_monthsNumber->setFont(font1);
+
+        formLayout_6->setWidget(2, QFormLayout::FieldRole, comboBox_monthsNumber);
+
+        label_expectedYield = new QLabel(formWidget_bond);
+        label_expectedYield->setObjectName(QStringLiteral("label_expectedYield"));
+        label_expectedYield->setFont(font1);
+
+        formLayout_6->setWidget(3, QFormLayout::FieldRole, label_expectedYield);
+
+
+        verticalLayout_10->addWidget(formWidget_bond);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        label_50 = new QLabel(tab_5);
+        label_50->setObjectName(QStringLiteral("label_50"));
+        label_50->setFont(font1);
+        label_50->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout->addWidget(label_50);
+
+        label_totalInvestment = new QLabel(tab_5);
+        label_totalInvestment->setObjectName(QStringLiteral("label_totalInvestment"));
+        label_totalInvestment->setFont(font1);
+        label_totalInvestment->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout->addWidget(label_totalInvestment);
+
+
+        verticalLayout_10->addLayout(horizontalLayout);
+
+        line_10 = new QFrame(tab_5);
+        line_10->setObjectName(QStringLiteral("line_10"));
+        line_10->setFrameShape(QFrame::HLine);
+        line_10->setFrameShadow(QFrame::Sunken);
+
+        verticalLayout_10->addWidget(line_10);
+
+        horizontalLayout_11 = new QHBoxLayout();
+        horizontalLayout_11->setObjectName(QStringLiteral("horizontalLayout_11"));
+        pushButton_doInvestment = new QPushButton(tab_5);
+        pushButton_doInvestment->setObjectName(QStringLiteral("pushButton_doInvestment"));
+        pushButton_doInvestment->setFont(font3);
+
+        horizontalLayout_11->addWidget(pushButton_doInvestment);
+
+
+        verticalLayout_10->addLayout(horizontalLayout_11);
+
+        tabWidget->addTab(tab_5, QString());
+        tab_6 = new QWidget();
+        tab_6->setObjectName(QStringLiteral("tab_6"));
+        tabWidget->addTab(tab_6, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));
         verticalLayout_7 = new QVBoxLayout(tab_2);
@@ -860,7 +1175,7 @@ public:
 
         tabWidget->addTab(tab_2, QString());
 
-        horizontalLayout->addWidget(tabWidget);
+        verticalLayout_9->addWidget(tabWidget);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -899,6 +1214,12 @@ public:
         dateEdit_to->setMinimumDate(dateEdit_from->date());
         dateEdit_to->setDate(QDate::currentDate());
 
+        //----------------DoInvestment Settings-----
+
+        formWidget_bond->hide();
+        formWidget_fund->hide();
+        formWidget_stock->hide();
+
 
         //----------Imputs---------
 
@@ -916,11 +1237,14 @@ public:
         QObject::connect(pushButton_search, SIGNAL(clicked()), MainWindow, SLOT(searchHistorical()));
         QObject::connect(lineEdit_searchHistorical, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(searchHistorical()));
         QObject::connect(comboBox_options, SIGNAL(currentIndexChanged(int)), MainWindow, SLOT(searchHistorical()));
+
         QObject::connect(dateEdit_to, SIGNAL(dateChanged(const QDate &)), MainWindow ,SLOT( searchDateChanged() ));
         QObject::connect(dateEdit_from, SIGNAL(dateChanged(const QDate &)), MainWindow ,SLOT( searchDateChanged() ));
-
         QObject::connect(pushButton_cancAccount, SIGNAL (clicked()), MainWindow, SLOT (cancel()));
         QObject::connect(pushButton_Cancel, SIGNAL (clicked()), MainWindow, SLOT (cancel()));
+
+        QObject::connect(comboBox_investmentType, SIGNAL(currentTextChanged(const QString &)), MainWindow, SLOT( updateDoInvestment(const QString&)));
+
 
 
         //----------lineEditChanged------------
@@ -998,6 +1322,49 @@ public:
         label_24->setText(QApplication::translate("MainWindow", "Riepilogo: ", Q_NULLPTR));
         label_totalHistorical->setText(QApplication::translate("MainWindow", "0000", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MainWindow", "Storico", Q_NULLPTR));
+        label_25->setText(QApplication::translate("MainWindow", "Effettua un Investimento", Q_NULLPTR));
+        label_26->setText(QApplication::translate("MainWindow", "Scegli tipologia di investimento: ", Q_NULLPTR));
+        comboBox_investmentType->clear();
+        comboBox_investmentType->insertItems(0, QStringList()
+                << QApplication::translate("MainWindow", "Azione", Q_NULLPTR)
+                << QApplication::translate("MainWindow", "Obbligazione", Q_NULLPTR)
+                << QApplication::translate("MainWindow", "Fondo", Q_NULLPTR)
+        );
+        label_27->setText(QApplication::translate("MainWindow", "Scegli la Societ\303\240: ", Q_NULLPTR));
+        label_28->setText(QApplication::translate("MainWindow", "ISIN della Societ\303\240: ", Q_NULLPTR));
+        label_enetityISIN->setText(QApplication::translate("MainWindow", "---", Q_NULLPTR));
+        label_29->setText(QString());
+        label_31->setText(QApplication::translate("MainWindow", "Costo per azione: ", Q_NULLPTR));
+        label_stockCost->setText(QApplication::translate("MainWindow", "0", Q_NULLPTR));
+        label_32->setText(QApplication::translate("MainWindow", "Quantit\303\240: ", Q_NULLPTR));
+        label_34->setText(QString());
+        label_36->setText(QApplication::translate("MainWindow", "Costo per quota", Q_NULLPTR));
+        label_fundShareCost->setText(QApplication::translate("MainWindow", "00", Q_NULLPTR));
+        label_37->setText(QApplication::translate("MainWindow", "Costo sottoscrizione: ", Q_NULLPTR));
+        label_fundCost->setText(QApplication::translate("MainWindow", "0%", Q_NULLPTR));
+        label_38->setText(QApplication::translate("MainWindow", "Composizione: ", Q_NULLPTR));
+        label_composition->setText(QApplication::translate("MainWindow", "---", Q_NULLPTR));
+        label_47->setText(QApplication::translate("MainWindow", "Quantit\303\240: ", Q_NULLPTR));
+        label_39->setText(QString());
+        label_41->setText(QApplication::translate("MainWindow", "Cedola mensile: ", Q_NULLPTR));
+        label_42->setText(QApplication::translate("MainWindow", "Denaro da investire: ", Q_NULLPTR));
+        label_43->setText(QApplication::translate("MainWindow", "Orizzonte temporale (mesi): ", Q_NULLPTR));
+        label_44->setText(QString());
+        label_coupon->setText(QApplication::translate("MainWindow", "0%", Q_NULLPTR));
+        label_45->setText(QApplication::translate("MainWindow", "Rendimento previsto: ", Q_NULLPTR));
+        comboBox_monthsNumber->clear();
+        comboBox_monthsNumber->insertItems(0, QStringList()
+                << QApplication::translate("MainWindow", "3", Q_NULLPTR)
+                << QApplication::translate("MainWindow", "6", Q_NULLPTR)
+                << QApplication::translate("MainWindow", "12", Q_NULLPTR)
+                << QApplication::translate("MainWindow", "24", Q_NULLPTR)
+        );
+        label_expectedYield->setText(QApplication::translate("MainWindow", "0", Q_NULLPTR));
+        label_50->setText(QApplication::translate("MainWindow", "Totale spesa", Q_NULLPTR));
+        label_totalInvestment->setText(QApplication::translate("MainWindow", "0", Q_NULLPTR));
+        pushButton_doInvestment->setText(QApplication::translate("MainWindow", "Effettua Investimento", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_5), QApplication::translate("MainWindow", "Effettua Investimenti", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_6), QApplication::translate("MainWindow", "Gestisci Investimenti", Q_NULLPTR));
         label_20->setText(QApplication::translate("MainWindow", "Dati Account", Q_NULLPTR));
         label->setText(QApplication::translate("MainWindow", "Nome: ", Q_NULLPTR));
         label_2->setText(QApplication::translate("MainWindow", "Cognome: ", Q_NULLPTR));
@@ -1022,4 +1389,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // FINANCIALMANAGERKN2584_H
+#endif // FINANCIALMANAGERVB3766_H

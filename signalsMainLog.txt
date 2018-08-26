@@ -15,6 +15,13 @@
         dateEdit_to->setMinimumDate(dateEdit_from->date());
         dateEdit_to->setDate(QDate::currentDate());
 
+        //----------------DoInvestment Settings-----
+
+        formWidget_bond->hide();
+        formWidget_fund->hide();
+        formWidget_stock->hide();
+
+
 
         //----------Imputs---------
 
@@ -37,6 +44,9 @@
         QObject::connect(dateEdit_from, SIGNAL(dateChanged(const QDate &)), MainWindow ,SLOT( searchDateChanged() ));
         QObject::connect(pushButton_cancAccount, SIGNAL (clicked()), MainWindow, SLOT (cancel()));
         QObject::connect(pushButton_Cancel, SIGNAL (clicked()), MainWindow, SLOT (cancel()));
+
+        QObject::connect(comboBox_investmentType, SIGNAL(currentTextChanged(const QString &)), MainWindow, SLOT( updateDoInvestment(const QString&)));
+
 
 
         //----------lineEditChanged------------
