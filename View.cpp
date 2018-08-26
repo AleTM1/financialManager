@@ -37,7 +37,7 @@ void View::update()  {
 
     }else {
 
-        updateDoInvestment(viewWindow->comboBox_investmentType->currentText());
+        updateEntitesList();
 
         auto account = updateAccount();
 
@@ -64,16 +64,26 @@ void View::lockAccountTab() const {
                 viewWindow->tabWidget->setTabEnabled(i, false);
 }
 
-void View::updateDoInvestment(const QString & currentText) {
+void View::updateEntitesList() {
+
+    QString currentTypeString = viewWindow->comboBox_investmentType->currentText();
 
     viewWindow->comboBox_entity->clear();
 
     for (auto e:model->getEntitiesList().entities) {
-        if ((currentText == "Azione" || currentText == "Obbligazione") && (dynamic_cast<Company*>(e)))
+        if ((currentTypeString == "Azione" || currentTypeString == "Obbligazione") && (dynamic_cast<Company*>(e)))
             viewWindow->comboBox_entity->addItem(e->getName());
-        else if ((currentText == "Fondo") && (dynamic_cast<FundSociety*>(e)))
+        else if ((currentTypeString == "Fondo") && (dynamic_cast<FundSociety*>(e)))
             viewWindow->comboBox_entity->addItem(e->getName());
     }
+
+}
+
+void View::updateInvestmentData() {
+
+       for (auto e:model->getEntitiesList().entities)
+           if (viewWindow->comboBox_entity->currentText() == e->getName())
+               viewWindow->label_enetityISIN->setText(e->getISIN());
 
 }
 

@@ -41,7 +41,8 @@ private slots:
     void searchHistorical();
     void searchDateChanged();
     void cancel();
-    void updateDoInvestment(const QString &);
+    void updateEntitesList();
+    void updateInvestmentData();
 
     //----controlli---
     void lineIBANEdited(const QString &);

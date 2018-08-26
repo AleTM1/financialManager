@@ -45,7 +45,8 @@
         QObject::connect(pushButton_cancAccount, SIGNAL (clicked()), MainWindow, SLOT (cancel()));
         QObject::connect(pushButton_Cancel, SIGNAL (clicked()), MainWindow, SLOT (cancel()));
 
-        QObject::connect(comboBox_investmentType, SIGNAL(currentTextChanged(const QString &)), MainWindow, SLOT( updateDoInvestment(const QString&)));
+        QObject::connect(comboBox_investmentType, SIGNAL(currentTextChanged(const QString &)), MainWindow, SLOT( updateEntitesList()));
+        QObject::connect(comboBox_entity, SIGNAL(currentTextChanged(const QString &)), MainWindow, SLOT( updateInvestmentData()));
 
 
 

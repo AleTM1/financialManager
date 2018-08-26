@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'FinancialManagerVB3766.ui'
+** Form generated from reading UI file 'FinancialManagerTi3483.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.5
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef FINANCIALMANAGERVB3766_H
-#define FINANCIALMANAGERVB3766_H
+#ifndef FINANCIALMANAGERTI3483_H
+#define FINANCIALMANAGERTI3483_H
 
 #include <QtCore/QDate>
 #include <QtCore/QVariant>
@@ -223,7 +223,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(914, 650);
+        MainWindow->resize(914, 748);
         actionRESET = new QAction(MainWindow);
         actionRESET->setObjectName(QStringLiteral("actionRESET"));
         actionClose = new QAction(MainWindow);
@@ -680,7 +680,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 868, 354));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 868, 452));
         verticalLayout_5 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
         verticalLayout_localHistory = new QVBoxLayout();
@@ -1221,6 +1221,7 @@ public:
         formWidget_stock->hide();
 
 
+
         //----------Imputs---------
 
         QObject::connect(actionClose, SIGNAL(triggered()), MainWindow, SLOT(closeApp()));
@@ -1243,7 +1244,8 @@ public:
         QObject::connect(pushButton_cancAccount, SIGNAL (clicked()), MainWindow, SLOT (cancel()));
         QObject::connect(pushButton_Cancel, SIGNAL (clicked()), MainWindow, SLOT (cancel()));
 
-        QObject::connect(comboBox_investmentType, SIGNAL(currentTextChanged(const QString &)), MainWindow, SLOT( updateDoInvestment(const QString&)));
+        QObject::connect(comboBox_investmentType, SIGNAL(currentTextChanged(const QString &)), MainWindow, SLOT( updateEntitesList()));
+        QObject::connect(comboBox_entity, SIGNAL(currentTextChanged(const QString &)), MainWindow, SLOT( updateInvestmentData()));
 
 
 
@@ -1331,6 +1333,10 @@ public:
                 << QApplication::translate("MainWindow", "Fondo", Q_NULLPTR)
         );
         label_27->setText(QApplication::translate("MainWindow", "Scegli la Societ\303\240: ", Q_NULLPTR));
+        comboBox_entity->clear();
+        comboBox_entity->insertItems(0, QStringList()
+                << QApplication::translate("MainWindow", "Google", Q_NULLPTR)
+        );
         label_28->setText(QApplication::translate("MainWindow", "ISIN della Societ\303\240: ", Q_NULLPTR));
         label_enetityISIN->setText(QApplication::translate("MainWindow", "---", Q_NULLPTR));
         label_29->setText(QString());
@@ -1389,4 +1395,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // FINANCIALMANAGERVB3766_H
+#endif // FINANCIALMANAGERTI3483_H
