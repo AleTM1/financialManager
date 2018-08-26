@@ -232,11 +232,13 @@ int Model::doInvestment(Investment* investment){
         return 1;
 
 
-
     conto->setLiquid( conto->getLiquid() - investment->getTotalInvested() );
     conto->setInvested(investment->getTotalInvested() );
 
     conto->saveData();
+
+    investment->setInvestorIBAN(conto->getIBAN());
+    investment->setInvestorName(account->getName() + " " + account->getSurname());
 
     investmentManager->addInvestment(investment);
 

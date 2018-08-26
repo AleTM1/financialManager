@@ -30,10 +30,6 @@ public:
         return investmentType;
     }
 
-    void setInvestmentType(InvestmentType investmentType) {
-        Investment::investmentType = investmentType;
-    }
-
     const QString &getInvestorIBAN() const {
         return investorIBAN;
     }

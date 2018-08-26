@@ -14,8 +14,6 @@ public:
 
     AbstractStockFund(float sharesNum);
 
-    void changeGenerator();
-
     void totalInvestmentCalculator();
 
     virtual ~AbstractStockFund(){}

@@ -29,6 +29,8 @@ void InvestmentManager::addInvestment(Investment *investment) {
 
 void InvestmentManager::saveData() {
 
+    //TODO SAVE
+
 }
 
 

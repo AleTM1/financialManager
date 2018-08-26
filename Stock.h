@@ -14,7 +14,6 @@ public:
 
     Stock(float sharesNum);
 
-
     virtual void showEntityDetails() override;
 
 protected:

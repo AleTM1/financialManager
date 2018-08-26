@@ -142,6 +142,7 @@ void Controller::doInvestment(InvestmentType investmentType, QString ISINcode, f
             if(s->getISIN() == ISINcode)
                 stock->setEntity(s);
 
+
         model->doInvestment(stock);
 
     }else if(investmentType == InvestmentType::fund) {
