@@ -26,6 +26,8 @@ public:
 
     void setActualInvestment(float actualInvestment);
 
+    void setEntity(Entity *entity);
+
 protected:
 
     float sharesNumber;

@@ -7,7 +7,6 @@
 
 AbstractStockFund::AbstractStockFund(float sharesNum) : sharesNumber(sharesNum) {
 
-    totalInvestmentCalculator();
 
     actualInvestment = totalInvested;
 
@@ -34,4 +33,9 @@ float AbstractStockFund::getActualInvestment() const {
 
 void AbstractStockFund::setActualInvestment(float actualInvestment) {
     AbstractStockFund::actualInvestment = actualInvestment;
+}
+
+void AbstractStockFund::setEntity(Entity *entity) {
+    Investment::entity = entity;
+    totalInvestmentCalculator();
 }

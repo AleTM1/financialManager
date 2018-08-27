@@ -135,6 +135,7 @@ void Controller::contoSave(QString string) {
 
 void Controller::doInvestment(InvestmentType investmentType, QString ISINcode, float quantity) {
 
+
     if(investmentType == InvestmentType::stock) {
         auto stock = new Stock(quantity);
 
