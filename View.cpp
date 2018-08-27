@@ -314,12 +314,22 @@ void View::updateInvestmentAmount(){
     viewWindow->label_totalInvestment->setText("0€");
 
     if(viewWindow->comboBox_investmentType->currentText() == "Azione") {
-        viewWindow->label_totalInvestment->setText(QString::number(viewWindow->lineEdit_stockshareNumber->text().toFloat() * (viewWindow->label_stockCost->text().toFloat())) + "€");
+        viewWindow->label_totalInvestment->setText(QString::number(viewWindow->lineEdit_stockshareNumber->text().toFloat() * (viewWindow->label_stockCost->text().toFloat())));
     }else if(viewWindow->comboBox_investmentType->currentText() == "Obbligazione") {
-        viewWindow->label_totalInvestment->setText(viewWindow->lineEdit_investmentAmount->text()+"€");
-        viewWindow->label_expectedYield->setText(QString::number(viewWindow->lineEdit_investmentAmount->text().toFloat() *(viewWindow->comboBox_monthsNumber->currentText().toInt())*(((viewWindow->label_coupon->text()).remove('%').toFloat())/100))+"€");
+        viewWindow->label_totalInvestment->setText(viewWindow->lineEdit_investmentAmount->text());
+        viewWindow->label_expectedYield->setText(QString::number(viewWindow->lineEdit_investmentAmount->text().toFloat() *(viewWindow->comboBox_monthsNumber->currentText().toInt())*(((viewWindow->label_coupon->text()).remove('%').toFloat())/100)));
     }else if(viewWindow->comboBox_investmentType->currentText() == "Fondo") {
-        viewWindow->label_totalInvestment->setText(QString::number(viewWindow->lineEdit_fundShareNumber->text().toFloat() * (viewWindow->label_fundShareCost->text().toFloat()) * (1.0+((viewWindow->label_fundCost->text()).remove('%').toFloat())/100)) + "€");
+        viewWindow->label_totalInvestment->setText(QString::number(viewWindow->lineEdit_fundShareNumber->text().toFloat() * (viewWindow->label_fundShareCost->text().toFloat()) * (1.0+((viewWindow->label_fundCost->text()).remove('%').toFloat())/100)));
+    }
+
+
+
+    if (viewWindow->label_totalInvestment->text().toFloat() > dynamic_cast<Conto*>(model->accessDataStorage("Conto"))->getLiquid()) {
+        viewWindow->label_totalInvestment->setStyleSheet("QLabel { color : red; }");
+        viewWindow->label_totalInvestment->setText(viewWindow->label_totalInvestment->text()+"€ (liquidità insufficiente)");
+    }else {
+        viewWindow->label_totalInvestment->setStyleSheet("QLabel { color : black; }");
+        viewWindow->label_totalInvestment->setText(viewWindow->label_totalInvestment->text()+"€");
     }
 
 }

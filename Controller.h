@@ -24,7 +24,7 @@ public:
 
     void doInvestment(InvestmentType, QString ISINcode, float quantity );
 
-    void doInvestment(InvestmentType, QString ISINcode, float investmentAmount, int monthsNumber  );
+    void doInvestment(InvestmentType, QString ISINcode, float investmentAmount, int monthsNumber );
 
     //---------------salvataggi
 

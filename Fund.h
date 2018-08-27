@@ -7,6 +7,8 @@
 
 
 #include "AbstractStockFund.h"
+#include "FundSociety.h"
+
 
 class Fund : public AbstractStockFund{
 
@@ -14,11 +16,15 @@ public:
 
     Fund(float sharesNum);
 
+    virtual void totalInvestmentCalculator() override ;
+
     virtual void showEntityDetails() override;
+
+    float getCostAmount() const;
 
 protected:
 
-
+    float costAmount;
 
 };
 

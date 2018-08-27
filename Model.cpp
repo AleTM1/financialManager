@@ -225,15 +225,23 @@ int Model::doInvestment(Investment* investment){
 
     /*  0) buon fine
      *  1) cifra massima ecceduta
-     *
      */
 
-    if( investment->getTotalInvested() > conto->getLiquid() )
+    float totalCost;
+    if(investment->getInvestmentType() != InvestmentType::fund)
+        totalCost = investment->getTotalInvested();
+    else
+        totalCost = dynamic_cast<Fund*>(investment)->getTotalInvested() + dynamic_cast<Fund*>(investment)->getCostAmount();
+
+
+    if( totalCost > conto->getLiquid() )
         return 1;
 
 
-    conto->setLiquid( conto->getLiquid() - investment->getTotalInvested() );
-    conto->setInvested(investment->getTotalInvested() );
+
+    conto->setLiquid( conto->getLiquid() - totalCost );
+    conto->setInvested(conto->getInvested() + investment->getTotalInvested() );
+
 
     conto->saveData();
 

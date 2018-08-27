@@ -149,25 +149,26 @@ void Controller::doInvestment(InvestmentType investmentType, QString ISINcode, f
     }else if(investmentType == InvestmentType::fund) {
         auto fund = new Fund(quantity);
 
-        for(auto s:model->getEntitiesList().entities)
-            if(s->getISIN() == ISINcode)
+        for (auto s:model->getEntitiesList().entities)
+            if (s->getISIN() == ISINcode)
                 fund->setEntity(s);
 
         model->doInvestment(fund);
 
-    }
 
+    }
 
     //TODO aggiungi eccezione se l'investment type non coincide
 
-
 }
+
 
 void Controller::doInvestment(InvestmentType investmentType, QString ISINcode, float investmentAmount, int monthsNumber) {
 
     if(investmentType == InvestmentType::bond) {
         auto bond = new Bond( monthsNumber);
         bond->setTotalInvested(investmentAmount);
+
 
         for(auto s:model->getEntitiesList().entities)
             if(s->getISIN() == ISINcode)

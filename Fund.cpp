@@ -13,3 +13,18 @@ Fund::Fund(float sharesNum) : AbstractStockFund(sharesNum) {
 void Fund::showEntityDetails() {
 
 }
+
+
+void Fund::totalInvestmentCalculator() {
+
+    totalInvested = entity->getShareCost() * sharesNumber ;
+
+    costAmount = totalInvested * ((dynamic_cast<FundSociety*>(entity)->getCost())/100);
+
+}
+
+float Fund::getCostAmount() const {
+    return costAmount;
+}
+
+
