@@ -290,6 +290,19 @@ void View::doTransaction() {
 
 }
 
+void View::doInvestment() {
+
+
+    if (viewWindow->comboBox_investmentType->currentText() == "Azione")
+        controller->doInvestment(InvestmentType::stock, viewWindow->label_enetityISIN->text(), viewWindow->lineEdit_stockshareNumber->text().toFloat() );
+    else if(viewWindow->comboBox_investmentType->currentText() == "Fondo")
+        controller->doInvestment(InvestmentType::fund, viewWindow->label_enetityISIN->text(), viewWindow->lineEdit_fundShareNumber->text().toFloat() );
+    else if(viewWindow->comboBox_investmentType->currentText() == "Obbligazione")
+        controller->doInvestment(InvestmentType::bond, viewWindow->label_enetityISIN->text(), viewWindow->lineEdit_investmentAmount->text().toFloat(), viewWindow->comboBox_monthsNumber->currentText().toInt() );
+
+}
+
+
 void View::cancel() {
 
     update();

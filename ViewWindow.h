@@ -1251,7 +1251,7 @@ public:
         QObject::connect(lineEdit_investmentAmount, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineInvestmentEdited(const QString &)) );
         QObject::connect(lineEdit_fundShareNumber, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineInvestmentEdited(const QString &)) );
         QObject::connect(comboBox_monthsNumber, SIGNAL(currentIndexChanged(int)), MainWindow, SLOT(updateInvestmentAmount()));
-
+        QObject::connect(pushButton_doInvestment, SIGNAL(clicked()), MainWindow, SLOT(doInvestment()));
 
         //----------lineEditChanged------------
 

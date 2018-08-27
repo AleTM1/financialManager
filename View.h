@@ -46,6 +46,9 @@ private slots:
     void lineInvestmentEdited(const QString &);
     void updateInvestmentAmount();
 
+    void doInvestment();
+
+
     //----controlli---
     void lineIBANEdited(const QString &);
     void lineCAPEdited(const QString &);
