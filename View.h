@@ -43,6 +43,8 @@ private slots:
     void cancel();
     void updateEntitesList();
     void updateInvestmentData();
+    void lineInvestmentEdited(const QString &);
+    void updateInvestmentAmount();
 
     //----controlli---
     void lineIBANEdited(const QString &);

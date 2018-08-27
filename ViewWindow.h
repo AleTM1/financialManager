@@ -1247,6 +1247,10 @@ public:
         QObject::connect(comboBox_investmentType, SIGNAL(currentTextChanged(const QString &)), MainWindow, SLOT( updateEntitesList()));
         QObject::connect(comboBox_entity, SIGNAL(currentTextChanged(const QString &)), MainWindow, SLOT( updateInvestmentData()));
 
+        QObject::connect(lineEdit_stockshareNumber, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineInvestmentEdited(const QString &)) );
+        QObject::connect(lineEdit_investmentAmount, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineInvestmentEdited(const QString &)) );
+        QObject::connect(lineEdit_fundShareNumber, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineInvestmentEdited(const QString &)) );
+        QObject::connect(comboBox_monthsNumber, SIGNAL(currentIndexChanged(int)), MainWindow, SLOT(updateInvestmentAmount()));
 
 
         //----------lineEditChanged------------
@@ -1366,8 +1370,8 @@ public:
                 << QApplication::translate("MainWindow", "24", Q_NULLPTR)
         );
         label_expectedYield->setText(QApplication::translate("MainWindow", "0", Q_NULLPTR));
-        label_50->setText(QApplication::translate("MainWindow", "Totale spesa", Q_NULLPTR));
-        label_totalInvestment->setText(QApplication::translate("MainWindow", "0", Q_NULLPTR));
+        label_50->setText(QApplication::translate("MainWindow", "Totale investimento", Q_NULLPTR));
+        label_totalInvestment->setText(QApplication::translate("MainWindow", "0€", Q_NULLPTR));
         pushButton_doInvestment->setText(QApplication::translate("MainWindow", "Effettua Investimento", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_5), QApplication::translate("MainWindow", "Effettua Investimenti", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_6), QApplication::translate("MainWindow", "Gestisci Investimenti", Q_NULLPTR));

@@ -25,7 +25,6 @@ public:
 
     }
 
-
     const QString &getName() const {
         return name;
     }

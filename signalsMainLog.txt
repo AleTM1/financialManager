@@ -48,6 +48,10 @@
         QObject::connect(comboBox_investmentType, SIGNAL(currentTextChanged(const QString &)), MainWindow, SLOT( updateEntitesList()));
         QObject::connect(comboBox_entity, SIGNAL(currentTextChanged(const QString &)), MainWindow, SLOT( updateInvestmentData()));
 
+        QObject::connect(lineEdit_stockshareNumber, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineInvestmentEdited(const QString &)) );
+        QObject::connect(lineEdit_investmentAmount, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineInvestmentEdited(const QString &)) );
+        QObject::connect(lineEdit_fundShareNumber, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineInvestmentEdited(const QString &)) );
+        QObject::connect(comboBox_monthsNumber, SIGNAL(currentIndexChanged(int)), MainWindow, SLOT(updateInvestmentAmount()));
 
 
         //----------lineEditChanged------------

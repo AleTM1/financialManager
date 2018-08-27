@@ -77,13 +77,44 @@ void View::updateEntitesList() {
             viewWindow->comboBox_entity->addItem(e->getName());
     }
 
+    updateInvestmentAmount();
+
+
 }
 
 void View::updateInvestmentData() {
 
-       for (auto e:model->getEntitiesList().entities)
-           if (viewWindow->comboBox_entity->currentText() == e->getName())
-               viewWindow->label_enetityISIN->setText(e->getISIN());
+    auto entities = model->getEntitiesList().entities;
+
+    auto entityName = viewWindow->comboBox_entity->currentText();
+
+    viewWindow->formWidget_bond->hide();
+    viewWindow->formWidget_fund->hide();
+    viewWindow->formWidget_stock->hide();
+
+    auto currentTypeString = viewWindow->comboBox_investmentType->currentText();
+
+    if(currentTypeString == "Azione") {
+        viewWindow->formWidget_stock->show();
+    }else if(currentTypeString == "Obbligazione") {
+        viewWindow->formWidget_bond->show();
+    }else if(currentTypeString == "Fondo") {
+        viewWindow->formWidget_fund->show();
+    }
+
+    for (auto e:entities)
+        if (entityName == e->getName()) {
+            viewWindow->label_enetityISIN->setText(e->getISIN());
+            viewWindow->label_stockCost->setText(QString::number(e->getShareCost()));
+            viewWindow->label_fundShareCost->setText(viewWindow->label_stockCost->text());
+            if(auto company = dynamic_cast<Company*>(e)){
+                viewWindow->label_coupon->setText(QString::number(company->getMontlyCoupon()) + "%");
+            }else if (auto fundSociety = dynamic_cast<FundSociety*>(e)){
+                viewWindow->label_fundCost->setText(QString::number(fundSociety->getCost()) + "%");
+            }
+    }
+
+    updateInvestmentAmount();
 
 }
 
@@ -265,7 +296,20 @@ void View::cancel() {
 
 }
 
+void View::updateInvestmentAmount(){
 
+    viewWindow->label_totalInvestment->setText("0€");
+
+    if(viewWindow->comboBox_investmentType->currentText() == "Azione") {
+        viewWindow->label_totalInvestment->setText(QString::number(viewWindow->lineEdit_stockshareNumber->text().toFloat() * (viewWindow->label_stockCost->text().toFloat())) + "€");
+    }else if(viewWindow->comboBox_investmentType->currentText() == "Obbligazione") {
+        viewWindow->label_totalInvestment->setText(viewWindow->lineEdit_investmentAmount->text()+"€");
+        viewWindow->label_expectedYield->setText(QString::number(viewWindow->lineEdit_investmentAmount->text().toFloat() *(viewWindow->comboBox_monthsNumber->currentText().toInt())*(((viewWindow->label_coupon->text()).remove('%').toFloat())/100))+"€");
+    }else if(viewWindow->comboBox_investmentType->currentText() == "Fondo") {
+        viewWindow->label_totalInvestment->setText(QString::number(viewWindow->lineEdit_fundShareNumber->text().toFloat() * (viewWindow->label_fundShareCost->text().toFloat()) * (1.0+((viewWindow->label_fundCost->text()).remove('%').toFloat())/100)) + "€");
+    }
+
+}
 //--------------------------------SALVATAGGI-------
 
 void View::accountSave() {
@@ -293,10 +337,14 @@ void View::contoTitleSave() {
 
 }
 
-
-
-
 //---------------------------Controlli del testo--------------------------
+
+void View::lineInvestmentEdited(const QString &string) {
+
+    lineAmountEdited(string);
+
+    updateInvestmentAmount();
+}
 
 void View::lineIBANEdited(const QString &text){
 
@@ -443,3 +491,4 @@ QString View::onlySelectedCharacters(QString &stringa, const QString &allowedCha
     return stringa;
 
 }
+
