@@ -16,8 +16,6 @@
 #include "InvestmentForm.h"
 
 
-
-
 class View : public QMainWindow, public Observer {
     Q_OBJECT
 public:
@@ -28,6 +26,7 @@ public:
 
     virtual void update()  override;
 
+    void refreshInvestmentValue();
 
 private slots:
 
@@ -46,9 +45,7 @@ private slots:
     void updateInvestmentData();
     void lineInvestmentEdited(const QString &);
     void updateInvestmentAmount();
-
     void doInvestment();
-
 
     //----controlli---
     void lineIBANEdited(const QString &);

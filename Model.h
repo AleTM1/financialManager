@@ -43,6 +43,8 @@ public:
 
     int doInvestment(Investment* investment);
 
+    void updateInvestmentValue();
+
 
 public:
 

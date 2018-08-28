@@ -24,6 +24,7 @@ View::~View() {
     model->removeObserver(this);
     delete viewWindow;
 
+
 }
 
 
@@ -183,6 +184,15 @@ void View::updateInvestmentManager() {
 
     }
 
+
+}
+
+
+void View::refreshInvestmentValue() {
+
+    model->updateInvestmentValue();
+    updateInvestmentData();
+    updateInvestmentManager();
 
 }
 

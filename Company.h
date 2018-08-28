@@ -19,7 +19,7 @@ public:
 
     virtual ~Company(){}
 
-    void changeGenerator() {
+    void changeShareCostGenerator() {
 
         shareCost= shareCost * (((rand()%200-100)/100.0)+100.0)/100.0 ;
 

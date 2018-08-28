@@ -253,3 +253,13 @@ int Model::doInvestment(Investment* investment){
 
 }
 
+
+void Model::updateInvestmentValue() {
+
+    for ( auto c:companiesList.companies)
+        c->changeShareCostGenerator();
+
+    for ()
+
+}
+
