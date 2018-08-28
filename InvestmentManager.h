@@ -29,10 +29,13 @@ public:
 
     const std::list<Investment *> &getInvestmentList() const;
 
+    void removeInvestment(std::_List_const_iterator<Investment*>);
+
 private:
 
     void commonLoad(Investment*);
 
+    void checkForExpiredBonds();
 
 protected:
 

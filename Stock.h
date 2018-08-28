@@ -22,11 +22,7 @@ public:
 
     void setSharesNumber(float sharesNumber);
 
-    float getActualInvestment() const;
-
-    void setActualInvestment(float actualInvestment);
-
-    virtual void setEntity(Company *entity) override;
+    virtual void setCompany(Company *entity) override;
 
     virtual void showEntityDetails() override;
 
@@ -34,7 +30,6 @@ public:
 protected:
 
     float sharesNumber;
-    float actualInvestment;
 
 };
 

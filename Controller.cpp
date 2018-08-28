@@ -142,10 +142,16 @@ void Controller::doInvestment(InvestmentType investmentType, QString ISINcode, f
 
         for(auto s:model->getEntitiesList().companies)
             if(s->getISIN() == ISINcode)
-                stock->setEntity(s);
+                stock->setCompany(s);
 
 
-        model->doInvestment(stock);
+        switch (model->doInvestment(stock)){
+            case 0 : model->makeMessageDialogNoButtons("investimento riuscito","Investimento effettuato con succeso");
+                break;
+            case 1 : model->makeMessageDialogNoButtons("investimento fallito","Ammontare dell'investimento non valido");
+                break;
+            default: model->makeMessageDialogNoButtons("investimento fallito", "Errore sconosciuto");
+        }
 
     }
 
@@ -160,16 +166,28 @@ void Controller::doInvestment(InvestmentType investmentType, QString ISINcode, f
         auto bond = new Bond;
 
         bond->setTotalInvested(investmentAmount);
-        bond->setMonthsDuration(monthsNumber);
+        bond->setMonthsDuration(monthsNumber, true);
 
         for(auto s:model->getEntitiesList().companies)
             if(s->getISIN() == ISINcode)
-                bond->setEntity(s);
+                bond->setCompany(s);
 
-        model->doInvestment(bond);
+        switch (model->doInvestment(bond)){
+            case 0 : model->makeMessageDialogNoButtons("investimento riuscito","Investimento effettuato con succeso");
+                break;
+            case 1 : model->makeMessageDialogNoButtons("investimento fallito","Ammontare dell'investimento non valido");
+                break;
+            default: model->makeMessageDialogNoButtons("investimento fallito", "Errore sconosciuto");
+        }
     }
 
     //TODO aggiungi eccezione se l'investment type non coincide
+
+}
+
+void Controller::sell(int index) {
+
+    model->removeInvestment(index);
 
 }
 

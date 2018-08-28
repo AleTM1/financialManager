@@ -231,7 +231,7 @@ int Model::doInvestment(Investment* investment){
     float totalCost = investment->getTotalInvested();
 
 
-    if( totalCost > conto->getLiquid() )
+    if( totalCost > conto->getLiquid() || totalCost <=0)
         return 1;
 
 
@@ -259,7 +259,26 @@ void Model::updateInvestmentValue() {
     for ( auto c:companiesList.companies)
         c->changeShareCostGenerator();
 
-    for ()
+
+}
+
+void Model::removeInvestment(int index) {
+
+   auto inv = investmentManager->getInvestmentList().begin();
+
+   std::advance(inv, index);
+
+   if(auto stock = dynamic_cast<Stock*>((*inv))) {
+       conto->setInvested(conto->getInvested() - stock->getTotalInvested());
+       conto->setLiquid(conto->getLiquid() + stock->getSharesNumber() * stock->getCompany()->getShareCost());
+   }else if(auto bond = dynamic_cast<Bond*>((*inv))) {
+       conto->setInvested(conto->getInvested() - bond->getTotalInvested());
+       conto->setLiquid(conto->getLiquid() + bond->getTotalInvested() + bond->getTotalInvested() * bond->getMonthsDuration() * bond->getCompany()->getMontlyCoupon());
+   }else
+
+   investmentManager->removeInvestment(inv);
+
+   notify();
 
 }
 

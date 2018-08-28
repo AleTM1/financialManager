@@ -7,18 +7,28 @@
 
 
 #include "Ui_investmentForm.h"
+#include "Controller.h"
 
 class InvestmentForm : public QWidget {
     Q_OBJECT
 public:
 
-    InvestmentForm():ui_investmentForm(new Ui_investmentForm){ui_investmentForm->setupUi(this);}
+    InvestmentForm(Controller* c, int i);
 
-    ~InvestmentForm(){delete ui_investmentForm;}
+    ~InvestmentForm();
 
 public:
 
     Ui_investmentForm* ui_investmentForm;
+
+private slots:
+
+    void sell();
+
+protected:
+
+    Controller* controller;
+    int index;
 
 };
 

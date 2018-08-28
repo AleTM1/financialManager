@@ -19,7 +19,7 @@ public:
 
     int getMonthsDuration() const;
 
-    void setMonthsDuration(int monthsDuration);
+    void setMonthsDuration(int monthsDuration, bool updateDeadline);
 
     const QDate &getDeadlineDate() const;
 

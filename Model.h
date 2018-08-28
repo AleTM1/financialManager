@@ -45,6 +45,8 @@ public:
 
     void updateInvestmentValue();
 
+    void removeInvestment(int);
+
 
 public:
 

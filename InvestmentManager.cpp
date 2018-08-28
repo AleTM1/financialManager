@@ -53,8 +53,8 @@ void InvestmentManager::saveData() {
 
         data.setValue(QString::number(InvestmentData::investmentType),investmentType);
         data.setValue(QString::number(InvestmentData::totalInvested),investment->getTotalInvested());
-        data.setValue(QString::number(InvestmentData::ISIN),investment->getEntity()->getISIN());
-        data.setValue(QString::number(InvestmentData::entityName),investment->getEntity()->getName());
+        data.setValue(QString::number(InvestmentData::ISIN), investment->getCompany()->getISIN());
+        data.setValue(QString::number(InvestmentData::entityName), investment->getCompany()->getName());
         data.setValue(QString::number(InvestmentData::investorIBAN),investment->getInvestorIBAN());
         data.setValue(QString::number(InvestmentData::investorName),investment->getInvestorName());
         data.setValue(QString::number(InvestmentData::currentDate),investment->getBuyDate());
@@ -64,7 +64,7 @@ void InvestmentManager::saveData() {
 
         if(stock ){
 
-            data.setValue(QString::number(InvestmentData::stockActualInvestment), stock->getActualInvestment());
+            //data.setValue(QString::number(InvestmentData::stockActualInvestment), stock->getActualInvestment());
             data.setValue(QString::number(InvestmentData::stockSharesNum), stock->getSharesNumber());
 
         }else if (bond){
@@ -104,10 +104,10 @@ void InvestmentManager::loadData() {
         if(data.value(QString::number(InvestmentData::investmentType)).toString() == "Azione"){
             investment = new Stock;
             dynamic_cast<Stock*>(investment)->setSharesNumber(data.value(QString::number(InvestmentData::stockSharesNum)).toFloat());
-            dynamic_cast<Stock*>(investment)->setActualInvestment(data.value(QString::number(InvestmentData::stockActualInvestment)).toFloat());
+            //dynamic_cast<Stock*>(investment)->setActualInvestment(data.value(QString::number(InvestmentData::stockActualInvestment)).toFloat());
         }else if(data.value(QString::number(InvestmentData::investmentType)).toString() == "Obbligazione"){
             investment = new Bond;
-            dynamic_cast<Bond*>(investment)->setMonthsDuration(data.value(QString::number(InvestmentData ::bondMonthsNumber)).toInt());
+            dynamic_cast<Bond*>(investment)->setMonthsDuration(data.value(QString::number(InvestmentData ::bondMonthsNumber)).toInt(), false);
             dynamic_cast<Bond*>(investment)->setDeadlineDate(data.value(QString::number(InvestmentData ::bondDeadline)).toDate());
         }
 
@@ -118,8 +118,8 @@ void InvestmentManager::loadData() {
 
 
         for (auto e:companiesList.companies)
-            if(e->getISIN() == data.value(QString::number(InvestmentData::ISIN)))
-                investment->setEntity(e);
+            if (e->getISIN() == data.value(QString::number(InvestmentData::ISIN)))
+                investment->setCompany(e);
 
         investmentList.push_back(investment);
 
@@ -130,6 +130,8 @@ void InvestmentManager::loadData() {
     data.endGroup();
 
     data.sync();
+
+    checkForExpiredBonds();
 
 }
 
@@ -147,18 +149,32 @@ void InvestmentManager::commonLoad(Investment* investment){
 
 
     for (auto e:investmentList)
-        if(e->getEntity()->getISIN() == data.value(QString::number(InvestmentData::ISIN)))
-            investment->setEntity(e->getEntity());
+        if(e->getCompany()->getISIN() == data.value(QString::number(InvestmentData::ISIN)))
+            investment->setCompany(e->getCompany());
 
     investmentList.push_back(investment);
 
 }
 
+void InvestmentManager::checkForExpiredBonds() {
+
+    for (auto it = investmentList.begin(); it != investmentList.end(); it++)
+        if((*it)->getInvestmentType() == InvestmentType::bond && dynamic_cast<Bond*>((*it))->getDeadlineDate() == QDate::currentDate())
+            removeInvestment(it);
+
+}
 
 //-----------------------
 
 const std::list<Investment *> &InvestmentManager::getInvestmentList() const {
     return investmentList;
+}
+
+void InvestmentManager::removeInvestment(std::_List_const_iterator<Investment *> it) {
+
+    investmentList.erase(it);
+    saveData();
+
 }
 
 

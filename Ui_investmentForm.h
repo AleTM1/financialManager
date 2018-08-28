@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'investmentFormJ31879.ui'
+** Form generated from reading UI file 'investmentFormkK2372.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.5
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef INVESTMENTFORMJ31879_H
-#define INVESTMENTFORMJ31879_H
+#ifndef INVESTMENTFORMKK2372_H
+#define INVESTMENTFORMKK2372_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -49,6 +49,8 @@ public:
     QLabel *label_stockShareNumber;
     QLabel *label_stockShareCost;
     QLabel *label_stockActualInvestment;
+    QLabel *label_13;
+    QLabel *label_stockChangeAmount;
     QWidget *formWidget_bondData;
     QFormLayout *formLayout_3;
     QLabel *label_9;
@@ -170,6 +172,16 @@ public:
 
         formLayout_2->setWidget(3, QFormLayout::FieldRole, label_stockActualInvestment);
 
+        label_13 = new QLabel(formWidget_stockData);
+        label_13->setObjectName(QStringLiteral("label_13"));
+
+        formLayout_2->setWidget(4, QFormLayout::LabelRole, label_13);
+
+        label_stockChangeAmount = new QLabel(formWidget_stockData);
+        label_stockChangeAmount->setObjectName(QStringLiteral("label_stockChangeAmount"));
+
+        formLayout_2->setWidget(4, QFormLayout::FieldRole, label_stockChangeAmount);
+
 
         verticalLayout->addWidget(formWidget_stockData);
 
@@ -251,13 +263,13 @@ public:
         formWidget_stockData->hide();
         formWidget_bondData->hide();
 
+
+
         pushButton_sell->hide();
 
-
-
+        QObject::connect(pushButton_sell, SIGNAL(clicked()), investmentForm, SLOT(sell()));
 
         //------------------------------------
-
 
         QMetaObject::connectSlotsByName(investmentForm);
     } // setupUi
@@ -281,6 +293,8 @@ public:
         label_stockShareNumber->setText(QApplication::translate("investmentForm", "---", Q_NULLPTR));
         label_stockShareCost->setText(QApplication::translate("investmentForm", "---", Q_NULLPTR));
         label_stockActualInvestment->setText(QApplication::translate("investmentForm", "---", Q_NULLPTR));
+        label_13->setText(QApplication::translate("investmentForm", "Variazione:", Q_NULLPTR));
+        label_stockChangeAmount->setText(QApplication::translate("investmentForm", "---", Q_NULLPTR));
         label_9->setText(QApplication::translate("investmentForm", "Orizzonte temporale (mesi) : ", Q_NULLPTR));
         label_10->setText(QApplication::translate("investmentForm", "Data di scadenza: ", Q_NULLPTR));
         label_11->setText(QApplication::translate("investmentForm", "Rendimento previsto: ", Q_NULLPTR));
@@ -300,4 +314,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // INVESTMENTFORMJ31879_H
+#endif // INVESTMENTFORMKK2372_H

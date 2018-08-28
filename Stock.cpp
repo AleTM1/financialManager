@@ -14,7 +14,6 @@ Stock::Stock() {
 void Stock::totalInvestmentCalculator() {
 
     totalInvested = company->getShareCost() * sharesNumber;
-    actualInvestment = totalInvested;
 
 }
 
@@ -27,15 +26,7 @@ void Stock::setSharesNumber(float shareNumber) {
     Stock::sharesNumber = shareNumber;
 }
 
-float Stock::getActualInvestment() const {
-    return actualInvestment;
-}
-
-void Stock::setActualInvestment(float actualInvestment) {
-    Stock::actualInvestment = actualInvestment;
-}
-
-void Stock::setEntity(Company *entity) {
+void Stock::setCompany(Company *entity) {
     Investment::company = entity;
     totalInvestmentCalculator();
 }

@@ -26,6 +26,8 @@ public:
 
     void doInvestment(InvestmentType, QString ISINcode, float investmentAmount, int monthsNumber );
 
+    void sell(int);
+
     //---------------salvataggi
 
     void accountSave(std::map<AccountData , QString>);

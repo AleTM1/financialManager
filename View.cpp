@@ -155,12 +155,18 @@ void View::updateInvestmentManager() {
 
     auto investmentManager = dynamic_cast<InvestmentManager *>(model->accessDataStorage("InvestmentManager"));
 
+    int i=0;
     for (auto &investment : investmentManager->getInvestmentList()) {
 
-        auto investmentForm = new InvestmentForm;
+        Company* company;
+        for (auto c:model->getEntitiesList().companies)
+            if(c->getISIN() == investment->getCompany()->getISIN())
+                company = c;
 
-        investmentForm->ui_investmentForm->label_entityName->setText(investment->getEntity()->getName());
-        investmentForm->ui_investmentForm->label_entityISIN->setText(investment->getEntity()->getISIN());
+        auto investmentForm = new InvestmentForm(controller,i++);
+
+        investmentForm->ui_investmentForm->label_entityName->setText(company->getName());
+        investmentForm->ui_investmentForm->label_entityISIN->setText(company->getISIN());
         investmentForm->ui_investmentForm->label_buyDate->setText(investment->getBuyDate().toString("dddd, dd / MMMM / yyyy"));
         investmentForm->ui_investmentForm->label_totalInvestment->setText(QString::number(investment->getTotalInvested()));
 
@@ -168,22 +174,33 @@ void View::updateInvestmentManager() {
             investmentForm->ui_investmentForm->formWidget_stockData->show();
             investmentForm->ui_investmentForm->label_investmentType->setText("Azione");
             investmentForm->ui_investmentForm->label_stockShareNumber->setText(QString::number(stock->getSharesNumber()));
-            investmentForm->ui_investmentForm->label_stockActualInvestment->setText(QString::number(stock->getActualInvestment()));
-            investmentForm->ui_investmentForm->label_stockShareCost->setText(QString::number(stock->getEntity()->getShareCost()));
+            investmentForm->ui_investmentForm->label_stockActualInvestment->setText(QString::number(stock->getSharesNumber() * company->getShareCost()));
+            investmentForm->ui_investmentForm->label_stockShareCost->setText(QString::number(company->getShareCost()));
+            investmentForm->ui_investmentForm->label_stockChangeAmount->setText(QString::number(stock->getSharesNumber() * company->getShareCost() - investment->getTotalInvested()));
+            investmentForm->ui_investmentForm->pushButton_sell->show();
+            if (investment->getTotalInvested() < stock->getSharesNumber() * company->getShareCost()) {
+                investmentForm->ui_investmentForm->label_stockActualInvestment->setStyleSheet("QLabel { color : green; }");
+                investmentForm->ui_investmentForm->label_stockChangeAmount->setStyleSheet("QLabel { color : green; }");
+            }else {
+                investmentForm->ui_investmentForm->label_stockActualInvestment->setStyleSheet("QLabel { color : red; }");
+                investmentForm->ui_investmentForm->label_stockChangeAmount->setStyleSheet("QLabel { color : red; }");
+            }
         }else if(auto bond = dynamic_cast<Bond*>(investment)){
             investmentForm->ui_investmentForm->formWidget_bondData->show();
             investmentForm->ui_investmentForm->label_investmentType->setText("Obbligazione");
             investmentForm->ui_investmentForm->label_bondMonthsNumber->setText(QString::number(bond->getMonthsDuration()));
             investmentForm->ui_investmentForm->label_deadlineDate->setText(bond->getDeadlineDate().toString("dddd, dd / MMMM / yyyy"));
-            investmentForm->ui_investmentForm->label_bondCoupon->setText(QString::number(bond->getEntity()->getMontlyCoupon()));
-            investmentForm->ui_investmentForm->label_bondExpectedYield->setText(QString::number((bond->getEntity()->getMontlyCoupon())/100*investment->getTotalInvested()*bond->getMonthsDuration()));
+            investmentForm->ui_investmentForm->label_bondCoupon->setText(QString::number(company->getMontlyCoupon()));
+            investmentForm->ui_investmentForm->label_bondExpectedYield->setText(QString::number((company->getMontlyCoupon())/100*investment->getTotalInvested()*bond->getMonthsDuration()));
         }
+
+
+
 
         investmentForm->show();
         viewWindow->verticalLayout_investmentManager->addWidget(investmentForm);
 
     }
-
 
 }
 
@@ -333,6 +350,9 @@ void View::doInvestment() {
         controller->doInvestment(InvestmentType::stock, viewWindow->label_enetityISIN->text(), viewWindow->lineEdit_stockshareNumber->text().toFloat() );
     else if(viewWindow->comboBox_investmentType->currentText() == "Obbligazione")
         controller->doInvestment(InvestmentType::bond, viewWindow->label_enetityISIN->text(), viewWindow->lineEdit_investmentAmount->text().toFloat(), viewWindow->comboBox_monthsNumber->currentText().toInt() );
+
+    viewWindow->lineEdit_investmentAmount->setText("");
+    viewWindow->lineEdit_stockshareNumber->setText("");
 
 }
 

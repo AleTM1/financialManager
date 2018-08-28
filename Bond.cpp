@@ -15,9 +15,25 @@ int Bond::getMonthsDuration() const {
     return monthsDuration;
 }
 
-void Bond::setMonthsDuration(int monthsDuration) {
+void Bond::setMonthsDuration(int monthsDuration, bool updateDeadline) {
+
     Bond::monthsDuration = monthsDuration;
-    setDeadlineDate(QDate::currentDate());//FIXME collega DeadLine
+
+    QDate deadlineDate(QDate::currentDate());
+
+    int months = monthsDuration % 12;
+    int years = (monthsDuration-months)/12;
+
+    if(deadlineDate.month() + months > 12){
+        years += 1;
+        months -= 12;
+    }
+
+    deadlineDate = deadlineDate.addMonths(months);
+    deadlineDate = deadlineDate.addYears(years);
+
+    if(updateDeadline)
+    setDeadlineDate(deadlineDate);
 }
 
 const QDate &Bond::getDeadlineDate() const {
@@ -25,7 +41,7 @@ const QDate &Bond::getDeadlineDate() const {
 }
 
 void Bond::setDeadlineDate(const QDate &deadlineDate) {
-    Bond::deadlineDate = deadlineDate;  //TODO collega a Months Duration
+    Bond::deadlineDate = deadlineDate;
 }
 
 void Bond::showEntityDetails() {

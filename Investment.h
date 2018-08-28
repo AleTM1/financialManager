@@ -47,12 +47,12 @@ public:
         Investment::investorName = investorName;
     }
 
-    Company *getEntity() const {
+    Company *getCompany() const {
         return company;
     }
 
-    virtual void setEntity(Company *entity) {
-        Investment::company = entity;
+    virtual void setCompany(Company *company) {
+        Investment::company = company;
     }
 
     const QDate &getBuyDate() const {
