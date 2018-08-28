@@ -47,6 +47,8 @@ void View::update()  {
 
         updateHistorical();
 
+        updateInvestmentManager();
+
     }
 
 }
@@ -158,6 +160,69 @@ void View::updateHistorical() {
             viewWindow->label_totalHistorical->setStyleSheet("QLabel { color : red; }");
     else
             viewWindow->label_totalHistorical->setStyleSheet("QLabel { color : green; }");
+}
+
+void View::updateInvestmentManager() {
+    clearLayout(viewWindow->verticalLayout_investmentManager);
+
+    auto investmentManager = dynamic_cast<InvestmentManager *>(model->accessDataStorage("InvestmentManager"));
+
+    for (auto &investment : investmentManager->getInvestmentList()) {
+
+        auto investmentForm = new InvestmentForm;
+
+        bool b = investment->getEntity() != nullptr; //FIXME non ha un entity!!!
+        std::string s = investment->getEntity()->getName().toStdString();
+
+
+        investmentForm->ui_investmentForm->label_entityName->setText(investment->getEntity()->getName());
+        investmentForm->ui_investmentForm->label_entityISIN->setText(investment->getEntity()->getISIN());
+        investmentForm->ui_investmentForm->label_buyDate->setText(investment->getBuyDate().toString("dddd, dd / MMMM / yyyy"));
+        investmentForm->ui_investmentForm->label_totalInvestment->setText(QString::number(investment->getTotalInvested()));
+
+        if(investment->getInvestmentType()==InvestmentType::stock) {
+            investmentForm->ui_investmentForm->label_investmentType->setText("Azione");
+            investmentForm->ui_investmentForm->formWidget_stockData->show();
+            investmentForm->ui_investmentForm->pushButton_sell->show();
+            auto stock = dynamic_cast<Stock*>(investment);
+            investmentForm->ui_investmentForm->label_stockShareNumber->setText(QString::number(stock->getSharesNumber()));
+            investmentForm->ui_investmentForm->label_stockShareCost->setText(QString::number(stock->getEntity()->getShareCost()));
+            investmentForm->ui_investmentForm->label_stockActualInvestment->setText(QString::number(stock->getActualInvestment()));
+
+
+        }else if(investment->getInvestmentType()==InvestmentType::bond) {
+            investmentForm->ui_investmentForm->label_investmentType->setText("Obbligazione");
+            investmentForm->ui_investmentForm->formWidget_bondData->show();
+            auto bond = dynamic_cast<Bond*>(investment);
+            investmentForm->ui_investmentForm->label_bondMonthsNumber->setText(QString::number(bond->getMonthsDuration()));
+            investmentForm->ui_investmentForm->label_deadlineDate->setText((bond->getDeadlineDate()).toString("dddd, dd / MMMM / yyyy"));
+            for (auto e:model->getEntitiesList().entities)
+                if(e->getISIN() == investment->getEntity()->getISIN()){
+                    investmentForm->ui_investmentForm->label_bondCoupon->setText(QString::number(dynamic_cast<Company*>(e)->getMontlyCoupon()));
+                    investmentForm->ui_investmentForm->label_bondExpectedYield->setText(QString::number((dynamic_cast<Company*>(e)->getMontlyCoupon())/100 * investment->getTotalInvested() * bond->getMonthsDuration()));
+                    break;
+                }
+
+        }else if(investment->getInvestmentType()==InvestmentType::fund) {
+            investmentForm->ui_investmentForm->label_investmentType->setText("Fondo");
+            investmentForm->ui_investmentForm->formWidget_fundData->show();
+            investmentForm->ui_investmentForm->pushButton_sell->show();
+            auto fund = dynamic_cast<Fund*>(investment);
+            investmentForm->ui_investmentForm->label_fundShareNumber->setText(QString::number(fund->getSharesNumber()));
+            investmentForm->ui_investmentForm->label_fundShareCost->setText(QString::number(fund->getEntity()->getShareCost()));
+            investmentForm->ui_investmentForm->label_fundActualInvestment->setText(QString::number(fund->getActualInvestment()));
+            for (auto e:model->getEntitiesList().entities)
+                if(e->getISIN() == investment->getEntity()->getISIN()){
+                investmentForm->ui_investmentForm->label_fundComposition->setText("composizione1");
+                break;
+                }
+        }
+
+        investmentForm->show();
+        viewWindow->verticalLayout_investmentManager->addWidget(investmentForm);
+    }
+
+
 }
 
 void View::updateTransaction(const Account *account, const Conto *conto) const {

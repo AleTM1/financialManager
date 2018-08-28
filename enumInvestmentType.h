@@ -7,7 +7,7 @@
 
 enum InvestmentType {fund, stock, bond};
 
-enum InvestmentData {investmentType, totalInvested, ISIN, entityName, investorName, investorIBAN };
+enum InvestmentData {investmentType, totalInvested, ISIN, entityName, investorName, investorIBAN, currentDate };
 
 enum StockFundData {sharesNum, actualInvestment};
 

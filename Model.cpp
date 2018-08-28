@@ -70,9 +70,9 @@ void Model::createAccount() {
 
 void Model::loadAll() {
 
-
     for (auto dataClass : dataStorages)
         dataClass->loadData();
+
 
     notify();
 
@@ -238,7 +238,7 @@ int Model::doInvestment(Investment* investment){
         return 1;
 
 
-
+    investment->setBuyDate(QDate::currentDate());
     conto->setLiquid( conto->getLiquid() - totalCost );
     conto->setInvested(conto->getInvested() + investment->getTotalInvested() );
 

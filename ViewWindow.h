@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'FinancialManagerTi3483.ui'
+** Form generated from reading UI file 'FinancialManagergm1755.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.5
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef FINANCIALMANAGERTI3483_H
-#define FINANCIALMANAGERTI3483_H
+#ifndef FINANCIALMANAGERGM1755_H
+#define FINANCIALMANAGERGM1755_H
 
 #include <QtCore/QDate>
 #include <QtCore/QVariant>
@@ -45,7 +45,7 @@ public:
     QAction *actionRESET;
     QAction *actionClose;
     QWidget *centralwidget;
-    QVBoxLayout *verticalLayout_9;
+    QHBoxLayout *horizontalLayout_12;
     QTabWidget *tabWidget;
     QWidget *tab;
     QGridLayout *gridLayout_2;
@@ -180,6 +180,17 @@ public:
     QHBoxLayout *horizontalLayout_11;
     QPushButton *pushButton_doInvestment;
     QWidget *tab_6;
+    QVBoxLayout *verticalLayout_12;
+    QVBoxLayout *verticalLayout_11;
+    QLabel *label_30;
+    QFrame *line_11;
+    QVBoxLayout *verticalLayout_14;
+    QScrollArea *scrollArea_2;
+    QWidget *scrollAreaWidgetContents_2;
+    QVBoxLayout *verticalLayout_9;
+    QWidget *verticalWidget_2;
+    QVBoxLayout *verticalLayout_13;
+    QVBoxLayout *verticalLayout_investmentManager;
     QWidget *tab_2;
     QVBoxLayout *verticalLayout_7;
     QVBoxLayout *verticalLayout_6;
@@ -230,8 +241,8 @@ public:
         actionClose->setObjectName(QStringLiteral("actionClose"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
-        verticalLayout_9 = new QVBoxLayout(centralwidget);
-        verticalLayout_9->setObjectName(QStringLiteral("verticalLayout_9"));
+        horizontalLayout_12 = new QHBoxLayout(centralwidget);
+        horizontalLayout_12->setObjectName(QStringLiteral("horizontalLayout_12"));
         tabWidget = new QTabWidget(centralwidget);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
         tab = new QWidget();
@@ -984,6 +995,56 @@ public:
         tabWidget->addTab(tab_5, QString());
         tab_6 = new QWidget();
         tab_6->setObjectName(QStringLiteral("tab_6"));
+        verticalLayout_12 = new QVBoxLayout(tab_6);
+        verticalLayout_12->setObjectName(QStringLiteral("verticalLayout_12"));
+        verticalLayout_11 = new QVBoxLayout();
+        verticalLayout_11->setObjectName(QStringLiteral("verticalLayout_11"));
+        label_30 = new QLabel(tab_6);
+        label_30->setObjectName(QStringLiteral("label_30"));
+        label_30->setFont(font);
+        label_30->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_11->addWidget(label_30);
+
+        line_11 = new QFrame(tab_6);
+        line_11->setObjectName(QStringLiteral("line_11"));
+        line_11->setFrameShape(QFrame::HLine);
+        line_11->setFrameShadow(QFrame::Sunken);
+
+        verticalLayout_11->addWidget(line_11);
+
+        verticalLayout_14 = new QVBoxLayout();
+        verticalLayout_14->setObjectName(QStringLiteral("verticalLayout_14"));
+        scrollArea_2 = new QScrollArea(tab_6);
+        scrollArea_2->setObjectName(QStringLiteral("scrollArea_2"));
+        scrollArea_2->setWidgetResizable(true);
+        scrollAreaWidgetContents_2 = new QWidget();
+        scrollAreaWidgetContents_2->setObjectName(QStringLiteral("scrollAreaWidgetContents_2"));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 868, 606));
+        verticalLayout_9 = new QVBoxLayout(scrollAreaWidgetContents_2);
+        verticalLayout_9->setObjectName(QStringLiteral("verticalLayout_9"));
+        verticalWidget_2 = new QWidget(scrollAreaWidgetContents_2);
+        verticalWidget_2->setObjectName(QStringLiteral("verticalWidget_2"));
+        verticalLayout_13 = new QVBoxLayout(verticalWidget_2);
+        verticalLayout_13->setObjectName(QStringLiteral("verticalLayout_13"));
+        verticalLayout_investmentManager = new QVBoxLayout();
+        verticalLayout_investmentManager->setObjectName(QStringLiteral("verticalLayout_investmentManager"));
+
+        verticalLayout_13->addLayout(verticalLayout_investmentManager);
+
+
+        verticalLayout_9->addWidget(verticalWidget_2);
+
+        scrollArea_2->setWidget(scrollAreaWidgetContents_2);
+
+        verticalLayout_14->addWidget(scrollArea_2);
+
+
+        verticalLayout_11->addLayout(verticalLayout_14);
+
+
+        verticalLayout_12->addLayout(verticalLayout_11);
+
         tabWidget->addTab(tab_6, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));
@@ -1175,7 +1236,7 @@ public:
 
         tabWidget->addTab(tab_2, QString());
 
-        verticalLayout_9->addWidget(tabWidget);
+        horizontalLayout_12->addWidget(tabWidget);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -1251,6 +1312,7 @@ public:
         QObject::connect(lineEdit_investmentAmount, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineInvestmentEdited(const QString &)) );
         QObject::connect(lineEdit_fundShareNumber, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineInvestmentEdited(const QString &)) );
         QObject::connect(comboBox_monthsNumber, SIGNAL(currentIndexChanged(int)), MainWindow, SLOT(updateInvestmentAmount()));
+
         QObject::connect(pushButton_doInvestment, SIGNAL(clicked()), MainWindow, SLOT(doInvestment()));
 
         //----------lineEditChanged------------
@@ -1370,10 +1432,11 @@ public:
                 << QApplication::translate("MainWindow", "24", Q_NULLPTR)
         );
         label_expectedYield->setText(QApplication::translate("MainWindow", "0", Q_NULLPTR));
-        label_50->setText(QApplication::translate("MainWindow", "Totale investimento", Q_NULLPTR));
-        label_totalInvestment->setText(QApplication::translate("MainWindow", "0€", Q_NULLPTR));
+        label_50->setText(QApplication::translate("MainWindow", "Totale investimento:", Q_NULLPTR));
+        label_totalInvestment->setText(QApplication::translate("MainWindow", "0\342\202\254", Q_NULLPTR));
         pushButton_doInvestment->setText(QApplication::translate("MainWindow", "Effettua Investimento", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_5), QApplication::translate("MainWindow", "Effettua Investimenti", Q_NULLPTR));
+        label_30->setText(QApplication::translate("MainWindow", "GESTISCI INVESTIMENTI", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_6), QApplication::translate("MainWindow", "Gestisci Investimenti", Q_NULLPTR));
         label_20->setText(QApplication::translate("MainWindow", "Dati Account", Q_NULLPTR));
         label->setText(QApplication::translate("MainWindow", "Nome: ", Q_NULLPTR));
@@ -1399,4 +1462,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // FINANCIALMANAGERTI3483_H
+#endif // FINANCIALMANAGERGM1755_H

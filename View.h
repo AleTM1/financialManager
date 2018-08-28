@@ -13,6 +13,7 @@
 #include "ViewWindow.h"
 #include "DialogNoButton.h"
 #include "TransactionForm.h"
+#include "InvestmentForm.h"
 
 
 
@@ -65,6 +66,7 @@ private:
     Conto* updateConto() const;
     void updateTransaction(const Account *account, const Conto *conto) const;
     void updateHistorical();
+    void updateInvestmentManager();
     void updateMessages();
     void lockAccountTab() const;
 

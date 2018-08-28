@@ -1,17 +1,3 @@
-//
-// Created by alessandro on 18/08/18.
-//
-
-#ifndef FINANCIALMANAGER_TRANSACTIONFORMUI_H
-#define FINANCIALMANAGER_TRANSACTIONFORMUI_H
-
-/********************************************************************************
-** Form generated from reading UI file 'transactionFormIv8028.ui'
-**
-** Created by: Qt User Interface Compiler version 5.9.5
-**
-** WARNING! All changes made in this file will be lost when recompiling UI file!
-********************************************************************************/
 
 #ifndef TRANSACTIONFORMIV8028_H
 #define TRANSACTIONFORMIV8028_H
@@ -193,6 +179,3 @@ namespace Ui {
 QT_END_NAMESPACE
 
 #endif // TRANSACTIONFORMIV8028_H
-
-
-#endif //FINANCIALMANAGER_TRANSACTIONFORMUI_H

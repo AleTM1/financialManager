@@ -7,6 +7,7 @@
 
 
 #include <QtCore/QString>
+#include <QtCore/QDate>
 #include "Entity.h"
 #include "enumInvestmentType.h"
 
@@ -54,6 +55,14 @@ public:
         Investment::entity = entity;
     }
 
+    const QDate &getBuyDate() const {
+        return buyDate;
+    }
+
+    void setBuyDate(const QDate &buyDate) {
+        Investment::buyDate = buyDate;
+    }
+
 protected:
 
     float totalInvested;
@@ -61,7 +70,7 @@ protected:
     QString investorIBAN;
     QString investorName;
     Entity* entity;
-
+    QDate buyDate;
 };
 
 

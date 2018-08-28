@@ -15,7 +15,7 @@ add_subdirectory(test)
 
 
 #Classi del progetto
-set(SOURCE_FILES Account.cpp Account.h View.h View.cpp Controller.cpp Controller.h Model.cpp Model.h Subject.h Observer.h ViewWindow.h AbstractDataStorage.h Conto.cpp Conto.h qsliderreadonly.h Transaction.h Historical.cpp Historical.h transactionFormUi.h TransactionForm.h dialogUi.h DialogNoButton.cpp DialogNoButton.h ErrorLog.h enumOrder.h ResearchOptions.h enumSaving.h Investment.h Entity.h Company.cpp Company.h FundSociety.cpp FundSociety.h AbstractStockFund.cpp AbstractStockFund.h Stock.cpp Stock.h Fund.cpp Fund.h Bond.cpp Bond.h InvestmentManager.cpp InvestmentManager.h EntitiesList.h enumInvestmentType.h)
+set(SOURCE_FILES Account.cpp Account.h View.h View.cpp Controller.cpp Controller.h Model.cpp Model.h Subject.h Observer.h ViewWindow.h AbstractDataStorage.h Conto.cpp Conto.h qsliderreadonly.h Transaction.h Historical.cpp Historical.h transactionFormUi.h TransactionForm.h dialogUi.h DialogNoButton.cpp DialogNoButton.h ErrorLog.h enumOrder.h ResearchOptions.h enumSaving.h Investment.h Entity.h Company.cpp Company.h FundSociety.cpp FundSociety.h AbstractStockFund.cpp AbstractStockFund.h Stock.cpp Stock.h Fund.cpp Fund.h Bond.cpp Bond.h InvestmentManager.cpp InvestmentManager.h EntitiesList.h enumInvestmentType.h Ui_investmentForm.h InvestmentForm.cpp InvestmentForm.h)
 
 #Creo l'eseguibile unendo le classi del progetto al main
 add_executable(financialManager main.cpp ${SOURCE_FILES})

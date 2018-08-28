@@ -5,16 +5,12 @@
 #include "AbstractStockFund.h"
 
 
-AbstractStockFund::AbstractStockFund(float sharesNum) : sharesNumber(sharesNum) {
-
-
-    actualInvestment = totalInvested;
-
-}
+AbstractStockFund::AbstractStockFund(float sharesNum) : sharesNumber(sharesNum) {}
 
 void AbstractStockFund::totalInvestmentCalculator() {
 
     totalInvested = entity->getShareCost() * sharesNumber;
+    actualInvestment = totalInvested;
 
 }
 
