@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'investmentFormdI1755.ui'
+** Form generated from reading UI file 'investmentFormJ31879.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.5
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef INVESTMENTFORMDI1755_H
-#define INVESTMENTFORMDI1755_H
+#ifndef INVESTMENTFORMJ31879_H
+#define INVESTMENTFORMJ31879_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -59,16 +59,6 @@ public:
     QLabel *label_deadlineDate;
     QLabel *label_bondCoupon;
     QLabel *label_bondExpectedYield;
-    QWidget *formWidget_fundData;
-    QFormLayout *formLayout_4;
-    QLabel *label_13;
-    QLabel *label_14;
-    QLabel *label_15;
-    QLabel *label_16;
-    QLabel *label_fundShareNumber;
-    QLabel *label_fundShareCost;
-    QLabel *label_fundComposition;
-    QLabel *label_fundActualInvestment;
     QPushButton *pushButton_sell;
     QFrame *line;
 
@@ -232,55 +222,6 @@ public:
 
         verticalLayout->addWidget(formWidget_bondData);
 
-        formWidget_fundData = new QWidget(investmentForm);
-        formWidget_fundData->setObjectName(QStringLiteral("formWidget_fundData"));
-        sizePolicy.setHeightForWidth(formWidget_fundData->sizePolicy().hasHeightForWidth());
-        formWidget_fundData->setSizePolicy(sizePolicy);
-        formLayout_4 = new QFormLayout(formWidget_fundData);
-        formLayout_4->setObjectName(QStringLiteral("formLayout_4"));
-        label_13 = new QLabel(formWidget_fundData);
-        label_13->setObjectName(QStringLiteral("label_13"));
-
-        formLayout_4->setWidget(0, QFormLayout::LabelRole, label_13);
-
-        label_14 = new QLabel(formWidget_fundData);
-        label_14->setObjectName(QStringLiteral("label_14"));
-
-        formLayout_4->setWidget(1, QFormLayout::LabelRole, label_14);
-
-        label_15 = new QLabel(formWidget_fundData);
-        label_15->setObjectName(QStringLiteral("label_15"));
-
-        formLayout_4->setWidget(2, QFormLayout::LabelRole, label_15);
-
-        label_16 = new QLabel(formWidget_fundData);
-        label_16->setObjectName(QStringLiteral("label_16"));
-
-        formLayout_4->setWidget(3, QFormLayout::LabelRole, label_16);
-
-        label_fundShareNumber = new QLabel(formWidget_fundData);
-        label_fundShareNumber->setObjectName(QStringLiteral("label_fundShareNumber"));
-
-        formLayout_4->setWidget(0, QFormLayout::FieldRole, label_fundShareNumber);
-
-        label_fundShareCost = new QLabel(formWidget_fundData);
-        label_fundShareCost->setObjectName(QStringLiteral("label_fundShareCost"));
-
-        formLayout_4->setWidget(1, QFormLayout::FieldRole, label_fundShareCost);
-
-        label_fundComposition = new QLabel(formWidget_fundData);
-        label_fundComposition->setObjectName(QStringLiteral("label_fundComposition"));
-
-        formLayout_4->setWidget(2, QFormLayout::FieldRole, label_fundComposition);
-
-        label_fundActualInvestment = new QLabel(formWidget_fundData);
-        label_fundActualInvestment->setObjectName(QStringLiteral("label_fundActualInvestment"));
-
-        formLayout_4->setWidget(3, QFormLayout::FieldRole, label_fundActualInvestment);
-
-
-        verticalLayout->addWidget(formWidget_fundData);
-
         pushButton_sell = new QPushButton(investmentForm);
         pushButton_sell->setObjectName(QStringLiteral("pushButton_sell"));
         QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Fixed);
@@ -309,15 +250,14 @@ public:
 
         formWidget_stockData->hide();
         formWidget_bondData->hide();
-        formWidget_fundData->hide();
 
         pushButton_sell->hide();
 
 
 
 
-
         //------------------------------------
+
 
         QMetaObject::connectSlotsByName(investmentForm);
     } // setupUi
@@ -349,14 +289,6 @@ public:
         label_deadlineDate->setText(QApplication::translate("investmentForm", "---", Q_NULLPTR));
         label_bondCoupon->setText(QApplication::translate("investmentForm", "---", Q_NULLPTR));
         label_bondExpectedYield->setText(QApplication::translate("investmentForm", "---", Q_NULLPTR));
-        label_13->setText(QApplication::translate("investmentForm", "Numero di quote: ", Q_NULLPTR));
-        label_14->setText(QApplication::translate("investmentForm", "Prezzo delle quote: ", Q_NULLPTR));
-        label_15->setText(QApplication::translate("investmentForm", "Composizione: ", Q_NULLPTR));
-        label_16->setText(QApplication::translate("investmentForm", "Valore attuale: ", Q_NULLPTR));
-        label_fundShareNumber->setText(QApplication::translate("investmentForm", "---", Q_NULLPTR));
-        label_fundShareCost->setText(QApplication::translate("investmentForm", "---", Q_NULLPTR));
-        label_fundComposition->setText(QApplication::translate("investmentForm", "---", Q_NULLPTR));
-        label_fundActualInvestment->setText(QApplication::translate("investmentForm", "---", Q_NULLPTR));
         pushButton_sell->setText(QApplication::translate("investmentForm", "Vendi", Q_NULLPTR));
     } // retranslateUi
 
@@ -368,4 +300,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // INVESTMENTFORMDI1755_H
+#endif // INVESTMENTFORMJ31879_H

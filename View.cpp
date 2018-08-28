@@ -68,52 +68,39 @@ void View::lockAccountTab() const {
 
 void View::updateEntitesList() {
 
-    QString currentTypeString = viewWindow->comboBox_investmentType->currentText();
 
     viewWindow->comboBox_entity->clear();
 
-    for (auto e:model->getEntitiesList().entities) {
-        if ((currentTypeString == "Azione" || currentTypeString == "Obbligazione") && (dynamic_cast<Company*>(e)))
+    for (auto e:model->getEntitiesList().companies)
             viewWindow->comboBox_entity->addItem(e->getName());
-        else if ((currentTypeString == "Fondo") && (dynamic_cast<FundSociety*>(e)))
-            viewWindow->comboBox_entity->addItem(e->getName());
-    }
 
-    updateInvestmentAmount();
-
+    updateInvestmentData();
 
 }
 
 void View::updateInvestmentData() {
 
-    auto entities = model->getEntitiesList().entities;
+    auto companies = model->getEntitiesList().companies;
 
-    auto entityName = viewWindow->comboBox_entity->currentText();
+    auto companyName = viewWindow->comboBox_entity->currentText();
 
     viewWindow->formWidget_bond->hide();
-    viewWindow->formWidget_fund->hide();
     viewWindow->formWidget_stock->hide();
 
     auto currentTypeString = viewWindow->comboBox_investmentType->currentText();
 
-    if(currentTypeString == "Azione") {
+    if(currentTypeString == "Azione")
         viewWindow->formWidget_stock->show();
-    }else if(currentTypeString == "Obbligazione") {
+    else if(currentTypeString == "Obbligazione")
         viewWindow->formWidget_bond->show();
-    }else if(currentTypeString == "Fondo") {
-        viewWindow->formWidget_fund->show();
-    }
 
-    for (auto e:entities)
-        if (entityName == e->getName()) {
-            viewWindow->label_enetityISIN->setText(e->getISIN());
-            viewWindow->label_stockCost->setText(QString::number(e->getShareCost()));
-            viewWindow->label_fundShareCost->setText(viewWindow->label_stockCost->text());
-            if(auto company = dynamic_cast<Company*>(e)){
-                viewWindow->label_coupon->setText(QString::number(company->getMontlyCoupon()) + "%");
-            }else if (auto fundSociety = dynamic_cast<FundSociety*>(e)){
-                viewWindow->label_fundCost->setText(QString::number(fundSociety->getCost()) + "%");
-            }
+
+    for (auto c:companies)
+        if (companyName == c->getName()) {
+            viewWindow->label_enetityISIN->setText(c->getISIN());
+            viewWindow->label_stockCost->setText(QString::number(c->getShareCost()));
+            viewWindow->label_coupon->setText(QString::number(c->getMontlyCoupon()) + "%");
+
     }
 
     updateInvestmentAmount();
@@ -171,55 +158,29 @@ void View::updateInvestmentManager() {
 
         auto investmentForm = new InvestmentForm;
 
-        bool b = investment->getEntity() != nullptr; //FIXME non ha un entity!!!
-        std::string s = investment->getEntity()->getName().toStdString();
-
-
         investmentForm->ui_investmentForm->label_entityName->setText(investment->getEntity()->getName());
         investmentForm->ui_investmentForm->label_entityISIN->setText(investment->getEntity()->getISIN());
         investmentForm->ui_investmentForm->label_buyDate->setText(investment->getBuyDate().toString("dddd, dd / MMMM / yyyy"));
         investmentForm->ui_investmentForm->label_totalInvestment->setText(QString::number(investment->getTotalInvested()));
 
-        if(investment->getInvestmentType()==InvestmentType::stock) {
-            investmentForm->ui_investmentForm->label_investmentType->setText("Azione");
+        if(auto stock = dynamic_cast<Stock*>(investment)){
             investmentForm->ui_investmentForm->formWidget_stockData->show();
-            investmentForm->ui_investmentForm->pushButton_sell->show();
-            auto stock = dynamic_cast<Stock*>(investment);
+            investmentForm->ui_investmentForm->label_investmentType->setText("Azione");
             investmentForm->ui_investmentForm->label_stockShareNumber->setText(QString::number(stock->getSharesNumber()));
-            investmentForm->ui_investmentForm->label_stockShareCost->setText(QString::number(stock->getEntity()->getShareCost()));
             investmentForm->ui_investmentForm->label_stockActualInvestment->setText(QString::number(stock->getActualInvestment()));
-
-
-        }else if(investment->getInvestmentType()==InvestmentType::bond) {
-            investmentForm->ui_investmentForm->label_investmentType->setText("Obbligazione");
+            investmentForm->ui_investmentForm->label_stockShareCost->setText(QString::number(stock->getEntity()->getShareCost()));
+        }else if(auto bond = dynamic_cast<Bond*>(investment)){
             investmentForm->ui_investmentForm->formWidget_bondData->show();
-            auto bond = dynamic_cast<Bond*>(investment);
+            investmentForm->ui_investmentForm->label_investmentType->setText("Obbligazione");
             investmentForm->ui_investmentForm->label_bondMonthsNumber->setText(QString::number(bond->getMonthsDuration()));
-            investmentForm->ui_investmentForm->label_deadlineDate->setText((bond->getDeadlineDate()).toString("dddd, dd / MMMM / yyyy"));
-            for (auto e:model->getEntitiesList().entities)
-                if(e->getISIN() == investment->getEntity()->getISIN()){
-                    investmentForm->ui_investmentForm->label_bondCoupon->setText(QString::number(dynamic_cast<Company*>(e)->getMontlyCoupon()));
-                    investmentForm->ui_investmentForm->label_bondExpectedYield->setText(QString::number((dynamic_cast<Company*>(e)->getMontlyCoupon())/100 * investment->getTotalInvested() * bond->getMonthsDuration()));
-                    break;
-                }
-
-        }else if(investment->getInvestmentType()==InvestmentType::fund) {
-            investmentForm->ui_investmentForm->label_investmentType->setText("Fondo");
-            investmentForm->ui_investmentForm->formWidget_fundData->show();
-            investmentForm->ui_investmentForm->pushButton_sell->show();
-            auto fund = dynamic_cast<Fund*>(investment);
-            investmentForm->ui_investmentForm->label_fundShareNumber->setText(QString::number(fund->getSharesNumber()));
-            investmentForm->ui_investmentForm->label_fundShareCost->setText(QString::number(fund->getEntity()->getShareCost()));
-            investmentForm->ui_investmentForm->label_fundActualInvestment->setText(QString::number(fund->getActualInvestment()));
-            for (auto e:model->getEntitiesList().entities)
-                if(e->getISIN() == investment->getEntity()->getISIN()){
-                investmentForm->ui_investmentForm->label_fundComposition->setText("composizione1");
-                break;
-                }
+            investmentForm->ui_investmentForm->label_deadlineDate->setText(bond->getDeadlineDate().toString("dddd, dd / MMMM / yyyy"));
+            investmentForm->ui_investmentForm->label_bondCoupon->setText(QString::number(bond->getEntity()->getMontlyCoupon()));
+            investmentForm->ui_investmentForm->label_bondExpectedYield->setText(QString::number((bond->getEntity()->getMontlyCoupon())/100*investment->getTotalInvested()*bond->getMonthsDuration()));
         }
 
         investmentForm->show();
         viewWindow->verticalLayout_investmentManager->addWidget(investmentForm);
+
     }
 
 
@@ -360,8 +321,6 @@ void View::doInvestment() {
 
     if (viewWindow->comboBox_investmentType->currentText() == "Azione")
         controller->doInvestment(InvestmentType::stock, viewWindow->label_enetityISIN->text(), viewWindow->lineEdit_stockshareNumber->text().toFloat() );
-    else if(viewWindow->comboBox_investmentType->currentText() == "Fondo")
-        controller->doInvestment(InvestmentType::fund, viewWindow->label_enetityISIN->text(), viewWindow->lineEdit_fundShareNumber->text().toFloat() );
     else if(viewWindow->comboBox_investmentType->currentText() == "Obbligazione")
         controller->doInvestment(InvestmentType::bond, viewWindow->label_enetityISIN->text(), viewWindow->lineEdit_investmentAmount->text().toFloat(), viewWindow->comboBox_monthsNumber->currentText().toInt() );
 
@@ -374,30 +333,32 @@ void View::cancel() {
 
 }
 
-void View::updateInvestmentAmount(){
+void View::updateInvestmentAmount() {
 
     viewWindow->label_totalInvestment->setText("0€");
 
-    if(viewWindow->comboBox_investmentType->currentText() == "Azione") {
+    if (viewWindow->comboBox_investmentType->currentText() == "Azione") {
         viewWindow->label_totalInvestment->setText(QString::number(viewWindow->lineEdit_stockshareNumber->text().toFloat() * (viewWindow->label_stockCost->text().toFloat())));
-    }else if(viewWindow->comboBox_investmentType->currentText() == "Obbligazione") {
+    } else if (viewWindow->comboBox_investmentType->currentText() == "Obbligazione") {
         viewWindow->label_totalInvestment->setText(viewWindow->lineEdit_investmentAmount->text());
-        viewWindow->label_expectedYield->setText(QString::number(viewWindow->lineEdit_investmentAmount->text().toFloat() *(viewWindow->comboBox_monthsNumber->currentText().toInt())*(((viewWindow->label_coupon->text()).remove('%').toFloat())/100)));
-    }else if(viewWindow->comboBox_investmentType->currentText() == "Fondo") {
-        viewWindow->label_totalInvestment->setText(QString::number(viewWindow->lineEdit_fundShareNumber->text().toFloat() * (viewWindow->label_fundShareCost->text().toFloat()) * (1.0+((viewWindow->label_fundCost->text()).remove('%').toFloat())/100)));
+        viewWindow->label_expectedYield->setText(QString::number(
+                viewWindow->lineEdit_investmentAmount->text().toFloat() *
+                (viewWindow->comboBox_monthsNumber->currentText().toInt()) *
+                (((viewWindow->label_coupon->text()).remove('%').toFloat()) / 100)));
+
     }
 
 
-
-    if (viewWindow->label_totalInvestment->text().toFloat() > dynamic_cast<Conto*>(model->accessDataStorage("Conto"))->getLiquid()) {
-        viewWindow->label_totalInvestment->setStyleSheet("QLabel { color : red; }");
-        viewWindow->label_totalInvestment->setText(viewWindow->label_totalInvestment->text()+"€ (liquidità insufficiente)");
-    }else {
-        viewWindow->label_totalInvestment->setStyleSheet("QLabel { color : black; }");
-        viewWindow->label_totalInvestment->setText(viewWindow->label_totalInvestment->text()+"€");
+    if (viewWindow->label_totalInvestment->text().toFloat() > dynamic_cast<Conto *>(model->accessDataStorage("Conto"))->getLiquid()) {
+            viewWindow->label_totalInvestment->setStyleSheet("QLabel { color : red; }");
+            viewWindow->label_totalInvestment->setText(viewWindow->label_totalInvestment->text() + "€ (liquidità insufficiente)");
+    } else {
+            viewWindow->label_totalInvestment->setStyleSheet("QLabel { color : black; }");
+            viewWindow->label_totalInvestment->setText(viewWindow->label_totalInvestment->text() + "€");
     }
 
 }
+
 //--------------------------------SALVATAGGI-------
 
 void View::accountSave() {

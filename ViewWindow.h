@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'FinancialManagergm1755.ui'
+** Form generated from reading UI file 'FinancialManagerC31879.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.5
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef FINANCIALMANAGERGM1755_H
-#define FINANCIALMANAGERGM1755_H
+#ifndef FINANCIALMANAGERC31879_H
+#define FINANCIALMANAGERC31879_H
 
 #include <QtCore/QDate>
 #include <QtCore/QVariant>
@@ -151,17 +151,6 @@ public:
     QLabel *label_32;
     QLineEdit *lineEdit_stockshareNumber;
     QLabel *label_34;
-    QWidget *formWidget_fund;
-    QFormLayout *formLayout_5;
-    QLabel *label_36;
-    QLabel *label_fundShareCost;
-    QLabel *label_37;
-    QLabel *label_fundCost;
-    QLabel *label_38;
-    QLabel *label_composition;
-    QLabel *label_47;
-    QLineEdit *lineEdit_fundShareNumber;
-    QLabel *label_39;
     QWidget *formWidget_bond;
     QFormLayout *formLayout_6;
     QLabel *label_41;
@@ -835,66 +824,6 @@ public:
 
         verticalLayout_10->addWidget(formWidget_stock);
 
-        formWidget_fund = new QWidget(tab_5);
-        formWidget_fund->setObjectName(QStringLiteral("formWidget_fund"));
-        formLayout_5 = new QFormLayout(formWidget_fund);
-        formLayout_5->setObjectName(QStringLiteral("formLayout_5"));
-        label_36 = new QLabel(formWidget_fund);
-        label_36->setObjectName(QStringLiteral("label_36"));
-        label_36->setFont(font1);
-
-        formLayout_5->setWidget(0, QFormLayout::LabelRole, label_36);
-
-        label_fundShareCost = new QLabel(formWidget_fund);
-        label_fundShareCost->setObjectName(QStringLiteral("label_fundShareCost"));
-        label_fundShareCost->setFont(font1);
-
-        formLayout_5->setWidget(0, QFormLayout::FieldRole, label_fundShareCost);
-
-        label_37 = new QLabel(formWidget_fund);
-        label_37->setObjectName(QStringLiteral("label_37"));
-        label_37->setFont(font1);
-
-        formLayout_5->setWidget(2, QFormLayout::LabelRole, label_37);
-
-        label_fundCost = new QLabel(formWidget_fund);
-        label_fundCost->setObjectName(QStringLiteral("label_fundCost"));
-        label_fundCost->setFont(font1);
-
-        formLayout_5->setWidget(2, QFormLayout::FieldRole, label_fundCost);
-
-        label_38 = new QLabel(formWidget_fund);
-        label_38->setObjectName(QStringLiteral("label_38"));
-        label_38->setFont(font1);
-
-        formLayout_5->setWidget(3, QFormLayout::LabelRole, label_38);
-
-        label_composition = new QLabel(formWidget_fund);
-        label_composition->setObjectName(QStringLiteral("label_composition"));
-        label_composition->setFont(font1);
-
-        formLayout_5->setWidget(3, QFormLayout::FieldRole, label_composition);
-
-        label_47 = new QLabel(formWidget_fund);
-        label_47->setObjectName(QStringLiteral("label_47"));
-        label_47->setFont(font1);
-
-        formLayout_5->setWidget(4, QFormLayout::LabelRole, label_47);
-
-        lineEdit_fundShareNumber = new QLineEdit(formWidget_fund);
-        lineEdit_fundShareNumber->setObjectName(QStringLiteral("lineEdit_fundShareNumber"));
-        lineEdit_fundShareNumber->setFont(font1);
-
-        formLayout_5->setWidget(4, QFormLayout::FieldRole, lineEdit_fundShareNumber);
-
-        label_39 = new QLabel(formWidget_fund);
-        label_39->setObjectName(QStringLiteral("label_39"));
-
-        formLayout_5->setWidget(5, QFormLayout::LabelRole, label_39);
-
-
-        verticalLayout_10->addWidget(formWidget_fund);
-
         formWidget_bond = new QWidget(tab_5);
         formWidget_bond->setObjectName(QStringLiteral("formWidget_bond"));
         formLayout_6 = new QFormLayout(formWidget_bond);
@@ -1278,7 +1207,6 @@ public:
         //----------------DoInvestment Settings-----
 
         formWidget_bond->hide();
-        formWidget_fund->hide();
         formWidget_stock->hide();
 
 
@@ -1310,10 +1238,10 @@ public:
 
         QObject::connect(lineEdit_stockshareNumber, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineInvestmentEdited(const QString &)) );
         QObject::connect(lineEdit_investmentAmount, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineInvestmentEdited(const QString &)) );
-        QObject::connect(lineEdit_fundShareNumber, SIGNAL(textChanged(const QString &)), MainWindow, SLOT(lineInvestmentEdited(const QString &)) );
         QObject::connect(comboBox_monthsNumber, SIGNAL(currentIndexChanged(int)), MainWindow, SLOT(updateInvestmentAmount()));
 
         QObject::connect(pushButton_doInvestment, SIGNAL(clicked()), MainWindow, SLOT(doInvestment()));
+
 
         //----------lineEditChanged------------
 
@@ -1396,7 +1324,6 @@ public:
         comboBox_investmentType->insertItems(0, QStringList()
                 << QApplication::translate("MainWindow", "Azione", Q_NULLPTR)
                 << QApplication::translate("MainWindow", "Obbligazione", Q_NULLPTR)
-                << QApplication::translate("MainWindow", "Fondo", Q_NULLPTR)
         );
         label_27->setText(QApplication::translate("MainWindow", "Scegli la Societ\303\240: ", Q_NULLPTR));
         comboBox_entity->clear();
@@ -1410,14 +1337,6 @@ public:
         label_stockCost->setText(QApplication::translate("MainWindow", "0", Q_NULLPTR));
         label_32->setText(QApplication::translate("MainWindow", "Quantit\303\240: ", Q_NULLPTR));
         label_34->setText(QString());
-        label_36->setText(QApplication::translate("MainWindow", "Costo per quota", Q_NULLPTR));
-        label_fundShareCost->setText(QApplication::translate("MainWindow", "00", Q_NULLPTR));
-        label_37->setText(QApplication::translate("MainWindow", "Costo sottoscrizione: ", Q_NULLPTR));
-        label_fundCost->setText(QApplication::translate("MainWindow", "0%", Q_NULLPTR));
-        label_38->setText(QApplication::translate("MainWindow", "Composizione: ", Q_NULLPTR));
-        label_composition->setText(QApplication::translate("MainWindow", "---", Q_NULLPTR));
-        label_47->setText(QApplication::translate("MainWindow", "Quantit\303\240: ", Q_NULLPTR));
-        label_39->setText(QString());
         label_41->setText(QApplication::translate("MainWindow", "Cedola mensile: ", Q_NULLPTR));
         label_42->setText(QApplication::translate("MainWindow", "Denaro da investire: ", Q_NULLPTR));
         label_43->setText(QApplication::translate("MainWindow", "Orizzonte temporale (mesi): ", Q_NULLPTR));
@@ -1462,4 +1381,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // FINANCIALMANAGERGM1755_H
+#endif // FINANCIALMANAGERC31879_H

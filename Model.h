@@ -9,7 +9,7 @@
 #include "Account.h"
 #include "Historical.h"
 #include "ErrorLog.h"
-#include "EntitiesList.h"
+#include "CompaniesList.h"
 #include "InvestmentManager.h"
 
 
@@ -39,7 +39,7 @@ public:
 
     void changeHistoricalOrder(ResearchOptions);
 
-    const EntitiesList &getEntitiesList() const;
+    const CompaniesList &getEntitiesList() const;
 
     int doInvestment(Investment* investment);
 
@@ -60,7 +60,7 @@ private:
     Account* account;
     Conto* conto;
     Historical* historical;
-    EntitiesList entitiesList;
+    CompaniesList companiesList;
     InvestmentManager* investmentManager;
 
     std::vector<AbstractDataStorage*> dataStorages;

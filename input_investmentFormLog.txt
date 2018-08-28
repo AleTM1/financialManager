@@ -2,7 +2,7 @@
 
         formWidget_stockData->hide();
         formWidget_bondData->hide();
-        formWidget_fundData->hide();
+
 
 
 pushButton_sell->hide();

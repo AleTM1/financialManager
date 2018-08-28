@@ -11,6 +11,7 @@ Model::Model():account(new Account), conto(new Conto), historical(new Historical
     dataStorages.push_back(historical);
     dataStorages.push_back(investmentManager);
 
+
 }
 
 Model::~Model(){
@@ -216,8 +217,8 @@ void Model::changeHistoricalOrder(ResearchOptions researchOptions){
 
 //------------------------------------ Investment
 
-const EntitiesList &Model::getEntitiesList() const {
-    return entitiesList;
+const CompaniesList &Model::getEntitiesList() const {
+    return companiesList;
 }
 
 
@@ -227,11 +228,7 @@ int Model::doInvestment(Investment* investment){
      *  1) cifra massima ecceduta
      */
 
-    float totalCost;
-    if(investment->getInvestmentType() != InvestmentType::fund)
-        totalCost = investment->getTotalInvested();
-    else
-        totalCost = dynamic_cast<Fund*>(investment)->getTotalInvested() + dynamic_cast<Fund*>(investment)->getCostAmount();
+    float totalCost = investment->getTotalInvested();
 
 
     if( totalCost > conto->getLiquid() )
@@ -240,7 +237,7 @@ int Model::doInvestment(Investment* investment){
 
     investment->setBuyDate(QDate::currentDate());
     conto->setLiquid( conto->getLiquid() - totalCost );
-    conto->setInvested(conto->getInvested() + investment->getTotalInvested() );
+    conto->setInvested(conto->getInvested() + totalCost );
 
 
     conto->saveData();

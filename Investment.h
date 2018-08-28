@@ -8,7 +8,7 @@
 
 #include <QtCore/QString>
 #include <QtCore/QDate>
-#include "Entity.h"
+#include "Company.h"
 #include "enumInvestmentType.h"
 
 class Investment {
@@ -47,12 +47,12 @@ public:
         Investment::investorName = investorName;
     }
 
-    Entity *getEntity() const {
-        return entity;
+    Company *getEntity() const {
+        return company;
     }
 
-    void setEntity(Entity *entity) {
-        Investment::entity = entity;
+    virtual void setEntity(Company *entity) {
+        Investment::company = entity;
     }
 
     const QDate &getBuyDate() const {
@@ -69,7 +69,7 @@ protected:
     InvestmentType investmentType;
     QString investorIBAN;
     QString investorName;
-    Entity* entity;
+    Company* company;
     QDate buyDate;
 };
 

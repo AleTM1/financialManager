@@ -11,7 +11,7 @@
 #include "enumInvestmentType.h"
 #include "Bond.h"
 #include "Stock.h"
-#include "Fund.h"
+#include "CompaniesList.h"
 
 class InvestmentManager : public AbstractDataStorage{
 
@@ -38,6 +38,7 @@ protected:
 
 
     std::list<Investment*> investmentList;
+    CompaniesList companiesList;
 
 
 };

@@ -13,7 +13,7 @@ class Bond :public Investment{
 
 public:
 
-    Bond( int monthsNumber);
+    Bond();
 
     virtual void showEntityDetails() override ;
 

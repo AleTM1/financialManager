@@ -4,11 +4,9 @@
 
 #include "Bond.h"
 
-Bond::Bond(int monthsNumber){
+Bond::Bond(){
 
     investmentType = bond;
-
-    monthsDuration = monthsNumber;
 
 }
 
@@ -18,7 +16,8 @@ int Bond::getMonthsDuration() const {
 }
 
 void Bond::setMonthsDuration(int monthsDuration) {
-    Bond::monthsDuration = monthsDuration;  //TODO collega DeadLine
+    Bond::monthsDuration = monthsDuration;
+    setDeadlineDate(QDate::currentDate());//FIXME collega DeadLine
 }
 
 const QDate &Bond::getDeadlineDate() const {
