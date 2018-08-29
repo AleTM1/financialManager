@@ -24,9 +24,6 @@ public:
 
     virtual void setCompany(Company *entity) override;
 
-    virtual void showEntityDetails() override;
-
-
 protected:
 
     float sharesNumber;

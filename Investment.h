@@ -15,9 +15,7 @@ class Investment {
 
 public:
 
-    virtual ~Investment(){}
-
-    virtual void showEntityDetails() = 0;
+    virtual ~Investment()=0;
 
     float getTotalInvested() const {
         return totalInvested;
@@ -73,5 +71,6 @@ protected:
     QDate buyDate;
 };
 
+inline Investment::~Investment() {}
 
 #endif //FINANCIALMANAGER_INVESTMENT_H

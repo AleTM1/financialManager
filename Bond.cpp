@@ -44,8 +44,5 @@ void Bond::setDeadlineDate(const QDate &deadlineDate) {
     Bond::deadlineDate = deadlineDate;
 }
 
-void Bond::showEntityDetails() {
-
-}
 
 

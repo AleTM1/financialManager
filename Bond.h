@@ -15,8 +15,6 @@ public:
 
     Bond();
 
-    virtual void showEntityDetails() override ;
-
     int getMonthsDuration() const;
 
     void setMonthsDuration(int monthsDuration, bool updateDeadline);

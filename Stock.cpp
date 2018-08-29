@@ -31,6 +31,3 @@ void Stock::setCompany(Company *entity) {
     totalInvestmentCalculator();
 }
 
-void Stock::showEntityDetails() {
-
-}

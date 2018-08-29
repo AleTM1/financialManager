@@ -274,7 +274,7 @@ void Model::removeInvestment(int index) {
    }else if(auto bond = dynamic_cast<Bond*>((*inv))) {
        conto->setInvested(conto->getInvested() - bond->getTotalInvested());
        conto->setLiquid(conto->getLiquid() + bond->getTotalInvested() + bond->getTotalInvested() * bond->getMonthsDuration() * bond->getCompany()->getMontlyCoupon());
-   }else
+   }
 
    investmentManager->removeInvestment(inv);
 
