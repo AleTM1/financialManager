@@ -99,7 +99,7 @@ void View::updateInvestmentData() {
     for (auto c:companies)
         if (companyName == c->getName()) {
             viewWindow->label_enetityISIN->setText(c->getISIN());
-            viewWindow->label_stockCost->setText(QString::number(c->getShareCost()));
+            viewWindow->label_stockCost->setText(QString::number(c->getShareCost())+"€");
             viewWindow->label_coupon->setText(QString::number(c->getMontlyCoupon()) + "%");
 
     }
@@ -168,15 +168,15 @@ void View::updateInvestmentManager() {
         investmentForm->ui_investmentForm->label_entityName->setText(company->getName());
         investmentForm->ui_investmentForm->label_entityISIN->setText(company->getISIN());
         investmentForm->ui_investmentForm->label_buyDate->setText(investment->getBuyDate().toString("dddd, dd / MMMM / yyyy"));
-        investmentForm->ui_investmentForm->label_totalInvestment->setText(QString::number(investment->getTotalInvested()));
+        investmentForm->ui_investmentForm->label_totalInvestment->setText(QString::number(investment->getTotalInvested())+"€");
 
         if(auto stock = dynamic_cast<Stock*>(investment)){
             investmentForm->ui_investmentForm->formWidget_stockData->show();
             investmentForm->ui_investmentForm->label_investmentType->setText("Azione");
             investmentForm->ui_investmentForm->label_stockShareNumber->setText(QString::number(stock->getSharesNumber()));
-            investmentForm->ui_investmentForm->label_stockActualInvestment->setText(QString::number(stock->getSharesNumber() * company->getShareCost()));
-            investmentForm->ui_investmentForm->label_stockShareCost->setText(QString::number(company->getShareCost()));
-            investmentForm->ui_investmentForm->label_stockChangeAmount->setText(QString::number(stock->getSharesNumber() * company->getShareCost() - investment->getTotalInvested()));
+            investmentForm->ui_investmentForm->label_stockActualInvestment->setText(QString::number(stock->getSharesNumber() * company->getShareCost())+"€");
+            investmentForm->ui_investmentForm->label_stockShareCost->setText(QString::number(company->getShareCost())+"€");
+            investmentForm->ui_investmentForm->label_stockChangeAmount->setText(QString::number(stock->getSharesNumber() * company->getShareCost() - investment->getTotalInvested())+"€");
             investmentForm->ui_investmentForm->pushButton_sell->show();
             if (investment->getTotalInvested() < stock->getSharesNumber() * company->getShareCost()) {
                 investmentForm->ui_investmentForm->label_stockActualInvestment->setStyleSheet("QLabel { color : green; }");
@@ -191,7 +191,7 @@ void View::updateInvestmentManager() {
             investmentForm->ui_investmentForm->label_bondMonthsNumber->setText(QString::number(bond->getMonthsDuration()));
             investmentForm->ui_investmentForm->label_deadlineDate->setText(bond->getDeadlineDate().toString("dddd, dd / MMMM / yyyy"));
             investmentForm->ui_investmentForm->label_bondCoupon->setText(QString::number(company->getMontlyCoupon()));
-            investmentForm->ui_investmentForm->label_bondExpectedYield->setText(QString::number((company->getMontlyCoupon())/100*investment->getTotalInvested()*bond->getMonthsDuration()));
+            investmentForm->ui_investmentForm->label_bondExpectedYield->setText(QString::number((company->getMontlyCoupon())/100*investment->getTotalInvested()*bond->getMonthsDuration())+"€");
         }
 
 
@@ -247,7 +247,7 @@ Conto* View::updateConto() const {
     viewWindow->lineEdit_title->setText(viewWindow->label_title->text());
 
     viewWindow->label_IBAN->setText("IBAN: " + conto->getIBAN());
-    viewWindow->label_Saldo->setText(QString::number(conto->getSaldo()));
+    viewWindow->label_Saldo->setText(QString::number(conto->getSaldo())+"€");
 
     viewWindow->label_liquid->setText(" Liquidità: " + QString::number(conto->getLiquid()));
     viewWindow->label_invested->setText(" Investito: " + QString::number(conto->getInvested()));
@@ -368,7 +368,7 @@ void View::updateInvestmentAmount() {
     viewWindow->label_totalInvestment->setText("0€");
 
     if (viewWindow->comboBox_investmentType->currentText() == "Azione") {
-        viewWindow->label_totalInvestment->setText(QString::number(viewWindow->lineEdit_stockshareNumber->text().toFloat() * (viewWindow->label_stockCost->text().toFloat())));
+        viewWindow->label_totalInvestment->setText(QString::number(viewWindow->lineEdit_stockshareNumber->text().toFloat() * (viewWindow->label_stockCost->text().remove("€").toFloat())));
     } else if (viewWindow->comboBox_investmentType->currentText() == "Obbligazione") {
         viewWindow->label_totalInvestment->setText(viewWindow->lineEdit_investmentAmount->text());
         viewWindow->label_expectedYield->setText(QString::number(
