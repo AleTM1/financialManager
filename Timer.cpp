@@ -10,7 +10,7 @@ Timer::Timer(View* v, QWidget *parent) : view(v), QWidget(parent) {
 
     auto timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(refresh()));
-    timer->start(3000);
+    timer->start(4000);
 
 }
 

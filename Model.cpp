@@ -235,7 +235,6 @@ int Model::doInvestment(Investment* investment){
         return 1;
 
 
-    investment->setBuyDate(QDate::currentDate());
     conto->setLiquid( conto->getLiquid() - totalCost );
     conto->setInvested(conto->getInvested() + totalCost );
 

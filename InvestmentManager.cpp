@@ -57,14 +57,13 @@ void InvestmentManager::saveData() {
         data.setValue(QString::number(InvestmentData::entityName), investment->getCompany()->getName());
         data.setValue(QString::number(InvestmentData::investorIBAN),investment->getInvestorIBAN());
         data.setValue(QString::number(InvestmentData::investorName),investment->getInvestorName());
-        data.setValue(QString::number(InvestmentData::currentDate),investment->getBuyDate());
+        data.setValue(QString::number(InvestmentData::buyDate),investment->getBuyDate());
 
         stock = dynamic_cast<Stock*>(investment);
         bond = dynamic_cast<Bond*>(investment);
 
         if(stock ){
 
-            //data.setValue(QString::number(InvestmentData::stockActualInvestment), stock->getActualInvestment());
             data.setValue(QString::number(InvestmentData::stockSharesNum), stock->getSharesNumber());
 
         }else if (bond){
@@ -104,7 +103,6 @@ void InvestmentManager::loadData() {
         if(data.value(QString::number(InvestmentData::investmentType)).toString() == "Azione"){
             investment = new Stock;
             dynamic_cast<Stock*>(investment)->setSharesNumber(data.value(QString::number(InvestmentData::stockSharesNum)).toFloat());
-            //dynamic_cast<Stock*>(investment)->setActualInvestment(data.value(QString::number(InvestmentData::stockActualInvestment)).toFloat());
         }else if(data.value(QString::number(InvestmentData::investmentType)).toString() == "Obbligazione"){
             investment = new Bond;
             dynamic_cast<Bond*>(investment)->setMonthsDuration(data.value(QString::number(InvestmentData ::bondMonthsNumber)).toInt(), false);
@@ -114,7 +112,7 @@ void InvestmentManager::loadData() {
         investment->setInvestorIBAN(data.value(QString::number(InvestmentData::investorIBAN)).toString());
         investment->setInvestorName(data.value(QString::number(InvestmentData::investorName)).toString());
         investment->setTotalInvested(data.value(QString::number(InvestmentData::totalInvested)).toFloat());
-        investment->setBuyDate(data.value(QString::number(InvestmentData::currentDate)).toDate());
+        investment->setBuyDate(data.value(QString::number(InvestmentData::buyDate)).toDate());
 
 
         for (auto e:companiesList.companies)
@@ -139,22 +137,6 @@ void InvestmentManager::loadData() {
 
 //--------------------private Methods
 
-
-void InvestmentManager::commonLoad(Investment* investment){
-
-    investment->setInvestorIBAN(data.value(QString::number(InvestmentData::investorIBAN)).toString());
-    investment->setInvestorName(data.value(QString::number(InvestmentData::investorName)).toString());
-    investment->setTotalInvested(data.value(QString::number(InvestmentData::totalInvested)).toFloat());
-    investment->setBuyDate(data.value(QString::number(InvestmentData::currentDate)).toDate());
-
-
-    for (auto e:investmentList)
-        if(e->getCompany()->getISIN() == data.value(QString::number(InvestmentData::ISIN)))
-            investment->setCompany(e->getCompany());
-
-    investmentList.push_back(investment);
-
-}
 
 void InvestmentManager::checkForExpiredBonds() {
 

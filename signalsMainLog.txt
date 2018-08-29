@@ -10,10 +10,10 @@
         //---------Storico Settings------
 
         horizontalWidget_searchOptions->hide();
-        dateEdit_to->setMaximumDate(QDate::currentDate());
-        dateEdit_from->setMaximumDate(QDate::currentDate());
+        dateEdit_to->setMaximumDate(QDate::buyDate());
+        dateEdit_from->setMaximumDate(QDate::buyDate());
         dateEdit_to->setMinimumDate(dateEdit_from->date());
-        dateEdit_to->setDate(QDate::currentDate());
+        dateEdit_to->setDate(QDate::buyDate());
 
         //----------------DoInvestment Settings-----
 

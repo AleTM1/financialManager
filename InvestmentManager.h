@@ -33,8 +33,6 @@ public:
 
 private:
 
-    void commonLoad(Investment*);
-
     void checkForExpiredBonds();
 
 protected:

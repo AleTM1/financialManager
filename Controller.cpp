@@ -139,6 +139,7 @@ void Controller::doInvestment(InvestmentType investmentType, QString ISINcode, f
         auto stock = new Stock();
 
         stock->setSharesNumber(quantity);
+        stock->setBuyDate(QDate::currentDate());
 
         for(auto s:model->getEntitiesList().companies)
             if(s->getISIN() == ISINcode)
@@ -166,6 +167,7 @@ void Controller::doInvestment(InvestmentType investmentType, QString ISINcode, f
         auto bond = new Bond;
 
         bond->setTotalInvested(investmentAmount);
+        bond->setBuyDate(QDate::currentDate());
         bond->setMonthsDuration(monthsNumber, true);
 
         for(auto s:model->getEntitiesList().companies)

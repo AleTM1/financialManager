@@ -19,7 +19,7 @@ void Bond::setMonthsDuration(int monthsDuration, bool updateDeadline) {
 
     Bond::monthsDuration = monthsDuration;
 
-    QDate deadlineDate(QDate::currentDate());
+    QDate deadlineDate(buyDate);
 
     int months = monthsDuration % 12;
     int years = (monthsDuration-months)/12;
