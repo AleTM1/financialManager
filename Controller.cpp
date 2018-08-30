@@ -10,6 +10,8 @@ void Controller::openingApp() {
 
     if(model->isFirstOpening()){
 
+        model->clearAll();
+        
         model->setTabAccountLocked(true);
 
     }else{
@@ -134,34 +136,44 @@ void Controller::contoSave(QString string) {
 
 void Controller::doInvestment(InvestmentType investmentType, QString ISINcode, float quantity) {
 
+    try {
 
-    if(investmentType == InvestmentType::stock) {
-        auto stock = new Stock();
+        if (investmentType == InvestmentType::stock) {
+            auto stock = new Stock();
 
-        stock->setSharesNumber(quantity);
-        stock->setBuyDate(QDate::currentDate());
+            stock->setSharesNumber(quantity);
+            stock->setBuyDate(QDate::currentDate());
 
-        for(auto s:model->getEntitiesList().companies)
-            if(s->getISIN() == ISINcode)
-                stock->setCompany(s);
+            for (auto s:model->getEntitiesList().companies)
+                if (s->getISIN() == ISINcode)
+                    stock->setCompany(s);
 
 
-        switch (model->doInvestment(stock)){
-            case 0 : model->makeMessageDialogNoButtons("investimento riuscito","Investimento effettuato con succeso");
-                break;
-            case 1 : model->makeMessageDialogNoButtons("investimento fallito","Ammontare dell'investimento non valido");
-                break;
-            default: model->makeMessageDialogNoButtons("investimento fallito", "Errore sconosciuto");
-        }
+            switch (model->doInvestment(stock)) {
+                case 0 :
+                    model->makeMessageDialogNoButtons("investimento riuscito", "Investimento effettuato con succeso");
+                    break;
+                case 1 :
+                    model->makeMessageDialogNoButtons("investimento fallito", "Ammontare dell'investimento non valido");
+                    break;
+                default:
+                    model->makeMessageDialogNoButtons("investimento fallito", "Errore sconosciuto");
+            }
+
+        }else
+            throw std::invalid_argument("InvestmentType expected is stock");
 
     }
-
-    //TODO aggiungi eccezione se l'investment type non coincide
+    catch (std::invalid_argument &e) {
+        model->makeMessageDialogNoButtons("investimento fallito", e.what());
+    }
 
 }
 
 
 void Controller::doInvestment(InvestmentType investmentType, QString ISINcode, float investmentAmount, int monthsNumber) {
+
+    try{
 
     if(investmentType == InvestmentType::bond) {
         auto bond = new Bond;
@@ -170,20 +182,28 @@ void Controller::doInvestment(InvestmentType investmentType, QString ISINcode, f
         bond->setBuyDate(QDate::currentDate());
         bond->setMonthsDuration(monthsNumber, true);
 
-        for(auto s:model->getEntitiesList().companies)
-            if(s->getISIN() == ISINcode)
+        for (auto s:model->getEntitiesList().companies)
+            if (s->getISIN() == ISINcode)
                 bond->setCompany(s);
 
-        switch (model->doInvestment(bond)){
-            case 0 : model->makeMessageDialogNoButtons("investimento riuscito","Investimento effettuato con succeso");
+        switch (model->doInvestment(bond)) {
+            case 0 :
+                model->makeMessageDialogNoButtons("investimento riuscito", "Investimento effettuato con succeso");
                 break;
-            case 1 : model->makeMessageDialogNoButtons("investimento fallito","Ammontare dell'investimento non valido");
+            case 1 :
+                model->makeMessageDialogNoButtons("investimento fallito", "Ammontare dell'investimento non valido");
                 break;
-            default: model->makeMessageDialogNoButtons("investimento fallito", "Errore sconosciuto");
+            default:
+                model->makeMessageDialogNoButtons("investimento fallito", "Errore sconosciuto");
         }
-    }
 
-    //TODO aggiungi eccezione se l'investment type non coincide
+    }else
+        throw std::invalid_argument("InvestmentType expected is bond");
+
+    }
+    catch (std::invalid_argument &e) {
+        model->makeMessageDialogNoButtons("investimento fallito", e.what());
+    }
 
 }
 

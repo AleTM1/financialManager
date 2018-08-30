@@ -108,6 +108,8 @@ void Historical::updateOrder() {
 
     float tot = 0;
 
+
+
     if (researchOptions.getOrderOptions() == OrderOptions :: all){
         for (auto iterator=orderedHistory.begin(); iterator!=orderedHistory.end(); iterator++)
             if(iterator->getDate() < researchOptions.getDateFrom() || iterator->getDate() > researchOptions.getDateTo())
@@ -140,6 +142,8 @@ void Historical::updateOrder() {
 
     for (auto it : iterators)
         orderedHistory.erase(it);
+
+
 
     total = tot;
 
