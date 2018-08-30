@@ -275,6 +275,8 @@ void Model::removeInvestment(int index) {
        conto->setLiquid(conto->getLiquid() + bond->getTotalInvested() + bond->getTotalInvested() * bond->getMonthsDuration() * bond->getCompany()->getMontlyCoupon());
    }
 
+   conto->saveData();
+
    investmentManager->removeInvestment(inv);
 
    notify();
