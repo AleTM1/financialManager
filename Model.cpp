@@ -268,7 +268,8 @@ void Model::removeInvestment(int index) {
    std::advance(inv, index);
 
    if(auto stock = dynamic_cast<Stock*>((*inv))) {
-       conto->setInvested(conto->getInvested() - stock->getTotalInvested());
+       float totalInvested = stock->getTotalInvested() > conto->getInvested() ?  conto->getInvested() : stock->getTotalInvested();
+       conto->setInvested(conto->getInvested() - totalInvested);
        conto->setLiquid(conto->getLiquid() + stock->getSharesNumber() * stock->getCompany()->getShareCost());
    }else if(auto bond = dynamic_cast<Bond*>((*inv))) {
        conto->setInvested(conto->getInvested() - bond->getTotalInvested());
