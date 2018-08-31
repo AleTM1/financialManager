@@ -10,8 +10,7 @@ void Controller::openingApp() {
 
     if(model->isFirstOpening()){
 
-        model->clearAll();
-        
+
         model->setTabAccountLocked(true);
 
     }else{
