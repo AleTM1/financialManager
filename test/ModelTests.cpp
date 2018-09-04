@@ -33,3 +33,137 @@ TEST(Model, Model_do_transaction) {
 
 
 }
+
+
+TEST(Model, Model_save_account) {
+
+    Model model;
+
+    std::map<AccountData , QString> strings;
+
+    strings.insert(std::make_pair(AccountData::name,""));
+    strings.insert(std::make_pair(AccountData::surname,"Maggio"));
+    strings.insert(std::make_pair(AccountData::codiceFiscale,"MGGLSNAAAAAAAAAA"));
+    strings.insert(std::make_pair(AccountData::city,"Pistoia"));
+    strings.insert(std::make_pair(AccountData::CAP,"51100"));
+    strings.insert(std::make_pair(AccountData::address,"Via Garibaldi"));
+    strings.insert(std::make_pair(AccountData::phoneNumber,"3339995566"));
+    strings.insert(std::make_pair(AccountData::mail,"mail@gmail.com"));
+
+    ASSERT_EQ(model.saveAccount(strings), 1);
+
+    strings.clear();
+    strings.insert(std::make_pair(AccountData::name,"Aleesandro"));
+    strings.insert(std::make_pair(AccountData::surname,""));
+    strings.insert(std::make_pair(AccountData::codiceFiscale,"MGGLSNAAAAAAAAAA"));
+    strings.insert(std::make_pair(AccountData::city,"Pistoia"));
+    strings.insert(std::make_pair(AccountData::CAP,"51100"));
+    strings.insert(std::make_pair(AccountData::address,"Via Garibaldi"));
+    strings.insert(std::make_pair(AccountData::phoneNumber,"3339995566"));
+    strings.insert(std::make_pair(AccountData::mail,"mail@gmail.com"));
+
+    ASSERT_EQ(model.saveAccount(strings), 2);
+
+    strings.clear();
+    strings.insert(std::make_pair(AccountData::name,"Aleesandro"));
+    strings.insert(std::make_pair(AccountData::surname,"Maggio"));
+    strings.insert(std::make_pair(AccountData::codiceFiscale,"MGGLSNAAAA"));
+    strings.insert(std::make_pair(AccountData::city,"Pistoia"));
+    strings.insert(std::make_pair(AccountData::CAP,"51100"));
+    strings.insert(std::make_pair(AccountData::address,"Via Garibaldi"));
+    strings.insert(std::make_pair(AccountData::phoneNumber,"3339995566"));
+    strings.insert(std::make_pair(AccountData::mail,"mail@gmail.com"));
+
+    ASSERT_EQ(model.saveAccount(strings), 3);
+
+    strings.clear();
+    strings.insert(std::make_pair(AccountData::name,"Aleesandro"));
+    strings.insert(std::make_pair(AccountData::surname,"Maggio"));
+    strings.insert(std::make_pair(AccountData::codiceFiscale,"MGGLSNAAAAAAAAAA"));
+    strings.insert(std::make_pair(AccountData::city,""));
+    strings.insert(std::make_pair(AccountData::CAP,"51100"));
+    strings.insert(std::make_pair(AccountData::address,"Via Garibaldi"));
+    strings.insert(std::make_pair(AccountData::phoneNumber,"3339995566"));
+    strings.insert(std::make_pair(AccountData::mail,"mail@gmail.com"));
+
+    ASSERT_EQ(model.saveAccount(strings), 4);
+
+    strings.clear();
+    strings.insert(std::make_pair(AccountData::name,"Aleesandro"));
+    strings.insert(std::make_pair(AccountData::surname,"Maggio"));
+    strings.insert(std::make_pair(AccountData::codiceFiscale,"MGGLSNAAAAAAAAAA"));
+    strings.insert(std::make_pair(AccountData::city,"Pistoia"));
+    strings.insert(std::make_pair(AccountData::CAP,""));
+    strings.insert(std::make_pair(AccountData::address,"Via Garibaldi"));
+    strings.insert(std::make_pair(AccountData::phoneNumber,"3339995566"));
+    strings.insert(std::make_pair(AccountData::mail,"mail@gmail.com"));
+
+    ASSERT_EQ(model.saveAccount(strings), 5);
+
+    strings.clear();
+    strings.insert(std::make_pair(AccountData::name,"Aleesandro"));
+    strings.insert(std::make_pair(AccountData::surname,"Maggio"));
+    strings.insert(std::make_pair(AccountData::codiceFiscale,"MGGLSNAAAAAAAAAA"));
+    strings.insert(std::make_pair(AccountData::city,"Pistoia"));
+    strings.insert(std::make_pair(AccountData::CAP,"51100"));
+    strings.insert(std::make_pair(AccountData::address,""));
+    strings.insert(std::make_pair(AccountData::phoneNumber,"3339995566"));
+    strings.insert(std::make_pair(AccountData::mail,"mail@gmail.com"));
+
+    ASSERT_EQ(model.saveAccount(strings), 6);
+
+    strings.clear();
+    strings.insert(std::make_pair(AccountData::name,"Aleesandro"));
+    strings.insert(std::make_pair(AccountData::surname,"Maggio"));
+    strings.insert(std::make_pair(AccountData::codiceFiscale,"MGGLSNAAAAAAAAAA"));
+    strings.insert(std::make_pair(AccountData::city,"Pistoia"));
+    strings.insert(std::make_pair(AccountData::CAP,"51100"));
+    strings.insert(std::make_pair(AccountData::address,"Via Garibaldi"));
+    strings.insert(std::make_pair(AccountData::phoneNumber,""));
+    strings.insert(std::make_pair(AccountData::mail,"mail@gmail.com"));
+
+    ASSERT_EQ(model.saveAccount(strings), 7);
+
+    strings.clear();
+    strings.insert(std::make_pair(AccountData::name,"Aleesandro"));
+    strings.insert(std::make_pair(AccountData::surname,"Maggio"));
+    strings.insert(std::make_pair(AccountData::codiceFiscale,"MGGLSNAAAAAAAAAA"));
+    strings.insert(std::make_pair(AccountData::city,"Pistoia"));
+    strings.insert(std::make_pair(AccountData::CAP,"51100"));
+    strings.insert(std::make_pair(AccountData::address,"Via Garibaldi"));
+    strings.insert(std::make_pair(AccountData::phoneNumber,"3339995566"));
+    strings.insert(std::make_pair(AccountData::mail,"mailgmail"));
+
+    ASSERT_EQ(model.saveAccount(strings), 8);
+
+}
+
+
+TEST(Model, Model_do_investment) {
+
+    Model model;
+
+    auto conto = dynamic_cast<Conto*>(model.accessDataStorage("Conto"));
+
+    conto->setLiquid(1000);
+
+    auto investment = new Bond;
+    investment->setTotalInvested(3000);
+
+    int e = model.doInvestment(investment);
+
+    ASSERT_EQ(e, 1);
+
+}
+
+TEST(Model, Model_Error_log) {
+
+
+    Model model;
+
+    model.makeMessageDialogNoButtons("ERRORE", "testo dell'errore");
+
+    ASSERT_TRUE(model.getErrorLog()->getTitle() == "ERRORE");
+    ASSERT_TRUE(model.getErrorLog()->getText() == "testo dell'errore");
+
+}

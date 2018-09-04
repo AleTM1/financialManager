@@ -257,6 +257,7 @@ Conto* View::updateConto() const {
 }
 
 Account* View::updateAccount() const {
+
     viewWindow->lineEdit_nameAccount->setEnabled(false);
     viewWindow->lineEdit_surnameAccount->setEnabled(false);
     viewWindow->lineEdit_codiceFiscaleAccount->setEnabled(false);
