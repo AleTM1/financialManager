@@ -12,33 +12,33 @@ class Historical : public AbstractDataStorage {
 
 public:
 
-	Historical ();
+    Historical();
 
-	void addTransaction ( Transaction );
+    void addTransaction(Transaction);
 
-	virtual void saveData () override;
+    virtual void saveData() override;
 
-	virtual void loadData () override;
+    virtual void loadData() override;
 
-	const std::list<Transaction> &getHistory () const;
+    const std::list<Transaction>& getHistory() const;
 
-	void setOrder ( ResearchOptions & );
+    void setOrder(ResearchOptions&);
 
-	float getTotal () const;
+    float getTotal() const;
 
 private:
 
-	void updateOrder ();
+    void updateOrder();
 
 protected:
 
-	std::list<Transaction> rawHistory;
+    std::list<Transaction> rawHistory;
 
-	std::list<Transaction> orderedHistory;
+    std::list<Transaction> orderedHistory;
 
-	ResearchOptions researchOptions;
+    ResearchOptions researchOptions;
 
-	float total;
+    float total;
 };
 
 #endif //FINANCIALMANAGER_HISTORICAL_H

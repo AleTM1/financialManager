@@ -1,4 +1,3 @@
-
 #ifndef INVESTMENTFORMKK2372_H
 #define INVESTMENTFORMKK2372_H
 
@@ -19,81 +18,82 @@ QT_BEGIN_NAMESPACE
 
 class Ui_investmentForm {
 public:
-	QHBoxLayout *horizontalLayout;
+	QHBoxLayout* horizontalLayout;
 
-	QVBoxLayout *verticalLayout;
+	QVBoxLayout* verticalLayout;
 
-	QWidget *widget;
+	QWidget* widget;
 
-	QFormLayout *formLayout;
+	QFormLayout* formLayout;
 
-	QLabel *label;
+	QLabel* label;
 
-	QLabel *label_investmentType;
+	QLabel* label_investmentType;
 
-	QLabel *label_2;
+	QLabel* label_2;
 
-	QLabel *label_entityName;
+	QLabel* label_entityName;
 
-	QLabel *label_3;
+	QLabel* label_3;
 
-	QLabel *label_entityISIN;
+	QLabel* label_entityISIN;
 
-	QLabel *label_4;
+	QLabel* label_4;
 
-	QLabel *label_buyDate;
+	QLabel* label_buyDate;
 
-	QLabel *label_8;
+	QLabel* label_8;
 
-	QLabel *label_totalInvestment;
+	QLabel* label_totalInvestment;
 
-	QWidget *formWidget_stockData;
+	QWidget* formWidget_stockData;
 
-	QFormLayout *formLayout_2;
+	QFormLayout* formLayout_2;
 
-	QLabel *label_5;
+	QLabel* label_5;
 
-	QLabel *label_6;
+	QLabel* label_6;
 
-	QLabel *label_7;
+	QLabel* label_7;
 
-	QLabel *label_stockShareNumber;
+	QLabel* label_stockShareNumber;
 
-	QLabel *label_stockShareCost;
+	QLabel* label_stockShareCost;
 
-	QLabel *label_stockActualInvestment;
+	QLabel* label_stockActualInvestment;
 
-	QLabel *label_13;
+	QLabel* label_13;
 
-	QLabel *label_stockChangeAmount;
+	QLabel* label_stockChangeAmount;
 
-	QWidget *formWidget_bondData;
+	QWidget* formWidget_bondData;
 
-	QFormLayout *formLayout_3;
+	QFormLayout* formLayout_3;
 
-	QLabel *label_9;
+	QLabel* label_9;
 
-	QLabel *label_10;
+	QLabel* label_10;
 
-	QLabel *label_11;
+	QLabel* label_11;
 
-	QLabel *label_12;
+	QLabel* label_12;
 
-	QLabel *label_bondMonthsNumber;
+	QLabel* label_bondMonthsNumber;
 
-	QLabel *label_deadlineDate;
+	QLabel* label_deadlineDate;
 
-	QLabel *label_bondCoupon;
+	QLabel* label_bondCoupon;
 
-	QLabel *label_bondExpectedYield;
+	QLabel* label_bondExpectedYield;
 
-	QPushButton *pushButton_sell;
+	QPushButton* pushButton_sell;
 
-	QFrame *line;
+	QFrame* line;
 
-	void setupUi ( QWidget *investmentForm ) {
+	void setupUi(QWidget* investmentForm)
+	{
 
-		if ( investmentForm->objectName().isEmpty())
+		if (investmentForm->objectName().isEmpty())
 			investmentForm->setObjectName(QStringLiteral("investmentForm"));
 		investmentForm->resize(762, 512);
 		horizontalLayout = new QHBoxLayout(investmentForm);
@@ -294,7 +294,8 @@ public:
 		QMetaObject::connectSlotsByName(investmentForm);
 	} // setupUi
 
-	void retranslateUi ( QWidget *investmentForm ) {
+	void retranslateUi(QWidget* investmentForm)
+	{
 
 		investmentForm->setWindowTitle(QApplication::translate("investmentForm", "Form", Q_NULLPTR));
 		label->setText(QApplication::translate("investmentForm", "Tipologia: ", Q_NULLPTR));
@@ -329,8 +330,8 @@ public:
 };
 
 namespace Ui {
-	class investmentForm : public Ui_investmentForm {
-	};
+class investmentForm : public Ui_investmentForm {
+};
 } // namespace Ui
 
 QT_END_NAMESPACE

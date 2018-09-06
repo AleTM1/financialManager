@@ -18,90 +18,90 @@ class View : public QMainWindow, public Observer {
 Q_OBJECT
 public:
 
-	View ( Controller *c, Model *m );
+    View(Controller* c, Model* m);
 
-	virtual ~View ();
+    virtual ~View();
 
-	virtual void update () override;
+    virtual void update() override;
 
-	void refreshInvestmentValue ();
+    void refreshInvestmentValue();
 
 private slots:
 
-	void closeApp ();
+    void closeApp();
 
-	void RESET ();
+    void RESET();
 
-	void accountSave ();
+    void accountSave();
 
-	void showTitleEdit ();
+    void showTitleEdit();
 
-	void showSearchOptions ();
+    void showSearchOptions();
 
-	void contoTitleSave ();
+    void contoTitleSave();
 
-	void radioButtonTransactionClicked ();
+    void radioButtonTransactionClicked();
 
-	void doTransaction ();
+    void doTransaction();
 
-	void searchHistorical ();
+    void searchHistorical();
 
-	void searchDateChanged ();
+    void searchDateChanged();
 
-	void cancel ();
+    void cancel();
 
-	void updateEntitesList ();
+    void updateEntitesList();
 
-	void updateInvestmentData ();
+    void updateInvestmentData();
 
-	void lineInvestmentEdited ( const QString & );
+    void lineInvestmentEdited(const QString&);
 
-	void updateInvestmentAmount ();
+    void updateInvestmentAmount();
 
-	void doInvestment ();
+    void doInvestment();
 
-	//----controlli---
-	void lineIBANEdited ( const QString & );
+    //----controlli---
+    void lineIBANEdited(const QString&);
 
-	void lineCAPEdited ( const QString & );
+    void lineCAPEdited(const QString&);
 
-	void lineAmountEdited ( const QString & );
+    void lineAmountEdited(const QString&);
 
-	void linePhoneNumber ( const QString & );
+    void linePhoneNumber(const QString&);
 
-	void codiceFiscaleEdited ( const QString & );
+    void codiceFiscaleEdited(const QString&);
 
-	void onlyLetters ( const QString & );
-
-private:
-
-	void clearLayout ( QLayout *layout );
-
-	QString onlySelectedCharacters ( QString &stringa, const QString &allowedCharacters );
-
-	Account *updateAccount () const;
-
-	Conto *updateConto () const;
-
-	void updateTransaction ( const Account *account, const Conto *conto ) const;
-
-	void updateHistorical ();
-
-	void updateInvestmentManager ();
-
-	void updateMessages ();
-
-	void lockAccountTab () const;
+    void onlyLetters(const QString&);
 
 private:
 
-	Controller *controller;
+    void clearLayout(QLayout* layout);
 
-	Model *model;
+    QString onlySelectedCharacters(QString& stringa, const QString& allowedCharacters);
 
-	Ui_MainWindow *viewWindow;
+    Account* updateAccount() const;
 
-	DialogNoButton *dialogNoButton;
+    Conto* updateConto() const;
+
+    void updateTransaction(const Account* account, const Conto* conto) const;
+
+    void updateHistorical();
+
+    void updateInvestmentManager();
+
+    void updateMessages();
+
+    void lockAccountTab() const;
+
+private:
+
+    Controller* controller;
+
+    Model* model;
+
+    Ui_MainWindow* viewWindow;
+
+    DialogNoButton* dialogNoButton;
 
 };
 

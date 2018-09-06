@@ -12,27 +12,30 @@ class Subject {
 
 public:
 
-	virtual void addObserver ( Observer *o ) {
+    virtual void addObserver(Observer* o)
+    {
 
-		observers.push_back(o);
-	}
+        observers.push_back(o);
+    }
 
-	virtual void removeObserver ( Observer *o ) {
+    virtual void removeObserver(Observer* o)
+    {
 
-		observers.remove(o);
-	}
+        observers.remove(o);
+    }
 
-	virtual void notify () {
+    virtual void notify()
+    {
 
-		for ( auto o:observers )
-			o->update();
-	}
+        for (auto o:observers)
+            o->update();
+    }
 
-	virtual ~Subject () { }
+    virtual ~Subject() { }
 
 protected:
 
-	std::list<Observer *> observers;
+    std::list<Observer*> observers;
 
 };
 

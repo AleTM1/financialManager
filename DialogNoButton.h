@@ -12,17 +12,17 @@ class DialogNoButton : public QDialog {
 Q_OBJECT
 public:
 
-	DialogNoButton ( QString ttl, QString txt );
+    DialogNoButton(QString ttl, QString txt);
 
-	~DialogNoButton ();
+    ~DialogNoButton();
 
-	void setTitleError ( QString );
+    void setTitleError(QString);
 
-	void setTextError ( QString );
+    void setTextError(QString);
 
 private:
 
-	Ui_DialogNoButton *dialogUi;
+    Ui_DialogNoButton* dialogUi;
 
 };
 

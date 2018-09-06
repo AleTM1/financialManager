@@ -10,22 +10,22 @@ Q_OBJECT
 
 public:
 
-	QSliderReadOnly ( QWidget *parent = nullptr ) : QSlider(parent) { }
+    QSliderReadOnly(QWidget* parent = nullptr) :QSlider(parent) { }
 
 protected:
-	void keyPressEvent ( QKeyEvent * ) { }
+    void keyPressEvent(QKeyEvent*) { }
 
-	void keyReleaseEvent ( QKeyEvent * ) { }
+    void keyReleaseEvent(QKeyEvent*) { }
 
-	QWidget *keyboardGrabber () { }
+    QWidget* keyboardGrabber() { }
 
-	void mouseMoveEvent ( QMouseEvent *event ) { }
+    void mouseMoveEvent(QMouseEvent* event) { }
 
-	void mousePressEvent ( QMouseEvent *event ) { }
+    void mousePressEvent(QMouseEvent* event) { }
 
-	void mouseReleaseEvent ( QMouseEvent *event ) { }
+    void mouseReleaseEvent(QMouseEvent* event) { }
 
-	void sliderPressed () { }
+    void sliderPressed() { }
 
 };
 

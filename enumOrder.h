@@ -6,11 +6,11 @@
 #define FINANCIALMANAGER_ENUMORDER_H
 
 enum OrderTime {
-	cronologicalOrderReversed, cronologicalOrder
+  cronologicalOrderReversed, cronologicalOrder
 };
 
 enum OrderOptions {
-	all, debits, credits
+  all, debits, credits
 };
 
 #endif //FINANCIALMANAGER_ENUMORDER_H

@@ -4,32 +4,37 @@
 
 #include "Stock.h"
 
-Stock::Stock () {
+Stock::Stock()
+{
 
-	investmentType = stock;
-
-}
-
-void Stock::totalInvestmentCalculator () {
-
-	totalInvested = company->getShareCost() * sharesNumber;
+    investmentType = stock;
 
 }
 
-float Stock::getSharesNumber () const {
+void Stock::totalInvestmentCalculator()
+{
 
-	return sharesNumber;
+    totalInvested = company->getShareCost()*sharesNumber;
+
 }
 
-void Stock::setSharesNumber ( float shareNumber ) {
+float Stock::getSharesNumber() const
+{
 
-	Stock::sharesNumber = shareNumber;
+    return sharesNumber;
 }
 
-void Stock::setCompany ( Company *entity ) {
+void Stock::setSharesNumber(float shareNumber)
+{
 
-	Investment::company = entity;
-	totalInvestmentCalculator();
+    Stock::sharesNumber = shareNumber;
+}
+
+void Stock::setCompany(Company* entity)
+{
+
+    Investment::company = entity;
+    totalInvestmentCalculator();
 
 }
 

@@ -14,78 +14,89 @@ class Investment {
 
 public:
 
-	virtual ~Investment () = 0;
+    virtual ~Investment() = 0;
 
-	float getTotalInvested () const {
+    float getTotalInvested() const
+    {
 
-		return totalInvested;
-	}
+        return totalInvested;
+    }
 
-	void setTotalInvested ( float totalInvested ) {
+    void setTotalInvested(float totalInvested)
+    {
 
-		Investment::totalInvested = totalInvested;
-	}
+        Investment::totalInvested = totalInvested;
+    }
 
-	InvestmentType getInvestmentType () const {
+    InvestmentType getInvestmentType() const
+    {
 
-		return investmentType;
-	}
+        return investmentType;
+    }
 
-	const QString &getInvestorIBAN () const {
+    const QString& getInvestorIBAN() const
+    {
 
-		return investorIBAN;
-	}
+        return investorIBAN;
+    }
 
-	void setInvestorIBAN ( const QString &investorIBAN ) {
+    void setInvestorIBAN(const QString& investorIBAN)
+    {
 
-		Investment::investorIBAN = investorIBAN;
-	}
+        Investment::investorIBAN = investorIBAN;
+    }
 
-	const QString &getInvestorName () const {
+    const QString& getInvestorName() const
+    {
 
-		return investorName;
-	}
+        return investorName;
+    }
 
-	void setInvestorName ( const QString &investorName ) {
+    void setInvestorName(const QString& investorName)
+    {
 
-		Investment::investorName = investorName;
-	}
+        Investment::investorName = investorName;
+    }
 
-	Company *getCompany () const {
+    Company* getCompany() const
+    {
 
-		return company;
-	}
+        return company;
+    }
 
-	virtual void setCompany ( Company *company ) {
+    virtual void setCompany(Company* company)
+    {
 
-		Investment::company = company;
-	}
+        Investment::company = company;
+    }
 
-	const QDate &getBuyDate () const {
+    const QDate& getBuyDate() const
+    {
 
-		return buyDate;
-	}
+        return buyDate;
+    }
 
-	void setBuyDate ( const QDate &buyDate ) {
+    void setBuyDate(const QDate& buyDate)
+    {
 
-		Investment::buyDate = buyDate;
-	}
+        Investment::buyDate = buyDate;
+    }
 
 protected:
 
-	float totalInvested;
+    float totalInvested;
 
-	InvestmentType investmentType;
+    InvestmentType investmentType;
 
-	QString investorIBAN;
+    QString investorIBAN;
 
-	QString investorName;
+    QString investorName;
 
-	Company *company;
+    Company* company;
 
-	QDate buyDate;
+    QDate buyDate;
 };
 
-inline Investment::~Investment () { }
+inline Investment::~Investment() { }
 
 #endif //FINANCIALMANAGER_INVESTMENT_H

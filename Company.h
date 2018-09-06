@@ -12,69 +12,78 @@ class Company {
 
 public:
 
-	Company ( float coupon, QString nam, QString isin, float cost ) : montlyCoupon(coupon), name(nam), ISIN(isin),
-	                                                                  shareCost(cost) {
+    Company(float coupon, QString nam, QString isin, float cost) :montlyCoupon(coupon), name(nam), ISIN(isin), shareCost(cost)
+    {
 
-		srand(time(0));
-	}
+        srand(time(0));
+    }
 
-	virtual ~Company () { }
+    virtual ~Company() { }
 
-	void changeShareCostGenerator () {
+    void changeShareCostGenerator()
+    {
 
-		shareCost += shareCost * ((rand() % 200 - 100) / 100.0) / 100.0;
+        shareCost += shareCost*((rand()%200-100)/100.0)/100.0;
 
-	}
+    }
 
-	const QString &getName () const {
+    const QString& getName() const
+    {
 
-		return name;
-	}
+        return name;
+    }
 
-	void setName ( const QString &name ) {
+    void setName(const QString& name)
+    {
 
-		Company::name = name;
-	}
+        Company::name = name;
+    }
 
-	const QString &getISIN () const {
+    const QString& getISIN() const
+    {
 
-		return ISIN;
-	}
+        return ISIN;
+    }
 
-	void setISIN ( const QString &ISIN ) {
+    void setISIN(const QString& ISIN)
+    {
 
-		Company::ISIN = ISIN;
-	}
+        Company::ISIN = ISIN;
+    }
 
-	void setShareCost ( float value ) {
+    void setShareCost(float value)
+    {
 
-		shareCost = value;
-	}
+        shareCost = value;
+    }
 
-	float getShareCost () {
+    float getShareCost()
+    {
 
-		return shareCost;
-	}
+        return shareCost;
+    }
 
-	float getMontlyCoupon () const {
+    float getMontlyCoupon() const
+    {
 
-		return montlyCoupon;
-	}
+        return montlyCoupon;
+    }
 
-	void setMontlyCoupon ( float montlyCoupon ) {
+    void setMontlyCoupon(float montlyCoupon)
+    {
 
-		Company::montlyCoupon = montlyCoupon;
-	}
+        Company::montlyCoupon = montlyCoupon;
+    }
 
 protected:
 
-	QString name;
+    QString name;
 
-	QString ISIN;
+    QString ISIN;
 
-	float shareCost;
+    float shareCost;
 
-	float montlyCoupon;
+    float montlyCoupon;
 
 };
 

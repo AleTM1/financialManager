@@ -14,51 +14,51 @@ class Account : public AbstractDataStorage {
 
 public:
 
-	Account () { groupName = "Account"; }
+    Account() { groupName = "Account"; }
 
-	bool isFirstOpening ();
+    bool isFirstOpening();
 
-	virtual void loadData () override;
+    virtual void loadData() override;
 
-	void changeData ( std::map<AccountData, QString> );
+    void changeData(std::map<AccountData, QString>);
 
-	virtual void saveData () override;
+    virtual void saveData() override;
 
 public:
 
-	const QString &getName () const;
+    const QString& getName() const;
 
-	const QString &getSurname () const;
+    const QString& getSurname() const;
 
-	const QString &getCodiceFiscale () const;
+    const QString& getCodiceFiscale() const;
 
-	const QString &getCity () const;
+    const QString& getCity() const;
 
-	const QString &getCAP () const;
+    const QString& getCAP() const;
 
-	const QString &getAddress () const;
+    const QString& getAddress() const;
 
-	const QString &getPhoneNumber () const;
+    const QString& getPhoneNumber() const;
 
-	const QString &getMail () const;
+    const QString& getMail() const;
 
 protected:
 
-	QString name;
+    QString name;
 
-	QString surname;
+    QString surname;
 
-	QString codiceFiscale;
+    QString codiceFiscale;
 
-	QString city;
+    QString city;
 
-	QString CAP;
+    QString CAP;
 
-	QString address;
+    QString address;
 
-	QString phoneNumber;
+    QString phoneNumber;
 
-	QString mail;
+    QString mail;
 
 };
 

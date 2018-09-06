@@ -6,132 +6,147 @@
 #include <ctime>
 #include <cstdlib>
 
-Conto::Conto () { groupName = "Conto"; }
+Conto::Conto() { groupName = "Conto"; }
 
-void Conto::contoGenerator () {
+void Conto::contoGenerator()
+{
 
-	title = "Conto corrente";
-	saldo = 20000;
-	liquid = saldo;
-	invested = 0;
+    title = "Conto corrente";
+    saldo = 20000;
+    liquid = saldo;
+    invested = 0;
 
-	IBAN = IBANgenerator();
+    IBAN = IBANgenerator();
 
-	changeData(title);
+    changeData(title);
 
 }
 
-QString Conto::IBANgenerator () {
+QString Conto::IBANgenerator()
+{
 
-	srand(time(0));
-	QString iban = "IT";
-	int n;
+    srand(time(0));
+    QString iban = "IT";
+    int n;
 
-	for ( int i = 0; i < 25; i++ ) {
-		if ( i == 2 ) {
+    for (int i = 0; i<25; i++) {
+        if (i==2) {
 
-			iban.append("Y");
+            iban.append("Y");
 
-		} else {
+        }
+        else {
 
-			n = rand() % 10;
-			iban.append(QString::number(n));
+            n = rand()%10;
+            iban.append(QString::number(n));
 
-		}
+        }
 
-	}
+    }
 
-	return iban;
+    return iban;
 
 }
 
 //------------------------GETTER AND SETTER-----------------
 
-const QString &Conto::getIBAN () const {
+const QString& Conto::getIBAN() const
+{
 
-	return IBAN;
+    return IBAN;
 }
 
-float Conto::getSaldo () const {
+float Conto::getSaldo() const
+{
 
-	return saldo;
+    return saldo;
 }
 
-void Conto::setSaldo ( float saldo ) {
+void Conto::setSaldo(float saldo)
+{
 
-	Conto::saldo = saldo;
+    Conto::saldo = saldo;
 }
 
-float Conto::getLiquid () const {
+float Conto::getLiquid() const
+{
 
-	return liquid;
+    return liquid;
 }
 
-void Conto::setLiquid ( float liquid ) {
+void Conto::setLiquid(float liquid)
+{
 
-	Conto::liquid = liquid;
-	saldo = liquid + invested;
+    Conto::liquid = liquid;
+    saldo = liquid+invested;
 }
 
-float Conto::getInvested () const {
+float Conto::getInvested() const
+{
 
-	return invested;
+    return invested;
 }
 
-void Conto::setInvested ( float invested ) {
+void Conto::setInvested(float invested)
+{
 
-	Conto::invested = invested;
-	saldo = liquid + invested;
+    Conto::invested = invested;
+    saldo = liquid+invested;
 }
 
-const QString &Conto::getTitle () const {
+const QString& Conto::getTitle() const
+{
 
-	return title;
+    return title;
 }
 
-void Conto::setTitle ( const QString &title ) {
+void Conto::setTitle(const QString& title)
+{
 
-	Conto::title = title;
+    Conto::title = title;
 }
 
 
 //------------------------------------------------------
 
-void Conto::loadData () {
+void Conto::loadData()
+{
 
-	data.beginGroup(groupName);
+    data.beginGroup(groupName);
 
-	title = data.value(QString::number(ContoData::title), "").toString();
-	IBAN = data.value(QString::number(ContoData::IBAN), "").toString();
-	saldo = data.value(QString::number(ContoData::saldo), "").toFloat();
-	liquid = data.value(QString::number(ContoData::liquid), "").toFloat();
-	invested = data.value(QString::number(ContoData::invested), "").toFloat();
+    title = data.value(QString::number(ContoData::title), "").toString();
+    IBAN = data.value(QString::number(ContoData::IBAN), "").toString();
+    saldo = data.value(QString::number(ContoData::saldo), "").toFloat();
+    liquid = data.value(QString::number(ContoData::liquid), "").toFloat();
+    invested = data.value(QString::number(ContoData::invested), "").toFloat();
 
-	data.endGroup();
+    data.endGroup();
 
-	data.sync();
+    data.sync();
 }
 
-void Conto::changeData ( QString string ) {
+void Conto::changeData(QString string)
+{
 
-	title = string;
+    title = string;
 
-	saveData();
+    saveData();
 }
 
-void Conto::saveData () {
+void Conto::saveData()
+{
 
-	data.beginGroup(groupName);
+    data.beginGroup(groupName);
 
-	data.setValue(QString::number(ContoData::title), title);
-	data.setValue(QString::number(ContoData::IBAN), IBAN);
-	data.setValue(QString::number(ContoData::saldo), saldo);
-	data.setValue(QString::number(ContoData::liquid), liquid);
-	data.setValue(QString::number(ContoData::invested), invested);
+    data.setValue(QString::number(ContoData::title), title);
+    data.setValue(QString::number(ContoData::IBAN), IBAN);
+    data.setValue(QString::number(ContoData::saldo), saldo);
+    data.setValue(QString::number(ContoData::liquid), liquid);
+    data.setValue(QString::number(ContoData::invested), invested);
 
-	data.endGroup();
+    data.endGroup();
 
-	data.sync();
+    data.sync();
 
 }
 

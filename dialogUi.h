@@ -1,4 +1,3 @@
-
 #ifndef DIALOGERRORNOBUTTONDL3694_H
 #define DIALOGERRORNOBUTTONDL3694_H
 
@@ -18,25 +17,26 @@ QT_BEGIN_NAMESPACE
 
 class Ui_DialogNoButton {
 public:
-	QVBoxLayout *verticalLayout;
+	QVBoxLayout* verticalLayout;
 
-	QVBoxLayout *verticalLayout_2;
+	QVBoxLayout* verticalLayout_2;
 
-	QLabel *label_titleError;
+	QLabel* label_titleError;
 
-	QLabel *label_text;
+	QLabel* label_text;
 
-	QHBoxLayout *horizontalLayout;
+	QHBoxLayout* horizontalLayout;
 
-	QSpacerItem *horizontalSpacer_2;
+	QSpacerItem* horizontalSpacer_2;
 
-	QPushButton *pushButton_closeDialog;
+	QPushButton* pushButton_closeDialog;
 
-	QSpacerItem *horizontalSpacer;
+	QSpacerItem* horizontalSpacer;
 
-	void setupUi ( QDialog *Dialog ) {
+	void setupUi(QDialog* Dialog)
+	{
 
-		if ( Dialog->objectName().isEmpty())
+		if (Dialog->objectName().isEmpty())
 			Dialog->setObjectName(QStringLiteral("Message"));
 		Dialog->resize(434, 235);
 		verticalLayout = new QVBoxLayout(Dialog);
@@ -87,7 +87,8 @@ public:
 		QMetaObject::connectSlotsByName(Dialog);
 	} // setupUi
 
-	void retranslateUi ( QDialog *Dialog ) {
+	void retranslateUi(QDialog* Dialog)
+	{
 
 		Dialog->setWindowTitle(QApplication::translate("Dialog", "Message", Q_NULLPTR));
 		label_titleError->setText(QApplication::translate("Dialog", "error", Q_NULLPTR));
@@ -98,8 +99,8 @@ public:
 };
 
 namespace Ui {
-	class Dialog : public Ui_DialogNoButton {
-	};
+class Dialog : public Ui_DialogNoButton {
+};
 } // namespace Ui
 
 QT_END_NAMESPACE

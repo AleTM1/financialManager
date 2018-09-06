@@ -12,21 +12,21 @@ class Bond : public Investment {
 
 public:
 
-	Bond ();
+    Bond();
 
-	int getMonthsDuration () const;
+    int getMonthsDuration() const;
 
-	void setMonthsDuration ( int monthsDuration, bool updateDeadline );
+    void setMonthsDuration(int monthsDuration, bool updateDeadline);
 
-	const QDate &getDeadlineDate () const;
+    const QDate& getDeadlineDate() const;
 
-	void setDeadlineDate ( const QDate &deadlineDate );
+    void setDeadlineDate(const QDate& deadlineDate);
 
 protected:
 
-	int monthsDuration;
+    int monthsDuration;
 
-	QDate deadlineDate;
+    QDate deadlineDate;
 
 };
 

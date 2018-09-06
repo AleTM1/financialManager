@@ -11,45 +11,51 @@ class ErrorLog {
 
 public:
 
-	ErrorLog ( QString ttl, QString txt ) : title(ttl), text(txt), activated(true) { }
+    ErrorLog(QString ttl, QString txt) :title(ttl), text(txt), activated(true) { }
 
-	bool isActivated () const {
+    bool isActivated() const
+    {
 
-		return activated;
-	}
+        return activated;
+    }
 
-	void setActivated ( bool activated ) {
+    void setActivated(bool activated)
+    {
 
-		ErrorLog::activated = activated;
-	}
+        ErrorLog::activated = activated;
+    }
 
-	const QString &getTitle () const {
+    const QString& getTitle() const
+    {
 
-		return title;
-	}
+        return title;
+    }
 
-	void setTitle ( const QString &title ) {
+    void setTitle(const QString& title)
+    {
 
-		ErrorLog::title = title;
-	}
+        ErrorLog::title = title;
+    }
 
-	const QString &getText () const {
+    const QString& getText() const
+    {
 
-		return text;
-	}
+        return text;
+    }
 
-	void setText ( const QString &text ) {
+    void setText(const QString& text)
+    {
 
-		ErrorLog::text = text;
-	}
+        ErrorLog::text = text;
+    }
 
 protected:
 
-	bool activated;
+    bool activated;
 
-	QString title;
+    QString title;
 
-	QString text;
+    QString text;
 
 };
 

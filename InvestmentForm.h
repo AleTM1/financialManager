@@ -12,23 +12,23 @@ class InvestmentForm : public QWidget {
 Q_OBJECT
 public:
 
-	InvestmentForm ( Controller *c, int i );
+    InvestmentForm(Controller* c, int i);
 
-	~InvestmentForm ();
+    ~InvestmentForm();
 
 public:
 
-	Ui_investmentForm *ui_investmentForm;
+    Ui_investmentForm* ui_investmentForm;
 
 private slots:
 
-	void sell ();
+    void sell();
 
 protected:
 
-	Controller *controller;
+    Controller* controller;
 
-	int index;
+    int index;
 
 };
 

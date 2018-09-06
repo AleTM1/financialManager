@@ -1,4 +1,3 @@
-
 #ifndef FINANCIALMANAGERCJ5038_H
 #define FINANCIALMANAGERCJ5038_H
 
@@ -34,363 +33,364 @@ QT_BEGIN_NAMESPACE
 
 class Ui_MainWindow {
 public:
-	QAction *actionRESET;
+	QAction* actionRESET;
 
-	QAction *actionClose;
+	QAction* actionClose;
 
-	QWidget *centralwidget;
+	QWidget* centralwidget;
 
-	QHBoxLayout *horizontalLayout_12;
+	QHBoxLayout* horizontalLayout_12;
 
-	QTabWidget *tabWidget;
+	QTabWidget* tabWidget;
 
-	QWidget *tab;
+	QWidget* tab;
 
-	QGridLayout *gridLayout_2;
+	QGridLayout* gridLayout_2;
 
-	QVBoxLayout *verticalLayout;
+	QVBoxLayout* verticalLayout;
 
-	QHBoxLayout *horizontalLayout_2;
+	QHBoxLayout* horizontalLayout_2;
 
-	QLabel *label_title;
+	QLabel* label_title;
 
-	QToolButton *toolButton;
+	QToolButton* toolButton;
 
-	QWidget *horizontalWidget_title;
+	QWidget* horizontalWidget_title;
 
-	QHBoxLayout *horizontalLayout_titleEdit;
+	QHBoxLayout* horizontalLayout_titleEdit;
 
-	QLineEdit *lineEdit_title;
+	QLineEdit* lineEdit_title;
 
-	QPushButton *buttonTitle_Salva;
+	QPushButton* buttonTitle_Salva;
 
-	QFrame *line;
+	QFrame* line;
 
-	QHBoxLayout *horizontalLayout_4;
+	QHBoxLayout* horizontalLayout_4;
 
-	QLabel *label_IBAN;
+	QLabel* label_IBAN;
 
-	QFrame *line_2;
+	QFrame* line_2;
 
-	QHBoxLayout *horizontalLayout_5;
+	QHBoxLayout* horizontalLayout_5;
 
-	QLabel *label_9;
+	QLabel* label_9;
 
-	QLabel *label_Saldo;
+	QLabel* label_Saldo;
 
-	QHBoxLayout *horizontalLayout_6;
+	QHBoxLayout* horizontalLayout_6;
 
-	QLabel *label_liquid;
+	QLabel* label_liquid;
 
-	QSliderReadOnly *horizontalSlider_percetage;
+	QSliderReadOnly* horizontalSlider_percetage;
 
-	QLabel *label_invested;
+	QLabel* label_invested;
 
-	QWidget *tab_3;
+	QWidget* tab_3;
 
-	QGridLayout *gridLayout_3;
+	QGridLayout* gridLayout_3;
 
-	QVBoxLayout *verticalLayout_2;
+	QVBoxLayout* verticalLayout_2;
 
-	QLabel *label_8;
+	QLabel* label_8;
 
-	QFrame *line_3;
+	QFrame* line_3;
 
-	QGroupBox *groupBox;
+	QGroupBox* groupBox;
 
-	QHBoxLayout *horizontalLayout_7;
+	QHBoxLayout* horizontalLayout_7;
 
-	QSpacerItem *horizontalSpacer;
+	QSpacerItem* horizontalSpacer;
 
-	QRadioButton *radioButton_sendMoney;
+	QRadioButton* radioButton_sendMoney;
 
-	QSpacerItem *horizontalSpacer_3;
+	QSpacerItem* horizontalSpacer_3;
 
-	QRadioButton *radioButton_receiveMoney;
+	QRadioButton* radioButton_receiveMoney;
 
-	QSpacerItem *horizontalSpacer_2;
+	QSpacerItem* horizontalSpacer_2;
 
-	QFrame *line_4;
+	QFrame* line_4;
 
-	QFormLayout *formLayout;
+	QFormLayout* formLayout;
 
-	QLabel *label_10;
+	QLabel* label_10;
 
-	QLabel *label_11;
+	QLabel* label_11;
 
-	QLineEdit *lineEdit_payerName;
+	QLineEdit* lineEdit_payerName;
 
-	QLabel *label_12;
+	QLabel* label_12;
 
-	QLineEdit *lineEdit_payerIBAN;
+	QLineEdit* lineEdit_payerIBAN;
 
-	QLabel *label_14;
+	QLabel* label_14;
 
-	QLabel *label_15;
+	QLabel* label_15;
 
-	QLineEdit *lineEdit_beneficiaryName;
+	QLineEdit* lineEdit_beneficiaryName;
 
-	QLabel *label_13;
+	QLabel* label_13;
 
-	QLineEdit *lineEdit_beneficiaryIBAN;
+	QLineEdit* lineEdit_beneficiaryIBAN;
 
-	QLineEdit *lineEdit_amount;
+	QLineEdit* lineEdit_amount;
 
-	QLabel *label_17;
+	QLabel* label_17;
 
-	QLineEdit *lineEdit_causal;
+	QLineEdit* lineEdit_causal;
 
-	QLabel *label_16;
+	QLabel* label_16;
 
-	QLabel *label_18;
+	QLabel* label_18;
 
-	QLabel *label_currentDate;
+	QLabel* label_currentDate;
 
-	QFrame *line_7;
+	QFrame* line_7;
 
-	QHBoxLayout *horizontalLayout_10;
+	QHBoxLayout* horizontalLayout_10;
 
-	QPushButton *pushButton_doTransaction;
+	QPushButton* pushButton_doTransaction;
 
-	QPushButton *pushButton_Cancel;
+	QPushButton* pushButton_Cancel;
 
-	QWidget *tab_4;
+	QWidget* tab_4;
 
-	QVBoxLayout *verticalLayout_4;
+	QVBoxLayout* verticalLayout_4;
 
-	QVBoxLayout *verticalLayout_3;
+	QVBoxLayout* verticalLayout_3;
 
-	QLabel *label_19;
+	QLabel* label_19;
 
-	QFrame *line_5;
+	QFrame* line_5;
 
-	QGroupBox *groupBox_2;
+	QGroupBox* groupBox_2;
 
-	QHBoxLayout *horizontalLayout_8;
+	QHBoxLayout* horizontalLayout_8;
 
-	QSpacerItem *horizontalSpacer_4;
+	QSpacerItem* horizontalSpacer_4;
 
-	QRadioButton *radioButton_cronologicalOrderReverse;
+	QRadioButton* radioButton_cronologicalOrderReverse;
 
-	QSpacerItem *horizontalSpacer_6;
+	QSpacerItem* horizontalSpacer_6;
 
-	QRadioButton *radioButton_cronologicalOrder;
+	QRadioButton* radioButton_cronologicalOrder;
 
-	QSpacerItem *horizontalSpacer_5;
+	QSpacerItem* horizontalSpacer_5;
 
-	QPushButton *pushButton_showOptions;
+	QPushButton* pushButton_showOptions;
 
-	QWidget *horizontalWidget_searchOptions;
+	QWidget* horizontalWidget_searchOptions;
 
-	QHBoxLayout *horizontalLayout_searchOptions;
+	QHBoxLayout* horizontalLayout_searchOptions;
 
-	QPushButton *pushButton_search;
+	QPushButton* pushButton_search;
 
-	QLineEdit *lineEdit_searchHistorical;
+	QLineEdit* lineEdit_searchHistorical;
 
-	QComboBox *comboBox_options;
+	QComboBox* comboBox_options;
 
-	QLabel *label_22;
+	QLabel* label_22;
 
-	QDateEdit *dateEdit_from;
+	QDateEdit* dateEdit_from;
 
-	QLabel *label_23;
+	QLabel* label_23;
 
-	QDateEdit *dateEdit_to;
+	QDateEdit* dateEdit_to;
 
-	QVBoxLayout *verticalLayout_8;
+	QVBoxLayout* verticalLayout_8;
 
-	QScrollArea *scrollArea;
+	QScrollArea* scrollArea;
 
-	QWidget *scrollAreaWidgetContents;
+	QWidget* scrollAreaWidgetContents;
 
-	QVBoxLayout *verticalLayout_5;
+	QVBoxLayout* verticalLayout_5;
 
-	QVBoxLayout *verticalLayout_localHistory;
+	QVBoxLayout* verticalLayout_localHistory;
 
-	QHBoxLayout *horizontalLayout_9;
+	QHBoxLayout* horizontalLayout_9;
 
-	QLabel *label_24;
+	QLabel* label_24;
 
-	QLabel *label_totalHistorical;
+	QLabel* label_totalHistorical;
 
-	QWidget *tab_5;
+	QWidget* tab_5;
 
-	QVBoxLayout *verticalLayout_10;
+	QVBoxLayout* verticalLayout_10;
 
-	QLabel *label_25;
+	QLabel* label_25;
 
-	QFrame *line_9;
+	QFrame* line_9;
 
-	QFormLayout *formLayout_3;
+	QFormLayout* formLayout_3;
 
-	QLabel *label_26;
+	QLabel* label_26;
 
-	QComboBox *comboBox_investmentType;
+	QComboBox* comboBox_investmentType;
 
-	QLabel *label_27;
+	QLabel* label_27;
 
-	QComboBox *comboBox_entity;
+	QComboBox* comboBox_entity;
 
-	QLabel *label_28;
+	QLabel* label_28;
 
-	QLabel *label_enetityISIN;
+	QLabel* label_enetityISIN;
 
-	QLabel *label_29;
+	QLabel* label_29;
 
-	QFrame *line_12;
+	QFrame* line_12;
 
-	QWidget *formWidget_stock;
+	QWidget* formWidget_stock;
 
-	QFormLayout *formLayout_4;
+	QFormLayout* formLayout_4;
 
-	QLabel *label_31;
+	QLabel* label_31;
 
-	QLabel *label_stockCost;
+	QLabel* label_stockCost;
 
-	QLabel *label_32;
+	QLabel* label_32;
 
-	QLineEdit *lineEdit_stockshareNumber;
+	QLineEdit* lineEdit_stockshareNumber;
 
-	QLabel *label_34;
+	QLabel* label_34;
 
-	QWidget *formWidget_bond;
+	QWidget* formWidget_bond;
 
-	QFormLayout *formLayout_6;
+	QFormLayout* formLayout_6;
 
-	QLabel *label_41;
+	QLabel* label_41;
 
-	QLabel *label_42;
+	QLabel* label_42;
 
-	QLabel *label_43;
+	QLabel* label_43;
 
-	QLabel *label_44;
+	QLabel* label_44;
 
-	QLineEdit *lineEdit_investmentAmount;
+	QLineEdit* lineEdit_investmentAmount;
 
-	QLabel *label_coupon;
+	QLabel* label_coupon;
 
-	QLabel *label_45;
+	QLabel* label_45;
 
-	QComboBox *comboBox_monthsNumber;
+	QComboBox* comboBox_monthsNumber;
 
-	QLabel *label_expectedYield;
+	QLabel* label_expectedYield;
 
-	QFrame *line_13;
+	QFrame* line_13;
 
-	QHBoxLayout *horizontalLayout;
+	QHBoxLayout* horizontalLayout;
 
-	QLabel *label_50;
+	QLabel* label_50;
 
-	QLabel *label_totalInvestment;
+	QLabel* label_totalInvestment;
 
-	QHBoxLayout *horizontalLayout_11;
+	QHBoxLayout* horizontalLayout_11;
 
-	QPushButton *pushButton_doInvestment;
+	QPushButton* pushButton_doInvestment;
 
-	QWidget *tab_6;
+	QWidget* tab_6;
 
-	QVBoxLayout *verticalLayout_12;
+	QVBoxLayout* verticalLayout_12;
 
-	QVBoxLayout *verticalLayout_11;
+	QVBoxLayout* verticalLayout_11;
 
-	QLabel *label_30;
+	QLabel* label_30;
 
-	QFrame *line_11;
+	QFrame* line_11;
 
-	QVBoxLayout *verticalLayout_14;
+	QVBoxLayout* verticalLayout_14;
 
-	QScrollArea *scrollArea_2;
+	QScrollArea* scrollArea_2;
 
-	QWidget *scrollAreaWidgetContents_2;
+	QWidget* scrollAreaWidgetContents_2;
 
-	QVBoxLayout *verticalLayout_9;
+	QVBoxLayout* verticalLayout_9;
 
-	QWidget *verticalWidget_2;
+	QWidget* verticalWidget_2;
 
-	QVBoxLayout *verticalLayout_13;
+	QVBoxLayout* verticalLayout_13;
 
-	QVBoxLayout *verticalLayout_investmentManager;
+	QVBoxLayout* verticalLayout_investmentManager;
 
-	QWidget *tab_2;
+	QWidget* tab_2;
 
-	QVBoxLayout *verticalLayout_7;
+	QVBoxLayout* verticalLayout_7;
 
-	QVBoxLayout *verticalLayout_6;
+	QVBoxLayout* verticalLayout_6;
 
-	QLabel *label_20;
+	QLabel* label_20;
 
-	QFrame *line_6;
+	QFrame* line_6;
 
-	QFormLayout *formLayout_2;
+	QFormLayout* formLayout_2;
 
-	QLabel *label;
+	QLabel* label;
 
-	QLabel *label_2;
+	QLabel* label_2;
 
-	QLabel *label_3;
+	QLabel* label_3;
 
-	QLabel *label_4;
+	QLabel* label_4;
 
-	QLabel *label_5;
+	QLabel* label_5;
 
-	QLabel *label_6;
+	QLabel* label_6;
 
-	QLabel *label_7;
+	QLabel* label_7;
 
-	QLabel *label_21;
+	QLabel* label_21;
 
-	QLineEdit *lineEdit_nameAccount;
+	QLineEdit* lineEdit_nameAccount;
 
-	QLineEdit *lineEdit_surnameAccount;
+	QLineEdit* lineEdit_surnameAccount;
 
-	QLineEdit *lineEdit_codiceFiscaleAccount;
+	QLineEdit* lineEdit_codiceFiscaleAccount;
 
-	QLineEdit *lineEdit_cityAccount;
+	QLineEdit* lineEdit_cityAccount;
 
-	QLineEdit *lineEdit_CAPAccount;
+	QLineEdit* lineEdit_CAPAccount;
 
-	QLineEdit *lineEdit_addressAccount;
+	QLineEdit* lineEdit_addressAccount;
 
-	QLineEdit *lineEdit_phoneNumberAccount;
+	QLineEdit* lineEdit_phoneNumberAccount;
 
-	QLineEdit *lineEdit_mailAccount;
+	QLineEdit* lineEdit_mailAccount;
 
-	QSpacerItem *verticalSpacer_3;
+	QSpacerItem* verticalSpacer_3;
 
-	QSpacerItem *verticalSpacer_4;
+	QSpacerItem* verticalSpacer_4;
 
-	QSpacerItem *verticalSpacer_5;
+	QSpacerItem* verticalSpacer_5;
 
-	QSpacerItem *verticalSpacer_6;
+	QSpacerItem* verticalSpacer_6;
 
-	QSpacerItem *verticalSpacer_7;
+	QSpacerItem* verticalSpacer_7;
 
-	QSpacerItem *verticalSpacer_8;
+	QSpacerItem* verticalSpacer_8;
 
-	QSpacerItem *verticalSpacer_9;
+	QSpacerItem* verticalSpacer_9;
 
-	QSpacerItem *verticalSpacer_10;
+	QSpacerItem* verticalSpacer_10;
 
-	QSpacerItem *verticalSpacer;
+	QSpacerItem* verticalSpacer;
 
-	QFrame *line_8;
+	QFrame* line_8;
 
-	QHBoxLayout *horizontalLayout_3;
+	QHBoxLayout* horizontalLayout_3;
 
-	QPushButton *pushButton_saveAcount;
+	QPushButton* pushButton_saveAcount;
 
-	QPushButton *pushButton_cancAccount;
+	QPushButton* pushButton_cancAccount;
 
-	QMenuBar *menubar;
+	QMenuBar* menubar;
 
-	QMenu *menuFile;
+	QMenu* menuFile;
 
-	QMenu *menuAbout;
+	QMenu* menuAbout;
 
-	void setupUi ( QMainWindow *MainWindow ) {
+	void setupUi(QMainWindow* MainWindow)
+	{
 
-		if ( MainWindow->objectName().isEmpty())
+		if (MainWindow->objectName().isEmpty())
 			MainWindow->setObjectName(QStringLiteral("MainWindow"));
 		MainWindow->resize(914, 748);
 		actionRESET = new QAction(MainWindow);
@@ -1371,42 +1371,35 @@ public:
 		QObject::connect(toolButton, SIGNAL(clicked()), MainWindow, SLOT(showTitleEdit()));
 		QObject::connect(buttonTitle_Salva, SIGNAL(clicked()), MainWindow, SLOT (contoTitleSave()));
 		QObject::connect(radioButton_sendMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonTransactionClicked()));
-		QObject::connect(radioButton_receiveMoney, SIGNAL (released()), MainWindow,
-		                 SLOT(radioButtonTransactionClicked()));
+		QObject::connect(radioButton_receiveMoney, SIGNAL (released()), MainWindow, SLOT(radioButtonTransactionClicked()));
 		QObject::connect(pushButton_doTransaction, SIGNAL(clicked()), MainWindow, SLOT(doTransaction()));
 		QObject::connect(pushButton_showOptions, SIGNAL(clicked()), MainWindow, SLOT(showSearchOptions()));
 		QObject::connect(radioButton_cronologicalOrder, SIGNAL (released()), MainWindow, SLOT(searchHistorical()));
-		QObject::connect(radioButton_cronologicalOrderReverse, SIGNAL (released()), MainWindow,
-		                 SLOT(searchHistorical()));
+		QObject::connect(radioButton_cronologicalOrderReverse, SIGNAL (released()), MainWindow, SLOT(searchHistorical()));
 		QObject::connect(pushButton_search, SIGNAL(clicked()), MainWindow, SLOT(searchHistorical()));
 		QObject::connect(lineEdit_searchHistorical, SIGNAL(textChanged(
-				                                                   const QString &)), MainWindow,
-		                 SLOT(searchHistorical()));
+				const QString &)), MainWindow, SLOT(searchHistorical()));
 		QObject::connect(comboBox_options, SIGNAL(currentIndexChanged(int)), MainWindow, SLOT(searchHistorical()));
 
 		QObject::connect(dateEdit_to, SIGNAL(dateChanged(
-				                                     const QDate &)), MainWindow, SLOT(searchDateChanged()));
+				const QDate &)), MainWindow, SLOT(searchDateChanged()));
 		QObject::connect(dateEdit_from, SIGNAL(dateChanged(
-				                                       const QDate &)), MainWindow, SLOT(searchDateChanged()));
+				const QDate &)), MainWindow, SLOT(searchDateChanged()));
 		QObject::connect(pushButton_cancAccount, SIGNAL (clicked()), MainWindow, SLOT (cancel()));
 		QObject::connect(pushButton_Cancel, SIGNAL (clicked()), MainWindow, SLOT (cancel()));
 
 		QObject::connect(comboBox_investmentType, SIGNAL(currentTextChanged(
-				                                                 const QString &)), MainWindow,
-		                 SLOT(updateEntitesList()));
+				const QString &)), MainWindow, SLOT(updateEntitesList()));
 		QObject::connect(comboBox_entity, SIGNAL(currentTextChanged(
-				                                         const QString &)), MainWindow, SLOT(updateInvestmentData()));
+				const QString &)), MainWindow, SLOT(updateInvestmentData()));
 
 		QObject::connect(lineEdit_stockshareNumber, SIGNAL(textChanged(
-				                                                   const QString &)), MainWindow,
-		                 SLOT(lineInvestmentEdited(
-				                      const QString &)));
+				const QString &)), MainWindow, SLOT(lineInvestmentEdited(
+				const QString &)));
 		QObject::connect(lineEdit_investmentAmount, SIGNAL(textChanged(
-				                                                   const QString &)), MainWindow,
-		                 SLOT(lineInvestmentEdited(
-				                      const QString &)));
-		QObject::connect(comboBox_monthsNumber, SIGNAL(currentIndexChanged(int)), MainWindow,
-		                 SLOT(updateInvestmentAmount()));
+				const QString &)), MainWindow, SLOT(lineInvestmentEdited(
+				const QString &)));
+		QObject::connect(comboBox_monthsNumber, SIGNAL(currentIndexChanged(int)), MainWindow, SLOT(updateInvestmentAmount()));
 
 		QObject::connect(pushButton_doInvestment, SIGNAL(clicked()), MainWindow, SLOT(doInvestment()));
 
@@ -1414,41 +1407,39 @@ public:
 		//----------lineEditChanged------------
 
 		QObject::connect(lineEdit_beneficiaryIBAN, SIGNAL(textChanged(
-				                                                  const QString &)), MainWindow, SLOT(lineIBANEdited(
-						                                                                                      const QString &)));
+				const QString &)), MainWindow, SLOT(lineIBANEdited(
+				const QString &)));
 		QObject::connect(lineEdit_payerIBAN, SIGNAL(textChanged(
-				                                            const QString &)), MainWindow, SLOT(lineIBANEdited(
-						                                                                                const QString &)));
+				const QString &)), MainWindow, SLOT(lineIBANEdited(
+				const QString &)));
 		QObject::connect(lineEdit_beneficiaryName, SIGNAL(textChanged(
-				                                                  const QString &)), MainWindow, SLOT(onlyLetters(
-						                                                                                      const QString &)));
+				const QString &)), MainWindow, SLOT(onlyLetters(
+				const QString &)));
 		QObject::connect(lineEdit_payerName, SIGNAL(textChanged(
-				                                            const QString &)), MainWindow, SLOT(onlyLetters(
-						                                                                                const QString &)));
+				const QString &)), MainWindow, SLOT(onlyLetters(
+				const QString &)));
 		QObject::connect(lineEdit_amount, SIGNAL(textChanged(
-				                                         const QString &)), MainWindow, SLOT(lineAmountEdited(
-						                                                                             const QString &)));
+				const QString &)), MainWindow, SLOT(lineAmountEdited(
+				const QString &)));
 
 		QObject::connect(lineEdit_nameAccount, SIGNAL(textChanged(
-				                                              const QString &)), MainWindow, SLOT(onlyLetters(
-						                                                                                  const QString &)));
+				const QString &)), MainWindow, SLOT(onlyLetters(
+				const QString &)));
 		QObject::connect(lineEdit_surnameAccount, SIGNAL(textChanged(
-				                                                 const QString &)), MainWindow, SLOT(onlyLetters(
-						                                                                                     const QString &)));
+				const QString &)), MainWindow, SLOT(onlyLetters(
+				const QString &)));
 		QObject::connect(lineEdit_codiceFiscaleAccount, SIGNAL(textChanged(
-				                                                       const QString &)), MainWindow,
-		                 SLOT(codiceFiscaleEdited(
-				                      const QString &)));
+				const QString &)), MainWindow, SLOT(codiceFiscaleEdited(
+				const QString &)));
 		QObject::connect(lineEdit_cityAccount, SIGNAL(textChanged(
-				                                              const QString &)), MainWindow, SLOT(onlyLetters(
-						                                                                                  const QString &)));
+				const QString &)), MainWindow, SLOT(onlyLetters(
+				const QString &)));
 		QObject::connect(lineEdit_phoneNumberAccount, SIGNAL(textChanged(
-				                                                     const QString &)), MainWindow,
-		                 SLOT(linePhoneNumber(
-				                      const QString &)));
+				const QString &)), MainWindow, SLOT(linePhoneNumber(
+				const QString &)));
 		QObject::connect(lineEdit_CAPAccount, SIGNAL(textChanged(
-				                                             const QString &)), MainWindow, SLOT(lineCAPEdited(
-						                                                                                 const QString &)));
+				const QString &)), MainWindow, SLOT(lineCAPEdited(
+				const QString &)));
 
 
 
@@ -1459,7 +1450,8 @@ public:
 		QMetaObject::connectSlotsByName(MainWindow);
 	} // setupUi
 
-	void retranslateUi ( QMainWindow *MainWindow ) {
+	void retranslateUi(QMainWindow* MainWindow)
+	{
 
 		MainWindow->setWindowTitle(QApplication::translate("MainWindow", "FinancialManager", Q_NULLPTR));
 		actionRESET->setText(QApplication::translate("MainWindow", "RESET", Q_NULLPTR));
@@ -1489,21 +1481,15 @@ public:
 		label_currentDate->setText(QApplication::translate("MainWindow", "01/01/01", Q_NULLPTR));
 		pushButton_doTransaction->setText(QApplication::translate("MainWindow", "Esegui", Q_NULLPTR));
 		pushButton_Cancel->setText(QApplication::translate("MainWindow", "Annulla", Q_NULLPTR));
-		tabWidget->setTabText(tabWidget->indexOf(tab_3),
-		                      QApplication::translate("MainWindow", "Effettua Transazioni", Q_NULLPTR));
+		tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Effettua Transazioni", Q_NULLPTR));
 		label_19->setText(QApplication::translate("MainWindow", "STORICO TRANSAZIONI", Q_NULLPTR));
 		groupBox_2->setTitle(QApplication::translate("MainWindow", "Ordine", Q_NULLPTR));
-		radioButton_cronologicalOrderReverse->setText(
-				QApplication::translate("MainWindow", "Dal pi\303\271 recente", Q_NULLPTR));
+		radioButton_cronologicalOrderReverse->setText(QApplication::translate("MainWindow", "Dal pi\303\271 recente", Q_NULLPTR));
 		radioButton_cronologicalOrder->setText(QApplication::translate("MainWindow", "Dal meno recente", Q_NULLPTR));
 		pushButton_showOptions->setText(QApplication::translate("MainWindow", "Pi\303\271 opzioni..", Q_NULLPTR));
 		pushButton_search->setText(QApplication::translate("MainWindow", "Cerca", Q_NULLPTR));
 		comboBox_options->clear();
-		comboBox_options->insertItems(0, QStringList()
-				<< QApplication::translate("MainWindow", "Tutto", Q_NULLPTR)
-				<< QApplication::translate("MainWindow", "Addebiti", Q_NULLPTR)
-				<< QApplication::translate("MainWindow", "Accrediti", Q_NULLPTR)
-		);
+		comboBox_options->insertItems(0, QStringList() << QApplication::translate("MainWindow", "Tutto", Q_NULLPTR) << QApplication::translate("MainWindow", "Addebiti", Q_NULLPTR) << QApplication::translate("MainWindow", "Accrediti", Q_NULLPTR));
 		comboBox_options->setCurrentText(QApplication::translate("MainWindow", "Tutto", Q_NULLPTR));
 		label_22->setText(QApplication::translate("MainWindow", " da: ", Q_NULLPTR));
 		label_23->setText(QApplication::translate("MainWindow", " al: ", Q_NULLPTR));
@@ -1513,15 +1499,10 @@ public:
 		label_25->setText(QApplication::translate("MainWindow", "Effettua un Investimento", Q_NULLPTR));
 		label_26->setText(QApplication::translate("MainWindow", "Scegli tipologia di investimento: ", Q_NULLPTR));
 		comboBox_investmentType->clear();
-		comboBox_investmentType->insertItems(0, QStringList()
-				<< QApplication::translate("MainWindow", "Azione", Q_NULLPTR)
-				<< QApplication::translate("MainWindow", "Obbligazione", Q_NULLPTR)
-		);
+		comboBox_investmentType->insertItems(0, QStringList() << QApplication::translate("MainWindow", "Azione", Q_NULLPTR) << QApplication::translate("MainWindow", "Obbligazione", Q_NULLPTR));
 		label_27->setText(QApplication::translate("MainWindow", "Scegli la Societ\303\240: ", Q_NULLPTR));
 		comboBox_entity->clear();
-		comboBox_entity->insertItems(0, QStringList()
-				<< QApplication::translate("MainWindow", "Google", Q_NULLPTR)
-		);
+		comboBox_entity->insertItems(0, QStringList() << QApplication::translate("MainWindow", "Google", Q_NULLPTR));
 		label_28->setText(QApplication::translate("MainWindow", "ISIN della Societ\303\240: ", Q_NULLPTR));
 		label_enetityISIN->setText(QApplication::translate("MainWindow", "---", Q_NULLPTR));
 		label_29->setText(QString());
@@ -1536,21 +1517,14 @@ public:
 		label_coupon->setText(QApplication::translate("MainWindow", "0%", Q_NULLPTR));
 		label_45->setText(QApplication::translate("MainWindow", "Rendimento previsto: ", Q_NULLPTR));
 		comboBox_monthsNumber->clear();
-		comboBox_monthsNumber->insertItems(0, QStringList()
-				<< QApplication::translate("MainWindow", "3", Q_NULLPTR)
-				<< QApplication::translate("MainWindow", "6", Q_NULLPTR)
-				<< QApplication::translate("MainWindow", "12", Q_NULLPTR)
-				<< QApplication::translate("MainWindow", "24", Q_NULLPTR)
-		);
+		comboBox_monthsNumber->insertItems(0, QStringList() << QApplication::translate("MainWindow", "3", Q_NULLPTR) << QApplication::translate("MainWindow", "6", Q_NULLPTR) << QApplication::translate("MainWindow", "12", Q_NULLPTR) << QApplication::translate("MainWindow", "24", Q_NULLPTR));
 		label_expectedYield->setText(QApplication::translate("MainWindow", "0", Q_NULLPTR));
 		label_50->setText(QApplication::translate("MainWindow", "Totale investimento:", Q_NULLPTR));
 		label_totalInvestment->setText(QApplication::translate("MainWindow", "0\342\202\254", Q_NULLPTR));
 		pushButton_doInvestment->setText(QApplication::translate("MainWindow", "Effettua Investimento", Q_NULLPTR));
-		tabWidget->setTabText(tabWidget->indexOf(tab_5),
-		                      QApplication::translate("MainWindow", "Effettua Investimenti", Q_NULLPTR));
+		tabWidget->setTabText(tabWidget->indexOf(tab_5), QApplication::translate("MainWindow", "Effettua Investimenti", Q_NULLPTR));
 		label_30->setText(QApplication::translate("MainWindow", "GESTISCI INVESTIMENTI", Q_NULLPTR));
-		tabWidget->setTabText(tabWidget->indexOf(tab_6),
-		                      QApplication::translate("MainWindow", "Gestisci Investimenti", Q_NULLPTR));
+		tabWidget->setTabText(tabWidget->indexOf(tab_6), QApplication::translate("MainWindow", "Gestisci Investimenti", Q_NULLPTR));
 		label_20->setText(QApplication::translate("MainWindow", "Dati Account", Q_NULLPTR));
 		label->setText(QApplication::translate("MainWindow", "Nome: ", Q_NULLPTR));
 		label_2->setText(QApplication::translate("MainWindow", "Cognome: ", Q_NULLPTR));
@@ -1570,8 +1544,8 @@ public:
 };
 
 namespace Ui {
-	class MainWindow : public Ui_MainWindow {
-	};
+class MainWindow : public Ui_MainWindow {
+};
 } // namespace Ui
 
 QT_END_NAMESPACE

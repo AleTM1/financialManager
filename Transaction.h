@@ -10,75 +10,79 @@
 class Transaction {
 public:
 
-	Transaction ( bool d, QString pN, QString pI, QString rN, QString rI, float a, QString c, QDate dat ) :
-			debit(d), payerName(pN), payerIBAN(pI), receiverName(rN), receiverIBAN(rI), amount(a), causal(c),
-			date(dat) { }
+    Transaction(bool d, QString pN, QString pI, QString rN, QString rI, float a, QString c, QDate dat) :debit(d), payerName(pN), payerIBAN(pI), receiverName(rN), receiverIBAN(rI), amount(a), causal(c), date(dat) { }
 
-	bool operator== ( const Transaction &orig ) {
+    bool operator==(const Transaction& orig)
+    {
 
-		return (orig.getPayerName() == payerName && orig.getReceiverName() == receiverName &&
-		        orig.getPayerIBAN() == payerIBAN && orig.getReceiverIBAN() == receiverIBAN &&
-		        orig.getAmount() == amount && orig.getCausal() == causal && orig.getDate() == date &&
-		        orig.isDebit() == debit);
-	}
+        return (orig.getPayerName()==payerName && orig.getReceiverName()==receiverName && orig.getPayerIBAN()==payerIBAN && orig.getReceiverIBAN()==receiverIBAN && orig.getAmount()==amount && orig.getCausal()==causal && orig.getDate()==date && orig.isDebit()==debit);
+    }
 
-	bool isDebit () const {
+    bool isDebit() const
+    {
 
-		return debit;
-	}
+        return debit;
+    }
 
-	const QString &getPayerName () const {
+    const QString& getPayerName() const
+    {
 
-		return payerName;
-	}
+        return payerName;
+    }
 
-	const QString &getPayerIBAN () const {
+    const QString& getPayerIBAN() const
+    {
 
-		return payerIBAN;
-	}
+        return payerIBAN;
+    }
 
-	const QString &getReceiverName () const {
+    const QString& getReceiverName() const
+    {
 
-		return receiverName;
-	}
+        return receiverName;
+    }
 
-	const QString &getReceiverIBAN () const {
+    const QString& getReceiverIBAN() const
+    {
 
-		return receiverIBAN;
-	}
+        return receiverIBAN;
+    }
 
-	float getAmount () const {
+    float getAmount() const
+    {
 
-		return amount;
-	}
+        return amount;
+    }
 
-	const QString &getCausal () const {
+    const QString& getCausal() const
+    {
 
-		return causal;
-	}
+        return causal;
+    }
 
-	const QDate &getDate () const {
+    const QDate& getDate() const
+    {
 
-		return date;
-	}
+        return date;
+    }
 
 protected:
 
-	bool debit;
+    bool debit;
 
-	QString payerName;
+    QString payerName;
 
-	QString payerIBAN;
+    QString payerIBAN;
 
-	QString receiverName;
+    QString receiverName;
 
-	QString receiverIBAN;
+    QString receiverIBAN;
 
-	float amount;
+    float amount;
 
-	QString causal;
+    QString causal;
 
-	QDate date;
+    QDate date;
 
 };
 

@@ -12,31 +12,33 @@ class AbstractDataStorage {
 
 public:
 
-	virtual void loadData ()=0;
+    virtual void loadData()=0;
 
-	virtual void saveData () = 0;
+    virtual void saveData() = 0;
 
-	virtual void clear () {
+    virtual void clear()
+    {
 
-		data.clear();
-		data.remove(groupName);
-		data.sync();
-		loadData();
+        data.clear();
+        data.remove(groupName);
+        data.sync();
+        loadData();
 
-	}
+    }
 
-	virtual ~AbstractDataStorage () { }
+    virtual ~AbstractDataStorage() { }
 
-	const QString &getGroupName () const {
+    const QString& getGroupName() const
+    {
 
-		return groupName;
-	}
+        return groupName;
+    }
 
 protected:
 
-	QSettings data;
+    QSettings data;
 
-	QString groupName;
+    QString groupName;
 
 };
 

@@ -6,20 +6,11 @@
 #define FINANCIALMANAGER_ENUMINVESTMENTTYPE_H
 
 enum InvestmentType {
-	stock, bond
+  stock, bond
 };
 
 enum InvestmentData {
-	investmentType,
-	totalInvested,
-	ISIN,
-	entityName,
-	investorName,
-	investorIBAN,
-	buyDate,
-	stockSharesNum,
-	bondMonthsNumber,
-	bondDeadline
+  investmentType, totalInvested, ISIN, entityName, investorName, investorIBAN, buyDate, stockSharesNum, bondMonthsNumber, bondDeadline
 };
 
 #endif //FINANCIALMANAGER_ENUMINVESTMENTTYPE_H

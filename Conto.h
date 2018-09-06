@@ -13,51 +13,51 @@ class Conto : public AbstractDataStorage {
 
 public:  //methods
 
-	Conto ();
+    Conto();
 
-	void contoGenerator ();
+    void contoGenerator();
 
-	virtual void loadData () override;
+    virtual void loadData() override;
 
-	virtual void changeData ( QString );
+    virtual void changeData(QString);
 
-	virtual void saveData () override;
+    virtual void saveData() override;
 
 public:  //getter and setter
 
-	const QString &getIBAN () const;
+    const QString& getIBAN() const;
 
-	float getSaldo () const;
+    float getSaldo() const;
 
-	void setSaldo ( float saldo );
+    void setSaldo(float saldo);
 
-	float getLiquid () const;
+    float getLiquid() const;
 
-	void setLiquid ( float liquid );
+    void setLiquid(float liquid);
 
-	float getInvested () const;
+    float getInvested() const;
 
-	void setInvested ( float invested );
+    void setInvested(float invested);
 
-	const QString &getTitle () const;
+    const QString& getTitle() const;
 
-	void setTitle ( const QString &title );
+    void setTitle(const QString& title);
 
 protected: //data
 
-	QString title;
+    QString title;
 
-	QString IBAN;
+    QString IBAN;
 
-	float saldo;
+    float saldo;
 
-	float liquid;
+    float liquid;
 
-	float invested;
+    float invested;
 
 private: //privates methods
 
-	QString IBANgenerator ();
+    QString IBANgenerator();
 
 };
 

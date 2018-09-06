@@ -4,8 +4,8 @@
 
 #include "Model.h"
 
-Model::Model () : account(new Account), conto(new Conto), historical(new Historical),
-                  investmentManager(new InvestmentManager) {
+Model::Model() :account(new Account), conto(new Conto), historical(new Historical), investmentManager(new InvestmentManager)
+{
 
 	dataStorages.push_back(account);
 	dataStorages.push_back(conto);
@@ -14,7 +14,8 @@ Model::Model () : account(new Account), conto(new Conto), historical(new Histori
 
 }
 
-Model::~Model () {
+Model::~Model()
+{
 
 	delete account;
 	delete conto;
@@ -29,26 +30,30 @@ Model::~Model () {
 
 //----------------------------------------
 
-bool Model::isTabAccountLocked () const {
+bool Model::isTabAccountLocked() const
+{
 
 	return tabAccountLocked;
 }
 
-void Model::setTabAccountLocked ( bool tabAccountLocked ) {
+void Model::setTabAccountLocked(bool tabAccountLocked)
+{
 
 	Model::tabAccountLocked = tabAccountLocked;
 	notify();
 }
 
-AbstractDataStorage *Model::accessDataStorage ( QString groupName ) const {
+AbstractDataStorage* Model::accessDataStorage(QString groupName) const
+{
 
-	for ( auto dataClass : dataStorages )
-		if ( groupName == dataClass->getGroupName())
+	for (auto dataClass : dataStorages)
+		if (groupName==dataClass->getGroupName())
 			return dataClass;
 
 }
 
-ErrorLog *Model::getErrorLog () const {
+ErrorLog* Model::getErrorLog() const
+{
 
 	return errorLog;
 }
@@ -57,31 +62,35 @@ ErrorLog *Model::getErrorLog () const {
 //----------------------------------------
 
 
-bool Model::isFirstOpening () {
+bool Model::isFirstOpening()
+{
 
 	return account->isFirstOpening();
 
 }
 
-void Model::createAccount () {
+void Model::createAccount()
+{
 
 	conto->contoGenerator();
 	notify();
 
 }
 
-void Model::loadAll () {
+void Model::loadAll()
+{
 
-	for ( auto dataClass : dataStorages )
+	for (auto dataClass : dataStorages)
 		dataClass->loadData();
 
 	notify();
 
 }
 
-void Model::clearAll () {
+void Model::clearAll()
+{
 
-	for ( auto dataClass : dataStorages )
+	for (auto dataClass : dataStorages)
 		dataClass->clear();
 
 	notify();
@@ -91,41 +100,41 @@ void Model::clearAll () {
 
 //---------------------------------Salvataggi
 
-int Model::saveAccount ( std::map<AccountData, QString> strings ) {
+int Model::saveAccount(std::map<AccountData, QString> strings)
+{
 
 	/*  0) buon fine
-	 *  1) nome non valido
-	 *  2) cognome non valido
-	 *  3) Codice Fiscale non valido
-	 *  4) città non valido
-	 *  5) CAP non valido
-	 *  6) indirizzo non valido
-	 *  7) telefono non valido
-	 *  8) mail non valido
-	 */
-	if ( strings[AccountData::name].length() < 2 )
+     *  1) nome non valido
+     *  2) cognome non valido
+     *  3) Codice Fiscale non valido
+     *  4) città non valido
+     *  5) CAP non valido
+     *  6) indirizzo non valido
+     *  7) telefono non valido
+     *  8) mail non valido
+     */
+	if (strings[AccountData::name].length()<2)
 		return 1;
 
-	if ( strings[AccountData::surname].length() < 2 )
+	if (strings[AccountData::surname].length()<2)
 		return 2;
 
-	if ( strings[AccountData::codiceFiscale].length() != 16 )
+	if (strings[AccountData::codiceFiscale].length()!=16)
 		return 3;
 
-	if ( strings[AccountData::city].length() < 2 )
+	if (strings[AccountData::city].length()<2)
 		return 4;
 
-	if ( strings[AccountData::CAP].length() != 5 )
+	if (strings[AccountData::CAP].length()!=5)
 		return 5;
 
-	if ( strings[AccountData::address].length() < 2 )
+	if (strings[AccountData::address].length()<2)
 		return 6;
 
-	if ( strings[AccountData::phoneNumber].length() != 10 )
+	if (strings[AccountData::phoneNumber].length()!=10)
 		return 7;
 
-	if ( strings[AccountData::mail].length() < 6 || strings[AccountData::mail].count('@') != 1 ||
-	     !strings[AccountData::mail].contains('.'))
+	if (strings[AccountData::mail].length()<6 || strings[AccountData::mail].count('@')!=1 || !strings[AccountData::mail].contains('.'))
 		return 8;
 
 	account->changeData(strings);
@@ -136,7 +145,8 @@ int Model::saveAccount ( std::map<AccountData, QString> strings ) {
 
 }
 
-void Model::saveConto ( QString string ) {
+void Model::saveConto(QString string)
+{
 
 	conto->changeData(string);
 
@@ -148,42 +158,43 @@ void Model::saveConto ( QString string ) {
 
 //----------------------------------------------
 
-int Model::doTransaction ( Transaction transaction ) {
+int Model::doTransaction(Transaction transaction)
+{
 
 	/*  0) buon fine
-	 *  1) nome dell'ordinante non valido
-	 *  2) IBAN dell'ordinante non valido
-	 *  3) nome del beneficiario non valido
-	 *  4) IBAN del beneficiario non valido
-	 *  5) importo non valido
-	 *  6) importo eccessivo
-	 *  7) causale mancante
-	 */
-	if ( transaction.getPayerName().trimmed().length() < 4 || !transaction.getPayerName().contains(" "))
+     *  1) nome dell'ordinante non valido
+     *  2) IBAN dell'ordinante non valido
+     *  3) nome del beneficiario non valido
+     *  4) IBAN del beneficiario non valido
+     *  5) importo non valido
+     *  6) importo eccessivo
+     *  7) causale mancante
+     */
+	if (transaction.getPayerName().trimmed().length()<4 || !transaction.getPayerName().contains(" "))
 		return 1;
 
-	if ( transaction.getPayerIBAN().length() != 27 )
+	if (transaction.getPayerIBAN().length()!=27)
 		return 2;
 
-	if ( transaction.getReceiverName().trimmed().length() < 4 || !transaction.getReceiverName().contains(" "))
+	if (transaction.getReceiverName().trimmed().length()<4 || !transaction.getReceiverName().contains(" "))
 		return 3;
 
-	if ( transaction.getReceiverIBAN().trimmed().length() != 27 )
+	if (transaction.getReceiverIBAN().trimmed().length()!=27)
 		return 4;
 
-	if ( transaction.getAmount() == 0 )
+	if (transaction.getAmount()==0)
 		return 5;
 
-	if ( transaction.isDebit() && transaction.getAmount() > conto->getLiquid())
+	if (transaction.isDebit() && transaction.getAmount()>conto->getLiquid())
 		return 6;
 
-	if ( transaction.getCausal().trimmed().length() < 3 )
+	if (transaction.getCausal().trimmed().length()<3)
 		return 7;
 
-	if ( transaction.isDebit())
-		conto->setLiquid(conto->getLiquid() - transaction.getAmount());
+	if (transaction.isDebit())
+		conto->setLiquid(conto->getLiquid()-transaction.getAmount());
 	else
-		conto->setLiquid(conto->getLiquid() + transaction.getAmount());
+		conto->setLiquid(conto->getLiquid()+transaction.getAmount());
 
 	conto->saveData();
 
@@ -195,9 +206,10 @@ int Model::doTransaction ( Transaction transaction ) {
 
 }
 
-void Model::makeMessageDialogNoButtons ( QString ttl, QString txt ) {
+void Model::makeMessageDialogNoButtons(QString ttl, QString txt)
+{
 
-	if ( errorLog != nullptr )
+	if (errorLog!=nullptr)
 		delete errorLog;
 
 	errorLog = new ErrorLog(ttl, txt);
@@ -206,7 +218,8 @@ void Model::makeMessageDialogNoButtons ( QString ttl, QString txt ) {
 
 }
 
-void Model::changeHistoricalOrder ( ResearchOptions researchOptions ) {
+void Model::changeHistoricalOrder(ResearchOptions researchOptions)
+{
 
 	historical->setOrder(researchOptions);
 
@@ -216,29 +229,31 @@ void Model::changeHistoricalOrder ( ResearchOptions researchOptions ) {
 
 //------------------------------------ Investment
 
-const CompaniesList &Model::getEntitiesList () const {
+const CompaniesList& Model::getEntitiesList() const
+{
 
 	return companiesList;
 }
 
-int Model::doInvestment ( Investment *investment ) {
+int Model::doInvestment(Investment* investment)
+{
 
 	/*  0) buon fine
-	 *  1) cifra massima ecceduta
-	 */
+     *  1) cifra massima ecceduta
+     */
 
 	float totalCost = investment->getTotalInvested();
 
-	if ( totalCost > conto->getLiquid() || totalCost <= 0 )
+	if (totalCost>conto->getLiquid() || totalCost<=0)
 		return 1;
 
-	conto->setLiquid(conto->getLiquid() - totalCost);
-	conto->setInvested(conto->getInvested() + totalCost);
+	conto->setLiquid(conto->getLiquid()-totalCost);
+	conto->setInvested(conto->getInvested()+totalCost);
 
 	conto->saveData();
 
 	investment->setInvestorIBAN(conto->getIBAN());
-	investment->setInvestorName(account->getName() + " " + account->getSurname());
+	investment->setInvestorName(account->getName()+" "+account->getSurname());
 
 	investmentManager->addInvestment(investment);
 
@@ -248,28 +263,29 @@ int Model::doInvestment ( Investment *investment ) {
 
 }
 
-void Model::updateInvestmentValue () {
+void Model::updateInvestmentValue()
+{
 
-	for ( auto c:companiesList.companies )
+	for (auto c:companiesList.companies)
 		c->changeShareCostGenerator();
 
 }
 
-void Model::removeInvestment ( int index ) {
+void Model::removeInvestment(int index)
+{
 
 	auto inv = investmentManager->getInvestmentList().begin();
 
 	std::advance(inv, index);
 
-	if ( auto stock = dynamic_cast<Stock *>((*inv))) {
-		float totalInvested =
-				stock->getTotalInvested() > conto->getInvested() ? conto->getInvested() : stock->getTotalInvested();
-		conto->setInvested(conto->getInvested() - totalInvested);
-		conto->setLiquid(conto->getLiquid() + stock->getSharesNumber() * stock->getCompany()->getShareCost());
-	} else if ( auto bond = dynamic_cast<Bond *>((*inv))) {
-		conto->setInvested(conto->getInvested() - bond->getTotalInvested());
-		conto->setLiquid(conto->getLiquid() + bond->getTotalInvested() +
-		                 bond->getTotalInvested() * bond->getMonthsDuration() * bond->getCompany()->getMontlyCoupon());
+	if (auto stock = dynamic_cast<Stock*>((*inv))) {
+		float totalInvested = stock->getTotalInvested()>conto->getInvested() ? conto->getInvested() : stock->getTotalInvested();
+		conto->setInvested(conto->getInvested()-totalInvested);
+		conto->setLiquid(conto->getLiquid()+stock->getSharesNumber()*stock->getCompany()->getShareCost());
+	}
+	else if (auto bond = dynamic_cast<Bond*>((*inv))) {
+		conto->setInvested(conto->getInvested()-bond->getTotalInvested());
+		conto->setLiquid(conto->getLiquid()+bond->getTotalInvested()+bond->getTotalInvested()*bond->getMonthsDuration()*bond->getCompany()->getMontlyCoupon());
 	}
 
 	conto->saveData();

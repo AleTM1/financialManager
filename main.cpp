@@ -1,11 +1,11 @@
-
 #include <QtWidgets/QApplication>
 #include "Model.h"
 #include "Controller.h"
 #include "View.h"
 #include "Timer.h"
 
-int main ( int argv, char **args ) {
+int main(int argv, char** args)
+{
 
 	QApplication app(argv, args);
 

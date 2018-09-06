@@ -14,15 +14,15 @@ Q_OBJECT
 
 public:
 
-	Timer ( View *view, QWidget *parent = 0 );
+    Timer(View* view, QWidget* parent = 0);
 
 private slots:
 
-	void refresh ();
+    void refresh();
 
 protected:
 
-	View *view;
+    View* view;
 
 };
 

@@ -6,15 +6,15 @@
 #define FINANCIALMANAGER_ENUMSAVING_H
 
 enum AccountData {
-	name, surname, codiceFiscale, city, CAP, address, phoneNumber, mail
+  name, surname, codiceFiscale, city, CAP, address, phoneNumber, mail
 };
 
 enum ContoData {
-	title, IBAN, saldo, liquid, invested
+  title, IBAN, saldo, liquid, invested
 };
 
 enum TransactionData {
-	debit, payerName, payerIBAN, receiverName, receiverIBAN, amount, causal, date
+  debit, payerName, payerIBAN, receiverName, receiverIBAN, amount, causal, date
 };
 
 #endif //FINANCIALMANAGER_ENUMSAVING_H
