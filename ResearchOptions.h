@@ -15,62 +15,52 @@ public:
 
     explicit ResearchOptions(OrderTime oT = OrderTime::cronologicalOrderReversed, OrderOptions oO = OrderOptions::all, QString sT = "", QDate dF = QDate(18, 1, 1), QDate dT = QDate::currentDate()) :orderTime(oT), orderOptions(oO), searchText(sT), dateFrom(dF), dateTo(dT) { }
 
-    void setOrderTime(OrderTime orderTime)
-    {
+    void setOrderTime(OrderTime orderTime) {
 
         ResearchOptions::orderTime = orderTime;
     }
 
-    void setOrderOptions(OrderOptions orderOptions)
-    {
+    void setOrderOptions(OrderOptions orderOptions) {
 
         ResearchOptions::orderOptions = orderOptions;
     }
 
-    void setSearchText(const QString& searchText)
-    {
+    void setSearchText(const QString& searchText) {
 
         ResearchOptions::searchText = searchText;
     }
 
-    void setDateFrom(const QDate& dateFrom)
-    {
+    void setDateFrom(const QDate& dateFrom) {
 
         ResearchOptions::dateFrom = dateFrom;
     }
 
-    void setDateTo(const QDate& dateTo)
-    {
+    void setDateTo(const QDate& dateTo) {
 
         ResearchOptions::dateTo = dateTo;
     }
 
-    OrderTime getOrderTime() const
-    {
+    OrderTime getOrderTime() const {
 
         return orderTime;
     }
 
-    OrderOptions getOrderOptions() const
-    {
+    OrderOptions getOrderOptions() const {
 
         return orderOptions;
     }
 
-    const QString& getSearchText() const
-    {
+    const QString& getSearchText() const {
 
         return searchText;
     }
 
-    const QDate& getDateFrom() const
-    {
+    const QDate& getDateFrom() const {
 
         return dateFrom;
     }
 
-    const QDate& getDateTo() const
-    {
+    const QDate& getDateTo() const {
 
         return dateTo;
     }

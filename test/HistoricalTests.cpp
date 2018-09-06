@@ -2,8 +2,7 @@
 
 #include "../Historical.h"
 
-TEST(Historical, Historical_save_and_load)
-{
+TEST(Historical, Historical_save_and_load) {
 
     Historical historical;
 
@@ -50,8 +49,7 @@ TEST(Historical, Historical_save_and_load)
 
 }
 
-TEST(Historical, Historical_set_order)
-{
+TEST(Historical, Historical_set_order) {
 
     Historical historical;
 
@@ -128,8 +126,7 @@ TEST(Historical, Historical_set_order)
 
 }
 
-TEST(Historical, Historical_get_total)
-{
+TEST(Historical, Historical_get_total) {
 
     Historical historical;
 

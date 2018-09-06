@@ -2,8 +2,7 @@
 
 #include "../Transaction.h"
 
-TEST(Transaction, Transaction_equal_operator_Test)
-{
+TEST(Transaction, Transaction_equal_operator_Test) {
 
     Transaction t1(true, "Alessandro", "IT111", "Mario", "IT222", 200, "bicicletta", QDate::currentDate());
 

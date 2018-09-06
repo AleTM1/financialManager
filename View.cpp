@@ -8,8 +8,7 @@
 #include <QtCore/QDate>
 #include "View.h"
 
-View::View(Controller* c, Model* m) :controller(c), model(m), viewWindow(new Ui_MainWindow)
-{
+View::View(Controller* c, Model* m) :controller(c), model(m), viewWindow(new Ui_MainWindow) {
 
     viewWindow->setupUi(this);
     model->addObserver(this);
@@ -17,16 +16,14 @@ View::View(Controller* c, Model* m) :controller(c), model(m), viewWindow(new Ui_
 
 }
 
-View::~View()
-{
+View::~View() {
 
     model->removeObserver(this);
     delete viewWindow;
 
 }
 
-void View::update()
-{
+void View::update() {
 
     updateMessages();
 
@@ -53,8 +50,7 @@ void View::update()
 
 }
 
-void View::lockAccountTab() const
-{
+void View::lockAccountTab() const {
 
     viewWindow->lineEdit_nameAccount->setEnabled(true);
     viewWindow->lineEdit_surnameAccount->setEnabled(true);
@@ -67,8 +63,7 @@ void View::lockAccountTab() const
             viewWindow->tabWidget->setTabEnabled(i, false);
 }
 
-void View::updateEntitesList()
-{
+void View::updateEntitesList() {
 
     viewWindow->comboBox_entity->clear();
 
@@ -79,8 +74,7 @@ void View::updateEntitesList()
 
 }
 
-void View::updateInvestmentData()
-{
+void View::updateInvestmentData() {
 
     auto companies = model->getEntitiesList().companies;
 
@@ -108,8 +102,7 @@ void View::updateInvestmentData()
 
 }
 
-void View::updateMessages()
-{
+void View::updateMessages() {
 
     if (model->getErrorLog()!=nullptr && model->getErrorLog()->isActivated()) {
         dialogNoButton = new DialogNoButton(model->getErrorLog()->getTitle(), model->getErrorLog()->getText());
@@ -118,8 +111,7 @@ void View::updateMessages()
     }
 }
 
-void View::updateHistorical()
-{
+void View::updateHistorical() {
 
     clearLayout(viewWindow->verticalLayout_localHistory);
 
@@ -155,8 +147,7 @@ void View::updateHistorical()
         viewWindow->label_totalHistorical->setStyleSheet("QLabel { color : green; }");
 }
 
-void View::updateInvestmentManager()
-{
+void View::updateInvestmentManager() {
 
     clearLayout(viewWindow->verticalLayout_investmentManager);
 
@@ -210,8 +201,7 @@ void View::updateInvestmentManager()
 
 }
 
-void View::refreshInvestmentValue()
-{
+void View::refreshInvestmentValue() {
 
     model->updateInvestmentValue();
     updateInvestmentData();
@@ -219,8 +209,7 @@ void View::refreshInvestmentValue()
 
 }
 
-void View::updateTransaction(const Account* account, const Conto* conto) const
-{
+void View::updateTransaction(const Account* account, const Conto* conto) const {
 
     viewWindow->label_currentDate->setText(QDate::currentDate().toString("dddd, dd / MMMM / yyyy"));
 
@@ -248,8 +237,7 @@ void View::updateTransaction(const Account* account, const Conto* conto) const
     }
 }
 
-Conto* View::updateConto() const
-{
+Conto* View::updateConto() const {
 
     auto conto = dynamic_cast<Conto*>(model->accessDataStorage("Conto"));
 
@@ -266,8 +254,7 @@ Conto* View::updateConto() const
     return conto;
 }
 
-Account* View::updateAccount() const
-{
+Account* View::updateAccount() const {
 
     viewWindow->lineEdit_nameAccount->setEnabled(false);
     viewWindow->lineEdit_surnameAccount->setEnabled(false);
@@ -291,21 +278,18 @@ Account* View::updateAccount() const
     return account;
 }
 
-void View::closeApp()
-{
+void View::closeApp() {
 
     QApplication::exit(0);
 }
 
-void View::showTitleEdit()
-{
+void View::showTitleEdit() {
 
     viewWindow->horizontalWidget_title->setVisible(!viewWindow->horizontalWidget_title->isVisible());
 
 }
 
-void View::showSearchOptions()
-{
+void View::showSearchOptions() {
 
     if (viewWindow->horizontalWidget_searchOptions->isVisible()) {
         viewWindow->horizontalWidget_searchOptions->setVisible(false);
@@ -318,21 +302,18 @@ void View::showSearchOptions()
 
 }
 
-void View::radioButtonTransactionClicked()
-{
+void View::radioButtonTransactionClicked() {
 
     update();
 }
 
-void View::searchHistorical()
-{
+void View::searchHistorical() {
 
     controller->changeHistoricalOrder(viewWindow->radioButton_cronologicalOrder->isChecked(), viewWindow->lineEdit_searchHistorical->text(), viewWindow->dateEdit_from->date(), viewWindow->dateEdit_to->date(), viewWindow->comboBox_options->currentText());
 
 }
 
-void View::searchDateChanged()
-{
+void View::searchDateChanged() {
 
     viewWindow->dateEdit_to->setMinimumDate(viewWindow->dateEdit_from->date());
     viewWindow->dateEdit_from->setMaximumDate(viewWindow->dateEdit_to->date());
@@ -341,15 +322,13 @@ void View::searchDateChanged()
 
 }
 
-void View::RESET()
-{
+void View::RESET() {
 
     controller->reset();
 
 }
 
-void View::doTransaction()
-{
+void View::doTransaction() {
 
     std::map<TransactionData, QString> data;
     data[payerName] = viewWindow->lineEdit_payerName->text();
@@ -362,8 +341,7 @@ void View::doTransaction()
 
 }
 
-void View::doInvestment()
-{
+void View::doInvestment() {
 
     if (viewWindow->comboBox_investmentType->currentText()=="Azione")
         controller->doInvestment(InvestmentType::stock, viewWindow->label_enetityISIN->text(), viewWindow->lineEdit_stockshareNumber->text().toFloat());
@@ -375,15 +353,13 @@ void View::doInvestment()
 
 }
 
-void View::cancel()
-{
+void View::cancel() {
 
     update();
 
 }
 
-void View::updateInvestmentAmount()
-{
+void View::updateInvestmentAmount() {
 
     viewWindow->label_totalInvestment->setText("0€");
 
@@ -409,8 +385,7 @@ void View::updateInvestmentAmount()
 
 //--------------------------------SALVATAGGI-------
 
-void View::accountSave()
-{
+void View::accountSave() {
 
     std::map<AccountData, QString> strings;
 
@@ -427,8 +402,7 @@ void View::accountSave()
 
 }
 
-void View::contoTitleSave()
-{
+void View::contoTitleSave() {
 
     controller->contoSave(viewWindow->lineEdit_title->text());
 
@@ -438,16 +412,14 @@ void View::contoTitleSave()
 
 //---------------------------Controlli del testo--------------------------
 
-void View::lineInvestmentEdited(const QString& string)
-{
+void View::lineInvestmentEdited(const QString& string) {
 
     lineAmountEdited(string);
 
     updateInvestmentAmount();
 }
 
-void View::lineIBANEdited(const QString& text)
-{
+void View::lineIBANEdited(const QString& text) {
 
     QString stringa = text;
     QString allowedCharacters = "qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDFGHJKLZXCVBNM ";
@@ -470,8 +442,7 @@ void View::lineIBANEdited(const QString& text)
 
 }
 
-void View::codiceFiscaleEdited(const QString& text)
-{
+void View::codiceFiscaleEdited(const QString& text) {
 
     QString stringa = text;
     QString allowedCharacters = "qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDFGHJKLZXCVBNM ";
@@ -490,8 +461,7 @@ void View::codiceFiscaleEdited(const QString& text)
 
 }
 
-void View::lineCAPEdited(const QString& text)
-{
+void View::lineCAPEdited(const QString& text) {
 
     QString stringa = text;
     QString allowedCharacters = "1234567890";
@@ -514,8 +484,7 @@ void View::lineCAPEdited(const QString& text)
 
 }
 
-void View::lineAmountEdited(const QString& text)
-{
+void View::lineAmountEdited(const QString& text) {
 
     QString stringa = text;
     QString allowedCharacters = "1234567890";
@@ -530,8 +499,7 @@ void View::lineAmountEdited(const QString& text)
 
 }
 
-void View::linePhoneNumber(const QString& text)
-{
+void View::linePhoneNumber(const QString& text) {
 
     QString stringa = text;
     QString allowedCharacters = "1234567890";
@@ -554,8 +522,7 @@ void View::linePhoneNumber(const QString& text)
 
 }
 
-void View::onlyLetters(const QString& text)
-{
+void View::onlyLetters(const QString& text) {
 
     QString stringa = text;
     QString allowedCharacters = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM ";
@@ -569,8 +536,7 @@ void View::onlyLetters(const QString& text)
 //------------------------ Private Method--------
 
 
-void View::clearLayout(QLayout* layout)
-{
+void View::clearLayout(QLayout* layout) {
 
     QLayoutItem* item;
     while ((item = layout->takeAt(0))) {
@@ -585,8 +551,7 @@ void View::clearLayout(QLayout* layout)
     }
 }
 
-QString View::onlySelectedCharacters(QString& stringa, const QString& allowedCharacters)
-{
+QString View::onlySelectedCharacters(QString& stringa, const QString& allowedCharacters) {
 
     for (int i = 0; i<stringa.length(); i++) {
 

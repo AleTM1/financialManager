@@ -8,8 +8,7 @@
 
 Conto::Conto() { groupName = "Conto"; }
 
-void Conto::contoGenerator()
-{
+void Conto::contoGenerator() {
 
     title = "Conto corrente";
     saldo = 20000;
@@ -22,8 +21,7 @@ void Conto::contoGenerator()
 
 }
 
-QString Conto::IBANgenerator()
-{
+QString Conto::IBANgenerator() {
 
     srand(time(0));
     QString iban = "IT";
@@ -50,58 +48,49 @@ QString Conto::IBANgenerator()
 
 //------------------------GETTER AND SETTER-----------------
 
-const QString& Conto::getIBAN() const
-{
+const QString& Conto::getIBAN() const {
 
     return IBAN;
 }
 
-float Conto::getSaldo() const
-{
+float Conto::getSaldo() const {
 
     return saldo;
 }
 
-void Conto::setSaldo(float saldo)
-{
+void Conto::setSaldo(float saldo) {
 
     Conto::saldo = saldo;
 }
 
-float Conto::getLiquid() const
-{
+float Conto::getLiquid() const {
 
     return liquid;
 }
 
-void Conto::setLiquid(float liquid)
-{
+void Conto::setLiquid(float liquid) {
 
     Conto::liquid = liquid;
     saldo = liquid+invested;
 }
 
-float Conto::getInvested() const
-{
+float Conto::getInvested() const {
 
     return invested;
 }
 
-void Conto::setInvested(float invested)
-{
+void Conto::setInvested(float invested) {
 
     Conto::invested = invested;
     saldo = liquid+invested;
 }
 
-const QString& Conto::getTitle() const
-{
+const QString& Conto::getTitle() const {
 
     return title;
 }
 
-void Conto::setTitle(const QString& title)
-{
+void Conto::setTitle(const QString& title) {
 
     Conto::title = title;
 }
@@ -109,8 +98,7 @@ void Conto::setTitle(const QString& title)
 
 //------------------------------------------------------
 
-void Conto::loadData()
-{
+void Conto::loadData() {
 
     data.beginGroup(groupName);
 
@@ -125,16 +113,14 @@ void Conto::loadData()
     data.sync();
 }
 
-void Conto::changeData(QString string)
-{
+void Conto::changeData(QString string) {
 
     title = string;
 
     saveData();
 }
 
-void Conto::saveData()
-{
+void Conto::saveData() {
 
     data.beginGroup(groupName);
 

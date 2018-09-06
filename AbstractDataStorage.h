@@ -16,8 +16,7 @@ public:
 
     virtual void saveData() = 0;
 
-    virtual void clear()
-    {
+    virtual void clear() {
 
         data.clear();
         data.remove(groupName);
@@ -28,8 +27,7 @@ public:
 
     virtual ~AbstractDataStorage() { }
 
-    const QString& getGroupName() const
-    {
+    const QString& getGroupName() const {
 
         return groupName;
     }

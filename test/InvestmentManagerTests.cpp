@@ -3,8 +3,7 @@
 #include "../InvestmentManager.h"
 #include "../CompaniesList.h"
 
-TEST(InvestmentManager, InvestmentManager_save_and_load)
-{
+TEST(InvestmentManager, InvestmentManager_save_and_load) {
 
     InvestmentManager investmentManager;
     CompaniesList companiesList;
@@ -86,8 +85,7 @@ TEST(InvestmentManager, InvestmentManager_save_and_load)
 
 }
 
-TEST(InvestmentManager, InvestmentManager_remove_element)
-{
+TEST(InvestmentManager, InvestmentManager_remove_element) {
 
     InvestmentManager investmentManager;
     CompaniesList companiesList;

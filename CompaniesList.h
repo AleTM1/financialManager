@@ -10,8 +10,7 @@
 
 struct CompaniesList {
 
-  CompaniesList()
-  {
+  CompaniesList() {
 
       Company* entity;
 
@@ -29,8 +28,7 @@ struct CompaniesList {
 
   }
 
-  ~CompaniesList()
-  {
+  ~CompaniesList() {
 
       for (auto e:companies)
           delete e;

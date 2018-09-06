@@ -4,8 +4,7 @@
 
 #include "Historical.h"
 
-Historical::Historical()
-{
+Historical::Historical() {
 
     groupName = "Historical";
 
@@ -17,8 +16,7 @@ Historical::Historical()
 
 }
 
-void Historical::addTransaction(Transaction transaction)
-{
+void Historical::addTransaction(Transaction transaction) {
 
     rawHistory.push_back(transaction);
 
@@ -27,8 +25,7 @@ void Historical::addTransaction(Transaction transaction)
     updateOrder();
 }
 
-void Historical::saveData()
-{
+void Historical::saveData() {
 
     data.beginGroup(groupName+"/localHistory");
 
@@ -55,8 +52,7 @@ void Historical::saveData()
     data.sync();
 }
 
-void Historical::loadData()
-{
+void Historical::loadData() {
 
     rawHistory.clear();
 
@@ -79,14 +75,12 @@ void Historical::loadData()
 
 }
 
-const std::list<Transaction>& Historical::getHistory() const
-{
+const std::list<Transaction>& Historical::getHistory() const {
 
     return orderedHistory;
 }
 
-float Historical::getTotal() const
-{
+float Historical::getTotal() const {
 
     return total;
 }
@@ -94,8 +88,7 @@ float Historical::getTotal() const
 //-----------ordinamento history------------------
 
 
-void Historical::setOrder(ResearchOptions& resOpt)
-{
+void Historical::setOrder(ResearchOptions& resOpt) {
 
     researchOptions = resOpt;
 
@@ -103,8 +96,7 @@ void Historical::setOrder(ResearchOptions& resOpt)
 
 }
 
-void Historical::updateOrder()
-{
+void Historical::updateOrder() {
 
     orderedHistory = rawHistory;
 

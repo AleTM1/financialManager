@@ -2,8 +2,7 @@
 
 #include "../Model.h"
 
-TEST(Model, Model_do_transaction)
-{
+TEST(Model, Model_do_transaction) {
 
     Transaction t1(true, "", "IT1111111111111111111111111", "Mario", "IT2222222222222222222222222", 200, "bicicletta", QDate::currentDate());
 
@@ -33,8 +32,7 @@ TEST(Model, Model_do_transaction)
 
 }
 
-TEST(Model, Model_save_account)
-{
+TEST(Model, Model_save_account) {
 
     Model model;
 
@@ -137,8 +135,7 @@ TEST(Model, Model_save_account)
 
 }
 
-TEST(Model, Model_do_investment)
-{
+TEST(Model, Model_do_investment) {
 
     Model model;
 
@@ -155,8 +152,7 @@ TEST(Model, Model_do_investment)
 
 }
 
-TEST(Model, Model_Error_log)
-{
+TEST(Model, Model_Error_log) {
 
     Model model;
 

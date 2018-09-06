@@ -2,8 +2,7 @@
 
 #include "../Conto.h"
 
-TEST(Conto, Conto_ContoGenerator_Test)
-{
+TEST(Conto, Conto_ContoGenerator_Test) {
 
     Conto conto;
 
@@ -16,8 +15,7 @@ TEST(Conto, Conto_ContoGenerator_Test)
 
 }
 
-TEST(Conto, Conto_save_and_load)
-{
+TEST(Conto, Conto_save_and_load) {
 
     Conto conto;
 
@@ -67,8 +65,7 @@ TEST(Conto, Conto_save_and_load)
 
 }
 
-TEST(Conto, Conto_manage_saldo)
-{
+TEST(Conto, Conto_manage_saldo) {
 
     Conto conto;
 
@@ -86,8 +83,7 @@ TEST(Conto, Conto_manage_saldo)
 
 }
 
-TEST(Conto, Conto_Change_data)
-{
+TEST(Conto, Conto_Change_data) {
 
     Conto conto;
 

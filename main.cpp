@@ -4,23 +4,22 @@
 #include "View.h"
 #include "Timer.h"
 
-int main(int argv, char** args)
-{
+int main(int argv, char** args) {
 
-	QApplication app(argv, args);
+    QApplication app(argv, args);
 
-	auto model = new Model;
-	auto controller = new Controller(model);
-	auto view = new View(controller, model);
-	auto timer = new Timer(view);
+    auto model = new Model;
+    auto controller = new Controller(model);
+    auto view = new View(controller, model);
+    auto timer = new Timer(view);
 
-	view->show();
+    view->show();
 
-	app.exec();
+    app.exec();
 
-	delete timer;
-	delete view;
-	delete controller;
-	delete model;
+    delete timer;
+    delete view;
+    delete controller;
+    delete model;
 
 }

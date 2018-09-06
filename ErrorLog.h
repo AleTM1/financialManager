@@ -13,38 +13,32 @@ public:
 
     ErrorLog(QString ttl, QString txt) :title(ttl), text(txt), activated(true) { }
 
-    bool isActivated() const
-    {
+    bool isActivated() const {
 
         return activated;
     }
 
-    void setActivated(bool activated)
-    {
+    void setActivated(bool activated) {
 
         ErrorLog::activated = activated;
     }
 
-    const QString& getTitle() const
-    {
+    const QString& getTitle() const {
 
         return title;
     }
 
-    void setTitle(const QString& title)
-    {
+    void setTitle(const QString& title) {
 
         ErrorLog::title = title;
     }
 
-    const QString& getText() const
-    {
+    const QString& getText() const {
 
         return text;
     }
 
-    void setText(const QString& text)
-    {
+    void setText(const QString& text) {
 
         ErrorLog::text = text;
     }

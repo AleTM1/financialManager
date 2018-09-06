@@ -4,21 +4,18 @@
 
 #include "InvestmentForm.h"
 
-InvestmentForm::InvestmentForm(Controller* c, int i) :controller(c), index(i), ui_investmentForm(new Ui_investmentForm)
-{
+InvestmentForm::InvestmentForm(Controller* c, int i) :controller(c), index(i), ui_investmentForm(new Ui_investmentForm) {
 
     ui_investmentForm->setupUi(this);
 
 }
 
-InvestmentForm::~InvestmentForm()
-{
+InvestmentForm::~InvestmentForm() {
 
     delete ui_investmentForm;
 }
 
-void InvestmentForm::sell()
-{
+void InvestmentForm::sell() {
 
     controller->sell(index);
 

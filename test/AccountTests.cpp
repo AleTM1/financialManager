@@ -2,8 +2,7 @@
 
 #include "../Account.h"
 
-TEST(Account, Account_save_and_load)
-{
+TEST(Account, Account_save_and_load) {
 
     Account account;
 
@@ -65,8 +64,7 @@ TEST(Account, Account_save_and_load)
 
 }
 
-TEST (Account, Account_is_first_opening)
-{
+TEST (Account, Account_is_first_opening) {
 
     Account account;
 

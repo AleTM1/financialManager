@@ -4,50 +4,42 @@
 
 #include "Account.h"
 
-const QString& Account::getName() const
-{
+const QString& Account::getName() const {
 
     return name;
 }
 
-const QString& Account::getSurname() const
-{
+const QString& Account::getSurname() const {
 
     return surname;
 }
 
-const QString& Account::getCodiceFiscale() const
-{
+const QString& Account::getCodiceFiscale() const {
 
     return codiceFiscale;
 }
 
-const QString& Account::getCity() const
-{
+const QString& Account::getCity() const {
 
     return city;
 }
 
-const QString& Account::getCAP() const
-{
+const QString& Account::getCAP() const {
 
     return CAP;
 }
 
-const QString& Account::getAddress() const
-{
+const QString& Account::getAddress() const {
 
     return address;
 }
 
-const QString& Account::getPhoneNumber() const
-{
+const QString& Account::getPhoneNumber() const {
 
     return phoneNumber;
 }
 
-const QString& Account::getMail() const
-{
+const QString& Account::getMail() const {
 
     return mail;
 }
@@ -55,16 +47,14 @@ const QString& Account::getMail() const
 //-----------------------------------------------------------------
 
 
-bool Account::isFirstOpening()
-{
+bool Account::isFirstOpening() {
 
     bool result = !(data.contains("Account/"+QString::number(AccountData::name)));
     return result;
 
 }
 
-void Account::loadData()
-{
+void Account::loadData() {
 
     data.beginGroup(groupName);
 
@@ -82,8 +72,7 @@ void Account::loadData()
     data.sync();
 }
 
-void Account::changeData(std::map<AccountData, QString> strings)
-{
+void Account::changeData(std::map<AccountData, QString> strings) {
 
     name = strings[AccountData::name];
     surname = strings[AccountData::surname];
@@ -98,8 +87,7 @@ void Account::changeData(std::map<AccountData, QString> strings)
 
 }
 
-void Account::saveData()
-{
+void Account::saveData() {
 
     data.beginGroup(groupName);
 

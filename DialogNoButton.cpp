@@ -4,8 +4,7 @@
 
 #include "DialogNoButton.h"
 
-DialogNoButton::DialogNoButton(QString ttl, QString txt) :dialogUi(new Ui_DialogNoButton)
-{
+DialogNoButton::DialogNoButton(QString ttl, QString txt) :dialogUi(new Ui_DialogNoButton) {
 
     dialogUi->setupUi(this);
     setTitleError(ttl);
@@ -13,22 +12,19 @@ DialogNoButton::DialogNoButton(QString ttl, QString txt) :dialogUi(new Ui_Dialog
 
 }
 
-void DialogNoButton::setTitleError(QString stringa)
-{
+void DialogNoButton::setTitleError(QString stringa) {
 
     dialogUi->label_titleError->setText("Evento: "+stringa);
 
 }
 
-void DialogNoButton::setTextError(QString stringa)
-{
+void DialogNoButton::setTextError(QString stringa) {
 
     dialogUi->label_text->setText(stringa);
 
 }
 
-DialogNoButton::~DialogNoButton()
-{
+DialogNoButton::~DialogNoButton() {
 
     if (dialogUi)
         delete dialogUi;

@@ -16,68 +16,57 @@ public:
 
     virtual ~Investment() = 0;
 
-    float getTotalInvested() const
-    {
+    float getTotalInvested() const {
 
         return totalInvested;
     }
 
-    void setTotalInvested(float totalInvested)
-    {
+    void setTotalInvested(float totalInvested) {
 
         Investment::totalInvested = totalInvested;
     }
 
-    InvestmentType getInvestmentType() const
-    {
+    InvestmentType getInvestmentType() const {
 
         return investmentType;
     }
 
-    const QString& getInvestorIBAN() const
-    {
+    const QString& getInvestorIBAN() const {
 
         return investorIBAN;
     }
 
-    void setInvestorIBAN(const QString& investorIBAN)
-    {
+    void setInvestorIBAN(const QString& investorIBAN) {
 
         Investment::investorIBAN = investorIBAN;
     }
 
-    const QString& getInvestorName() const
-    {
+    const QString& getInvestorName() const {
 
         return investorName;
     }
 
-    void setInvestorName(const QString& investorName)
-    {
+    void setInvestorName(const QString& investorName) {
 
         Investment::investorName = investorName;
     }
 
-    Company* getCompany() const
-    {
+    Company* getCompany() const {
 
         return company;
     }
 
-    virtual void setCompany(Company* company)
-    {
+    virtual void setCompany(Company* company) {
 
         Investment::company = company;
     }
 
-    const QDate& getBuyDate() const
-    {
+    const QDate& getBuyDate() const {
 
         return buyDate;
     }
 
-    void setBuyDate(const QDate& buyDate)
-    {
+    void setBuyDate(const QDate& buyDate) {
 
         Investment::buyDate = buyDate;
     }

@@ -2,8 +2,7 @@
 
 #include "../Bond.h"
 
-TEST(Bond, Bond_deadline_date)
-{
+TEST(Bond, Bond_deadline_date) {
 
     auto bond = new Bond;
 

@@ -6,8 +6,7 @@
 #include "Bond.h"
 #include "Stock.h"
 
-void Controller::openingApp()
-{
+void Controller::openingApp() {
 
     if (model->isFirstOpening()) {
 
@@ -24,15 +23,13 @@ void Controller::openingApp()
 
 }
 
-void Controller::reset()
-{
+void Controller::reset() {
 
     model->clearAll();
 
 }
 
-void Controller::changeHistoricalOrder(bool cronologicalOrder, QString txt, QDate from, QDate to, QString optionOrder)
-{
+void Controller::changeHistoricalOrder(bool cronologicalOrder, QString txt, QDate from, QDate to, QString optionOrder) {
 
     ResearchOptions researchOptions;
 
@@ -56,8 +53,7 @@ void Controller::changeHistoricalOrder(bool cronologicalOrder, QString txt, QDat
 
 }
 
-void Controller::doTransaction(bool d, std::map<TransactionData, QString> dataTransaction, QDate date)
-{
+void Controller::doTransaction(bool d, std::map<TransactionData, QString> dataTransaction, QDate date) {
 
     Transaction transaction(d, dataTransaction[payerName], dataTransaction[payerIBAN], dataTransaction[receiverName], dataTransaction[receiverIBAN], (dataTransaction[amount]).toFloat(), dataTransaction[causal], date);
 
@@ -88,8 +84,7 @@ void Controller::doTransaction(bool d, std::map<TransactionData, QString> dataTr
 //--------------------------------- Salvataggi
 
 
-void Controller::accountSave(std::map<AccountData, QString> strings)
-{
+void Controller::accountSave(std::map<AccountData, QString> strings) {
 
     switch (model->saveAccount(strings)) {
         case 0:
@@ -121,8 +116,7 @@ void Controller::accountSave(std::map<AccountData, QString> strings)
 
 }
 
-void Controller::contoSave(QString string)
-{
+void Controller::contoSave(QString string) {
 
     model->saveConto(string);
 
@@ -130,8 +124,7 @@ void Controller::contoSave(QString string)
 
 //---------------------------
 
-void Controller::doInvestment(InvestmentType investmentType, QString ISINcode, float quantity)
-{
+void Controller::doInvestment(InvestmentType investmentType, QString ISINcode, float quantity) {
 
     try {
 
@@ -164,8 +157,7 @@ void Controller::doInvestment(InvestmentType investmentType, QString ISINcode, f
 
 }
 
-void Controller::doInvestment(InvestmentType investmentType, QString ISINcode, float investmentAmount, int monthsNumber)
-{
+void Controller::doInvestment(InvestmentType investmentType, QString ISINcode, float investmentAmount, int monthsNumber) {
 
     try {
 
@@ -199,8 +191,7 @@ void Controller::doInvestment(InvestmentType investmentType, QString ISINcode, f
 
 }
 
-void Controller::sell(int index)
-{
+void Controller::sell(int index) {
 
     model->removeInvestment(index);
 

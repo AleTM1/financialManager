@@ -4,21 +4,18 @@
 
 #include "Bond.h"
 
-Bond::Bond()
-{
+Bond::Bond() {
 
     investmentType = bond;
 
 }
 
-int Bond::getMonthsDuration() const
-{
+int Bond::getMonthsDuration() const {
 
     return monthsDuration;
 }
 
-void Bond::setMonthsDuration(int monthsDuration, bool updateDeadline)
-{
+void Bond::setMonthsDuration(int monthsDuration, bool updateDeadline) {
 
     Bond::monthsDuration = monthsDuration;
 
@@ -39,14 +36,12 @@ void Bond::setMonthsDuration(int monthsDuration, bool updateDeadline)
         setDeadlineDate(deadlineDate);
 }
 
-const QDate& Bond::getDeadlineDate() const
-{
+const QDate& Bond::getDeadlineDate() const {
 
     return deadlineDate;
 }
 
-void Bond::setDeadlineDate(const QDate& deadlineDate)
-{
+void Bond::setDeadlineDate(const QDate& deadlineDate) {
 
     Bond::deadlineDate = deadlineDate;
 }

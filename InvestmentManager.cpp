@@ -4,15 +4,13 @@
 
 #include "InvestmentManager.h"
 
-InvestmentManager::InvestmentManager()
-{
+InvestmentManager::InvestmentManager() {
 
     groupName = "InvestmentManager";
 
 }
 
-InvestmentManager::~InvestmentManager()
-{
+InvestmentManager::~InvestmentManager() {
 
     for (auto e:investmentList)
         delete e;
@@ -21,8 +19,7 @@ InvestmentManager::~InvestmentManager()
 
 }
 
-void InvestmentManager::addInvestment(Investment* investment)
-{
+void InvestmentManager::addInvestment(Investment* investment) {
 
     investmentList.push_back(investment);
 
@@ -30,8 +27,7 @@ void InvestmentManager::addInvestment(Investment* investment)
 
 }
 
-void InvestmentManager::saveData()
-{
+void InvestmentManager::saveData() {
 
     data.beginGroup(groupName+"/localInvestments");
 
@@ -84,8 +80,7 @@ void InvestmentManager::saveData()
 
 }
 
-void InvestmentManager::loadData()
-{
+void InvestmentManager::loadData() {
 
     investmentList.clear();
 
@@ -137,8 +132,7 @@ void InvestmentManager::loadData()
 //--------------------private Methods
 
 
-void InvestmentManager::checkForExpiredBonds()
-{
+void InvestmentManager::checkForExpiredBonds() {
 
     for (auto it = investmentList.begin(); it!=investmentList.end(); it++)
         if ((*it)->getInvestmentType()==InvestmentType::bond && dynamic_cast<Bond*>((*it))->getDeadlineDate()==QDate::currentDate())
@@ -148,14 +142,12 @@ void InvestmentManager::checkForExpiredBonds()
 
 //-----------------------
 
-const std::list<Investment*>& InvestmentManager::getInvestmentList() const
-{
+const std::list<Investment*>& InvestmentManager::getInvestmentList() const {
 
     return investmentList;
 }
 
-void InvestmentManager::removeInvestment(std::_List_const_iterator<Investment*> it)
-{
+void InvestmentManager::removeInvestment(std::_List_const_iterator<Investment*> it) {
 
     investmentList.erase(it);
     saveData();

@@ -56,8 +56,7 @@ public:
 
     QFrame* line;
 
-    void setupUi(QWidget* Form)
-    {
+    void setupUi(QWidget* Form) {
 
         if (Form->objectName().isEmpty())
             Form->setObjectName(QStringLiteral("Form"));
@@ -164,8 +163,7 @@ public:
         QMetaObject::connectSlotsByName(Form);
     } // setupUi
 
-    void retranslateUi(QWidget* Form)
-    {
+    void retranslateUi(QWidget* Form) {
 
         Form->setWindowTitle(QApplication::translate("Form", "Form", Q_NULLPTR));
         label->setText(QApplication::translate("Form", "Tipologia: ", Q_NULLPTR));
