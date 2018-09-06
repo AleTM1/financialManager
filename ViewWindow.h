@@ -1,10 +1,3 @@
-/********************************************************************************
-** Form generated from reading UI file 'FinancialManagerCj5038.ui'
-**
-** Created by: Qt User Interface Compiler version 5.9.5
-**
-** WARNING! All changes made in this file will be lost when recompiling UI file!
-********************************************************************************/
 
 #ifndef FINANCIALMANAGERCJ5038_H
 #define FINANCIALMANAGERCJ5038_H

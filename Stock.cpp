@@ -30,5 +30,6 @@ void Stock::setCompany ( Company *entity ) {
 
 	Investment::company = entity;
 	totalInvestmentCalculator();
+
 }
 
