@@ -5,7 +5,6 @@
 #ifndef FINANCIALMANAGER_INVESTMENTMANAGER_H
 #define FINANCIALMANAGER_INVESTMENTMANAGER_H
 
-
 #include "AbstractDataStorage.h"
 #include "Investment.h"
 #include "enumInvestmentType.h"
@@ -13,36 +12,34 @@
 #include "Stock.h"
 #include "CompaniesList.h"
 
-class InvestmentManager : public AbstractDataStorage{
+class InvestmentManager : public AbstractDataStorage {
 
 public:
 
-    InvestmentManager();
+	InvestmentManager ();
 
-    ~InvestmentManager();
+	~InvestmentManager ();
 
-    void addInvestment(Investment*);
+	void addInvestment ( Investment * );
 
-    virtual void saveData() override;
+	virtual void saveData () override;
 
-    virtual void loadData() override;
+	virtual void loadData () override;
 
-    const std::list<Investment *> &getInvestmentList() const;
+	const std::list<Investment *> &getInvestmentList () const;
 
-    void removeInvestment(std::_List_const_iterator<Investment*>);
+	void removeInvestment ( std::_List_const_iterator<Investment *> );
 
 private:
 
-    void checkForExpiredBonds();
+	void checkForExpiredBonds ();
 
 protected:
 
+	std::list<Investment *> investmentList;
 
-    std::list<Investment*> investmentList;
-    CompaniesList companiesList;
-
+	CompaniesList companiesList;
 
 };
-
 
 #endif //FINANCIALMANAGER_INVESTMENTMANAGER_H

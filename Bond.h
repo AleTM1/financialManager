@@ -5,30 +5,29 @@
 #ifndef FINANCIALMANAGER_BOND_H
 #define FINANCIALMANAGER_BOND_H
 
-
 #include <QtCore/QDate>
 #include "Investment.h"
 
-class Bond :public Investment{
+class Bond : public Investment {
 
 public:
 
-    Bond();
+	Bond ();
 
-    int getMonthsDuration() const;
+	int getMonthsDuration () const;
 
-    void setMonthsDuration(int monthsDuration, bool updateDeadline);
+	void setMonthsDuration ( int monthsDuration, bool updateDeadline );
 
-    const QDate &getDeadlineDate() const;
+	const QDate &getDeadlineDate () const;
 
-    void setDeadlineDate(const QDate &deadlineDate);
+	void setDeadlineDate ( const QDate &deadlineDate );
 
 protected:
 
-    int monthsDuration;
-    QDate deadlineDate;
+	int monthsDuration;
+
+	QDate deadlineDate;
 
 };
-
 
 #endif //FINANCIALMANAGER_BOND_H

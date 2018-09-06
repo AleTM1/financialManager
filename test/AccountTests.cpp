@@ -4,101 +4,97 @@
 
 TEST(Account, Account_save_and_load) {
 
-    Account account;
+	Account account;
 
-    account.loadData();
+	account.loadData();
 
-    //conserva i dati già presenti
-    
-    std::map<AccountData, QString> orignalData;
+	//conserva i dati già presenti
 
-    orignalData.insert(std::make_pair(name, account.getName()));
-    orignalData.insert(std::make_pair(surname, account.getSurname()));
-    orignalData.insert(std::make_pair(codiceFiscale, account.getCodiceFiscale()));
-    orignalData.insert(std::make_pair(city, account.getCity()));
-    orignalData.insert(std::make_pair(CAP, account.getCAP()));
-    orignalData.insert(std::make_pair(address, account.getAddress()));
-    orignalData.insert(std::make_pair(phoneNumber, account.getPhoneNumber()));
-    orignalData.insert(std::make_pair(mail, account.getMail()));
+	std::map<AccountData, QString> orignalData;
 
-    //simula un nuovo salvataggio
+	orignalData.insert(std::make_pair(name, account.getName()));
+	orignalData.insert(std::make_pair(surname, account.getSurname()));
+	orignalData.insert(std::make_pair(codiceFiscale, account.getCodiceFiscale()));
+	orignalData.insert(std::make_pair(city, account.getCity()));
+	orignalData.insert(std::make_pair(CAP, account.getCAP()));
+	orignalData.insert(std::make_pair(address, account.getAddress()));
+	orignalData.insert(std::make_pair(phoneNumber, account.getPhoneNumber()));
+	orignalData.insert(std::make_pair(mail, account.getMail()));
 
-    std::map<AccountData, QString> nuovoSalvataggio;
-    nuovoSalvataggio.insert(std::make_pair(name, "Mario"));
-    nuovoSalvataggio.insert(std::make_pair(surname, "Rossi"));
-    nuovoSalvataggio.insert(std::make_pair(codiceFiscale, "RSSMRI1234567890"));
-    nuovoSalvataggio.insert(std::make_pair(city, "Pistoia"));
-    nuovoSalvataggio.insert(std::make_pair(CAP, "51100"));
-    nuovoSalvataggio.insert(std::make_pair(address, "Via Garibaldi"));
-    nuovoSalvataggio.insert(std::make_pair(phoneNumber, "3337775511"));
-    nuovoSalvataggio.insert(std::make_pair(mail, "mail@gmail.com"));
+	//simula un nuovo salvataggio
 
-    account.changeData(nuovoSalvataggio);
+	std::map<AccountData, QString> nuovoSalvataggio;
+	nuovoSalvataggio.insert(std::make_pair(name, "Mario"));
+	nuovoSalvataggio.insert(std::make_pair(surname, "Rossi"));
+	nuovoSalvataggio.insert(std::make_pair(codiceFiscale, "RSSMRI1234567890"));
+	nuovoSalvataggio.insert(std::make_pair(city, "Pistoia"));
+	nuovoSalvataggio.insert(std::make_pair(CAP, "51100"));
+	nuovoSalvataggio.insert(std::make_pair(address, "Via Garibaldi"));
+	nuovoSalvataggio.insert(std::make_pair(phoneNumber, "3337775511"));
+	nuovoSalvataggio.insert(std::make_pair(mail, "mail@gmail.com"));
 
-    //simula un nuovo accesso
-    
-    Account account1;
+	account.changeData(nuovoSalvataggio);
 
-    account1.loadData();
+	//simula un nuovo accesso
 
-    ASSERT_TRUE(account1.getName() == "Mario");
-    ASSERT_TRUE(account1.getSurname() == "Rossi");
-    ASSERT_TRUE(account1.getCodiceFiscale() == "RSSMRI1234567890");
-    ASSERT_TRUE(account1.getCity() == "Pistoia");
-    ASSERT_TRUE(account1.getCAP() == "51100");
-    ASSERT_TRUE(account1.getAddress() == "Via Garibaldi");
-    ASSERT_TRUE(account1.getPhoneNumber() == "3337775511");
-    ASSERT_TRUE(account1.getMail() == "mail@gmail.com");
-    ASSERT_FALSE(account1.getName() == "Luigi");
-    ASSERT_FALSE(account1.getSurname() == "Bianchi");
-    ASSERT_FALSE(account1.getCodiceFiscale() == "BNCLGI1234567890");
-    ASSERT_FALSE(account1.getCity() == "Firenze");
-    ASSERT_FALSE(account1.getCAP() == "50100");
-    ASSERT_FALSE(account1.getAddress() == "Via Roma");
-    ASSERT_FALSE(account1.getPhoneNumber() == "3347772323");
-    ASSERT_FALSE(account1.getMail() == "prova@gmail.com");
+	Account account1;
 
-    //reinserisci i dati precedenti
-    
-    account.changeData(orignalData);
+	account1.loadData();
+
+	ASSERT_TRUE(account1.getName() == "Mario");
+	ASSERT_TRUE(account1.getSurname() == "Rossi");
+	ASSERT_TRUE(account1.getCodiceFiscale() == "RSSMRI1234567890");
+	ASSERT_TRUE(account1.getCity() == "Pistoia");
+	ASSERT_TRUE(account1.getCAP() == "51100");
+	ASSERT_TRUE(account1.getAddress() == "Via Garibaldi");
+	ASSERT_TRUE(account1.getPhoneNumber() == "3337775511");
+	ASSERT_TRUE(account1.getMail() == "mail@gmail.com");
+	ASSERT_FALSE(account1.getName() == "Luigi");
+	ASSERT_FALSE(account1.getSurname() == "Bianchi");
+	ASSERT_FALSE(account1.getCodiceFiscale() == "BNCLGI1234567890");
+	ASSERT_FALSE(account1.getCity() == "Firenze");
+	ASSERT_FALSE(account1.getCAP() == "50100");
+	ASSERT_FALSE(account1.getAddress() == "Via Roma");
+	ASSERT_FALSE(account1.getPhoneNumber() == "3347772323");
+	ASSERT_FALSE(account1.getMail() == "prova@gmail.com");
+
+	//reinserisci i dati precedenti
+
+	account.changeData(orignalData);
 
 }
 
+TEST (Account, Account_is_first_opening) {
 
-TEST (Account, Account_is_first_opening){
+	Account account;
 
+	account.loadData();
 
+	//conserva i dati già presenti
 
-    Account account;
+	std::map<AccountData, QString> orignalData;
 
-    account.loadData();
+	orignalData.insert(std::make_pair(name, account.getName()));
+	orignalData.insert(std::make_pair(surname, account.getSurname()));
+	orignalData.insert(std::make_pair(codiceFiscale, account.getCodiceFiscale()));
+	orignalData.insert(std::make_pair(city, account.getCity()));
+	orignalData.insert(std::make_pair(CAP, account.getCAP()));
+	orignalData.insert(std::make_pair(address, account.getAddress()));
+	orignalData.insert(std::make_pair(phoneNumber, account.getPhoneNumber()));
+	orignalData.insert(std::make_pair(mail, account.getMail()));
 
-    //conserva i dati già presenti
+	//simula un nuovo salvataggio
 
-    std::map<AccountData, QString> orignalData;
+	account.clear();
 
-    orignalData.insert(std::make_pair(name, account.getName()));
-    orignalData.insert(std::make_pair(surname, account.getSurname()));
-    orignalData.insert(std::make_pair(codiceFiscale, account.getCodiceFiscale()));
-    orignalData.insert(std::make_pair(city, account.getCity()));
-    orignalData.insert(std::make_pair(CAP, account.getCAP()));
-    orignalData.insert(std::make_pair(address, account.getAddress()));
-    orignalData.insert(std::make_pair(phoneNumber, account.getPhoneNumber()));
-    orignalData.insert(std::make_pair(mail, account.getMail()));
+	//simula un nuovo accesso
 
-    //simula un nuovo salvataggio
+	Account account1;
 
-    account.clear();
-    
-    //simula un nuovo accesso
+	ASSERT_TRUE(account1.isFirstOpening());
 
-    Account account1;
+	//reinserisci i dati precedenti
 
-    ASSERT_TRUE(account1.isFirstOpening());
-    
-    //reinserisci i dati precedenti
-
-    account.changeData(orignalData);
-
+	account.changeData(orignalData);
 
 }

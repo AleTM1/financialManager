@@ -4,18 +4,16 @@
 
 #include "Timer.h"
 
+Timer::Timer ( View *v, QWidget *parent ) : view(v), QWidget(parent) {
 
-
-Timer::Timer(View* v, QWidget *parent) : view(v), QWidget(parent) {
-
-    auto timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(refresh()));
-    timer->start(4000);
+	auto timer = new QTimer(this);
+	connect(timer, SIGNAL(timeout()), this, SLOT(refresh()));
+	timer->start(4000);
 
 }
 
-void Timer::refresh() {
+void Timer::refresh () {
 
-    view->refreshInvestmentValue();
+	view->refreshInvestmentValue();
 
 }

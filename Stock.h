@@ -5,30 +5,28 @@
 #ifndef FINANCIALMANAGER_ABSTRACTSTOCKFUND_H
 #define FINANCIALMANAGER_ABSTRACTSTOCKFUND_H
 
-
 #include "Investment.h"
 
 class Stock : public Investment {
 
 public:
 
-    Stock();
+	Stock ();
 
-    virtual void totalInvestmentCalculator();
+	virtual void totalInvestmentCalculator ();
 
-    virtual ~Stock(){}
+	virtual ~Stock () { }
 
-    float getSharesNumber() const;
+	float getSharesNumber () const;
 
-    void setSharesNumber(float sharesNumber);
+	void setSharesNumber ( float sharesNumber );
 
-    virtual void setCompany(Company *entity) override;
+	virtual void setCompany ( Company *entity ) override;
 
 protected:
 
-    float sharesNumber;
+	float sharesNumber;
 
 };
-
 
 #endif //FINANCIALMANAGER_ABSTRACTSTOCKFUND_H

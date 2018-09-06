@@ -5,15 +5,14 @@
 #ifndef QTPROVA_OBSERVER_H
 #define QTPROVA_OBSERVER_H
 
-
 class Observer {
 
-    public:
+public:
 
-        virtual void update() =0;
-        virtual ~Observer(){}
+	virtual void update () =0;
+
+	virtual ~Observer () { }
 
 };
-
 
 #endif //QTPROVA_OBSERVER_H

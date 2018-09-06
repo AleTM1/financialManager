@@ -12,66 +12,68 @@
 #include "CompaniesList.h"
 #include "InvestmentManager.h"
 
-
 class Model : public Subject {
 
 public:
 
-    Model();
+	Model ();
 
-    ~Model();
+	~Model ();
 
-    bool isFirstOpening();
+	bool isFirstOpening ();
 
-    void createAccount();
+	void createAccount ();
 
-    void loadAll();
+	void loadAll ();
 
-    void clearAll();
+	void clearAll ();
 
-    int saveAccount(std::map<AccountData, QString>);
+	int saveAccount ( std::map<AccountData, QString> );
 
-    void saveConto(QString);
+	void saveConto ( QString );
 
-    int doTransaction(Transaction transaction);
+	int doTransaction ( Transaction transaction );
 
-    void makeMessageDialogNoButtons(QString ttl, QString txt);
+	void makeMessageDialogNoButtons ( QString ttl, QString txt );
 
-    void changeHistoricalOrder(ResearchOptions);
+	void changeHistoricalOrder ( ResearchOptions );
 
-    const CompaniesList &getEntitiesList() const;
+	const CompaniesList &getEntitiesList () const;
 
-    int doInvestment(Investment* investment);
+	int doInvestment ( Investment *investment );
 
-    void updateInvestmentValue();
+	void updateInvestmentValue ();
 
-    void removeInvestment(int);
-
+	void removeInvestment ( int );
 
 public:
 
-    bool isTabAccountLocked() const;
+	bool isTabAccountLocked () const;
 
-    void setTabAccountLocked(bool tabAccountLocked);
+	void setTabAccountLocked ( bool tabAccountLocked );
 
-    AbstractDataStorage* accessDataStorage(QString) const;
+	AbstractDataStorage *accessDataStorage ( QString ) const;
 
-    ErrorLog *getErrorLog() const;
+	ErrorLog *getErrorLog () const;
 
 private:
 
-    bool tabAccountLocked;
-    Account* account;
-    Conto* conto;
-    Historical* historical;
-    CompaniesList companiesList;
-    InvestmentManager* investmentManager;
+	bool tabAccountLocked;
 
-    std::vector<AbstractDataStorage*> dataStorages;
+	Account *account;
 
-    ErrorLog* errorLog = nullptr;
+	Conto *conto;
+
+	Historical *historical;
+
+	CompaniesList companiesList;
+
+	InvestmentManager *investmentManager;
+
+	std::vector<AbstractDataStorage *> dataStorages;
+
+	ErrorLog *errorLog = nullptr;
 
 };
-
 
 #endif //QTPROVA_MODEL_H

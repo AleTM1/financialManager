@@ -5,34 +5,35 @@
 #ifndef QTPROVA_SUBJECT_H
 #define QTPROVA_SUBJECT_H
 
-
 #include <list>
 #include "Observer.h"
 
-class Subject{
+class Subject {
 
 public:
 
-    virtual void addObserver(Observer *o){
-        observers.push_back(o);
-    }
+	virtual void addObserver ( Observer *o ) {
 
-    virtual void removeObserver(Observer *o){
-        observers.remove(o);
-    }
+		observers.push_back(o);
+	}
 
-    virtual void notify(){
-        for (auto o:observers)
-            o->update();
-    }
+	virtual void removeObserver ( Observer *o ) {
 
-    virtual ~Subject(){}
+		observers.remove(o);
+	}
+
+	virtual void notify () {
+
+		for ( auto o:observers )
+			o->update();
+	}
+
+	virtual ~Subject () { }
 
 protected:
 
-    std::list<Observer*> observers;
+	std::list<Observer *> observers;
 
 };
-
 
 #endif //QTPROVA_SUBJECT_H

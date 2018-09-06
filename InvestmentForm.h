@@ -5,32 +5,31 @@
 #ifndef FINANCIALMANAGER_INVESTMENTFORM_H
 #define FINANCIALMANAGER_INVESTMENTFORM_H
 
-
 #include "Ui_investmentForm.h"
 #include "Controller.h"
 
 class InvestmentForm : public QWidget {
-    Q_OBJECT
+Q_OBJECT
 public:
 
-    InvestmentForm(Controller* c, int i);
+	InvestmentForm ( Controller *c, int i );
 
-    ~InvestmentForm();
+	~InvestmentForm ();
 
 public:
 
-    Ui_investmentForm* ui_investmentForm;
+	Ui_investmentForm *ui_investmentForm;
 
 private slots:
 
-    void sell();
+	void sell ();
 
 protected:
 
-    Controller* controller;
-    int index;
+	Controller *controller;
+
+	int index;
 
 };
-
 
 #endif //FINANCIALMANAGER_INVESTMENTFORM_H
