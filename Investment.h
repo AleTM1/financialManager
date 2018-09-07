@@ -66,6 +66,7 @@ class Investment {
   QDate buyDate;
 };
 
-inline Investment::~Investment() {}
+inline Investment::~Investment() {
+}
 
 #endif //FINANCIALMANAGER_INVESTMENT_H

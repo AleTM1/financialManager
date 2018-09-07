@@ -8,8 +8,9 @@ TEST(Historical, Historical_save_and_load) {
   //salvo i dati già inseriti
 
   std::list<Transaction> orignalData;
-  for (auto &e:historical.getHistory())
+  for (auto &e:historical.getHistory()) {
     orignalData.push_back(e);
+  }
 
   //simulo nuovi dati
 
@@ -33,8 +34,9 @@ TEST(Historical, Historical_save_and_load) {
   //ripristina
 
   historical.clear();
-  for (auto &e:orignalData)
+  for (auto &e:orignalData) {
     historical.addTransaction(e);
+  }
 }
 
 TEST(Historical, Historical_set_order) {
@@ -44,8 +46,9 @@ TEST(Historical, Historical_set_order) {
   //salvo i dati già inseriti
 
   std::list<Transaction> orignalData;
-  for (auto &e:historical.getHistory())
+  for (auto &e:historical.getHistory()) {
     orignalData.push_back(e);
+  }
 
   //simulo nuovi dati
 
@@ -90,8 +93,9 @@ TEST(Historical, Historical_set_order) {
   //ripristina
 
   historical.clear();
-  for (auto &e:orignalData)
+  for (auto &e:orignalData) {
     historical.addTransaction(e);
+  }
 }
 
 TEST(Historical, Historical_get_total) {
@@ -101,8 +105,9 @@ TEST(Historical, Historical_get_total) {
   //salvo i dati già inseriti
 
   std::list<Transaction> orignalData;
-  for (auto &e:historical.getHistory())
+  for (auto &e:historical.getHistory()) {
     orignalData.push_back(e);
+  }
 
   //simulo nuovi dati
 
@@ -129,6 +134,7 @@ TEST(Historical, Historical_get_total) {
   //ripristina
 
   historical.clear();
-  for (auto &e:orignalData)
+  for (auto &e:orignalData) {
     historical.addTransaction(e);
+  }
 }

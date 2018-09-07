@@ -14,7 +14,8 @@ class Company {
     srand(time(0));
   }
 
-  virtual ~Company() {}
+  virtual ~Company() {
+  }
 
   void changeShareCostGenerator() {
     shareCost += shareCost*((rand()%200 - 100)/100.0)/100.0;

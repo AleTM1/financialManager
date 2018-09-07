@@ -8,6 +8,7 @@ class Observer {
  public:
   virtual void update() =0;
 
-  virtual ~Observer() {}
+  virtual ~Observer() {
+  }
 };
 #endif //QTPROVA_OBSERVER_H

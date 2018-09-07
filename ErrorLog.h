@@ -8,7 +8,8 @@
 
 class ErrorLog {
  public:
-  ErrorLog(QString ttl, QString txt) : title(ttl), text(txt), activated(true) {}
+  ErrorLog(QString ttl, QString txt) : title(ttl), text(txt), activated(true) {
+  }
 
   bool isActivated() const {
     return activated;

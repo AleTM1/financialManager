@@ -9,8 +9,9 @@ TEST(InvestmentManager, InvestmentManager_save_and_load) {
   //salvo i dati già inseriti
 
   std::list<Investment *> orignalData;
-  for (auto &e:investmentManager.getInvestmentList())
+  for (auto &e:investmentManager.getInvestmentList()) {
     orignalData.push_back(e);
+  }
 
   //simulo nuovi dati
 
@@ -64,8 +65,9 @@ TEST(InvestmentManager, InvestmentManager_save_and_load) {
   //ripristina
 
   investmentManager.clear();
-  for (auto &e:orignalData)
+  for (auto &e:orignalData) {
     investmentManager.addInvestment(e);
+  }
 }
 
 TEST(InvestmentManager, InvestmentManager_remove_element) {
@@ -75,8 +77,9 @@ TEST(InvestmentManager, InvestmentManager_remove_element) {
   //salvo i dati già inseriti
 
   std::list<Investment *> orignalData;
-  for (auto &e:investmentManager.getInvestmentList())
+  for (auto &e:investmentManager.getInvestmentList()) {
     orignalData.push_back(e);
+  }
 
   //simulo nuovi dati
 
@@ -133,7 +136,8 @@ TEST(InvestmentManager, InvestmentManager_remove_element) {
   //ripristina
 
   investmentManager.clear();
-  for (auto &e:orignalData)
+  for (auto &e:orignalData) {
     investmentManager.addInvestment(e);
+  }
 }
 

@@ -9,8 +9,9 @@ InvestmentManager::InvestmentManager() {
 }
 
 InvestmentManager::~InvestmentManager() {
-  for (auto e:investmentList)
+  for (auto e:investmentList) {
     delete e;
+  }
   investmentList.clear();
 }
 
@@ -75,10 +76,11 @@ void InvestmentManager::loadData() {
     investment->setInvestorName(data.value(QString::number(InvestmentData::investorName)).toString());
     investment->setTotalInvested(data.value(QString::number(InvestmentData::totalInvested)).toFloat());
     investment->setBuyDate(data.value(QString::number(InvestmentData::buyDate)).toDate());
-    for (auto e:companiesList.companies)
+    for (auto e:companiesList.companies) {
       if (e->getISIN()==data.value(QString::number(InvestmentData::ISIN))) {
         investment->setCompany(e);
       }
+    }
     investmentList.push_back(investment);
   }
   data.endArray();
@@ -93,11 +95,12 @@ void InvestmentManager::loadData() {
 
 
 void InvestmentManager::checkForExpiredBonds() {
-  for (auto it = investmentList.begin(); it!=investmentList.end(); it++)
+  for (auto it = investmentList.begin(); it!=investmentList.end(); it++) {
     if ((*it)->getInvestmentType()==InvestmentType::bond
         && dynamic_cast<Bond *>((*it))->getDeadlineDate()==QDate::currentDate()) {
       removeInvestment(it);
     }
+  }
 }
 
 //-----------------------

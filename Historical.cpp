@@ -83,7 +83,7 @@ void Historical::updateOrder() {
   std::vector<std::list<Transaction>::iterator> iterators;
   float tot = 0;
   if (researchOptions.getOrderOptions()==OrderOptions::all) {
-    for (auto iterator = orderedHistory.begin(); iterator!=orderedHistory.end(); iterator++)
+    for (auto iterator = orderedHistory.begin(); iterator!=orderedHistory.end(); iterator++) {
       if (iterator->getDate() < researchOptions.getDateFrom() || iterator->getDate() > researchOptions.getDateTo()) {
         iterators.push_back(iterator);
       } else if (!(iterator->getPayerIBAN().contains(researchOptions.getSearchText(), Qt::CaseInsensitive)
@@ -99,8 +99,9 @@ void Historical::updateOrder() {
           tot += iterator->getAmount();
         }
       }
+    }
   } else {
-    for (auto iterator = orderedHistory.begin(); iterator!=orderedHistory.end(); iterator++)
+    for (auto iterator = orderedHistory.begin(); iterator!=orderedHistory.end(); iterator++) {
       if (iterator->isDebit()==(researchOptions.getOrderOptions()==OrderOptions::credits)) {
         iterators.push_back(iterator);
       } else if (iterator->getDate() < researchOptions.getDateFrom()
@@ -119,9 +120,11 @@ void Historical::updateOrder() {
           tot += iterator->getAmount();
         }
       }
+    }
   }
-  for (auto it : iterators)
+  for (auto it : iterators) {
     orderedHistory.erase(it);
+  }
   total = tot;
   if (researchOptions.getOrderTime()==OrderTime::cronologicalOrderReversed) {
     orderedHistory.reverse();

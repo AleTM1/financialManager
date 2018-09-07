@@ -15,7 +15,8 @@ class ResearchOptions {
                            QString sT = "",
                            QDate dF = QDate(18, 1, 1),
                            QDate dT = QDate::currentDate())
-      : orderTime(oT), orderOptions(oO), searchText(sT), dateFrom(dF), dateTo(dT) {}
+      : orderTime(oT), orderOptions(oO), searchText(sT), dateFrom(dF), dateTo(dT) {
+  }
 
   void setOrderTime(OrderTime orderTime) {
     ResearchOptions::orderTime = orderTime;

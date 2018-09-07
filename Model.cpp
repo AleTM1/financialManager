@@ -33,10 +33,11 @@ void Model::setTabAccountLocked(bool tabAccountLocked) {
 }
 
 AbstractDataStorage *Model::accessDataStorage(QString groupName) const {
-  for (auto dataClass : dataStorages)
+  for (auto dataClass : dataStorages) {
     if (groupName==dataClass->getGroupName()) {
       return dataClass;
     }
+  }
 }
 
 ErrorLog *Model::getErrorLog() const {
@@ -57,14 +58,16 @@ void Model::createAccount() {
 }
 
 void Model::loadAll() {
-  for (auto dataClass : dataStorages)
+  for (auto dataClass : dataStorages) {
     dataClass->loadData();
+  }
   notify();
 }
 
 void Model::clearAll() {
-  for (auto dataClass : dataStorages)
+  for (auto dataClass : dataStorages) {
     dataClass->clear();
+  }
   notify();
   setTabAccountLocked(true);
   notify();
@@ -206,8 +209,9 @@ int Model::doInvestment(Investment *investment) {
 }
 
 void Model::updateInvestmentValue() {
-  for (auto c:companiesList.companies)
+  for (auto c:companiesList.companies) {
     c->changeShareCostGenerator();
+  }
 }
 
 void Model::removeInvestment(int index) {

@@ -8,7 +8,8 @@
 
 class Controller {
  public:
-  explicit Controller(Model *m) : model(m) {}
+  explicit Controller(Model *m) : model(m) {
+  }
 
   void openingApp();
   void reset();

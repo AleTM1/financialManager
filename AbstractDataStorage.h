@@ -19,7 +19,8 @@ class AbstractDataStorage {
     loadData();
   }
 
-  virtual ~AbstractDataStorage() {}
+  virtual ~AbstractDataStorage() {
+  }
 
   const QString &getGroupName() const {
     return groupName;

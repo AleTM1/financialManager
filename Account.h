@@ -11,7 +11,9 @@
 
 class Account : public AbstractDataStorage {
  public:
-  Account() { groupName = "Account"; }
+  Account() {
+    groupName = "Account";
+  }
 
   bool isFirstOpening();
   virtual void loadData() override;

@@ -38,16 +38,18 @@ void View::lockAccountTab() const {
   viewWindow->lineEdit_surnameAccount->setEnabled(true);
   viewWindow->lineEdit_codiceFiscaleAccount->setEnabled(true);
   viewWindow->tabWidget->setCurrentIndex(5);
-  for (int i = 0; i < viewWindow->tabWidget->count(); i++)
+  for (int i = 0; i < viewWindow->tabWidget->count(); i++) {
     if (viewWindow->tabWidget->currentIndex()!=i) {
       viewWindow->tabWidget->setTabEnabled(i, false);
     }
+  }
 }
 
 void View::updateEntitesList() {
   viewWindow->comboBox_entity->clear();
-  for (auto e:model->getEntitiesList().companies)
+  for (auto e:model->getEntitiesList().companies) {
     viewWindow->comboBox_entity->addItem(e->getName());
+  }
   updateInvestmentData();
 }
 
@@ -62,12 +64,13 @@ void View::updateInvestmentData() {
   } else if (currentTypeString=="Obbligazione") {
     viewWindow->formWidget_bond->show();
   }
-  for (auto c:companies)
+  for (auto c:companies) {
     if (companyName==c->getName()) {
       viewWindow->label_enetityISIN->setText(c->getISIN());
       viewWindow->label_stockCost->setText(QString::number(c->getShareCost()) + "€");
       viewWindow->label_coupon->setText(QString::number(c->getMontlyCoupon()) + "%");
     }
+  }
   updateInvestmentAmount();
 }
 
@@ -115,10 +118,11 @@ void View::updateInvestmentManager() {
   int i = 0;
   for (auto &investment : investmentManager->getInvestmentList()) {
     Company *company;
-    for (auto c:model->getEntitiesList().companies)
+    for (auto c:model->getEntitiesList().companies) {
       if (c->getISIN()==investment->getCompany()->getISIN()) {
         company = c;
       }
+    }
     auto investmentForm = new InvestmentForm(controller, i++);
     investmentForm->ui_investmentForm->label_entityName->setText(company->getName());
     investmentForm->ui_investmentForm->label_entityISIN->setText(company->getISIN());
@@ -206,8 +210,9 @@ Account *View::updateAccount() const {
   viewWindow->lineEdit_nameAccount->setEnabled(false);
   viewWindow->lineEdit_surnameAccount->setEnabled(false);
   viewWindow->lineEdit_codiceFiscaleAccount->setEnabled(false);
-  for (int i = 0; i < viewWindow->tabWidget->count(); i++)
+  for (int i = 0; i < viewWindow->tabWidget->count(); i++) {
     viewWindow->tabWidget->setTabEnabled(i, true);
+  }
   auto account = dynamic_cast<Account *>(model->accessDataStorage("Account"));
   viewWindow->lineEdit_nameAccount->setText(account->getName());
   viewWindow->lineEdit_surnameAccount->setText(account->getSurname());

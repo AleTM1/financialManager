@@ -11,7 +11,8 @@ class Stock : public Investment {
   Stock();
   virtual void totalInvestmentCalculator();
 
-  virtual ~Stock() {}
+  virtual ~Stock() {
+  }
 
   float getSharesNumber() const;
   void setSharesNumber(float sharesNumber);

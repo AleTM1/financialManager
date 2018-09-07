@@ -119,10 +119,11 @@ void Controller::doInvestment(InvestmentType investmentType, QString ISINcode, f
       auto stock = new Stock();
       stock->setSharesNumber(quantity);
       stock->setBuyDate(QDate::currentDate());
-      for (auto s:model->getEntitiesList().companies)
+      for (auto s:model->getEntitiesList().companies) {
         if (s->getISIN()==ISINcode) {
           stock->setCompany(s);
         }
+      }
       switch (model->doInvestment(stock)) {
         case 0 : model->makeMessageDialogNoButtons("investimento riuscito", "Investimento effettuato con succeso");
           break;
@@ -146,10 +147,11 @@ void Controller::doInvestment(InvestmentType investType, QString ISINcode, float
       bond->setTotalInvested(investmentAmount);
       bond->setBuyDate(QDate::currentDate());
       bond->setMonthsDuration(monthsNumber, true);
-      for (auto s:model->getEntitiesList().companies)
+      for (auto s:model->getEntitiesList().companies) {
         if (s->getISIN()==ISINcode) {
           bond->setCompany(s);
         }
+      }
       switch (model->doInvestment(bond)) {
         case 0 : model->makeMessageDialogNoButtons("investimento riuscito", "Investimento effettuato con succeso");
           break;

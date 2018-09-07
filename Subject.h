@@ -18,11 +18,13 @@ class Subject {
   }
 
   virtual void notify() {
-    for (auto o:observers)
+    for (auto o:observers) {
       o->update();
+    }
   }
 
-  virtual ~Subject() {}
+  virtual ~Subject() {
+  }
 
  protected:
   std::list<Observer *> observers;

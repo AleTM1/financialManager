@@ -19,8 +19,9 @@ struct CompaniesList {
   }
 
   ~CompaniesList() {
-    for (auto e:companies)
+    for (auto e:companies) {
       delete e;
+    }
     companies.clear();
   }
 
