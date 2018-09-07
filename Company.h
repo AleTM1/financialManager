@@ -4,77 +4,57 @@
 
 #ifndef FINANCIALMANAGER_ENTITY_H
 #define FINANCIALMANAGER_ENTITY_H
-
 #include <QtCore/QString>
 #include <ctime>
-
 class Company {
+ public:
+  Company(float coupon, QString nam, QString isin, float cost)
+      : montlyCoupon(coupon), name(nam), ISIN(isin), shareCost(cost) {
+    srand(time(0));
+  }
 
-public:
+  virtual ~Company() {}
 
-    Company(float coupon, QString nam, QString isin, float cost) :montlyCoupon(coupon), name(nam), ISIN(isin), shareCost(cost) {
+  void changeShareCostGenerator() {
+    shareCost += shareCost*((rand()%200 - 100)/100.0)/100.0;
+  }
 
-        srand(time(0));
-    }
+  const QString &getName() const {
+    return name;
+  }
 
-    virtual ~Company() { }
+  void setName(const QString &name) {
+    Company::name = name;
+  }
 
-    void changeShareCostGenerator() {
+  const QString &getISIN() const {
+    return ISIN;
+  }
 
-        shareCost += shareCost*((rand()%200-100)/100.0)/100.0;
+  void setISIN(const QString &ISIN) {
+    Company::ISIN = ISIN;
+  }
 
-    }
+  void setShareCost(float value) {
+    shareCost = value;
+  }
 
-    const QString& getName() const {
+  float getShareCost() {
+    return shareCost;
+  }
 
-        return name;
-    }
+  float getMontlyCoupon() const {
+    return montlyCoupon;
+  }
 
-    void setName(const QString& name) {
+  void setMontlyCoupon(float montlyCoupon) {
+    Company::montlyCoupon = montlyCoupon;
+  }
 
-        Company::name = name;
-    }
-
-    const QString& getISIN() const {
-
-        return ISIN;
-    }
-
-    void setISIN(const QString& ISIN) {
-
-        Company::ISIN = ISIN;
-    }
-
-    void setShareCost(float value) {
-
-        shareCost = value;
-    }
-
-    float getShareCost() {
-
-        return shareCost;
-    }
-
-    float getMontlyCoupon() const {
-
-        return montlyCoupon;
-    }
-
-    void setMontlyCoupon(float montlyCoupon) {
-
-        Company::montlyCoupon = montlyCoupon;
-    }
-
-protected:
-
-    QString name;
-
-    QString ISIN;
-
-    float shareCost;
-
-    float montlyCoupon;
-
+ protected:
+  QString name;
+  QString ISIN;
+  float shareCost;
+  float montlyCoupon;
 };
-
 #endif //FINANCIALMANAGER_ENTITY_H

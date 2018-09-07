@@ -4,79 +4,63 @@
 
 #ifndef FINANCIALMANAGER_RESEARCHOPTIONS_H
 #define FINANCIALMANAGER_RESEARCHOPTIONS_H
-
 #include <QtCore/QString>
 #include <QtCore/QDate>
 #include "enumOrder.h"
-
 class ResearchOptions {
+ public:
+  explicit ResearchOptions(OrderTime oT = OrderTime::cronologicalOrderReversed,
+                           OrderOptions oO = OrderOptions::all,
+                           QString sT = "",
+                           QDate dF = QDate(18, 1, 1),
+                           QDate dT = QDate::currentDate())
+      : orderTime(oT), orderOptions(oO), searchText(sT), dateFrom(dF), dateTo(dT) {}
 
-public:
+  void setOrderTime(OrderTime orderTime) {
+    ResearchOptions::orderTime = orderTime;
+  }
 
-    explicit ResearchOptions(OrderTime oT = OrderTime::cronologicalOrderReversed, OrderOptions oO = OrderOptions::all, QString sT = "", QDate dF = QDate(18, 1, 1), QDate dT = QDate::currentDate()) :orderTime(oT), orderOptions(oO), searchText(sT), dateFrom(dF), dateTo(dT) { }
+  void setOrderOptions(OrderOptions orderOptions) {
+    ResearchOptions::orderOptions = orderOptions;
+  }
 
-    void setOrderTime(OrderTime orderTime) {
+  void setSearchText(const QString &searchText) {
+    ResearchOptions::searchText = searchText;
+  }
 
-        ResearchOptions::orderTime = orderTime;
-    }
+  void setDateFrom(const QDate &dateFrom) {
+    ResearchOptions::dateFrom = dateFrom;
+  }
 
-    void setOrderOptions(OrderOptions orderOptions) {
+  void setDateTo(const QDate &dateTo) {
+    ResearchOptions::dateTo = dateTo;
+  }
 
-        ResearchOptions::orderOptions = orderOptions;
-    }
+  OrderTime getOrderTime() const {
+    return orderTime;
+  }
 
-    void setSearchText(const QString& searchText) {
+  OrderOptions getOrderOptions() const {
+    return orderOptions;
+  }
 
-        ResearchOptions::searchText = searchText;
-    }
+  const QString &getSearchText() const {
+    return searchText;
+  }
 
-    void setDateFrom(const QDate& dateFrom) {
+  const QDate &getDateFrom() const {
+    return dateFrom;
+  }
 
-        ResearchOptions::dateFrom = dateFrom;
-    }
+  const QDate &getDateTo() const {
+    return dateTo;
+  }
 
-    void setDateTo(const QDate& dateTo) {
-
-        ResearchOptions::dateTo = dateTo;
-    }
-
-    OrderTime getOrderTime() const {
-
-        return orderTime;
-    }
-
-    OrderOptions getOrderOptions() const {
-
-        return orderOptions;
-    }
-
-    const QString& getSearchText() const {
-
-        return searchText;
-    }
-
-    const QDate& getDateFrom() const {
-
-        return dateFrom;
-    }
-
-    const QDate& getDateTo() const {
-
-        return dateTo;
-    }
-
-private:
-
-    OrderTime orderTime;
-
-    OrderOptions orderOptions;
-
-    QString searchText;
-
-    QDate dateFrom;
-
-    QDate dateTo;
-
+ private:
+  OrderTime orderTime;
+  OrderOptions orderOptions;
+  QString searchText;
+  QDate dateFrom;
+  QDate dateTo;
 };
-
 #endif //FINANCIALMANAGER_RESEARCHOPTIONS_H

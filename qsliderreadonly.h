@@ -4,29 +4,24 @@
 
 #ifndef FINANCIALMANAGER_QSLIDERREADONLY_H
 #define FINANCIALMANAGER_QSLIDERREADONLY_H
-
 class QSliderReadOnly : public QSlider {
-Q_OBJECT
+ Q_OBJECT
+ public:
+  QSliderReadOnly(QWidget *parent = nullptr) : QSlider(parent) {}
 
-public:
+ protected:
+  void keyPressEvent(QKeyEvent *) {}
 
-    QSliderReadOnly(QWidget* parent = nullptr) :QSlider(parent) { }
+  void keyReleaseEvent(QKeyEvent *) {}
 
-protected:
-    void keyPressEvent(QKeyEvent*) { }
+  QWidget *keyboardGrabber() {}
 
-    void keyReleaseEvent(QKeyEvent*) { }
+  void mouseMoveEvent(QMouseEvent *event) {}
 
-    QWidget* keyboardGrabber() { }
+  void mousePressEvent(QMouseEvent *event) {}
 
-    void mouseMoveEvent(QMouseEvent* event) { }
+  void mouseReleaseEvent(QMouseEvent *event) {}
 
-    void mousePressEvent(QMouseEvent* event) { }
-
-    void mouseReleaseEvent(QMouseEvent* event) { }
-
-    void sliderPressed() { }
-
+  void sliderPressed() {}
 };
-
 #endif //FINANCIALMANAGER_QSLIDERREADONLY_H

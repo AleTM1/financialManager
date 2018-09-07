@@ -4,88 +4,67 @@
 
 #ifndef FINANCIALMANAGER_INVESTMENT_H
 #define FINANCIALMANAGER_INVESTMENT_H
-
 #include <QtCore/QString>
 #include <QtCore/QDate>
 #include "Company.h"
 #include "enumInvestmentType.h"
-
 class Investment {
+ public:
+  virtual ~Investment() = 0;
 
-public:
+  float getTotalInvested() const {
+    return totalInvested;
+  }
 
-    virtual ~Investment() = 0;
+  void setTotalInvested(float totalInvested) {
+    Investment::totalInvested = totalInvested;
+  }
 
-    float getTotalInvested() const {
+  InvestmentType getInvestmentType() const {
+    return investmentType;
+  }
 
-        return totalInvested;
-    }
+  const QString &getInvestorIBAN() const {
+    return investorIBAN;
+  }
 
-    void setTotalInvested(float totalInvested) {
+  void setInvestorIBAN(const QString &investorIBAN) {
+    Investment::investorIBAN = investorIBAN;
+  }
 
-        Investment::totalInvested = totalInvested;
-    }
+  const QString &getInvestorName() const {
+    return investorName;
+  }
 
-    InvestmentType getInvestmentType() const {
+  void setInvestorName(const QString &investorName) {
+    Investment::investorName = investorName;
+  }
 
-        return investmentType;
-    }
+  Company *getCompany() const {
+    return company;
+  }
 
-    const QString& getInvestorIBAN() const {
+  virtual void setCompany(Company *company) {
+    Investment::company = company;
+  }
 
-        return investorIBAN;
-    }
+  const QDate &getBuyDate() const {
+    return buyDate;
+  }
 
-    void setInvestorIBAN(const QString& investorIBAN) {
+  void setBuyDate(const QDate &buyDate) {
+    Investment::buyDate = buyDate;
+  }
 
-        Investment::investorIBAN = investorIBAN;
-    }
-
-    const QString& getInvestorName() const {
-
-        return investorName;
-    }
-
-    void setInvestorName(const QString& investorName) {
-
-        Investment::investorName = investorName;
-    }
-
-    Company* getCompany() const {
-
-        return company;
-    }
-
-    virtual void setCompany(Company* company) {
-
-        Investment::company = company;
-    }
-
-    const QDate& getBuyDate() const {
-
-        return buyDate;
-    }
-
-    void setBuyDate(const QDate& buyDate) {
-
-        Investment::buyDate = buyDate;
-    }
-
-protected:
-
-    float totalInvested;
-
-    InvestmentType investmentType;
-
-    QString investorIBAN;
-
-    QString investorName;
-
-    Company* company;
-
-    QDate buyDate;
+ protected:
+  float totalInvested;
+  InvestmentType investmentType;
+  QString investorIBAN;
+  QString investorName;
+  Company *company;
+  QDate buyDate;
 };
 
-inline Investment::~Investment() { }
+inline Investment::~Investment() {}
 
 #endif //FINANCIALMANAGER_INVESTMENT_H

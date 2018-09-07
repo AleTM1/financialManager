@@ -4,53 +4,38 @@
 
 #ifndef FINANCIALMANAGER_ERRORFORM_H
 #define FINANCIALMANAGER_ERRORFORM_H
-
 #include <QtCore/QString>
-
 class ErrorLog {
+ public:
+  ErrorLog(QString ttl, QString txt) : title(ttl), text(txt), activated(true) {}
 
-public:
+  bool isActivated() const {
+    return activated;
+  }
 
-    ErrorLog(QString ttl, QString txt) :title(ttl), text(txt), activated(true) { }
+  void setActivated(bool activated) {
+    ErrorLog::activated = activated;
+  }
 
-    bool isActivated() const {
+  const QString &getTitle() const {
+    return title;
+  }
 
-        return activated;
-    }
+  void setTitle(const QString &title) {
+    ErrorLog::title = title;
+  }
 
-    void setActivated(bool activated) {
+  const QString &getText() const {
+    return text;
+  }
 
-        ErrorLog::activated = activated;
-    }
+  void setText(const QString &text) {
+    ErrorLog::text = text;
+  }
 
-    const QString& getTitle() const {
-
-        return title;
-    }
-
-    void setTitle(const QString& title) {
-
-        ErrorLog::title = title;
-    }
-
-    const QString& getText() const {
-
-        return text;
-    }
-
-    void setText(const QString& text) {
-
-        ErrorLog::text = text;
-    }
-
-protected:
-
-    bool activated;
-
-    QString title;
-
-    QString text;
-
+ protected:
+  bool activated;
+  QString title;
+  QString text;
 };
-
 #endif //FINANCIALMANAGER_ERRORFORM_H
