@@ -7,6 +7,7 @@
 #include <QWidget>
 #include <QtWidgets>
 #include "View.h"
+
 class Timer : public QWidget {
  Q_OBJECT
  public:

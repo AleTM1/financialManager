@@ -5,6 +5,7 @@
 #ifndef FINANCIALMANAGER_TRANSACTIONS_H
 #define FINANCIALMANAGER_TRANSACTIONS_H
 #include <QtCore/QDate>
+
 class Transaction {
  public:
   Transaction(bool d, QString pN, QString pI, QString rN, QString rI, float a, QString c, QDate dat)

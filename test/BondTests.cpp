@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 #include "../Bond.h"
+
 TEST(Bond, Bond_deadline_date) {
   auto bond = new Bond;
   bond->setBuyDate(QDate(18, 3, 15));

@@ -107,7 +107,7 @@ int Model::saveAccount(std::map<AccountData, QString> strings) {
   }
   if (strings[AccountData::mail].length() < 6 || strings[AccountData::mail].count('@')!=1
       || !strings[AccountData::mail].contains('.')) {
-        return 8;
+    return 8;
   }
   account->changeData(strings);
   notify();

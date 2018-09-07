@@ -6,6 +6,7 @@
 #define FINANCIALMANAGER_ENTITY_H
 #include <QtCore/QString>
 #include <ctime>
+
 class Company {
  public:
   Company(float coupon, QString nam, QString isin, float cost)

@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 #include "../Transaction.h"
+
 TEST(Transaction, Transaction_equal_operator_Test) {
   Transaction t1(true, "Alessandro", "IT111", "Mario", "IT222", 200, "bicicletta", QDate::currentDate());
   Transaction t1bis(true, "Alessandro", "IT111", "Mario", "IT222", 200, "bicicletta", QDate::currentDate());

@@ -6,6 +6,7 @@
 #define FINANCIALMANAGER_BOND_H
 #include <QtCore/QDate>
 #include "Investment.h"
+
 class Bond : public Investment {
  public:
   Bond();

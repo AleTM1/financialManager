@@ -6,6 +6,7 @@
 #define FINANCIALMANAGER_INVESTMENTFORM_H
 #include "Ui_investmentForm.h"
 #include "Controller.h"
+
 class InvestmentForm : public QWidget {
  Q_OBJECT
  public:

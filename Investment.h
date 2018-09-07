@@ -8,6 +8,7 @@
 #include <QtCore/QDate>
 #include "Company.h"
 #include "enumInvestmentType.h"
+
 class Investment {
  public:
   virtual ~Investment() = 0;

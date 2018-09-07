@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 #include "../Conto.h"
+
 TEST(Conto, Conto_ContoGenerator_Test) {
   Conto conto;
   conto.contoGenerator();

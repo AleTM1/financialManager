@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 #include "../Model.h"
+
 TEST(Model, Model_do_transaction) {
   Transaction t1(true,
                  "",

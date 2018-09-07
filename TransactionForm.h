@@ -6,6 +6,7 @@
 #define FINANCIALMANAGER_TRANSACTIONFORM_H
 #include <QtWidgets/QWidget>
 #include "transactionFormUi.h"
+
 class TransactionForm : public QWidget {
  Q_OBJECT
  public:

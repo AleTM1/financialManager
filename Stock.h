@@ -5,6 +5,7 @@
 #ifndef FINANCIALMANAGER_ABSTRACTSTOCKFUND_H
 #define FINANCIALMANAGER_ABSTRACTSTOCKFUND_H
 #include "Investment.h"
+
 class Stock : public Investment {
  public:
   Stock();

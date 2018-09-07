@@ -10,6 +10,7 @@
 #include "Bond.h"
 #include "Stock.h"
 #include "CompaniesList.h"
+
 class InvestmentManager : public AbstractDataStorage {
  public:
   InvestmentManager();

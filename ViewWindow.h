@@ -27,6 +27,7 @@
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 #include <qsliderreadonly.h>
+
 QT_BEGIN_NAMESPACE
 class Ui_MainWindow {
  public:

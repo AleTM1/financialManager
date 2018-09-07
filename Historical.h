@@ -6,6 +6,7 @@
 #define FINANCIALMANAGER_HISTORICAL_H
 #include "Conto.h"
 #include "ResearchOptions.h"
+
 class Historical : public AbstractDataStorage {
  public:
   Historical();

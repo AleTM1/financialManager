@@ -5,6 +5,7 @@
 #ifndef FINANCIALMANAGER_ERRORFORM_H
 #define FINANCIALMANAGER_ERRORFORM_H
 #include <QtCore/QString>
+
 class ErrorLog {
  public:
   ErrorLog(QString ttl, QString txt) : title(ttl), text(txt), activated(true) {}

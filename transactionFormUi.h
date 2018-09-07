@@ -10,6 +10,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+
 QT_BEGIN_NAMESPACE
 class Ui_transactionForm {
  public:

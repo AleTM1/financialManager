@@ -10,6 +10,7 @@
 #include "ErrorLog.h"
 #include "CompaniesList.h"
 #include "InvestmentManager.h"
+
 class Model : public Subject {
  public:
   Model();

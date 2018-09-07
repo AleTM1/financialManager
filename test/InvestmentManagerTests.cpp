@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 #include "../InvestmentManager.h"
 #include "../CompaniesList.h"
+
 TEST(InvestmentManager, InvestmentManager_save_and_load) {
   InvestmentManager investmentManager;
   CompaniesList companiesList;

@@ -7,6 +7,7 @@
 #include <QtCore/QString>
 #include <QtCore/QDate>
 #include "enumOrder.h"
+
 class ResearchOptions {
  public:
   explicit ResearchOptions(OrderTime oT = OrderTime::cronologicalOrderReversed,

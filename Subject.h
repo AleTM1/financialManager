@@ -6,6 +6,7 @@
 #define QTPROVA_SUBJECT_H
 #include <list>
 #include "Observer.h"
+
 class Subject {
  public:
   virtual void addObserver(Observer *o) {

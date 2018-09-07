@@ -6,6 +6,7 @@
 #define FINANCIALMANAGER_ABSTRACTDATASTORAGE_H
 #include <QtCore/QSettings>
 #include <QString>
+
 class AbstractDataStorage {
  public:
   virtual void loadData()=0;

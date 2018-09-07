@@ -11,6 +11,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
+
 QT_BEGIN_NAMESPACE
 class Ui_DialogNoButton {
  public:

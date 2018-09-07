@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 #include "../Account.h"
+
 TEST(Account, Account_save_and_load) {
   Account account;
   account.loadData();

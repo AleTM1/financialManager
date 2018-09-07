@@ -6,6 +6,7 @@
 #define FINANCIALMANAGER_DIALOGNOBUTTON_H
 #include <QtWidgets/QDialog>
 #include "dialogUi.h"
+
 class DialogNoButton : public QDialog {
  Q_OBJECT
  public:

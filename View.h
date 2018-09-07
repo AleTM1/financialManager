@@ -12,6 +12,7 @@
 #include "DialogNoButton.h"
 #include "TransactionForm.h"
 #include "InvestmentForm.h"
+
 class View : public QMainWindow, public Observer {
  Q_OBJECT
  public:

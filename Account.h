@@ -8,6 +8,7 @@
 #include <QtCore/QSettings>
 #include "AbstractDataStorage.h"
 #include "enumSaving.h"
+
 class Account : public AbstractDataStorage {
  public:
   Account() { groupName = "Account"; }

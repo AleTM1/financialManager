@@ -6,6 +6,7 @@
 #define FINANCIALMANAGER_SOCIETIESLIST_H
 #include <vector>
 #include "Company.h"
+
 struct CompaniesList {
   CompaniesList() {
     Company *entity;
